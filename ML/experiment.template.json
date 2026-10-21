@@ -2,6 +2,8 @@
   "experiment_id": null,
   "status": "template_not_executed",
   "dataset": {
+    "file_path": null,
+    "file_sha256": null,
     "passport_path": null,
     "passport_sha256": null,
     "dataset_id": null

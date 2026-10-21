@@ -1,2 +1,4 @@
 # Preserve the exact bytes referenced by dataset SHA-256, including CSV CRLF.
 Data/avito_runs/** -text -diff
+# Raw text cells and CSV record endings are preserved, including whitespace.
+Data/first_export_2026-10-21.csv -text -whitespace
