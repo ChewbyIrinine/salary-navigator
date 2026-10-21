@@ -1,0 +1,28 @@
+{
+  "source_url": "about:blank",
+  "observed_at": "2026-10-17T00:46:50.609Z",
+  "state": "DETAIL",
+  "id": "123",
+  "title": "Fixture job",
+  "salary_raw": null,
+  "params_blocks": [
+    "Условия\nМожно заканчивать в 17:00: Да\nГрафик: Сменный"
+  ],
+  "fields": [
+    {
+      "name": "Можно заканчивать в 17:00",
+      "value": "Да",
+      "evidence_raw": "Можно заканчивать в 17:00: Да"
+    },
+    {
+      "name": "График",
+      "value": "Сменный",
+      "evidence_raw": "График: Сменный"
+    }
+  ],
+  "fields_parse_version": 2,
+  "description": "Fixture description",
+  "date_raw": null,
+  "views_raw": null,
+  "today_views_raw": null
+}

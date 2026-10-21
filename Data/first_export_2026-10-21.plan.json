@@ -1,0 +1,208 @@
+{
+  "title": "Предложение выборки для первой выгрузки Авито",
+  "author": "ИИ-агент Luna",
+  "date": "2026-10-21 (MSK)",
+  "status": "План первой итерации закреплён ведущим",
+  "purpose": "Выбрать пригодную сущность и получить первый проверяемый набор; не оценивать рынок с известной статистической точностью.",
+  "time_budget": {
+    "hard_limit": null,
+    "status": "пользователь сообщил, что жёсткого лимита времени нет",
+    "operational_note": "вести фактическое время и производительность; не прекращать только по таймеру"
+  },
+  "profession_shortlist": [
+    {
+      "name": "Грузчик",
+      "count_basis": "точный фильтр профессии",
+      "wave": "included",
+      "reason": "ручная физическая работа, объекты/режимы и оплата вариативны",
+      "exact_profession_count": 113336
+    },
+    {
+      "name": "Комплектовщик",
+      "count_basis": "точный фильтр профессии",
+      "wave": "included",
+      "reason": "складская операция; контраст с грузчиком по обязанностям и признакам",
+      "exact_profession_count": 97941
+    },
+    {
+      "name": "Продавец",
+      "count_basis": "точный фильтр профессии",
+      "wave": "included",
+      "reason": "торговля, ассортимент/касса/оборудование; проверка сведений в тексте",
+      "exact_profession_count": 81831
+    },
+    {
+      "name": "Курьер",
+      "count_basis": "точный фильтр профессии",
+      "wave": "included",
+      "reason": "доставка; транспорт/маршрут и сдельная или сменная оплата",
+      "exact_profession_count": 100198
+    },
+    {
+      "name": "Кассир",
+      "count_basis": "точный фильтр профессии",
+      "wave": "included",
+      "reason": "узкий близкий случай для проверки самостоятельной сущности против продавца",
+      "exact_profession_count": 27080
+    },
+    {
+      "name": "Водитель грузового транспорта",
+      "count_basis": "точный фильтр профессии",
+      "wave": "included",
+      "reason": "19 наблюдавшихся типов техники меняют допуски и условия; добавить отдельной исследовательской веткой",
+      "exact_profession_count": 70661,
+      "later_baseline_count": 70628,
+      "filter_technique_values": 19,
+      "clarification": "19 значений фильтра «Техника», не число карточек"
+    }
+  ],
+  "core_cities": [
+    "Москва",
+    "Санкт-Петербург",
+    "Екатеринбург"
+  ],
+  "geography_rationale": "Москва и Санкт-Петербург — основные крупные срезы; Екатеринбург — контрольный региональный срез при одинаковой процедуре.",
+  "selection_protocol": {
+    "filter": "exact profession and city filters visibly confirmed; blank free-text search; save URL and observed control states",
+    "frame_per_cell": "first 50 unique IDs in original listing order; save rank, ID, URL, title and observed promotion badge state; capture frame before opening detail cards",
+    "main_rank_indices": {
+      "Москва": "2,4,7,9,12,14,17,19,22,24,27,29,32,34,37,39,42,44,47,49",
+      "Санкт-Петербург": "3,8,13,18,23,28,33,38,43,48",
+      "Екатеринбург": "3,8,13,18,23,28,33,38,43,48"
+    },
+    "index_formula": "zero-based index_j=floor((j+0.5)*50/q), rank=index+1; q=20 for Moscow and q=10 for SPb/Ekb",
+    "technical_pilot": {
+      "cards": 5,
+      "selection_role": "technical_pilot",
+      "main_quota_rule": "count in main only if the pilot ID and rank fall on the predeclared systematic rank list in that cell; a repeated ID is one card with multiple roles/observations"
+    },
+    "exclusions": [
+      "военная служба/военный контракт с явным доказательством",
+      "явная должность Разнорабочий или смешанное объявление с набором разнорабочих; обычная погрузка у Грузчика не является основанием исключения"
+    ],
+    "reserve_order": "freeze all remaining first-50 IDs in each profession-city cell by ascending original rank; after a predeclared military/general-labor exclusion or duplicate-ID collision when pursuing a distinct-card target, take the next candidate by this order; do not pick based on quality/completeness",
+    "deduplication": "one full card per unique ID; preserve separate profession-city filter observations and rank for every cell; cross-cell recurrence does not multiply unique-card N",
+    "pagination_evidence": "saved real listing has next_url p=2, and fixtures verify next_url parsing, but no saved actual page-2 result; page 2 is not yet confirmed",
+    "page_2_rule": "В основной итерации используем рамку первой страницы до50уникальных ID. При недостатке после заранее объявленных резервов фиксируем недобор и переходим к следующей ячейке; возможную вторую страницу согласует ведущий до дополнительных переходов. Первоначальный отбор задним числом не пересчитывается.",
+    "selection_bias": "ranked platform inventory; no market-share, organic/promotion prevalence, or representativeness claim; do not change selected ranks after Luna analysis",
+    "main_sampling": "no promoted/organic strata; deterministically sample by original ranks across first 50 unique IDs; keep promotion badge state as shown/not shown/unread without inferring organic status",
+    "duplicate_reporting": "one full card per unique ID; preserve separate profession-city observations and original rank for every cell; overlap does not multiply unique-card N; report cell-membership total and unique-card count separately",
+    "promotion": "record visible promoted badge state shown / not shown / unread. No promotion quotas and no inference that missing badge means organic; sample by rank positions.",
+    "source_status": "Бейдж продвижения: показан / не обнаружен / не считан; отсутствие бейджа не доказывает organic"
+  },
+  "quota": {
+    "technical_pilot": {
+      "cards": 5,
+      "selection_role": "technical_pilot",
+      "counts_toward_main_only_if_selected_by_predeclared_rank_scheme": true
+    },
+    "main": {
+      "target_per_profession_city": {
+        "Москва": 20,
+        "Санкт-Петербург": 10,
+        "Екатеринбург": 10
+      },
+      "professions": 6,
+      "planned_cell_memberships": 240,
+      "unique_card_count": "deduplicate repeated IDs across cells and report separately; if exactly 240 unique cards is required, continue frozen reserve order after selection until that distinct-ID target is reached",
+      "target_definition": "240 включений в ячейки, уникальные ID и независимые работодатели считаются отдельно. Пилотная карточка засчитывается только при совпадении с замороженным отбором. Не фильтровать по заполненности."
+    },
+    "note": "systematic rank-spread exploratory coverage; fixed N does not establish statistical representativeness"
+  },
+  "profession_order": [
+    "Курьер",
+    "Водитель грузового транспорта",
+    "Продавец",
+    "Кассир",
+    "Комплектовщик",
+    "Грузчик"
+  ],
+  "city_order": [
+    "Москва",
+    "Санкт-Петербург",
+    "Екатеринбург"
+  ],
+  "fields_to_capture": [
+    "query and confirmed filter state",
+    "collection time",
+    "rank, ad ID, URL, source title",
+    "promotion/badges",
+    "all raw parameter pairs",
+    "full description and source excerpts",
+    "employer ID/link and displayed name",
+    "address and actual work location separately",
+    "published date and total/today views if shown",
+    "raw compensation statements and conflicts",
+    "full-read status, missing blocks, duplicates and errors"
+  ],
+  "work_segment_definition": {
+    "axes": [
+      "main duty/result",
+      "object/place of work",
+      "method/vehicle/equipment",
+      "schedule and workload",
+      "required qualification/permit",
+      "compensation basis/unit"
+    ],
+    "rule": "group only when core duties, work object, relevant equipment/permit, workload and compensation unit are materially comparable; split when one changes requirements, workload or pay basis; retain unknown/ambiguous as such"
+  },
+  "civil_scope": {
+    "include": "civilian TTL/MNL candidates",
+    "military_contract": "не включать в основной экспорт; только минимальный журнал отклонений с ID, позицией и коротким доказательством"
+  },
+  "analysis_limits": [
+    "ranked/platform-selected listings, not random sample",
+    "promotion exposure can dominate first ranks",
+    "city in listing may differ from actual work site",
+    "ads/employers are dependent; duplicate employer distribution matters",
+    "one-day publication snapshot is time-specific",
+    "views are exposure/context, not applications or hires",
+    "n does not make sample representative",
+    "no claims about market mean/median, prevalence, hiring probability, realized pay, geographic causality, entire profession, or market coverage"
+  ],
+  "report_denominators": [
+    "frame size by rank",
+    "selected IDs/ranks",
+    "reviewed",
+    "included",
+    "excluded by reason",
+    "unique ad IDs",
+    "unique employers",
+    "full cards",
+    "civilian TTL/MNL",
+    "compensation-comparable",
+    "promotion badge shown/not shown/unread"
+  ],
+  "execution_protocol": "One visible Aside browser owner and sequential detail navigation. Capture the first-50 queue and freeze rank sample plus reserves before opening descriptions. Keep technical-pilot selection_role distinct. Validate exact detail ID; save raw/snapshot/screenshot/description before next navigation. Deduplicate one card per ID while retaining cell observations. Stop new transitions on CAPTCHA/access restriction.",
+  "sources_read": [
+    "Notes/Research/review_2026-10-21/review.md",
+    "Notes/Research/catalog_structure_2026-10-21/analysis.json",
+    "Scraper/ASIDE_WORKFLOW.md",
+    "Scraper/PARALLEL_COLLECTION.md"
+  ],
+  "excluded_profession": {
+    "name": "Разнорабочий",
+    "rule": "исключить полностью из первой выгрузки из-за шума"
+  },
+  "completeness_analysis": {
+    "include_incomplete_cards": true,
+    "report_by": "profession × city × field",
+    "denominator": "all reviewed cards in cell",
+    "distinguish": [
+      "empty/unavailable",
+      "not extracted",
+      "not read",
+      "unknown",
+      "conflicting"
+    ],
+    "do_not_filter_for_completeness": true
+  },
+  "research_basis": {
+    "Data/avito_runs/recipe_to_card_01/listing.json": "50 IDs; observed promotion badge true/false across ranks",
+    "Data/avito_runs/labor_five_2026-10-20/listing.json": "50 IDs; first five marked promoted; next_url p=2 observed, but no saved actual page-2 result",
+    "courier_moscow_pilot_queue": "first five contained four without detected promoted label and one with label; missing label is not proof of organic, so no promotion stratification",
+    "Data/avito_runs/current_verification_2026-10-20/dom_fixtures/pagination.json": "fixture verifies pagination metadata extraction only"
+  },
+  "locked_at": "2026-10-20T23:07:19.162217+00:00",
+  "scope_authorization": "Поручение пользователя провести исследование выбора сегментов и затем первую выгрузку; без жёсткого лимита времени; исключить Разнорабочих и военную службу"
+}

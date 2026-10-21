@@ -1,0 +1,577 @@
+﻿slice_id,profession,city,field,n_saved_memberships,present_n,nonempty_value_n,label_with_empty_value_n,not_observed_n,parameters_unread_or_unknown_n,observed_presence_fraction,scope
+truck_driver_moscow,Водитель грузового транспорта,Москва,Автомобиль,20,1,1,0,19,0,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Ассортимент,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Бренд автомобиля,20,5,5,0,15,0,0.25,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,В том числе для кандидатов,20,15,15,0,5,0,0.75,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Вид доставки,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Возраст автомобиля,20,6,6,0,14,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Где предстоит работать,20,4,4,0,16,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,График,20,20,20,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Длительность вахты,20,11,11,0,9,0,0.55,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Занятость,20,20,20,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Категория водительских прав,20,14,14,0,6,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Количество рабочих дней в неделю,20,4,4,0,16,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Количество рабочих часов в день,20,10,10,0,10,0,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Компания предоставляет,20,8,8,0,12,0,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Медкнижка,20,12,12,0,8,0,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Можно заканчивать в 17:00,20,3,3,0,17,0,0.15,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Навык мелкого ремонта автомобиля,20,6,6,0,14,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Опыт работы,20,20,20,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Разряд,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Режим работы,20,1,1,0,19,0,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,С чем надо работать,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Смены,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Способ доставки,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Способ оформления,20,13,13,0,7,0,0.65,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Стаж вождения,20,2,2,0,18,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Стажировка,20,2,2,0,18,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Статус самозанятости,20,10,10,0,10,0,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Сфера деятельности компании,20,20,20,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Техника,20,11,11,0,9,0,0.55,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Тип предприятия,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Частота выплат,20,18,18,0,2,0,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_moscow,Водитель грузового транспорта,Москва,Что получают работники,20,15,15,0,5,0,0.75,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Автомобиль,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Ассортимент,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Бренд автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,В том числе для кандидатов,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Вид доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Возраст автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Где предстоит работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,График,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Длительность вахты,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Занятость,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Категория водительских прав,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Количество рабочих дней в неделю,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Количество рабочих часов в день,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Компания предоставляет,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Медкнижка,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Можно заканчивать в 17:00,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Навык мелкого ремонта автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Опыт работы,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Разряд,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Режим работы,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,С чем надо работать,10,3,3,0,7,10,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Смены,10,7,7,0,3,10,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Способ доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Способ оформления,10,6,6,0,4,10,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Стаж вождения,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Стажировка,10,4,4,0,6,10,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Статус самозанятости,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Сфера деятельности компании,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Техника,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Тип предприятия,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Частота выплат,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_spb,Продавец,Санкт-Петербург,Что получают работники,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Автомобиль,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Ассортимент,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Бренд автомобиля,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,В том числе для кандидатов,10,6,6,0,4,0,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Вид доставки,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Возраст автомобиля,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Где предстоит работать,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,График,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Длительность вахты,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Занятость,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Категория водительских прав,10,8,8,0,2,0,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Количество рабочих дней в неделю,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Количество рабочих часов в день,10,6,6,0,4,0,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Компания предоставляет,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Медкнижка,10,5,5,0,5,0,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Можно заканчивать в 17:00,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Навык мелкого ремонта автомобиля,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Опыт работы,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Разряд,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Режим работы,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,С чем надо работать,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Смены,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Способ доставки,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Способ оформления,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Стаж вождения,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Стажировка,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Статус самозанятости,10,4,4,0,6,0,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Сфера деятельности компании,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Техника,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Тип предприятия,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Частота выплат,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_ekb,Водитель грузового транспорта,Екатеринбург,Что получают работники,10,9,9,0,1,0,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Автомобиль,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Ассортимент,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Бренд автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,В том числе для кандидатов,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Вид доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Возраст автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Где предстоит работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,График,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Длительность вахты,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Занятость,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Категория водительских прав,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Количество рабочих дней в неделю,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Количество рабочих часов в день,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Компания предоставляет,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Медкнижка,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Можно заканчивать в 17:00,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Навык мелкого ремонта автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Опыт работы,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Разряд,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Режим работы,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,С чем надо работать,10,4,4,0,6,10,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Смены,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Способ доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Способ оформления,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Стаж вождения,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Стажировка,10,4,4,0,6,10,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Статус самозанятости,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Сфера деятельности компании,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Техника,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Тип предприятия,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Частота выплат,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_ekb,Кассир,Екатеринбург,Что получают работники,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Автомобиль,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Ассортимент,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Бренд автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,В том числе для кандидатов,10,6,6,0,4,10,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Вид доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Возраст автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Где предстоит работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,График,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Длительность вахты,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Занятость,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Категория водительских прав,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Количество рабочих дней в неделю,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Количество рабочих часов в день,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Компания предоставляет,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Медкнижка,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Можно заканчивать в 17:00,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Навык мелкого ремонта автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Опыт работы,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Разряд,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Режим работы,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,С чем надо работать,10,3,3,0,7,10,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Смены,10,5,5,0,5,10,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Способ доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Способ оформления,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Стаж вождения,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Стажировка,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Статус самозанятости,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Сфера деятельности компании,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Техника,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Тип предприятия,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Частота выплат,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_spb,Кассир,Санкт-Петербург,Что получают работники,10,5,5,0,5,10,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Автомобиль,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Ассортимент,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Бренд автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,В том числе для кандидатов,20,10,10,0,10,20,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Вид доставки,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Возраст автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Где предстоит работать,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,График,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Длительность вахты,20,7,7,0,13,20,0.35,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Занятость,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Категория водительских прав,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Количество рабочих дней в неделю,20,1,1,0,19,20,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Количество рабочих часов в день,20,12,12,0,8,20,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Компания предоставляет,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Медкнижка,20,17,17,0,3,20,0.85,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Можно заканчивать в 17:00,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Навык мелкого ремонта автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Опыт работы,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Разряд,20,4,4,0,16,20,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Режим работы,20,1,1,0,19,20,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,С чем надо работать,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Смены,20,8,8,0,12,20,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Способ доставки,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Способ оформления,20,18,18,0,2,20,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Стаж вождения,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Стажировка,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Статус самозанятости,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Сфера деятельности компании,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Техника,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Тип предприятия,20,15,15,0,5,20,0.75,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Частота выплат,20,18,18,0,2,20,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_moscow,Грузчик,Москва,Что получают работники,20,17,17,0,3,20,0.85,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Автомобиль,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Ассортимент,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Бренд автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,В том числе для кандидатов,10,4,4,0,6,10,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Вид доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Возраст автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Где предстоит работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,График,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Длительность вахты,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Занятость,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Категория водительских прав,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Количество рабочих дней в неделю,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Количество рабочих часов в день,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Компания предоставляет,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Медкнижка,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Можно заканчивать в 17:00,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Навык мелкого ремонта автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Опыт работы,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Разряд,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Режим работы,10,3,3,0,7,10,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,С чем надо работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Смены,10,3,3,0,7,10,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Способ доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Способ оформления,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Стаж вождения,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Стажировка,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Статус самозанятости,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Сфера деятельности компании,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Техника,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Тип предприятия,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Частота выплат,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_ekb,Грузчик,Екатеринбург,Что получают работники,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Автомобиль,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Ассортимент,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Бренд автомобиля,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,В том числе для кандидатов,10,7,7,0,3,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Вид доставки,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Возраст автомобиля,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Где предстоит работать,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,График,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Длительность вахты,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Занятость,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Категория водительских прав,10,5,5,0,5,0,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Количество рабочих дней в неделю,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Количество рабочих часов в день,10,4,4,0,6,0,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Компания предоставляет,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Медкнижка,10,6,6,0,4,0,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Можно заканчивать в 17:00,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Навык мелкого ремонта автомобиля,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Опыт работы,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Разряд,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Режим работы,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,С чем надо работать,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Смены,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Способ доставки,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Способ оформления,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Стаж вождения,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Стажировка,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Статус самозанятости,10,6,6,0,4,0,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Сфера деятельности компании,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Техника,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Тип предприятия,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Частота выплат,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+truck_driver_spb,Водитель грузового транспорта,Санкт-Петербург,Что получают работники,10,8,8,0,2,0,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Автомобиль,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Ассортимент,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Бренд автомобиля,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,В том числе для кандидатов,10,9,9,0,1,0,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Вид доставки,10,7,7,0,3,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Возраст автомобиля,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Где предстоит работать,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,График,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Длительность вахты,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Занятость,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Категория водительских прав,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Количество рабочих дней в неделю,10,6,6,0,4,0,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Количество рабочих часов в день,10,7,7,0,3,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Компания предоставляет,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Медкнижка,10,4,4,0,6,0,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Можно заканчивать в 17:00,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Навык мелкого ремонта автомобиля,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Опыт работы,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Разряд,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Режим работы,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,С чем надо работать,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Смены,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Способ доставки,10,9,9,0,1,0,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Способ оформления,10,5,5,0,5,0,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Стаж вождения,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Стажировка,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Статус самозанятости,10,3,3,0,7,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Сфера деятельности компании,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Техника,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Тип предприятия,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Частота выплат,10,8,8,0,2,0,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_ekb,Курьер,Екатеринбург,Что получают работники,10,8,8,0,2,0,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Автомобиль,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Ассортимент,20,18,18,0,2,20,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Бренд автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,В том числе для кандидатов,20,14,14,0,6,20,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Вид доставки,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Возраст автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Где предстоит работать,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,График,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Длительность вахты,20,1,1,0,19,20,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Занятость,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Категория водительских прав,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Количество рабочих дней в неделю,20,4,4,0,16,20,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Количество рабочих часов в день,20,16,16,0,4,20,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Компания предоставляет,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Медкнижка,20,19,19,0,1,20,0.95,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Можно заканчивать в 17:00,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Навык мелкого ремонта автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Опыт работы,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Разряд,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Режим работы,20,4,4,0,16,20,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,С чем надо работать,20,3,3,0,17,20,0.15,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Смены,20,7,7,0,13,20,0.35,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Способ доставки,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Способ оформления,20,19,19,0,1,20,0.95,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Стаж вождения,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Стажировка,20,5,5,0,15,20,0.25,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Статус самозанятости,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Сфера деятельности компании,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Техника,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Тип предприятия,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Частота выплат,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+cashier_moscow,Кассир,Москва,Что получают работники,20,18,18,0,2,20,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Автомобиль,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Ассортимент,20,18,18,0,2,20,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Бренд автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,В том числе для кандидатов,20,9,9,0,11,20,0.45,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Вид доставки,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Возраст автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Где предстоит работать,20,1,1,0,19,20,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,График,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Длительность вахты,20,1,1,0,19,20,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Занятость,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Категория водительских прав,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Количество рабочих дней в неделю,20,4,4,0,16,20,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Количество рабочих часов в день,20,18,18,0,2,20,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Компания предоставляет,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Медкнижка,20,15,15,0,5,20,0.75,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Можно заканчивать в 17:00,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Навык мелкого ремонта автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Опыт работы,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Разряд,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Режим работы,20,2,2,0,18,20,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,С чем надо работать,20,4,4,0,16,20,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Смены,20,10,10,0,10,20,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Способ доставки,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Способ оформления,20,16,16,0,4,20,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Стаж вождения,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Стажировка,20,5,5,0,15,20,0.25,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Статус самозанятости,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Сфера деятельности компании,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Техника,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Тип предприятия,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Частота выплат,20,19,19,0,1,20,0.95,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_moscow,Продавец,Москва,Что получают работники,20,16,16,0,4,20,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Автомобиль,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Ассортимент,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Бренд автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,В том числе для кандидатов,10,6,6,0,4,10,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Вид доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Возраст автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Где предстоит работать,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,График,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Длительность вахты,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Занятость,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Категория водительских прав,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Количество рабочих дней в неделю,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Количество рабочих часов в день,10,7,7,0,3,10,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Компания предоставляет,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Медкнижка,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Можно заканчивать в 17:00,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Навык мелкого ремонта автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Опыт работы,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Разряд,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Режим работы,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,С чем надо работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Смены,10,3,3,0,7,10,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Способ доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Способ оформления,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Стаж вождения,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Стажировка,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Статус самозанятости,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Сфера деятельности компании,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Техника,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Тип предприятия,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Частота выплат,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+loader_spb,Грузчик,Санкт-Петербург,Что получают работники,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Автомобиль,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Ассортимент,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Бренд автомобиля,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,В том числе для кандидатов,10,9,9,0,1,0,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Вид доставки,10,4,4,0,6,0,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Возраст автомобиля,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Где предстоит работать,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,График,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Длительность вахты,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Занятость,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Категория водительских прав,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Количество рабочих дней в неделю,10,4,4,0,6,0,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Количество рабочих часов в день,10,6,6,0,4,0,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Компания предоставляет,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Медкнижка,10,7,7,0,3,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Можно заканчивать в 17:00,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Навык мелкого ремонта автомобиля,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Опыт работы,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Разряд,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Режим работы,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,С чем надо работать,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Смены,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Способ доставки,10,7,7,0,3,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Способ оформления,10,8,8,0,2,0,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Стаж вождения,10,2,2,0,8,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Стажировка,10,1,1,0,9,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Статус самозанятости,10,4,4,0,6,0,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Сфера деятельности компании,10,10,10,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Техника,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Тип предприятия,10,0,0,0,10,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Частота выплат,10,9,9,0,1,0,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_spb,Курьер,Санкт-Петербург,Что получают работники,10,7,7,0,3,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Автомобиль,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Ассортимент,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Бренд автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,В том числе для кандидатов,10,7,7,0,3,10,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Вид доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Возраст автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Где предстоит работать,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,График,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Длительность вахты,10,5,5,0,5,10,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Занятость,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Категория водительских прав,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Количество рабочих дней в неделю,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Количество рабочих часов в день,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Компания предоставляет,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Медкнижка,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Можно заканчивать в 17:00,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Навык мелкого ремонта автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Опыт работы,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Разряд,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Режим работы,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,С чем надо работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Смены,10,4,4,0,6,10,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Способ доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Способ оформления,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Стаж вождения,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Стажировка,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Статус самозанятости,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Сфера деятельности компании,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Техника,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Тип предприятия,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Частота выплат,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_spb,Комплектовщик,Санкт-Петербург,Что получают работники,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Автомобиль,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Ассортимент,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Бренд автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,В том числе для кандидатов,20,12,12,0,8,20,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Вид доставки,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Возраст автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Где предстоит работать,20,3,3,0,17,20,0.15,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,График,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Длительность вахты,20,8,8,0,12,20,0.4,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Занятость,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Категория водительских прав,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Количество рабочих дней в неделю,20,2,2,0,18,20,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Количество рабочих часов в день,20,17,17,0,3,20,0.85,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Компания предоставляет,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Медкнижка,20,17,17,0,3,20,0.85,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Можно заканчивать в 17:00,20,2,2,0,18,20,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Навык мелкого ремонта автомобиля,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Опыт работы,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Разряд,20,3,3,0,17,20,0.15,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Режим работы,20,1,1,0,19,20,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,С чем надо работать,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Смены,20,5,5,0,15,20,0.25,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Способ доставки,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Способ оформления,20,15,15,0,5,20,0.75,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Стаж вождения,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Стажировка,20,1,1,0,19,20,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Статус самозанятости,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Сфера деятельности компании,20,20,20,0,0,20,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Техника,20,0,0,0,20,20,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Тип предприятия,20,16,16,0,4,20,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Частота выплат,20,19,19,0,1,20,0.95,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_moscow,Комплектовщик,Москва,Что получают работники,20,17,17,0,3,20,0.85,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Автомобиль,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Ассортимент,10,7,7,0,3,10,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Бренд автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,В том числе для кандидатов,10,7,7,0,3,10,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Вид доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Возраст автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Где предстоит работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,График,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Длительность вахты,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Занятость,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Категория водительских прав,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Количество рабочих дней в неделю,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Количество рабочих часов в день,10,6,6,0,4,10,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Компания предоставляет,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Медкнижка,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Можно заканчивать в 17:00,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Навык мелкого ремонта автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Опыт работы,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Разряд,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Режим работы,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,С чем надо работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Смены,10,5,5,0,5,10,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Способ доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Способ оформления,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Стаж вождения,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Стажировка,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Статус самозанятости,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Сфера деятельности компании,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Техника,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Тип предприятия,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Частота выплат,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+seller_ekb,Продавец,Екатеринбург,Что получают работники,10,9,9,0,1,10,0.9,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Автомобиль,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Ассортимент,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Бренд автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,В том числе для кандидатов,10,6,6,0,4,10,0.6,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Вид доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Возраст автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Где предстоит работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,График,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Длительность вахты,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Занятость,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Категория водительских прав,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Количество рабочих дней в неделю,10,3,3,0,7,10,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Количество рабочих часов в день,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Компания предоставляет,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Медкнижка,10,5,5,0,5,10,0.5,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Можно заканчивать в 17:00,10,2,2,0,8,10,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Навык мелкого ремонта автомобиля,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Опыт работы,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Разряд,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Режим работы,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,С чем надо работать,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Смены,10,1,1,0,9,10,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Способ доставки,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Способ оформления,10,7,7,0,3,10,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Стаж вождения,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Стажировка,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Статус самозанятости,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Сфера деятельности компании,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Техника,10,0,0,0,10,10,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Тип предприятия,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Частота выплат,10,10,10,0,0,10,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+picker_ekb,Комплектовщик,Екатеринбург,Что получают работники,10,8,8,0,2,10,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Автомобиль,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Ассортимент,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Бренд автомобиля,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,В том числе для кандидатов,20,14,14,0,6,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Вид доставки,20,14,14,0,6,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Возраст автомобиля,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Где предстоит работать,20,3,3,0,17,0,0.15,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,График,20,20,20,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Длительность вахты,20,3,3,0,17,0,0.15,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Занятость,20,20,20,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Категория водительских прав,20,1,1,0,19,0,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Количество рабочих дней в неделю,20,6,6,0,14,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Количество рабочих часов в день,20,14,14,0,6,0,0.7,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Компания предоставляет,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Медкнижка,20,16,16,0,4,0,0.8,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Можно заканчивать в 17:00,20,6,6,0,14,0,0.3,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Навык мелкого ремонта автомобиля,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Опыт работы,20,20,20,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Разряд,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Режим работы,20,4,4,0,16,0,0.2,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,С чем надо работать,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Смены,20,2,2,0,18,0,0.1,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Способ доставки,20,17,17,0,3,0,0.85,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Способ оформления,20,17,17,0,3,0,0.85,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Стаж вождения,20,1,1,0,19,0,0.05,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Стажировка,20,7,7,0,13,0,0.35,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Статус самозанятости,20,13,13,0,7,0,0.65,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Сфера деятельности компании,20,20,20,0,0,0,1.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Техника,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Тип предприятия,20,0,0,0,20,0,0.0,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Частота выплат,20,19,19,0,1,0,0.95,Presence among saved published characteristics; applicability/requiredness not inferred
+courier_moscow,Курьер,Москва,Что получают работники,20,13,13,0,7,0,0.65,Presence among saved published characteristics; applicability/requiredness not inferred

@@ -1,0 +1,146 @@
+{
+  "source_url": "https://www.avito.ru/sankt-peterburg/vakansii/prodavets_v_magazin_24_chasa_8408642836",
+  "observed_at": "2026-10-21T07:33:47.683Z",
+  "channel": "gstack DOM",
+  "schema_version": 3,
+  "state": "DETAIL",
+  "id": "8408642836",
+  "title": "Продавец в магазин 24 часа",
+  "salary_raw": "3 000 ₽ \nза смену на руки",
+  "params_blocks": [
+    "Условия\nГрафик: Сменный\nЗанятость: Частичная\nСтажировка: Да\nКоличество рабочих часов в день: 11–12\nЧастота выплат: Каждый день\nСфера деятельности компании: Розничная и оптовая торговля\nСмены: ночные",
+    "Требования\nОпыт работы: Без опыта\nМедкнижка: Не нужна"
+  ],
+  "fields": [
+    {
+      "name": "График",
+      "value": "Сменный",
+      "values": [
+        "Сменный"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "График: Сменный"
+    },
+    {
+      "name": "Занятость",
+      "value": "Частичная",
+      "values": [
+        "Частичная"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Занятость: Частичная"
+    },
+    {
+      "name": "Стажировка",
+      "value": "Да",
+      "values": [
+        "Да"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Стажировка: Да"
+    },
+    {
+      "name": "Количество рабочих часов в день",
+      "value": "11–12",
+      "values": [
+        "11–12"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Количество рабочих часов в день: 11–12"
+    },
+    {
+      "name": "Частота выплат",
+      "value": "Каждый день",
+      "values": [
+        "Каждый день"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Частота выплат: Каждый день"
+    },
+    {
+      "name": "Сфера деятельности компании",
+      "value": "Розничная и оптовая торговля",
+      "values": [
+        "Розничная и оптовая торговля"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Сфера деятельности компании: Розничная и оптовая торговля"
+    },
+    {
+      "name": "Смены",
+      "value": "ночные",
+      "values": [
+        "ночные"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Смены: ночные"
+    },
+    {
+      "name": "Опыт работы",
+      "value": "Без опыта",
+      "values": [
+        "Без опыта"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Опыт работы: Без опыта"
+    },
+    {
+      "name": "Медкнижка",
+      "value": "Не нужна",
+      "values": [
+        "Не нужна"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Медкнижка: Не нужна"
+    }
+  ],
+  "fields_parse_version": 3,
+  "description": "Обязанности: продавец ночной смены, работа посменная\n\nТребования:\nМожно без опыта\n\nУсловия:\nРабота в ночь по сменам, оплата сразу после смены\n\nО компании:\n—",
+  "description_redacted": "Обязанности: продавец ночной смены, работа посменная\n\nТребования:\nМожно без опыта\n\nУсловия:\nРабота в ночь по сменам, оплата сразу после смены\n\nО компании:\n—",
+  "employer_raw": [
+    "Кристина",
+    "Кристина"
+  ],
+  "employer_evidence": [
+    {
+      "marker": "seller-info/name",
+      "text": "Кристина"
+    },
+    {
+      "marker": "seller-link/link",
+      "text": "Кристина"
+    }
+  ],
+  "location_raw": [],
+  "location_evidence": [],
+  "source_sections": [
+    {
+      "marker": "item-view/item-params",
+      "text": "Условия\nГрафик: Сменный\nЗанятость: Частичная\nСтажировка: Да\nКоличество рабочих часов в день: 11–12\nЧастота выплат: Каждый день\nСфера деятельности компании: Розничная и оптовая торговля\nСмены: ночные"
+    },
+    {
+      "marker": "item-view/item-params",
+      "text": "Требования\nОпыт работы: Без опыта\nМедкнижка: Не нужна"
+    },
+    {
+      "marker": "item-view/item-description",
+      "text": "Обязанности: продавец ночной смены, работа посменная\n\nТребования:\nМожно без опыта\n\nУсловия:\nРабота в ночь по сменам, оплата сразу после смены\n\nО компании:\n—"
+    }
+  ],
+  "read_status": {
+    "parameters": "observed",
+    "description": "observed",
+    "employer": "observed",
+    "location": "unread"
+  },
+  "full_parameters_read": false,
+  "read_limitations": [
+    "rendered_DOM_only",
+    "expanded_sections_and_template_completeness_not_live_verified",
+    "employer_and_location_selectors_not_live_verified"
+  ],
+  "raw_policy": "Public description preserved; derived redacted copy separate; contact controls not opened",
+  "date_raw": "· 14 октября в 14:17",
+  "views_raw": "43 просмотра",
+  "today_views_raw": "(+4 сегодня)"
+}

@@ -1,0 +1,155 @@
+{
+  "source_url": "https://www.avito.ru/sankt-peterburg/vakansii/kurer_vo_vzroslyy_magazin_podrabotka_18_8284328897?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJGNlpkWXFqNTQ0UzBSNTRiIjt9NaKOSD8AAAA",
+  "observed_at": "2026-10-20T23:29:17.978Z",
+  "channel": "gstack DOM",
+  "schema_version": 3,
+  "state": "DETAIL",
+  "id": "8284328897",
+  "title": "Курьер во взрослый магазин (подработка) 18+",
+  "salary_raw": "3 800 — 9 500 ₽ \nза смену на руки",
+  "params_blocks": [
+    "Условия\nГрафик: Гибкий\nЗанятость: Частичная\nСпособ оформления: Договор ГПХ с ИП, Договор ГПХ с самозанятым\nЧастота выплат: Каждый день\nСфера деятельности компании: Доставка, грузоперевозки и логистика\nЧто получают работники: Скидки в компании, Обучение\nСпособ доставки: На автомобиле, На велосипеде, На самокате, Пешком",
+    "Требования\nОпыт работы: Без опыта\nВ том числе для кандидатов: Старше 45 лет, Для студентов, Для пенсионеров, С нарушениями здоровья"
+  ],
+  "fields": [
+    {
+      "name": "График",
+      "value": "Гибкий",
+      "values": [
+        "Гибкий"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "График: Гибкий"
+    },
+    {
+      "name": "Занятость",
+      "value": "Частичная",
+      "values": [
+        "Частичная"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Занятость: Частичная"
+    },
+    {
+      "name": "Способ оформления",
+      "value": "Договор ГПХ с ИП, Договор ГПХ с самозанятым",
+      "values": [
+        "Договор ГПХ с ИП",
+        "Договор ГПХ с самозанятым"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Способ оформления: Договор ГПХ с ИП, Договор ГПХ с самозанятым"
+    },
+    {
+      "name": "Частота выплат",
+      "value": "Каждый день",
+      "values": [
+        "Каждый день"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Частота выплат: Каждый день"
+    },
+    {
+      "name": "Сфера деятельности компании",
+      "value": "Доставка, грузоперевозки и логистика",
+      "values": [
+        "Доставка",
+        "грузоперевозки и логистика"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Сфера деятельности компании: Доставка, грузоперевозки и логистика"
+    },
+    {
+      "name": "Что получают работники",
+      "value": "Скидки в компании, Обучение",
+      "values": [
+        "Скидки в компании",
+        "Обучение"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Что получают работники: Скидки в компании, Обучение"
+    },
+    {
+      "name": "Способ доставки",
+      "value": "На автомобиле, На велосипеде, На самокате, Пешком",
+      "values": [
+        "На автомобиле",
+        "На велосипеде",
+        "На самокате",
+        "Пешком"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Способ доставки: На автомобиле, На велосипеде, На самокате, Пешком"
+    },
+    {
+      "name": "Опыт работы",
+      "value": "Без опыта",
+      "values": [
+        "Без опыта"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Опыт работы: Без опыта"
+    },
+    {
+      "name": "В том числе для кандидатов",
+      "value": "Старше 45 лет, Для студентов, Для пенсионеров, С нарушениями здоровья",
+      "values": [
+        "Старше 45 лет",
+        "Для студентов",
+        "Для пенсионеров",
+        "С нарушениями здоровья"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "В том числе для кандидатов: Старше 45 лет, Для студентов, Для пенсионеров, С нарушениями здоровья"
+    }
+  ],
+  "fields_parse_version": 3,
+  "description": "🔥 KУPЬEР B MАГАЗИН 18+ «Еrоtiс Mаgazin»\n\nИщем курьepoв на подрaбoтку или пocтoянную зaнятость.\n\n9 500 ₽ ЗА СМEHУ\n2 часa — 1900 ₽\n4 чаcoв — 3800 ₽\n8 чaсов — 7600 ₽\n\nЧто доставлять: нeбoльшиe заказы из магазина для взрocлыx.\n\nУcлoвия:\nбeз опытa\nсвoбoдный гpафик\nрайoн pядом c дoмoм\nпeшкoм / велocипед / сaмoкат / автo\nбeз формы\nсмартфон Аndrоid или iРhоnе\n\n🔞 Только заказы для совершеннолетних клиентов.\n\nОставляйте отклик — менеджер расскажет условия и поможет начать работу.",
+  "description_redacted": "🔥 KУPЬEР B MАГАЗИН 18+ «Еrоtiс Mаgazin»\n\nИщем курьepoв на подрaбoтку или пocтoянную зaнятость.\n\n9 500 ₽ ЗА СМEHУ\n2 часa — 1900 ₽\n4 чаcoв — 3800 ₽\n8 чaсов — 7600 ₽\n\nЧто доставлять: нeбoльшиe заказы из магазина для взрocлыx.\n\nУcлoвия:\nбeз опытa\nсвoбoдный гpафик\nрайoн pядом c дoмoм\nпeшкoм / велocипед / сaмoкат / автo\nбeз формы\nсмартфон Аndrоid или iРhоnе\n\n🔞 Только заказы для совершеннолетних клиентов.\n\nОставляйте отклик — менеджер расскажет условия и поможет начать работу.",
+  "employer_raw": [
+    "Соблазн",
+    "Соблазн"
+  ],
+  "employer_evidence": [
+    {
+      "marker": "seller-info/name",
+      "text": "Соблазн"
+    },
+    {
+      "marker": "seller-link/link",
+      "text": "Соблазн"
+    }
+  ],
+  "location_raw": [],
+  "location_evidence": [],
+  "source_sections": [
+    {
+      "marker": "item-view/item-params",
+      "text": "Условия\nГрафик: Гибкий\nЗанятость: Частичная\nСпособ оформления: Договор ГПХ с ИП, Договор ГПХ с самозанятым\nЧастота выплат: Каждый день\nСфера деятельности компании: Доставка, грузоперевозки и логистика\nЧто получают работники: Скидки в компании, Обучение\nСпособ доставки: На автомобиле, На велосипеде, На самокате, Пешком"
+    },
+    {
+      "marker": "item-view/item-params",
+      "text": "Требования\nОпыт работы: Без опыта\nВ том числе для кандидатов: Старше 45 лет, Для студентов, Для пенсионеров, С нарушениями здоровья"
+    },
+    {
+      "marker": "item-view/item-description",
+      "text": "🔥 KУPЬEР B MАГАЗИН 18+ «Еrоtiс Mаgazin»\n\nИщем курьepoв на подрaбoтку или пocтoянную зaнятость.\n\n9 500 ₽ ЗА СМEHУ\n2 часa — 1900 ₽\n4 чаcoв — 3800 ₽\n8 чaсов — 7600 ₽\n\nЧто доставлять: нeбoльшиe заказы из магазина для взрocлыx.\n\nУcлoвия:\nбeз опытa\nсвoбoдный гpафик\nрайoн pядом c дoмoм\nпeшкoм / велocипед / сaмoкат / автo\nбeз формы\nсмартфон Аndrоid или iРhоnе\n\n🔞 Только заказы для совершеннолетних клиентов.\n\nОставляйте отклик — менеджер расскажет условия и поможет начать работу."
+    }
+  ],
+  "read_status": {
+    "parameters": "observed",
+    "description": "observed",
+    "employer": "observed",
+    "location": "unread"
+  },
+  "full_parameters_read": false,
+  "read_limitations": [
+    "rendered_DOM_only",
+    "expanded_sections_and_template_completeness_not_live_verified",
+    "employer_and_location_selectors_not_live_verified"
+  ],
+  "raw_policy": "Public description preserved; derived redacted copy separate; contact controls not opened",
+  "date_raw": "· вчера в 20:03",
+  "views_raw": "791 просмотр",
+  "today_views_raw": "(+9 сегодня)"
+}

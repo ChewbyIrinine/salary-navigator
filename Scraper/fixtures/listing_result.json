@@ -1,0 +1,29 @@
+{
+  "source_url": "about:blank",
+  "observed_at": "2026-10-17T00:43:34.533Z",
+  "state": "LISTING",
+  "heading": "Test search",
+  "selected_controls": [
+    {
+      "label": "Упаковщик",
+      "marker": "params[1]/checkbox/2",
+      "value": null
+    },
+    {
+      "label": "Упаковщик",
+      "marker": null,
+      "value": "2"
+    }
+  ],
+  "items": [
+    {
+      "id": "123",
+      "url": "https://www.avito.ru/moskva/vakansii/example_123",
+      "title": "Example",
+      "salary_raw": "до 12 000 ₽ за смену на руки",
+      "params_raw": null,
+      "location_raw": "Москва",
+      "promoted": false
+    }
+  ]
+}

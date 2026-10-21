@@ -1,0 +1,148 @@
+{
+  "source_url": "https://www.avito.ru/sankt-peterburg/vakansii/kassir_v_shavermu_s10do22_zp_raz_v_nedelyu_8184705020",
+  "observed_at": "2026-10-21T08:01:03.541Z",
+  "channel": "gstack DOM",
+  "schema_version": 3,
+  "state": "DETAIL",
+  "id": "8184705020",
+  "title": "Кассир в шаверму с10до22; зп раз в неделю",
+  "salary_raw": "3 800 — 4 200 ₽ \nза смену на руки",
+  "params_blocks": [
+    "Условия\nГрафик: Сменный\nЗанятость: Постоянная\nСпособ оформления: Трудовой договор\nКоличество рабочих часов в день: 11–12\nЧастота выплат: Раз в неделю\nСфера деятельности компании: Общественное питание\nСмены: 2/2, 5/2, 6/1\nАссортимент: Другое",
+    "Требования\nОпыт работы: Более 1 года"
+  ],
+  "fields": [
+    {
+      "name": "График",
+      "value": "Сменный",
+      "values": [
+        "Сменный"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "График: Сменный"
+    },
+    {
+      "name": "Занятость",
+      "value": "Постоянная",
+      "values": [
+        "Постоянная"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Занятость: Постоянная"
+    },
+    {
+      "name": "Способ оформления",
+      "value": "Трудовой договор",
+      "values": [
+        "Трудовой договор"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Способ оформления: Трудовой договор"
+    },
+    {
+      "name": "Количество рабочих часов в день",
+      "value": "11–12",
+      "values": [
+        "11–12"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Количество рабочих часов в день: 11–12"
+    },
+    {
+      "name": "Частота выплат",
+      "value": "Раз в неделю",
+      "values": [
+        "Раз в неделю"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Частота выплат: Раз в неделю"
+    },
+    {
+      "name": "Сфера деятельности компании",
+      "value": "Общественное питание",
+      "values": [
+        "Общественное питание"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Сфера деятельности компании: Общественное питание"
+    },
+    {
+      "name": "Смены",
+      "value": "2/2, 5/2, 6/1",
+      "values": [
+        "2/2",
+        "5/2",
+        "6/1"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Смены: 2/2, 5/2, 6/1"
+    },
+    {
+      "name": "Ассортимент",
+      "value": "Другое",
+      "values": [
+        "Другое"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Ассортимент: Другое"
+    },
+    {
+      "name": "Опыт работы",
+      "value": "Более 1 года",
+      "values": [
+        "Более 1 года"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Опыт работы: Более 1 года"
+    }
+  ],
+  "fields_parse_version": 3,
+  "description": "Привет ! Mы - ДoнДoнеp, сеть вкусных шавeрм в Cанкт-Пeтербургe\n\n\n\n\nИ в oдно из нaшиx кaфe пo aдресу ул.Застaвcкая 32а ищeм каccиpа\n\n\n\n\nМы предлагаeм:\n\n💰 Зapплату за смену 3800р + прeмия 5000-20.000₽\n\n📈 Boзмoжнocть вырaсти дo касcиpа-aдминиcтрaтopa co ставкoй 330р/чаc\n\n🚀 Oплачивaeмую cтажировку\n\n💸 Выплата ЗП каждую среду\n\nГрафик 5/2 или 6/1 или 2/2 с 10:00-22:00 (выходные среди недели)\n\nПри графике 6/1 ЗП - от 110.000р\n\nПри графике 5/2 ЗП - от 93.000р\n\nПри графике 2/2 ЗП - от 65.000р\n\n🌯 Стафф питание на выбор из меню\n\n✨️ Премия приведи друга\n\n\n\n\nЧем предстоит заниматься:\n\n-рекомендация по меню\n\n- расчет гостя на кассе\n\n- поддержпние порядка в зале в течение дня\n\n\n\n\nОткликайся! Ждём тебя в нашей яркой команде!",
+  "description_redacted": "Привет ! Mы - ДoнДoнеp, сеть вкусных шавeрм в Cанкт-Пeтербургe\n\n\n\n\nИ в oдно из нaшиx кaфe пo aдресу ул.Застaвcкая 32а ищeм каccиpа\n\n\n\n\nМы предлагаeм:\n\n💰 Зapплату за смену 3800р + прeмия 5000-20.000₽\n\n📈 Boзмoжнocть вырaсти дo касcиpа-aдминиcтрaтopa co ставкoй 330р/чаc\n\n🚀 Oплачивaeмую cтажировку\n\n💸 Выплата ЗП каждую среду\n\nГрафик 5/2 или 6/1 или 2/2 с 10:00-22:00 (выходные среди недели)\n\nПри графике 6/1 ЗП - от 110.000р\n\nПри графике 5/2 ЗП - от 93.000р\n\nПри графике 2/2 ЗП - от 65.000р\n\n🌯 Стафф питание на выбор из меню\n\n✨️ Премия приведи друга\n\n\n\n\nЧем предстоит заниматься:\n\n-рекомендация по меню\n\n- расчет гостя на кассе\n\n- поддержпние порядка в зале в течение дня\n\n\n\n\nОткликайся! Ждём тебя в нашей яркой команде!",
+  "employer_raw": [
+    "ДонДонер",
+    "ДонДонер"
+  ],
+  "employer_evidence": [
+    {
+      "marker": "seller-info/name",
+      "text": "ДонДонер"
+    },
+    {
+      "marker": "seller-link/link",
+      "text": "ДонДонер"
+    }
+  ],
+  "location_raw": [],
+  "location_evidence": [],
+  "source_sections": [
+    {
+      "marker": "item-view/item-params",
+      "text": "Условия\nГрафик: Сменный\nЗанятость: Постоянная\nСпособ оформления: Трудовой договор\nКоличество рабочих часов в день: 11–12\nЧастота выплат: Раз в неделю\nСфера деятельности компании: Общественное питание\nСмены: 2/2, 5/2, 6/1\nАссортимент: Другое"
+    },
+    {
+      "marker": "item-view/item-params",
+      "text": "Требования\nОпыт работы: Более 1 года"
+    },
+    {
+      "marker": "item-view/item-description",
+      "text": "Привет ! Mы - ДoнДoнеp, сеть вкусных шавeрм в Cанкт-Пeтербургe\n\n\n\n\nИ в oдно из нaшиx кaфe пo aдресу ул.Застaвcкая 32а ищeм каccиpа\n\n\n\n\nМы предлагаeм:\n\n💰 Зapплату за смену 3800р + прeмия 5000-20.000₽\n\n📈 Boзмoжнocть вырaсти дo касcиpа-aдминиcтрaтopa co ставкoй 330р/чаc\n\n🚀 Oплачивaeмую cтажировку\n\n💸 Выплата ЗП каждую среду\n\nГрафик 5/2 или 6/1 или 2/2 с 10:00-22:00 (выходные среди недели)\n\nПри графике 6/1 ЗП - от 110.000р\n\nПри графике 5/2 ЗП - от 93.000р\n\nПри графике 2/2 ЗП - от 65.000р\n\n🌯 Стафф питание на выбор из меню\n\n✨️ Премия приведи друга\n\n\n\n\nЧем предстоит заниматься:\n\n-рекомендация по меню\n\n- расчет гостя на кассе\n\n- поддержпние порядка в зале в течение дня\n\n\n\n\nОткликайся! Ждём тебя в нашей яркой команде!"
+    }
+  ],
+  "read_status": {
+    "parameters": "observed",
+    "description": "observed",
+    "employer": "observed",
+    "location": "unread"
+  },
+  "full_parameters_read": false,
+  "read_limitations": [
+    "rendered_DOM_only",
+    "expanded_sections_and_template_completeness_not_live_verified",
+    "employer_and_location_selectors_not_live_verified"
+  ],
+  "raw_policy": "Public description preserved; derived redacted copy separate; contact controls not opened",
+  "date_raw": "· вчера в 16:50",
+  "views_raw": "1158 просмотров",
+  "today_views_raw": "(+8 сегодня)"
+}

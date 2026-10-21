@@ -1,0 +1,24 @@
+{
+  "experiment_id": null,
+  "status": "template_not_executed",
+  "dataset": {
+    "passport_path": null,
+    "passport_sha256": null,
+    "dataset_id": null
+  },
+  "code_git_commit": null,
+  "uncommitted_changes": null,
+  "environment_file": null,
+  "features": [],
+  "preprocessing_version": null,
+  "split": {
+    "rule": null,
+    "ids_file": null,
+    "seed": null
+  },
+  "parameters": {},
+  "metrics": {},
+  "model_path": null,
+  "input_schema_path": null,
+  "conclusion": null
+}

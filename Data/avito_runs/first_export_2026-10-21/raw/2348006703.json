@@ -1,0 +1,184 @@
+{
+  "source_url": "https://www.avito.ru/sankt-peterburg/vakansii/rabota_prodavets_kassir_2348006703",
+  "observed_at": "2026-10-21T07:34:11.051Z",
+  "channel": "gstack DOM",
+  "schema_version": 3,
+  "state": "DETAIL",
+  "id": "2348006703",
+  "title": "Работа продавец кассир",
+  "salary_raw": "3 200 ₽ \nза смену на руки",
+  "params_blocks": [
+    "Условия\nГрафик: Сменный\nЗанятость: Частичная\nСтажировка: Нет\nСпособ оформления: Трудовой договор, Договор ГПХ с ИП\nКоличество рабочих часов в день: 13–15\nЧастота выплат: Раз в неделю\nСфера деятельности компании: Розничная и оптовая торговля\nСмены: 3/3\nАссортимент: Продукты и товары повседневного спроса\nС чем надо работать: Касса и POS-терминалы, Программы учёта товаров",
+    "Требования\nОпыт работы: Более 1 года\nВ том числе для кандидатов: Старше 45 лет\nМедкнижка: Поможем оформить"
+  ],
+  "fields": [
+    {
+      "name": "График",
+      "value": "Сменный",
+      "values": [
+        "Сменный"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "График: Сменный"
+    },
+    {
+      "name": "Занятость",
+      "value": "Частичная",
+      "values": [
+        "Частичная"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Занятость: Частичная"
+    },
+    {
+      "name": "Стажировка",
+      "value": "Нет",
+      "values": [
+        "Нет"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Стажировка: Нет"
+    },
+    {
+      "name": "Способ оформления",
+      "value": "Трудовой договор, Договор ГПХ с ИП",
+      "values": [
+        "Трудовой договор",
+        "Договор ГПХ с ИП"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Способ оформления: Трудовой договор, Договор ГПХ с ИП"
+    },
+    {
+      "name": "Количество рабочих часов в день",
+      "value": "13–15",
+      "values": [
+        "13–15"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Количество рабочих часов в день: 13–15"
+    },
+    {
+      "name": "Частота выплат",
+      "value": "Раз в неделю",
+      "values": [
+        "Раз в неделю"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Частота выплат: Раз в неделю"
+    },
+    {
+      "name": "Сфера деятельности компании",
+      "value": "Розничная и оптовая торговля",
+      "values": [
+        "Розничная и оптовая торговля"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Сфера деятельности компании: Розничная и оптовая торговля"
+    },
+    {
+      "name": "Смены",
+      "value": "3/3",
+      "values": [
+        "3/3"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Смены: 3/3"
+    },
+    {
+      "name": "Ассортимент",
+      "value": "Продукты и товары повседневного спроса",
+      "values": [
+        "Продукты и товары повседневного спроса"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Ассортимент: Продукты и товары повседневного спроса"
+    },
+    {
+      "name": "С чем надо работать",
+      "value": "Касса и POS-терминалы, Программы учёта товаров",
+      "values": [
+        "Касса и POS-терминалы",
+        "Программы учёта товаров"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "С чем надо работать: Касса и POS-терминалы, Программы учёта товаров"
+    },
+    {
+      "name": "Опыт работы",
+      "value": "Более 1 года",
+      "values": [
+        "Более 1 года"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Опыт работы: Более 1 года"
+    },
+    {
+      "name": "В том числе для кандидатов",
+      "value": "Старше 45 лет",
+      "values": [
+        "Старше 45 лет"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "В том числе для кандидатов: Старше 45 лет"
+    },
+    {
+      "name": "Медкнижка",
+      "value": "Поможем оформить",
+      "values": [
+        "Поможем оформить"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Медкнижка: Поможем оформить"
+    }
+  ],
+  "fields_parse_version": 3,
+  "description": "Требования:честность, ответственность, доброжелательность. Обязанности:работа на кассе,ведение документов, выкладка товара,поддержание чистоты.",
+  "description_redacted": "Требования:честность, ответственность, доброжелательность. Обязанности:работа на кассе,ведение документов, выкладка товара,поддержание чистоты.",
+  "employer_raw": [
+    "ИП Калинина Надежда Николаевна",
+    "ИП Калинина Надежда Николаевна"
+  ],
+  "employer_evidence": [
+    {
+      "marker": "seller-info/name",
+      "text": "ИП Калинина Надежда Николаевна"
+    },
+    {
+      "marker": "seller-link/link",
+      "text": "ИП Калинина Надежда Николаевна"
+    }
+  ],
+  "location_raw": [],
+  "location_evidence": [],
+  "source_sections": [
+    {
+      "marker": "item-view/item-params",
+      "text": "Условия\nГрафик: Сменный\nЗанятость: Частичная\nСтажировка: Нет\nСпособ оформления: Трудовой договор, Договор ГПХ с ИП\nКоличество рабочих часов в день: 13–15\nЧастота выплат: Раз в неделю\nСфера деятельности компании: Розничная и оптовая торговля\nСмены: 3/3\nАссортимент: Продукты и товары повседневного спроса\nС чем надо работать: Касса и POS-терминалы, Программы учёта товаров"
+    },
+    {
+      "marker": "item-view/item-params",
+      "text": "Требования\nОпыт работы: Более 1 года\nВ том числе для кандидатов: Старше 45 лет\nМедкнижка: Поможем оформить"
+    },
+    {
+      "marker": "item-view/item-description",
+      "text": "Требования:честность, ответственность, доброжелательность. Обязанности:работа на кассе,ведение документов, выкладка товара,поддержание чистоты."
+    }
+  ],
+  "read_status": {
+    "parameters": "observed",
+    "description": "observed",
+    "employer": "observed",
+    "location": "unread"
+  },
+  "full_parameters_read": false,
+  "read_limitations": [
+    "rendered_DOM_only",
+    "expanded_sections_and_template_completeness_not_live_verified",
+    "employer_and_location_selectors_not_live_verified"
+  ],
+  "raw_policy": "Public description preserved; derived redacted copy separate; contact controls not opened",
+  "date_raw": "· сегодня в 05:36",
+  "views_raw": "3511 просмотров",
+  "today_views_raw": "(+12 сегодня)"
+}

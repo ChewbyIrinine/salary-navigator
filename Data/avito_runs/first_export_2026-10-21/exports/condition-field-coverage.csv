@@ -1,0 +1,591 @@
+﻿profession,schedule_observed,employment_observed,field,n_unique_ads,present_n,meaning
+Водитель грузового транспорта,Вахта,Постоянная,Автомобиль,21,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Бренд автомобиля,21,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,В том числе для кандидатов,21,16,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Возраст автомобиля,21,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Где предстоит работать,21,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,График,21,21,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Длительность вахты,21,16,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Занятость,21,21,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Категория водительских прав,21,14,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Количество рабочих часов в день,21,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Компания предоставляет,21,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Медкнижка,21,14,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Можно заканчивать в 17:00,21,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Навык мелкого ремонта автомобиля,21,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Опыт работы,21,21,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Способ оформления,21,19,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Стаж вождения,21,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Стажировка,21,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Статус самозанятости,21,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Сфера деятельности компании,21,21,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Техника,21,10,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Частота выплат,21,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Вахта,Постоянная,Что получают работники,21,18,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Бренд автомобиля,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,В том числе для кандидатов,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,График,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Занятость,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Категория водительских прав,6,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Количество рабочих дней в неделю,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Количество рабочих часов в день,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Компания предоставляет,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Медкнижка,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Можно заканчивать в 17:00,6,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Навык мелкого ремонта автомобиля,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Опыт работы,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Способ оформления,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Стаж вождения,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Стажировка,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Статус самозанятости,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Сфера деятельности компании,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Техника,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Частота выплат,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Постоянная,Что получают работники,6,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,В том числе для кандидатов,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,График,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Занятость,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Категория водительских прав,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Количество рабочих дней в неделю,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Количество рабочих часов в день,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Опыт работы,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Способ оформления,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Стаж вождения,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Сфера деятельности компании,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Техника,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Частота выплат,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Гибкий,Частичная,Что получают работники,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Бренд автомобиля,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,В том числе для кандидатов,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Возраст автомобиля,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,График,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Занятость,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Категория водительских прав,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Количество рабочих часов в день,6,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Компания предоставляет,6,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Медкнижка,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Навык мелкого ремонта автомобиля,6,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Опыт работы,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Смены,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Способ оформления,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Стаж вождения,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Статус самозанятости,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Сфера деятельности компании,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Техника,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Частота выплат,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Сменный,Постоянная,Что получают работники,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Бренд автомобиля,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,В том числе для кандидатов,5,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Возраст автомобиля,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,График,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Занятость,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Категория водительских прав,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Количество рабочих часов в день,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Компания предоставляет,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Медкнижка,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Можно заканчивать в 17:00,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Навык мелкого ремонта автомобиля,5,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Опыт работы,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Режим работы,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Способ оформления,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Статус самозанятости,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Сфера деятельности компании,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Техника,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Частота выплат,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Водитель грузового транспорта,Фиксированный,Постоянная,Что получают работники,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,В том числе для кандидатов,7,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Где предстоит работать,7,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,График,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Длительность вахты,7,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Занятость,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Количество рабочих часов в день,7,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Медкнижка,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Опыт работы,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Способ оформления,7,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Сфера деятельности компании,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Тип предприятия,7,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Частота выплат,7,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Постоянная,Что получают работники,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,В том числе для кандидатов,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,График,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Длительность вахты,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Занятость,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Количество рабочих часов в день,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Медкнижка,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Опыт работы,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Разряд,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Способ оформления,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Сфера деятельности компании,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Тип предприятия,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Частота выплат,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Вахта,Разовая или временная,Что получают работники,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,В том числе для кандидатов,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,График,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Занятость,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Количество рабочих дней в неделю,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Медкнижка,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Можно заканчивать в 17:00,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Опыт работы,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Способ оформления,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Сфера деятельности компании,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Тип предприятия,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Частота выплат,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Постоянная,Что получают работники,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,В том числе для кандидатов,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,График,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Занятость,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Количество рабочих дней в неделю,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Количество рабочих часов в день,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Медкнижка,5,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Можно заканчивать в 17:00,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Опыт работы,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Разряд,5,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Способ оформления,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Сфера деятельности компании,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Тип предприятия,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Частота выплат,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Гибкий,Частичная,Что получают работники,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,В том числе для кандидатов,13,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,График,13,13,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Занятость,13,13,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Количество рабочих часов в день,13,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Медкнижка,13,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Опыт работы,13,13,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Разряд,13,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Смены,13,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Способ оформления,13,13,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Сфера деятельности компании,13,13,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Тип предприятия,13,10,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Частота выплат,13,13,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Постоянная,Что получают работники,13,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,В том числе для кандидатов,4,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,График,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Занятость,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Количество рабочих часов в день,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Медкнижка,4,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Опыт работы,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Разряд,4,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Смены,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Способ оформления,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Сфера деятельности компании,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Тип предприятия,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Частота выплат,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Сменный,Частичная,Что получают работники,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,В том числе для кандидатов,5,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,График,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Занятость,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Количество рабочих часов в день,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Медкнижка,5,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Опыт работы,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Режим работы,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Способ оформления,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Сфера деятельности компании,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Тип предприятия,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Частота выплат,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Грузчик,Фиксированный,Постоянная,Что получают работники,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Ассортимент,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,В том числе для кандидатов,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,График,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Длительность вахты,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Занятость,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Количество рабочих часов в день,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Медкнижка,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Опыт работы,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Способ оформления,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Стажировка,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Сфера деятельности компании,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Частота выплат,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Вахта,Постоянная,Что получают работники,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Ассортимент,7,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,В том числе для кандидатов,7,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,График,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Занятость,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Количество рабочих дней в неделю,7,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Количество рабочих часов в день,7,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Медкнижка,7,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Опыт работы,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,С чем надо работать,7,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Способ оформления,7,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Стажировка,7,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Сфера деятельности компании,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Частота выплат,7,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Постоянная,Что получают работники,7,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,В том числе для кандидатов,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,График,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Занятость,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Количество рабочих дней в неделю,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Количество рабочих часов в день,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Медкнижка,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Опыт работы,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Способ оформления,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Сфера деятельности компании,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Частота выплат,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Гибкий,Частичная,Что получают работники,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Ассортимент,20,19,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,В том числе для кандидатов,20,16,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,График,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Занятость,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Количество рабочих часов в день,20,18,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Медкнижка,20,19,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Опыт работы,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,С чем надо работать,20,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Смены,20,17,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Способ оформления,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Стажировка,20,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Сфера деятельности компании,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Частота выплат,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Постоянная,Что получают работники,20,16,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Ассортимент,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,В том числе для кандидатов,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,График,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Занятость,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Количество рабочих часов в день,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Медкнижка,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Опыт работы,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,С чем надо работать,4,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Смены,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Способ оформления,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Стажировка,4,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Сфера деятельности компании,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Частота выплат,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Сменный,Частичная,Что получают работники,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Ассортимент,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,В том числе для кандидатов,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,График,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Занятость,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Количество рабочих часов в день,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Медкнижка,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Опыт работы,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Режим работы,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,С чем надо работать,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Способ оформления,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Стажировка,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Сфера деятельности компании,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Частота выплат,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Кассир,Фиксированный,Постоянная,Что получают работники,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,В том числе для кандидатов,12,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Где предстоит работать,12,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,График,12,12,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Длительность вахты,12,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Занятость,12,12,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Количество рабочих часов в день,12,10,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Медкнижка,12,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Можно заканчивать в 17:00,12,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Опыт работы,12,12,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Разряд,12,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Способ оформления,12,10,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Сфера деятельности компании,12,12,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Тип предприятия,12,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Частота выплат,12,12,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Постоянная,Что получают работники,12,12,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,В том числе для кандидатов,4,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Где предстоит работать,4,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,График,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Длительность вахты,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Занятость,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Количество рабочих часов в день,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Медкнижка,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Опыт работы,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Разряд,4,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Способ оформления,4,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Сфера деятельности компании,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Тип предприятия,4,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Частота выплат,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Вахта,Разовая или временная,Что получают работники,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,В том числе для кандидатов,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,График,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Занятость,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Количество рабочих часов в день,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Медкнижка,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Опыт работы,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Способ оформления,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Сфера деятельности компании,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Тип предприятия,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Частота выплат,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Постоянная,Что получают работники,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,В том числе для кандидатов,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,График,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Занятость,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Количество рабочих дней в неделю,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Количество рабочих часов в день,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Медкнижка,6,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Можно заканчивать в 17:00,6,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Опыт работы,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Разряд,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Способ оформления,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Стажировка,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Сфера деятельности компании,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Тип предприятия,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Частота выплат,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Гибкий,Частичная,Что получают работники,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,В том числе для кандидатов,8,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,График,8,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Занятость,8,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Количество рабочих часов в день,8,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Медкнижка,8,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Опыт работы,8,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Смены,8,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Способ оформления,8,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Сфера деятельности компании,8,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Тип предприятия,8,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Частота выплат,8,8,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Постоянная,Что получают работники,8,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,В том числе для кандидатов,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,График,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Занятость,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Количество рабочих часов в день,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Медкнижка,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Опыт работы,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Смены,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Способ оформления,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Сфера деятельности компании,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Тип предприятия,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Частота выплат,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Разовая или временная,Что получают работники,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,В том числе для кандидатов,4,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,График,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Занятость,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Количество рабочих часов в день,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Медкнижка,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Опыт работы,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Разряд,4,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Смены,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Способ оформления,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Сфера деятельности компании,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Тип предприятия,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Частота выплат,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Сменный,Частичная,Что получают работники,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,График,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Занятость,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Количество рабочих часов в день,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Медкнижка,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Опыт работы,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Режим работы,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Способ оформления,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Стажировка,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Сфера деятельности компании,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Тип предприятия,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Частота выплат,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Комплектовщик,Фиксированный,Постоянная,Что получают работники,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,В том числе для кандидатов,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Вид доставки,4,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Где предстоит работать,4,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,График,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Длительность вахты,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Занятость,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Количество рабочих часов в день,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Медкнижка,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Опыт работы,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Способ доставки,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Способ оформления,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Статус самозанятости,4,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Сфера деятельности компании,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Частота выплат,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Постоянная,Что получают работники,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,В том числе для кандидатов,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Вид доставки,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Где предстоит работать,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,График,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Длительность вахты,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Занятость,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Количество рабочих часов в день,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Медкнижка,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Можно заканчивать в 17:00,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Опыт работы,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Способ доставки,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Способ оформления,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Статус самозанятости,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Сфера деятельности компании,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Частота выплат,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Вахта,Разовая или временная,Что получают работники,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,В том числе для кандидатов,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Вид доставки,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Возраст автомобиля,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,График,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Занятость,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Категория водительских прав,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Количество рабочих дней в неделю,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Количество рабочих часов в день,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Компания предоставляет,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Медкнижка,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Навык мелкого ремонта автомобиля,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Опыт работы,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Способ доставки,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Способ оформления,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Стаж вождения,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Стажировка,5,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Статус самозанятости,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Сфера деятельности компании,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Частота выплат,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Постоянная,Что получают работники,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,В том числе для кандидатов,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Вид доставки,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,График,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Занятость,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Количество рабочих дней в неделю,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Количество рабочих часов в день,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Медкнижка,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Можно заканчивать в 17:00,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Опыт работы,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Способ доставки,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Способ оформления,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Стажировка,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Статус самозанятости,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Сфера деятельности компании,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Частота выплат,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Разовая или временная,Что получают работники,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,В том числе для кандидатов,21,18,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Вид доставки,21,10,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,График,21,21,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Занятость,21,21,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Категория водительских прав,21,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Количество рабочих дней в неделю,21,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Количество рабочих часов в день,21,10,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Медкнижка,21,10,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Можно заканчивать в 17:00,21,7,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Навык мелкого ремонта автомобиля,21,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Опыт работы,21,21,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Способ доставки,21,16,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Способ оформления,21,13,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Стаж вождения,21,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Стажировка,21,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Статус самозанятости,21,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Сфера деятельности компании,21,21,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Частота выплат,21,18,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Гибкий,Частичная,Что получают работники,21,11,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Вид доставки,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Где предстоит работать,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,График,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Занятость,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Количество рабочих часов в день,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Медкнижка,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Опыт работы,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Смены,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Способ доставки,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Способ оформления,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Статус самозанятости,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Сфера деятельности компании,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Частота выплат,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Сменный,Постоянная,Что получают работники,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,В том числе для кандидатов,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Вид доставки,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,График,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Занятость,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Количество рабочих часов в день,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Медкнижка,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Опыт работы,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Режим работы,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Способ доставки,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Способ оформления,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Стажировка,4,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Статус самозанятости,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Сфера деятельности компании,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Частота выплат,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Постоянная,Что получают работники,4,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,В том числе для кандидатов,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,График,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,Занятость,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,Количество рабочих часов в день,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,Медкнижка,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,Опыт работы,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,Способ оформления,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,Сфера деятельности компании,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,Частота выплат,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Курьер,Фиксированный,Разовая или временная,Что получают работники,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Ассортимент,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Где предстоит работать,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,График,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Длительность вахты,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Занятость,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Количество рабочих часов в день,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Медкнижка,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Опыт работы,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,С чем надо работать,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Способ оформления,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Стажировка,2,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Сфера деятельности компании,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Частота выплат,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Вахта,Постоянная,Что получают работники,2,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Ассортимент,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,В том числе для кандидатов,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,График,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Занятость,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Количество рабочих дней в неделю,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Количество рабочих часов в день,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Медкнижка,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Опыт работы,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,С чем надо работать,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Способ оформления,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Стажировка,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Сфера деятельности компании,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Частота выплат,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Постоянная,Что получают работники,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Ассортимент,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,В том числе для кандидатов,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,График,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Занятость,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Количество рабочих дней в неделю,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Количество рабочих часов в день,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Медкнижка,6,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Можно заканчивать в 17:00,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Опыт работы,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,С чем надо работать,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Способ оформления,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Стажировка,6,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Сфера деятельности компании,6,6,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Частота выплат,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Гибкий,Частичная,Что получают работники,6,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Ассортимент,20,17,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,В том числе для кандидатов,20,13,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,График,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Занятость,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Количество рабочих часов в день,20,15,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Медкнижка,20,19,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Можно заканчивать в 17:00,20,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Опыт работы,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,С чем надо работать,20,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Смены,20,19,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Способ оформления,20,17,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Стажировка,20,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Сфера деятельности компании,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Частота выплат,20,20,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Постоянная,Что получают работники,20,17,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Ассортимент,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,В том числе для кандидатов,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,График,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Занятость,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Количество рабочих часов в день,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Медкнижка,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Опыт работы,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,С чем надо работать,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Смены,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Способ оформления,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Стажировка,3,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Сфера деятельности компании,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Частота выплат,3,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Сменный,Частичная,Что получают работники,3,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Ассортимент,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,В том числе для кандидатов,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,График,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Занятость,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Количество рабочих часов в день,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Медкнижка,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Опыт работы,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Режим работы,5,3,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,С чем надо работать,5,2,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Способ оформления,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Стажировка,5,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Сфера деятельности компании,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Частота выплат,5,4,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Постоянная,Что получают работники,5,5,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Ассортимент,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,В том числе для кандидатов,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,График,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Занятость,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Количество рабочих часов в день,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Медкнижка,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Опыт работы,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Способ оформления,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Сфера деятельности компании,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Частота выплат,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness
+Продавец,Фиксированный,Разовая или временная,Что получают работники,1,1,Observed co-occurrence in saved ads; does not establish dynamic form rules or requiredness

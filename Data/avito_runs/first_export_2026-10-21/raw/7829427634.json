@@ -1,0 +1,157 @@
+{
+  "source_url": "https://www.avito.ru/sankt-peterburg/vakansii/gruzchik_podsobnyy_rabochiy_na_shveynoe_proizvodstvo_7829427634",
+  "observed_at": "2026-10-21T08:34:59.437Z",
+  "channel": "gstack DOM",
+  "schema_version": 3,
+  "state": "DETAIL",
+  "id": "7829427634",
+  "title": "Грузчик подсобный рабочий на швейное производство",
+  "salary_raw": "65 000 ₽ \nна руки",
+  "params_blocks": [
+    "Условия\nГрафик: Фиксированный\nЗанятость: Постоянная\nСпособ оформления: Трудовой договор\nКоличество рабочих часов в день: 8\nЧастота выплат: Дважды в месяц\nСфера деятельности компании: Производство непродовольственных потребительских товаров\nЧто получают работники: Зоны отдыха, Транспорт до работы, Скидки в компании\nРежим работы: 5/2",
+    "Требования\nОпыт работы: Без опыта\nВ том числе для кандидатов: Старше 45 лет"
+  ],
+  "fields": [
+    {
+      "name": "График",
+      "value": "Фиксированный",
+      "values": [
+        "Фиксированный"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "График: Фиксированный"
+    },
+    {
+      "name": "Занятость",
+      "value": "Постоянная",
+      "values": [
+        "Постоянная"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Занятость: Постоянная"
+    },
+    {
+      "name": "Способ оформления",
+      "value": "Трудовой договор",
+      "values": [
+        "Трудовой договор"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Способ оформления: Трудовой договор"
+    },
+    {
+      "name": "Количество рабочих часов в день",
+      "value": "8",
+      "values": [
+        "8"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Количество рабочих часов в день: 8"
+    },
+    {
+      "name": "Частота выплат",
+      "value": "Дважды в месяц",
+      "values": [
+        "Дважды в месяц"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Частота выплат: Дважды в месяц"
+    },
+    {
+      "name": "Сфера деятельности компании",
+      "value": "Производство непродовольственных потребительских товаров",
+      "values": [
+        "Производство непродовольственных потребительских товаров"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Сфера деятельности компании: Производство непродовольственных потребительских товаров"
+    },
+    {
+      "name": "Что получают работники",
+      "value": "Зоны отдыха, Транспорт до работы, Скидки в компании",
+      "values": [
+        "Зоны отдыха",
+        "Транспорт до работы",
+        "Скидки в компании"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Что получают работники: Зоны отдыха, Транспорт до работы, Скидки в компании"
+    },
+    {
+      "name": "Режим работы",
+      "value": "5/2",
+      "values": [
+        "5/2"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Режим работы: 5/2"
+    },
+    {
+      "name": "Опыт работы",
+      "value": "Без опыта",
+      "values": [
+        "Без опыта"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "Опыт работы: Без опыта"
+    },
+    {
+      "name": "В том числе для кандидатов",
+      "value": "Старше 45 лет",
+      "values": [
+        "Старше 45 лет"
+      ],
+      "values_parse": "comma_space_tokens_from_raw_no_inferred_values",
+      "evidence_raw": "В том числе для кандидатов: Старше 45 лет"
+    }
+  ],
+  "fields_parse_version": 3,
+  "description": "Требуется подсобный рабочий, разнорабочий на швейное производство в п.Металлострой (промзона).\nОфициальное трудоустройство, полный соц. пакет.\nГрафик 5/2, с 08:30 до 17:00.\nЕсть развозка со ст.Рыбацкое",
+  "description_redacted": "Требуется подсобный рабочий, разнорабочий на швейное производство в п.Металлострой (промзона).\nОфициальное трудоустройство, полный соц. пакет.\nГрафик 5/2, с 08:30 до 17:00.\nЕсть развозка со ст.Рыбацкое",
+  "employer_raw": [
+    "Снежана",
+    "Снежана"
+  ],
+  "employer_evidence": [
+    {
+      "marker": "seller-info/name",
+      "text": "Снежана"
+    },
+    {
+      "marker": "seller-link/link",
+      "text": "Снежана"
+    }
+  ],
+  "location_raw": [],
+  "location_evidence": [],
+  "source_sections": [
+    {
+      "marker": "item-view/item-params",
+      "text": "Условия\nГрафик: Фиксированный\nЗанятость: Постоянная\nСпособ оформления: Трудовой договор\nКоличество рабочих часов в день: 8\nЧастота выплат: Дважды в месяц\nСфера деятельности компании: Производство непродовольственных потребительских товаров\nЧто получают работники: Зоны отдыха, Транспорт до работы, Скидки в компании\nРежим работы: 5/2"
+    },
+    {
+      "marker": "item-view/item-params",
+      "text": "Требования\nОпыт работы: Без опыта\nВ том числе для кандидатов: Старше 45 лет"
+    },
+    {
+      "marker": "item-view/item-description",
+      "text": "Требуется подсобный рабочий, разнорабочий на швейное производство в п.Металлострой (промзона).\nОфициальное трудоустройство, полный соц. пакет.\nГрафик 5/2, с 08:30 до 17:00.\nЕсть развозка со ст.Рыбацкое"
+    }
+  ],
+  "read_status": {
+    "parameters": "observed",
+    "description": "observed",
+    "employer": "observed",
+    "location": "unread"
+  },
+  "full_parameters_read": false,
+  "read_limitations": [
+    "rendered_DOM_only",
+    "expanded_sections_and_template_completeness_not_live_verified",
+    "employer_and_location_selectors_not_live_verified"
+  ],
+  "raw_policy": "Public description preserved; derived redacted copy separate; contact controls not opened",
+  "date_raw": "· сегодня в 11:13",
+  "views_raw": "1378 просмотров",
+  "today_views_raw": "(+3 сегодня)"
+}

@@ -1,0 +1,42 @@
+{
+  "dataset_id": null,
+  "dataset_revision": 1,
+  "run_id": null,
+  "status": "template_not_a_dataset",
+  "observation_window": {
+    "started_at_utc": null,
+    "ended_at_utc": null
+  },
+  "slice": {
+    "city": null,
+    "profession": null,
+    "query": "",
+    "other_filters": {},
+    "observed_filter_evidence": null
+  },
+  "schema": {
+    "field_set_version": null,
+    "columns": [],
+    "unknown_policy": null
+  },
+  "collection": {
+    "code_git_commit": null,
+    "instruction_path": null,
+    "instruction_git_commit": null,
+    "agent_model_and_settings": null,
+    "selection_mode": null,
+    "limits": {},
+    "stop_reason": null
+  },
+  "coverage": {
+    "planned": null,
+    "accepted": null,
+    "unique_ids": null,
+    "errors": [],
+    "limitations": []
+  },
+  "files": {},
+  "research_url": null,
+  "task_url": null,
+  "instructions": "Copy outside the immutable run before collecting; replace null with confirmed facts, preserve unknowns explicitly. Store path, bytes, SHA-256 and row count for every published file. New collection or changed processing creates a new dataset_id, not an overwrite."
+}

@@ -1,0 +1,9 @@
+{
+  "start_url": "https://www.avito.ru/moskva/vakansii",
+  "meaning": "Москва, Упаковщик, Работа до 17:00, Сначала из Москвы выключено",
+  "controls": [
+    {"marker": "params[144170]/checkbox/3201880", "checked": true},
+    {"marker": "params[196929]/3372449", "checked": true},
+    {"marker": "filters/localPriority/localPriority", "checked": false}
+  ]
+}

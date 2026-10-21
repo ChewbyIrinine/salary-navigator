@@ -1,0 +1,285 @@
+{
+  "dataset_id": "first-export-2026-10-21-v1",
+  "dataset_revision": 1,
+  "passport_created_on": "2026-10-21",
+  "passport_note": "Added during workspace audit without changing any completed collection file. Git tracking did not exist at collection time. Packaging updated on 2026-10-22: the unchanged selection plan is included under Data/; source data and observation dates are unchanged.",
+  "run_id": "first_export_2026-10-21",
+  "usage": "Exploratory field and salary-condition research; not a market estimate or ready monthly training target.",
+  "source": "Avito public job pages",
+  "observation_window": {
+    "detail_min_utc": "2026-10-20T23:05:50.225Z",
+    "detail_max_utc": "2026-10-21T09:06:57.452Z",
+    "listing_min_utc": "2026-10-20T23:02:34.981Z",
+    "listing_max_utc": "2026-10-21T08:53:29.167Z",
+    "display_timezone": "Europe/Moscow",
+    "freshness_policy": "No automatic expiry agreed. Reader checks observation dates against the intended question; git commit date is not freshness."
+  },
+  "schema": {
+    "field_set_version": "vacancies-csv-v1",
+    "assigned_on": "2026-10-21",
+    "raw_schema_versions_observed": [
+      3
+    ],
+    "raw_fields_parse_versions_observed": [
+      3
+    ],
+    "csv_encoding": "utf-8-sig",
+    "csv_delimiter": ",",
+    "id_type": "string",
+    "json_columns": [
+      "observations_json",
+      "fields_json",
+      "read_status_json",
+      "read_limitations_json",
+      "text_only_json",
+      "pay_analysis_json"
+    ],
+    "unknown_policy": "Empty/unknown values retain their source meaning; never fill salary period, tax basis or workload by assumption."
+  },
+  "collection": {
+    "method": "One browser owner using gstack /browse and Aside; frozen positional plan, raw DOM evidence and offline review.",
+    "workflow_reference": "Scraper/ASIDE_WORKFLOW.md",
+    "published_method": "https://buildin.ai/9725c4a0-f722-4125-b162-f8d03141d647",
+    "plan_path": "Data/first_export_2026-10-21.plan.json",
+    "plan_sha256": "b4ada92c3b3473567d54993393f55583a5f076c4968609399c3b39699ee15653",
+    "code_git_commit": null,
+    "agent_instruction_git_commit": null,
+    "exact_agent_model_and_settings": null,
+    "version_limitation": "Exact historical code/prompt/model versions cannot be reconstructed from the current Git history. File hashes below identify the audit snapshot only, not proof of code executed during collection.",
+    "workflow_hashes_at_audit": {
+      "Scraper/extract.js": "177d3b634d52d114c2beaa9669934c6b5b2d6220dd19c0a9637af0585429449d",
+      "Scraper/ASIDE_WORKFLOW.md": "4798e21cd5973d7aac9a6bf1498084242404dc40942276d4a3e07efae20bdb1c"
+    },
+    "selection": "Preselected positions in first-page frames; reserves activated by the locked plan. Geography and profession are observed filters, not proof of actual job or work location.",
+    "scope": "6 professions x 3 cities; 20 accepted memberships per profession in Moscow, 10 in Saint Petersburg, 10 in Yekaterinburg.",
+    "stop_reason": "Locked main-sample plan completed; no claim of complete site coverage.",
+    "plan_url": "https://buildin.ai/4987c697-1351-407e-9011-5f8a84026122"
+  },
+  "coverage": {
+    "planned_memberships": 240,
+    "accepted_memberships": 240,
+    "unique_main_vacancies": 238,
+    "slice_count": 18,
+    "excluded_memberships": 4,
+    "extra_unique_pilot_cards": 3,
+    "all_observation_rows_including_queue": 795,
+    "accepted_observation_rule": "selection_role in ['main','reserve'] and status starts with 'VALIDATED'",
+    "observation_status_counts": {
+      "technical_pilot/VALIDATED": 5,
+      "reserve/RESERVE_ALREADY_COLLECTED_AS_TECHNICAL_PILOT": 3,
+      "main/VALIDATED_REUSED_PILOT": 2,
+      "reserve/RESERVE_PENDING": 27,
+      "main/VALIDATED": 234,
+      "reserve/PENDING": 40,
+      "reserve/RESERVE": 476,
+      "reserve/VALIDATED": 4,
+      "main/EXCLUDED": 4
+    },
+    "representative": false,
+    "limitations": [
+      "The same vacancy may belong to several slices; unique IDs and memberships differ.",
+      "Unknown salary period, tax and workload prevent automatic monthly comparison.",
+      "Public advertisement statements are not verified actual payments.",
+      "Full-parameter-read flags and section-level read limitations must be inspected before treating missing fields as absent."
+    ]
+  },
+  "slices": [
+    {
+      "slice_id": "cashier_ekb",
+      "profession": "Кассир",
+      "city": "Екатеринбург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "cashier_moscow",
+      "profession": "Кассир",
+      "city": "Москва",
+      "saved_n": "20"
+    },
+    {
+      "slice_id": "cashier_spb",
+      "profession": "Кассир",
+      "city": "Санкт-Петербург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "courier_ekb",
+      "profession": "Курьер",
+      "city": "Екатеринбург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "courier_moscow",
+      "profession": "Курьер",
+      "city": "Москва",
+      "saved_n": "20"
+    },
+    {
+      "slice_id": "courier_spb",
+      "profession": "Курьер",
+      "city": "Санкт-Петербург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "loader_ekb",
+      "profession": "Грузчик",
+      "city": "Екатеринбург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "loader_moscow",
+      "profession": "Грузчик",
+      "city": "Москва",
+      "saved_n": "20"
+    },
+    {
+      "slice_id": "loader_spb",
+      "profession": "Грузчик",
+      "city": "Санкт-Петербург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "picker_ekb",
+      "profession": "Комплектовщик",
+      "city": "Екатеринбург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "picker_moscow",
+      "profession": "Комплектовщик",
+      "city": "Москва",
+      "saved_n": "20"
+    },
+    {
+      "slice_id": "picker_spb",
+      "profession": "Комплектовщик",
+      "city": "Санкт-Петербург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "seller_ekb",
+      "profession": "Продавец",
+      "city": "Екатеринбург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "seller_moscow",
+      "profession": "Продавец",
+      "city": "Москва",
+      "saved_n": "20"
+    },
+    {
+      "slice_id": "seller_spb",
+      "profession": "Продавец",
+      "city": "Санкт-Петербург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "truck_driver_ekb",
+      "profession": "Водитель грузового транспорта",
+      "city": "Екатеринбург",
+      "saved_n": "10"
+    },
+    {
+      "slice_id": "truck_driver_moscow",
+      "profession": "Водитель грузового транспорта",
+      "city": "Москва",
+      "saved_n": "20"
+    },
+    {
+      "slice_id": "truck_driver_spb",
+      "profession": "Водитель грузового транспорта",
+      "city": "Санкт-Петербург",
+      "saved_n": "10"
+    }
+  ],
+  "files": {
+    "vacancies": {
+      "path": "Data/avito_runs/first_export_2026-10-21/exports/vacancies.csv",
+      "sha256": "d50f840dc657bdcba0a7066cd7d45686ab252f50aaefed7757338ee4af9505be",
+      "bytes": 2833601,
+      "rows": 238,
+      "columns": [
+        "id",
+        "source_url",
+        "observed_at",
+        "selection_roles",
+        "observations_json",
+        "title",
+        "salary_raw",
+        "employer_name_observed",
+        "employer_profile_url",
+        "location_observed",
+        "date_raw",
+        "views_raw",
+        "today_views_raw",
+        "views_total",
+        "views_today",
+        "observed_field_count",
+        "fields_json",
+        "observed_nonempty_field_count",
+        "schedule_raw",
+        "employment_raw",
+        "payout_frequency_raw",
+        "description",
+        "full_parameters_read",
+        "read_status_json",
+        "read_limitations_json",
+        "analysis_status",
+        "text_only_count",
+        "text_only_json",
+        "pay_analysis_json",
+        "export_eligibility"
+      ]
+    },
+    "segments": {
+      "path": "Data/avito_runs/first_export_2026-10-21/exports/segment-overview.csv",
+      "sha256": "148a0b2088080623487cbadc9d22508d54c7c68b52d1e26b26e88d41902fa88d",
+      "bytes": 1940,
+      "rows": 18,
+      "columns": [
+        "slice_id",
+        "profession",
+        "city",
+        "saved_n",
+        "analysed_n",
+        "fields_min",
+        "fields_median",
+        "fields_max",
+        "parameters_fully_read_n",
+        "with_text_only_n",
+        "with_unresolved_discrepancy_n",
+        "with_any_known_pay_period_n",
+        "profile_observed_n",
+        "distinct_public_profile_keys_n",
+        "largest_profile_ads_n"
+      ]
+    },
+    "observation_queue": {
+      "path": "Data/avito_runs/first_export_2026-10-21/exports/observations.csv",
+      "sha256": "f1e03ee855fa24ab050d66b121fffed012e2705e38389c119138e6cda60a767f",
+      "bytes": 97399,
+      "rows": 795,
+      "columns": [
+        "id",
+        "slice_id",
+        "profession",
+        "city",
+        "rank",
+        "page",
+        "listing_observed_at",
+        "selection_role",
+        "status",
+        "exclusion_reason",
+        "detail_reused"
+      ]
+    }
+  },
+  "links": {
+    "research": "https://buildin.ai/b3ad4fdd-e756-4766-bd4e-89b9d1dc5efb",
+    "task": "https://buildin.ai/b50a220b-a06b-45d6-bf5e-4902084e02d9",
+    "findings": "https://buildin.ai/794434a3-5219-4ca1-a3d5-a4c595586567",
+    "field_dictionary": "https://buildin.ai/534948f1-ad31-4cd8-a45d-bfddf94b1da3"
+  },
+  "passport_packaging_updated_on": "2026-10-22"
+}

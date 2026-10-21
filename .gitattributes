@@ -1,0 +1,2 @@
+# Preserve the exact bytes referenced by dataset SHA-256, including CSV CRLF.
+Data/avito_runs/** -text -diff
