@@ -20,3 +20,6 @@
 /work/
 /outputs/
 /Notes/
+/Scraper/collect-avito.local.json
+
+/Scraper/runs/*/diagnostics/

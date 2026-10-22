@@ -11,7 +11,7 @@
 ```python
 import pandas as pd
 
-df = pd.read_csv("Data/first_export_2026-10-21.csv", dtype={"id": "string"})
+df = pd.read_csv("Data/avito_runs/first_export_2026-10-21/exports/vacancies_flat.csv", dtype={"id": "string"})
 df.head()
 ```
 
@@ -29,9 +29,9 @@ df.head()
 
 ## Ноутбуки, утилиты и результаты
 
-Ноутбуки держим здесь, общие функции — в [utils/](utils/).
-Преобразование архивного экспорта в плоский CSV — [utils/flatten_export.py](utils/flatten_export.py).
-Прежний загрузчик с паспортом — [utils/load_dataset.py](utils/load_dataset.py).
+Ноутбуки держим здесь, общие функции — в [общие utils/](../utils/).
+Преобразование архивного экспорта в плоский CSV — [utils/flatten_export.py](../utils/flatten_export.py).
+Прежний загрузчик с паспортом — [utils/load_dataset.py](../utils/load_dataset.py).
 Результат отдельного эксперимента сохраняем
 в `experiments/<дата>_<короткое-имя>/`, модель — в `models/<experiment_id>/`.
 Скопируйте [experiment.template.json](experiment.template.json) в каталог

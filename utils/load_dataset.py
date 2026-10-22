@@ -6,7 +6,7 @@ import json
 
 
 def load_dataset(passport, root=None):
-    root = Path(root or Path(__file__).resolve().parents[2]).resolve()
+    root = Path(root or Path(__file__).resolve().parents[1]).resolve()
     passport_path = (root / passport).resolve()
     passport_path.relative_to(root)
     meta = json.loads(passport_path.read_text(encoding="utf-8"))
