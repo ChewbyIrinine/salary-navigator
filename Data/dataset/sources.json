@@ -12,6 +12,16 @@
         "Санкт-Петербург": "Санкт-Петербург",
         "Екатеринбург": "Свердловская область"
       }
+    },
+    {
+      "run_id": "courier_first5_2026-10-26",
+      "source": "avito",
+      "path": "Data/avito_runs/courier_first5_2026-10-26/exports/vacancies_flat.csv",
+      "sha256": "6c05d0f9cc04abdd84ccfb3a70f854f03c0f7ac5b5b682d503c8b64201a793bc",
+      "enrichment_status": "not_run",
+      "placement_regions": {
+        "Москва": "Москва"
+      }
     }
   ]
 }
