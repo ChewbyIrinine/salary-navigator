@@ -18,6 +18,9 @@
 
 В [каталоге данных](Data/README.md) перечислены доступные выгрузки.
 Основной файл каждой выгрузки — **CSV, который можно сразу открыть как таблицу**.
+Для общей работы используйте [Data/dataset/vacancies.csv](Data/dataset/vacancies.csv):
+он объединяет проверенные сборы без дублей по площадке и ID.
+[Правила обновления и обогащения](Data/dataset/README.md).
 Исходные карточки и технические сведения о сборе нужны для подробной проверки;
 для начала анализа их разбирать не требуется.
 
@@ -54,7 +57,7 @@
 ```python
 import pandas as pd
 
-df = pd.read_csv("Data/avito_runs/first_export_2026-10-21/exports/vacancies_flat.csv", dtype={"id": "string"})
+df = pd.read_csv("Data/dataset/vacancies.csv", dtype={"id": "string"})
 df.head()
 ```
 

@@ -11,11 +11,12 @@
 ```python
 import pandas as pd
 
-df = pd.read_csv("Data/avito_runs/first_export_2026-10-21/exports/vacancies_flat.csv", dtype={"id": "string"})
+df = pd.read_csv("Data/dataset/vacancies.csv", dtype={"id": "string"})
 df.head()
 ```
 
-Получается DataFrame: 238 вакансий, параметры уже в отдельных колонках.
+Общая таблица пополняется проверенными сборами; параметры уже в отдельных колонках.
+[Контракт и обогащение](../Data/dataset/README.md).
 Установите `pandas` (`python3 -m pip install pandas`); для ноутбука нужен Jupyter.
 [00_load_first_export.ipynb](00_load_first_export.ipynb) содержит готовые примеры
 просмотра и фильтрации. При запуске из папки `ML/` путь начинается с `../Data/`.
