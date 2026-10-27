@@ -105,3 +105,5 @@ avito_runs/<название_сбора>/
 Пример полной проверки происхождения — [отдельный ноутбук](../ML/01_load_with_passport.ipynb).
 
 - [truck_driver_ekaterinburg_first40_2026-10-27](avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/exports/vacancies_flat.csv): 40 вакансий.
+
+- [courier_ekaterinburg_first40_benchmark_2026-10-27](avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/exports/vacancies_flat.csv): 40 вакансий.
