@@ -1,13 +1,29 @@
 ---
 name: collect-avito
-description: Collect a bounded Avito job sample through gstack /browse and the reusable Aside runner; export all visible fields, rebuild the shared CSV and publish a GitHub PR. Use for samples or resume, not site-wide unattended crawling.
+description: Help set up the collector from scratch, prepare local Happ routing, then collect bounded Avito job samples through gstack /browse and the Aside runner into reviewed CSVs and GitHub PRs. Use for first setup, samples or resume, not site-wide unattended crawling.
 ---
 
 # Сбор вакансий T&L
 
-Версия 1.5.1, 27.10.2026. Корень проекта содержит `Scraper/extract.js`.
+Версия 1.6.1, 27.10.2026. Корень проекта содержит `Scraper/extract.js`.
 Используйте готовый `scripts/run.py`; его исходники не нужно читать для обычного
 запуска. Не создавайте заново capture/export/setup-скрипты в /tmp.
+
+## Первый запуск и неполное окружение
+
+Если участник скачал проект впервые, просит настройку с нуля или preflight
+обнаружил отсутствующие зависимости, прочитайте [FIRST_RUN.md](references/FIRST_RUN.md)
+и проведите его до пробного CSV через общий run.py. Не завершайте работу одним
+NEEDS_SETUP: помогите подготовить Python, gstack, Aside и авторизацию, создайте
+локальные настройки через scripts/setup_workspace.py и повторите проверку.
+Входы в аккаунты, разрешения ОС и импорт профиля Happ подтверждает участник;
+после его ответа продолжайте с места остановки. Режим сети не угадывайте и не
+спрашивайте повторно, если он уже известен. Для Happ генератор создаёт JSON и
+ссылку импорта маршрутизации вне проекта, не подписку с сервером. Существующие
+настройки не перезаписываются; работающий туннель ради проверки не меняется.
+Навык читается по пути из Codex/Claude Code; нестандартный путь /browse задаётся
+через --browse-skill или TL_BROWSE_SKILL. Windows и другие агенты требуют
+фактического теста, а не обещания совместимости.
 
 ## Модели и делегирование
 
@@ -74,8 +90,9 @@ Luna передаёт `freeze --agent-model gpt-6-luna`, Terra —
    проверку отдельно в том же запуске. Отсутствующий локальный конфиг даёт
    предупреждение; ошибка Aside блокирует работу. Не ищите VPN-конфиги и не
    запрашивайте секреты. Строгий аудит — отдельное явное задание.
-   `TL_AVITO_CONFIG` или --config у preflight позволяют использовать уже
-   настроенный файл; без отдельного измерения live_route_verified=false.
+   `TL_AVITO_CONFIG` или одинаковый --config у setup/preflight и freeze/capture
+   позволяют использовать уже настроенный файл; без отдельного измерения
+   live_route_verified=false.
 
    Очередь замораживается до карточек, сохраняются уникальные ID, порядок и
    отметки продвижения. `capture` читает до 30 карточек в одной Aside-сессии без вызовов модели
@@ -158,6 +175,9 @@ CAPTCHA/429/ограничение доступа и неверный ID тре�
   runner, добавить воспроизводимый тест, обновить этот skill/ссылку на команду.
   Если extractor изменился, старые raw сохраняются; новое наблюдение получает
   новый run_id. Временный обход не считается завершённым исправлением.
+- Расположение: проверьте location_raw и read_status.location. Экстрактор читает
+  маркеры адреса или видимый соседний блок «Расположение», исключая карту,
+  скрытые подсказки и описание. Пустоту не подменяйте URL или текстом вакансии.
 - Новый город: `finalize` повторно использует подтверждённые city→region из
   реестра. Неизвестные места требуют проверенного JSON `ID: {city, region,
   evidence}` через --placements. Цитата evidence и city должны встречаться

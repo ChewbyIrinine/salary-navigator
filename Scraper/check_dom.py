@@ -12,7 +12,8 @@ def main():
     out = Path(args.output).resolve()
     cases = {'blocked_overlay': 'NEEDS_HUMAN', 'listing': 'LISTING', 'detail': 'DETAIL',
              'pagination': 'LISTING', 'pagination_end': 'LISTING', 'empty': 'EMPTY_RESULT',
-             'incomplete': 'UNKNOWN_PAGE', 'detail_multivalue': 'DETAIL'}
+             'incomplete': 'UNKNOWN_PAGE', 'detail_multivalue': 'DETAIL',
+             'detail_location_heading': 'DETAIL', 'detail_location_missing': 'DETAIL'}
     report = {'kind': 'LOCAL_FIXTURES_IN_REAL_CHROMIUM', 'live_avito': False, 'cases': {}}
     with avito.session_lock():
         tab = json.loads(avito.browser('newtab', (avito.ROOT / 'fixtures/listing.html').as_uri(), '--json'))
@@ -32,6 +33,13 @@ def main():
                     assert not data['pagination']['end_confirmed']
                 if case == 'detail':
                     assert data['fields'][0]['name'] == 'Можно заканчивать в 17:00'
+                if case == 'detail_location_heading':
+                    assert data['location_raw'] == ['Московская обл., Серпухов, 5-я Борисовская ул., 16']
+                    assert data['read_status']['location'] == 'observed'
+                    assert data['location_evidence'][0]['method'] == 'visible_location_heading'
+                if case == 'detail_location_missing':
+                    assert data['location_raw'] == []
+                    assert data['read_status']['location'] == 'unread'
                 if case == 'pagination':
                     assert data['pagination']['next_url'] == 'https://www.avito.ru/moskva/vakansii?f=opaque&p=2'
                     assert not data['pagination']['end_confirmed']

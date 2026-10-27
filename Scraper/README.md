@@ -5,7 +5,7 @@
 Он работает с видимыми страницами: задаёт фильтры, сохраняет очередь,
 читает карточки и готовит выгрузку для анализа.
 
-## Готовый запуск (collect-avito 1.5.1)
+## Готовый запуск (collect-avito 1.6.1)
 
 [Проверенный рецепт фильтров](skills/collect-avito/references/vacancy-filters.md):
 страница вакансий → профессия → ссылка города с сохранением профессии.
@@ -36,22 +36,39 @@ Preflight встроен в freeze/capture. Полный unit suite нужен �
 
 ## Подготовка рабочего места
 
-Нужны Python 3.10+, установленный для агента gstack `/browse`, приложение
-Aside и его CLI. Для текущего Aside-процесса нужна поддерживаемая приложением
-macOS; инструкции установки берите из самого приложения и актуального `/browse`.
+Для первого запуска дайте агенту [collect-avito](skills/collect-avito/SKILL.md)
+и попросите помочь с настройкой. Он проходит [путь от скачивания до CSV](skills/collect-avito/references/FIRST_RUN.md):
+Python 3.10+, gstack `/browse`, Aside с CLI, авторизация и локальные настройки.
+Aside предлагает macOS и Windows; полный проход проекта проверен на macOS,
+Windows и другие агентные среды ещё требуют проверки. Входы в аккаунты,
+системные разрешения и импорт профиля участник подтверждает сам.
 Проектный навык доступен по пути `Scraper/skills/collect-avito/SKILL.md`:
 достаточно указать его агенту вместе с заданием. Наличие файла в репозитории
 не означает, что навык уже установлен в личный каталог каждого участника.
 
-Один раз создайте **локальный**, исключённый из Git файл настроек:
+Один раз создайте **локальный**, исключённый из Git файл настроек генератором.
+Без VPN:
 
 ```sh
-cp Scraper/collect-avito.config.example.json Scraper/collect-avito.local.json
+python3 Scraper/skills/collect-avito/scripts/setup_workspace.py --mode disabled
 ```
 
-Заполните его под свою среду:
+С Happ:
+
+```sh
+python3 Scraper/skills/collect-avito/scripts/setup_workspace.py --mode happ
+```
+
+Будут подготовлены JSON-профиль и ссылка для импорта в Happ вне репозитория.
+Существующие файлы не перезаписываются. На Windows используйте найденный
+`py -3`/`python` вместо `python3`. Генератор не устанавливает программы и не
+включает VPN сам: агент помогает выполнить эти шаги по FIRST_RUN.md.
+
+Поддерживаемые настройки:
 
 - Без туннеля: `"tunnel_mode": "disabled"`, `"xray_config_path": null`.
+- Happ: `"tunnel_mode": "happ"`, `"happ_routing_path"` — путь к подготовленному
+  профилю маршрутизации. Импорт и активация описаны в VPN_HAPP.md.
 - С Happ/Xray: `"tunnel_mode": "xray"`, `"xray_config_path"` — абсолютный путь
   к актуальной полной JSON-конфигурации **вне репозитория**.
   Можно использовать `~/…`. Полный конфиг содержит секреты и остаётся локально.
@@ -99,7 +116,7 @@ Aside CLI и доступность REPL, локальные настройки 
 - лимиты просмотра и сохранения, нужные поля;
 - новый каталог в `Data/avito_runs/` или checkpoint незавершённого сбора.
 
-Пример задания — в [корневом README](../README.md#если-нужны-данные).
+Пример задания — в [корневом README](../README.md#как-получить-новую-выгрузку).
 Агент читает навык, запускает preflight и работает в собственной Aside-сессии.
 Независимые чаты со своими сессиями и checkout не ждут друг друга; внутри
 одного сбора карточки открываются последовательно. После смены города перепроверяет профессию
@@ -141,6 +158,8 @@ Aside CLI и доступность REPL, локальные настройки 
 |---|---|
 | [skills/collect-avito/](skills/collect-avito/SKILL.md) | Инструкция агенту и проверочные скрипты |
 | [preflight.py](skills/collect-avito/scripts/preflight.py) | Повторяемая проверка рабочего места |
+| [FIRST_RUN.md](skills/collect-avito/references/FIRST_RUN.md) | Настройка с нуля и пробный CSV |
+| [setup_workspace.py](skills/collect-avito/scripts/setup_workspace.py) | Локальные настройки, JSON и ссылка импорта Happ |
 | [check_capture.py](skills/collect-avito/scripts/check_capture.py) | Проверка структуры и ID сохранённой карточки |
 | [extract.js](extract.js) | Извлечение полей из уже открытой карточки; само не навигирует |
 | [ASIDE_WORKFLOW.md](ASIDE_WORKFLOW.md) | Детали фильтров, чтения, сохранения и восстановления |
