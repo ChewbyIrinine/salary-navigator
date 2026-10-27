@@ -1,0 +1,52 @@
+[
+  {
+    "id": "8341201688",
+    "url": "https://www.avito.ru/moskva/vakansii/vahta_15_smens_3_razov._pitaniemsborschik_8341201688",
+    "title": "Вахта 15 смен/с 3 разов. питанием/сборщик",
+    "salary_raw": "до 250 000 ₽ на руки",
+    "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Охотный ряд, до 5 мин.",
+    "promoted": true,
+    "listing_rank": 1
+  },
+  {
+    "id": "8140791013",
+    "url": "https://www.avito.ru/moskva/vakansii/prodavets_bez_opyta_8140791013",
+    "title": "Продавец без опыта",
+    "salary_raw": "82 800 — 96 600 ₽",
+    "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+    "location_raw": "Солнцево, 11–15 мин.",
+    "promoted": true,
+    "listing_rank": 2
+  },
+  {
+    "id": "8305858279",
+    "url": "https://www.avito.ru/moskva/vakansii/povar-kassir_sotrudnik_restorana_8305858279",
+    "title": "Повар-кассир (Сотрудник ресторана)",
+    "salary_raw": "64 000 — 97 000 ₽",
+    "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+    "location_raw": "Таганская, до 5 мин.",
+    "promoted": true,
+    "listing_rank": 3
+  },
+  {
+    "id": "7971508818",
+    "url": "https://www.avito.ru/moskva/vakansii/voennosluzhaschiy_po_kontraktu_7971508818",
+    "title": "Военнослужащий по контракту",
+    "salary_raw": "410 000 — 1 000 000 ₽ на руки",
+    "params_raw": "Фиксированный график · Без опыта",
+    "location_raw": "Охотный ряд, до 5 мин.",
+    "promoted": true,
+    "listing_rank": 4
+  },
+  {
+    "id": "8301288515",
+    "url": "https://www.avito.ru/moskva/vakansii/vahta_1530_nalichka_s_prozhivaniemkladovschik_8301288515",
+    "title": "Вахта 15/30 Наличка с проживанием/Кладовщик",
+    "salary_raw": "до 200 000 ₽ на руки",
+    "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Театральная, до 5 мин.",
+    "promoted": true,
+    "listing_rank": 5
+  }
+]

@@ -292,6 +292,30 @@ def browser(job, out, diag):
     return read(diag / 'checkpoint.json'), time.perf_counter()-started
 
 
+def reselect(args):
+    """Preserve a mistaken freeze before any card capture, keeping its failure ledger."""
+    out, service, diag = paths(ROOT, args.run_id)
+    ensure_allowed(diag, 'reselect')
+    if not args.reason.strip():
+        raise ValueError('A reason is required')
+    if (service/'manifest.json').exists() or any((out/'raw').glob('*')):
+        raise ValueError('Reselection is only allowed before card capture')
+    archive = service/'superseded-freeze'
+    if archive.exists():
+        raise ValueError('A superseded freeze already exists; inspect it before proceeding')
+    if not (service/'plan.json').is_file() or not (out/'queue.json').is_file():
+        raise ValueError('A complete frozen plan and queue are required')
+    archive.mkdir(parents=True)
+    shutil.copytree(out, archive/'data')
+    shutil.copy2(service/'plan.json', archive/'plan.json')
+    write(archive/'reason.json', {'reason': args.reason, 'at': datetime.now(timezone.utc).isoformat()})
+    shutil.rmtree(out)
+    (service/'plan.json').unlink()
+    for name in ('freeze_request.json', 'listing.json', 'checkpoint.json', 'sandbox.json', 'timing.json'):
+        (diag/name).unlink(missing_ok=True)
+    print('Original freeze archived; failure history and retry budget preserved. Freeze the corrected observed listing.')
+
+
 def freeze(args):
     out, service, diag = paths(ROOT, args.run_id)
     existing = out.exists() or (service/'plan.json').exists() or (diag/'freeze_request.json').exists()
@@ -630,6 +654,8 @@ def publish(args):
     files = [str(out.relative_to(ROOT)), str((service/'plan.json').relative_to(ROOT)),
         str((service/'manifest.json').relative_to(ROOT)), 'Data/dataset/sources.json',
         'Data/dataset/vacancies.csv', 'Data/dataset/manifest.json', 'Data/README.md', 'Data/dataset/README.md']
+    if (service/'superseded-freeze').exists():
+        files.append(str((service/'superseded-freeze').relative_to(ROOT)))
     files += [change['file'] for change in manifest.get('automation_changes', [])]
     staged = git('diff', '--cached', '--name-only').splitlines()
     if any(not any(path == own or path.startswith(own + '/') for own in files) for path in staged):
@@ -658,7 +684,7 @@ def publish(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ['freeze', 'capture', 'finalize', 'publish', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
+    for name in ['freeze', 'capture', 'finalize', 'publish', 'reselect', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
         command = commands.add_parser(name)
         command.add_argument('--run-id', required=True)
         if name in ('freeze', 'capture'):
@@ -686,6 +712,8 @@ def main():
             command.add_argument('--summary', required=True)
             command.add_argument('--title', required=True)
             command.add_argument('--prepare-only', action='store_true')
+        elif name == 'reselect':
+            command.add_argument('--reason', required=True)
         elif name == 'record-error':
             for flag in ['stage', 'message', 'action']:
                 command.add_argument('--' + flag, required=True)
@@ -707,7 +735,7 @@ def main():
         parser.error('batch-size must be positive')
     with ExitStack() as stack:
         try:
-            if args.command in ('freeze', 'capture', 'finalize', 'publish', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
+            if args.command in ('freeze', 'capture', 'finalize', 'publish', 'reselect', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
                 stack.enter_context(operation_locked(paths(ROOT, args.run_id)[2]))
             globals()[args.command.replace('-', '_')](args)
             if args.command in ('freeze', 'capture', 'finalize', 'publish'):

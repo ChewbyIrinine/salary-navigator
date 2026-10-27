@@ -1,0 +1,74 @@
+{
+  "run_id": "flexible_first5_2026-10-28",
+  "geography": "Москва",
+  "profession": "",
+  "segments": "",
+  "filter_evidence": "Observed filtered listing: heading «Работа и вакансии с гибким графиком в Москве»; checkbox «Гибкий» checked in group «График»; profession none selected; query empty. Full URL and snapshot evidence saved in diagnostics/filtered_listing_observation.json.",
+  "listing_url": "https://www.avito.ru/moskva/vakansii/svobodnyy-ASgBAgICAUSQC_j3AQ?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6Ill5WDllRjNGbUlOSHgwb2UiO33_5jcvJgAAAA",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Гибкий",
+      "marker": "params[712]/checkbox/15868",
+      "value": null
+    },
+    {
+      "label": "Гибкий",
+      "marker": "params[712]/checkbox/toggle",
+      "value": "15868"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "listing_sha256": "ce5063eeafc9ab899ec47c79a3f9a002de8e9051b2420267d03a0b0de6661625",
+  "selection_mode": "first_N_unique_on_frozen_listing",
+  "limit": 5,
+  "created_at": "2026-10-27T23:05:14.663604+00:00",
+  "instruction_version": "1.7.6",
+  "extractor_sha256": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+  "instruction_sha256": "262e5c406b5aa26a2e840b78696eff3859cf1288d55cc5eb6e86a67422b213f1",
+  "code_git_commit": "a1487c7a00b1665e4dfb432cb3190d5f2f459d5b",
+  "setup_seconds": 2.8539354589302093,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/extract.js": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+    "Scraper/skills/collect-avito/SKILL.md": "262e5c406b5aa26a2e840b78696eff3859cf1288d55cc5eb6e86a67422b213f1",
+    "Scraper/skills/collect-avito/scripts/run.py": "9419d9584905e407d39cc5754212a16e6577f020db4433427cd479069c983638",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+    "Scraper/skills/collect-avito/scripts/preflight.py": "c936fb4f63780090b162e14b8e126c1089fe9ba1974459948b46035546b9d758"
+  },
+  "uncommitted_automation_files": [
+    "Scraper/skills/collect-avito/SKILL.md",
+    "Scraper/skills/collect-avito/scripts/run.py"
+  ]
+}

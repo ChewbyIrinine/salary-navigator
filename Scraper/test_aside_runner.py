@@ -36,6 +36,34 @@ def raw(identity='123'):
 
 
 class RunnerTests(unittest.TestCase):
+    def test_reselect_preserves_freeze_and_failure_budget_and_rejects_capture(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'example')
+            runner.write(out/'listing.json', {'source': 'original'})
+            runner.write(out/'queue.json', [{'id': '123'}])
+            (out/'raw').mkdir()
+            runner.write(service/'plan.json', {'listing': 'original'})
+            runner.write(diag/'failures.json', {'events': [], 'stages': {}, 'failures': 4,
+                'state': 'RECOVERED', 'retry_limit': 5, 'retries_started': 4,
+                'budget_start_failures': 0, 'retry_started': False})
+            before = (diag/'failures.json').read_bytes()
+            args = argparse.Namespace(run_id='example', reason='Incorrect listing')
+            runner.reselect(args)
+            self.assertEqual((diag/'failures.json').read_bytes(), before)
+            self.assertEqual(runner.read(service/'superseded-freeze/data/listing.json'), {'source': 'original'})
+            self.assertEqual(runner.read(service/'superseded-freeze/plan.json'), {'listing': 'original'})
+            self.assertFalse(out.exists())
+            with self.assertRaises(ValueError):
+                runner.reselect(args)
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'example')
+            runner.write(out/'raw/123.json', {'id': '123'})
+            runner.write(out/'queue.json', [])
+            runner.write(service/'plan.json', {})
+            with self.assertRaisesRegex(ValueError, 'before card capture'):
+                runner.reselect(args)
+            self.assertTrue((out/'raw/123.json').exists())
+
     def test_city_anomaly_can_be_missing_or_explicit_search_fallback(self):
         data = dict(raw(), location_raw=['Свердловская обл., Белоярский муниципальный округ, промышленный район Прохладный'])
         regions = {'Екатеринбург':'Свердловская область'}
