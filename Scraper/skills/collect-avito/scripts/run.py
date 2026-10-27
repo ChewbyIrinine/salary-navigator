@@ -1,6 +1,7 @@
 """Reusable Aside collection: freeze, capture/resume, finalize, publish. Run --help."""
 import argparse
 import csv
+from contextlib import ExitStack
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -21,11 +22,11 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(SCRIPTS))
 from utils.build_dataset import build
 from check_capture import check
-from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired, authorize_offline
+from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired, authorize_offline, authorize_browser, operation_locked
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.5'
+VERSION = '1.7.6'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -294,7 +295,7 @@ def browser(job, out, diag):
 def freeze(args):
     out, service, diag = paths(ROOT, args.run_id)
     existing = out.exists() or (service/'plan.json').exists() or (diag/'freeze_request.json').exists()
-    ensure_allowed(diag, 'freeze', getattr(args, 'retry_reason', None))
+    ensure_allowed(diag, 'freeze', getattr(args, 'retry_reason', None), action=True)
     if existing and not args.resume:
         raise ValueError('Run already exists; capture resumes it, new collection needs a new run_id')
     if (service / 'manifest.json').exists() or (service / 'plan.json').exists():
@@ -342,7 +343,7 @@ def freeze(args):
 
 def capture(args):
     out, service, diag = paths(ROOT, args.run_id)
-    ensure_allowed(diag, 'capture', getattr(args, 'retry_reason', None))
+    ensure_allowed(diag, 'capture', getattr(args, 'retry_reason', None), action=True)
     if (service / 'manifest.json').exists():
         raise ValueError('Completed run is immutable')
     plan = read(service / 'plan.json')
@@ -479,7 +480,7 @@ def reviewed_row(data, item, regions, plan, override=None):
 
 def finalize(args):
     out, service, diag = paths(ROOT, args.run_id)
-    ensure_allowed(diag, 'finalize', getattr(args, 'retry_reason', None))
+    ensure_allowed(diag, 'finalize', getattr(args, 'retry_reason', None), action=True)
     if (service / 'manifest.json').exists():
         raise ValueError('Finalized run exists; do not overwrite')
     started = time.perf_counter()
@@ -599,9 +600,15 @@ def resume_offline(args):
     print('Human instruction recorded: finalize/publish allowed; browser remains stopped')
 
 
+def resume_browser(args):
+    _, _, diag = paths(ROOT, args.run_id)
+    authorize_browser(diag, args.human_instruction, args.authorization_id)
+    print('Human browser authorization recorded; history retained, bounded retry budget active')
+
+
 def publish(args):
     out, service, diag = paths(ROOT, args.run_id)
-    ensure_allowed(diag, 'publish', getattr(args, 'retry_reason', None))
+    ensure_allowed(diag, 'publish', getattr(args, 'retry_reason', None), action=True)
     manifest = read(service / 'manifest.json')
     if manifest['status'] != 'complete':
         raise ValueError('Only completed exports can be published')
@@ -651,7 +658,7 @@ def publish(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ['freeze', 'capture', 'finalize', 'publish', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline']:
+    for name in ['freeze', 'capture', 'finalize', 'publish', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
         command = commands.add_parser(name)
         command.add_argument('--run-id', required=True)
         if name in ('freeze', 'capture'):
@@ -688,29 +695,34 @@ def main():
         elif name in ('check-stage', 'stage-ok'):
             command.add_argument('--stage', required=True)
             command.add_argument('--retry-reason' if name == 'check-stage' else '--evidence', required=name == 'stage-ok')
-        elif name == 'resume-offline':
+        elif name in ('resume-offline', 'resume-browser'):
             command.add_argument('--human-instruction', required=True)
+            if name == 'resume-browser':
+                command.add_argument('--authorization-id', required=True, help='Stable ID for this fresh human instruction; reuse on CLI retries')
         else:
             for flag in ['file', 'reason', 'validation']:
                 command.add_argument('--' + flag, required=True)
     args = parser.parse_args()
     if args.command == 'capture' and args.batch_size < 1:
         parser.error('batch-size must be positive')
-    try:
-        globals()[args.command.replace('-', '_')](args)
-        if args.command in ('freeze', 'capture', 'finalize', 'publish'):
-            _, _, diag = paths(ROOT, args.run_id)
-            succeeded(diag, args.command, 'Command completed successfully')
-    except HumanRequired as error:
-        parser.exit(2, f'{error}\n')
-    except (ValueError, RuntimeError, OSError, subprocess.CalledProcessError) as error:
-        if args.command in ('freeze', 'capture', 'finalize', 'publish'):
-            _, _, diag = paths(ROOT, args.run_id)
-            event = record_failure(diag, args.command, str(error), args.command,
-                url=getattr(args,'url',None), agent=getattr(args,'agent_model',None),
-                immediate=getattr(error,'immediate',False))
-            print(json.dumps(event, ensure_ascii=False), file=sys.stderr)
-        parser.exit(2, f'{error}\n')
+    with ExitStack() as stack:
+        try:
+            if args.command in ('freeze', 'capture', 'finalize', 'publish', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
+                stack.enter_context(operation_locked(paths(ROOT, args.run_id)[2]))
+            globals()[args.command.replace('-', '_')](args)
+            if args.command in ('freeze', 'capture', 'finalize', 'publish'):
+                _, _, diag = paths(ROOT, args.run_id)
+                succeeded(diag, args.command, 'Command completed successfully')
+        except HumanRequired as error:
+            parser.exit(2, f'{error}\n')
+        except (ValueError, RuntimeError, OSError, subprocess.CalledProcessError) as error:
+            if args.command in ('freeze', 'capture', 'finalize', 'publish'):
+                _, _, diag = paths(ROOT, args.run_id)
+                event = record_failure(diag, args.command, str(error), args.command,
+                    url=getattr(args,'url',None), agent=getattr(args,'agent_model',None),
+                    immediate=getattr(error,'immediate',False))
+                print(json.dumps(event, ensure_ascii=False), file=sys.stderr)
+            parser.exit(2, f'{error}\n')
 
 
 if __name__ == '__main__':

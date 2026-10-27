@@ -1,6 +1,7 @@
 """Offline collector regressions; no network, Aside or GitHub required."""
 import argparse
 import csv
+import sys
 import importlib.util
 import json
 from pathlib import Path
@@ -175,6 +176,31 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'immutable'):
                 runner.import_sandbox(sandbox, out, diag)
             self.assertEqual(runner.read(out / 'raw/123.json')['title'], 'Работа')
+
+    def test_cli_human_resume_and_duplicate_checks_preserve_demo_history(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); _, _, diag = runner.paths(root, 'demo')
+            runner.record_failure(diag, 'filters', 'CDP timeout', 'attach tab', immediate=True)
+            with patch.object(runner, 'ROOT', root):
+                for arguments in [
+                    ['resume-browser', '--human-instruction', 'Continue the same five vacancies', '--authorization-id', 'human-demo'],
+                    ['check-stage', '--stage', 'filters'],
+                ]:
+                    with patch.object(sys, 'argv', ['run.py', arguments[0], '--run-id', 'demo', *arguments[1:]]):
+                        runner.main()
+                runner.record_failure(diag, 'filters', 'Transient read', 'read')
+                for _ in range(2):
+                    with patch.object(sys, 'argv', ['run.py','check-stage','--run-id','demo',
+                            '--stage','filters','--retry-reason','Open own tab']):
+                        runner.main()
+                with patch.object(sys, 'argv', ['run.py','stage-ok','--run-id','demo',
+                        '--stage','filters','--evidence','Snapshot confirms listing']):
+                    runner.main()
+                runner.ensure_allowed(diag, 'freeze')
+            ledger = runner.read(diag/'failures.json')
+            self.assertEqual(ledger['failures'], 2)
+            self.assertEqual(ledger['retries_started'], 1)
+            self.assertEqual(ledger['state'], 'RECOVERED')
 
     def test_profession_is_observed_deduplicated_and_not_inferred_from_other_fields(self):
         listing = dict(selected_controls=courier_controls(), heading='Курьер')
