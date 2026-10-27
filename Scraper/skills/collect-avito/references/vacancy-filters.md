@@ -1,0 +1,114 @@
+# Проверенный путь: профессия и город внутри вакансий
+
+27.10.2026 воспроизведён Terra, затем отдельно **Luna low без ошибок** на
+странице пользователя `/moskva/vakansii?context=…`. Обе проверки подтвердили
+Екатеринбург, отмеченную профессию, пустой поиск; карточки не открывались.
+Сначала выбирается профессия, затем наблюдённая ссылка города, сохраняющая
+раздел и профессию. Никаких переходов через главную или общий каталог городов.
+
+## Карта наблюдённых элементов
+
+```xml
+<page path="/moskva/vakansii">
+  <form>
+    <profession>
+      <label role="checkbox" data-marker="params[144170]/checkbox/22283175"
+             aria-checked="false|true">
+        <input name="Водитель грузового транспорта" value="22283175" />
+      </label>
+    </profession>
+  </form>
+  <a title="Екатеринбург" href="/ekaterinburg/vakansii/…">Екатеринбург</a>
+  <footer>
+    <a data-marker="footer/regions/seo-link" href="/ekaterinburg">Екатеринбург</a>
+  </footer>
+</page>
+```
+
+Это компактная карта фактически наблюдённых узлов, не полный DOM и не гарантия
+неизменности интерфейса. Номера refs `e…` динамические: брать из свежего snapshot.
+Ссылку из `footer/regions/seo-link` не выбирать: она теряет контекст вакансий.
+`avito.st` не является страницей выдачи или маршрутом выбора города.
+
+## Готовые действия для Luna
+
+Используйте **один интерактивный** `aside repl`; JS передавайте в stdin через
+`write_stdin(chars=...)`. Не вкладывайте CSS-селекторы в shell-строки: это уже
+вызывало ошибку quoting. Актуальные правила `/browse` остаются обязательными.
+
+1. `var p = await openTab(startURL)` — точная ссылка пользователя на `/vakansii`.
+2. `console.log((await snapshot(p,{selector:'form',interactive:true})).tree)`.
+3. После подтверждения узла флажка профессии в snapshot:
+
+   ```js
+   var professionControl = p.locator('label[role="checkbox"][data-marker="params[144170]/checkbox/22283175"]');
+   if (await professionControl.getAttribute('aria-checked') !== 'true') {
+     await professionControl.click();
+   }
+   console.log((await snapshot(p,{selector:'form',interactive:true})).tree);
+   ```
+
+   Флажок должен быть `[checked]`. Поле «Должность» — текстовый поиск, его не
+   заполнять вместо фильтра профессии. Если список профессий скрыт, использовать
+   его фактический disclosure из snapshot; не переключаться на популярный тег.
+4. Прочитать реальные городские ссылки на обновлённой профессиональной выдаче:
+
+   ```js
+   var cityLinks = await p.evaluate(() => Array.from(document.querySelectorAll('a[title="Екатеринбург"]'))
+     .map(a => ({title:a.title, href:a.getAttribute('href'), marker:a.getAttribute('data-marker')})));
+   console.log(cityLinks);
+   ```
+
+   Выбрать наблюдённую ссылку с `/ekaterinburg/vakansii/` и той же профессией.
+   В успешной проверке href был
+   `/ekaterinburg/vakansii/voditel_gruzovogo_transporta-ASgBAgICAUTUzBHOjqAV`.
+   Это пример результата, не шаблон для конструирования URL.
+5. Кликнуть именно по обнаруженному href:
+
+   ```js
+   // observedCityHref — точное значение из cityLinks, проверенное на шаге 4.
+   await p.locator('a[title="Екатеринбург"][href='+JSON.stringify(observedCityHref)+']').click();
+   console.log((await snapshot(p,{selector:'form',interactive:true})).tree);
+   ```
+
+6. Подтвердить одновременно:
+
+   ```js
+   console.log(await p.evaluate(() => {
+     const input = Array.from(document.querySelectorAll('input')).find(e => e.value === '22283175');
+     const search = document.querySelector('input[placeholder="Поиск по объявлениям"]');
+     return {url:location.href, heading:document.querySelector('h1')?.innerText,
+       profession:input?.name, checked:input?.checked,
+       aria_checked:input?.closest('label')?.getAttribute('aria-checked'), query:search?.value};
+   }));
+   ```
+
+   Проверенный результат: URL в `/ekaterinburg/vakansii/`, heading
+   «Вакансии по профессии Водитель грузового транспорта в Екатеринбурге»,
+   checked=true, aria_checked=true, query="". Неизвестное query не равно пустому.
+   Только после этой проверки передавать URL в `run.py freeze`.
+
+Для другой профессии/города наблюдайте их фактические name/value/href, не
+подставляйте неизвестные ID. Если нужной городской ссылки нет, используйте
+только наблюдённый географический контроль **формы вакансий** «Город, район,
+метро»/«Москва, район, метро». Верхняя общая кнопка города — другой контроль.
+Путь через форму: «Город или регион» → фактическая подсказка → «Показать …»;
+он исторически встречался, но текущий успех выше получен городской ссылкой
+внутри вакансий. Его не нужно заново заменять исследованием модального окна.
+Неудачный ввод города — ошибка, а не разрешение пробовать другие страницы.
+
+## Ошибки и новые действия
+
+Первую ошибку API, quoting, отсутствующий элемент или неприменённый фильтр
+сразу записать через `run.py record-error --stage filters`. Затем разрешена
+только одна коррекция с объяснением, что конкретно изменилось, через
+`check-stage --stage filters --retry-reason '…'`. Успех подтвердить фактическим
+snapshot и `stage-ok --stage filters --evidence '…'`. Счётчик ошибок не сбрасывать.
+После второй ошибки в любом этапе run_id — NEEDS_HUMAN, краткий отчёт человеку
+и никаких новых кликов/навигаций/обходов. Передача Terra не даёт новых попыток.
+
+Если понадобилось написать новый JS/Python-скрипт или добавить действие,
+сохранить его как переиспользуемый файл проекта, описать точный вызов здесь
+или в SKILL.md, добавить проверку и включить всё в тот же PR. Не оставлять
+единственный работающий вариант в /tmp или истории чата. Неизменённые уже
+проверенные шаги повторно не переписывать.

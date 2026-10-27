@@ -20,11 +20,18 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(SCRIPTS))
 from utils.build_dataset import build
 from check_capture import check
+from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.5'
+VERSION = '1.5.1'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
-    'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py')]
+    'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py')]
+
+
+class CollectionStopped(RuntimeError):
+    def __init__(self, message, state):
+        super().__init__(message)
+        self.immediate = state in ('NEEDS_HUMAN', 'REVIEW_REQUIRED')
 
 
 def read(path):
@@ -187,7 +194,8 @@ def browser(job, out, diag):
 
 def freeze(args):
     out, service, diag = paths(ROOT, args.run_id)
-    existing = out.exists() or service.exists()
+    existing = out.exists() or (service/'plan.json').exists() or (diag/'freeze_request.json').exists()
+    ensure_allowed(diag, 'freeze', getattr(args, 'retry_reason', None))
     if existing and not args.resume:
         raise ValueError('Run already exists; capture resumes it, new collection needs a new run_id')
     if (service / 'manifest.json').exists() or (service / 'plan.json').exists():
@@ -209,7 +217,7 @@ def freeze(args):
     else:
         cp, _ = browser(dict(mode='freeze', url=args.url, completed_ids=[]), out, diag)
     if cp['state'] != 'READY':
-        raise ValueError(f'Stopped: {cp["state"]}; inspect local diagnostics')
+        raise CollectionStopped(f'Stopped: {cp["state"]}; inspect local diagnostics', cp['state'])
     listing = read(diag / 'listing.json')
     queue = queue_from(listing, args.limit)
     write(out / 'listing.json', listing)
@@ -233,6 +241,7 @@ def freeze(args):
 
 def capture(args):
     out, service, diag = paths(ROOT, args.run_id)
+    ensure_allowed(diag, 'capture', getattr(args, 'retry_reason', None))
     if (service / 'manifest.json').exists():
         raise ValueError('Completed run is immutable')
     preflight()
@@ -263,7 +272,7 @@ def capture(args):
     write(diag / 'checkpoint.json', cp2)
     print(json.dumps(dict(cp2, captured=len(cp2['completed_ids']), remaining=len(queue)-len(cp2['completed_ids']))))
     if cp2['state'] != 'CAPTURED':
-        raise ValueError('Stopped; inspect diagnostics and repair the shared collector before resuming')
+        raise CollectionStopped('Stopped; inspect diagnostics and repair the shared collector before resuming', cp2['state'])
 
 
 def placement(data, item, regions, override=None):
@@ -334,6 +343,7 @@ def reviewed_row(data, item, regions, plan, override=None):
 
 def finalize(args):
     out, service, diag = paths(ROOT, args.run_id)
+    ensure_allowed(diag, 'finalize', getattr(args, 'retry_reason', None))
     if (service / 'manifest.json').exists():
         raise ValueError('Finalized run exists; do not overwrite')
     started = time.perf_counter()
@@ -415,15 +425,30 @@ def note_change(args):
     write(path, changes)
 
 
+def record_error(args):
+    _, _, diag = paths(ROOT, args.run_id)
+    print(json.dumps(record_failure(diag, args.stage, args.message, args.action,
+        args.url, args.agent, args.immediate), ensure_ascii=False))
+
+
+def check_stage(args):
+    _, _, diag = paths(ROOT, args.run_id)
+    ensure_allowed(diag, args.stage, args.retry_reason)
+
+
+def stage_ok(args):
+    _, _, diag = paths(ROOT, args.run_id)
+    succeeded(diag, args.stage, args.evidence)
+
+
 def publish(args):
     out, service, diag = paths(ROOT, args.run_id)
+    ensure_allowed(diag, 'publish', getattr(args, 'retry_reason', None))
     manifest = read(service / 'manifest.json')
     if manifest['status'] != 'complete':
         raise ValueError('Only completed exports can be published')
     def git(*argv):
         return subprocess.check_output(['git', *argv], cwd=ROOT, text=True).strip()
-    if git('diff', '--cached', '--name-only'):
-        raise ValueError('Stage is not empty; inspect unrelated changes first')
     git('fetch', 'origin', 'main')
     git('merge-base', '--is-ancestor', 'origin/main', 'HEAD')
     if git('branch', '--show-current') == 'main':
@@ -439,6 +464,9 @@ def publish(args):
         str((service/'manifest.json').relative_to(ROOT)), 'Data/dataset/sources.json',
         'Data/dataset/vacancies.csv', 'Data/dataset/manifest.json', 'Data/README.md', 'Data/dataset/README.md']
     files += [change['file'] for change in manifest.get('automation_changes', [])]
+    staged = git('diff', '--cached', '--name-only').splitlines()
+    if any(not any(path == own or path.startswith(own + '/') for own in files) for path in staged):
+        raise ValueError('Stage contains unrelated changes; inspect before publication')
     git('add', '--', *files)
     body = diag / 'pr.md'
     subprocess.run([sys.executable, 'utils/dataset_pr.py', '--run-id', args.run_id,
@@ -447,20 +475,27 @@ def publish(args):
     if args.prepare_only:
         print(f'Staged explicit run files; review body at {body}')
         return
-    git('commit', '-m', f'data: {args.run_id} ({manifest["coverage"]["accepted"]} вакансий)')
+    # A retry after add/commit/push must resume, not fail because our own stage is present.
+    if git('diff', '--cached', '--name-only'):
+        git('commit', '-m', f'data: {args.run_id} ({manifest["coverage"]["accepted"]} вакансий)')
     git('push', '-u', 'origin', 'HEAD')
-    result = subprocess.check_output(['gh', 'pr', 'create', '--base', 'main', '--title', args.title,
-                                      '--body-file', str(body)], cwd=ROOT, text=True)
+    existing = subprocess.run(['gh', 'pr', 'view', '--json', 'url,state'], cwd=ROOT, text=True, capture_output=True)
+    if existing.returncode == 0 and json.loads(existing.stdout).get('state') == 'OPEN':
+        result = json.loads(existing.stdout)['url']
+    else:
+        result = subprocess.check_output(['gh', 'pr', 'create', '--base', 'main', '--title', args.title,
+                                          '--body-file', str(body)], cwd=ROOT, text=True)
     print(result.strip())
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ['freeze', 'capture', 'finalize', 'publish', 'note-change']:
+    for name in ['freeze', 'capture', 'finalize', 'publish', 'note-change', 'record-error', 'check-stage', 'stage-ok']:
         command = commands.add_parser(name)
         command.add_argument('--run-id', required=True)
         if name == 'freeze':
+            command.add_argument('--retry-reason')
             command.add_argument('--resume', action='store_true', help='Recover an interrupted freeze with identical inputs')
             command.add_argument('--agent-model', default=None, help='Actual browser agent model, not a model switch')
             command.add_argument('--url', required=True, help='Observed listing URL after filter confirmation')
@@ -470,14 +505,26 @@ def main():
             command.add_argument('--segments', default='')
             command.add_argument('--filter-evidence', required=True, help='What was visibly confirmed in the listing')
         elif name == 'capture':
+            command.add_argument('--retry-reason')
             command.add_argument('--batch-size', type=int, default=30)
         elif name == 'finalize':
+            command.add_argument('--retry-reason')
             command.add_argument('--review-model', default=None, help='Actual reviewer model, not a model switch')
             command.add_argument('--placements', type=Path, help='Reviewed ID -> city,region,evidence JSON for unknown places')
         elif name == 'publish':
+            command.add_argument('--retry-reason')
             command.add_argument('--summary', required=True)
             command.add_argument('--title', required=True)
             command.add_argument('--prepare-only', action='store_true')
+        elif name == 'record-error':
+            for flag in ['stage', 'message', 'action']:
+                command.add_argument('--' + flag, required=True)
+            command.add_argument('--url')
+            command.add_argument('--agent')
+            command.add_argument('--immediate', action='store_true')
+        elif name in ('check-stage', 'stage-ok'):
+            command.add_argument('--stage', required=True)
+            command.add_argument('--retry-reason' if name == 'check-stage' else '--evidence', required=name == 'stage-ok')
         else:
             for flag in ['file', 'reason', 'validation']:
                 command.add_argument('--' + flag, required=True)
@@ -486,7 +533,18 @@ def main():
         parser.error('batch-size must be positive')
     try:
         globals()[args.command.replace('-', '_')](args)
+        if args.command in ('freeze', 'capture', 'finalize', 'publish'):
+            _, _, diag = paths(ROOT, args.run_id)
+            succeeded(diag, args.command, 'Command completed successfully')
+    except HumanRequired as error:
+        parser.exit(2, f'{error}\n')
     except (ValueError, RuntimeError, OSError, subprocess.CalledProcessError) as error:
+        if args.command in ('freeze', 'capture', 'finalize', 'publish'):
+            _, _, diag = paths(ROOT, args.run_id)
+            event = record_failure(diag, args.command, str(error), args.command,
+                url=getattr(args,'url',None), agent=getattr(args,'agent_model',None),
+                immediate=getattr(error,'immediate',False))
+            print(json.dumps(event, ensure_ascii=False), file=sys.stderr)
         parser.exit(2, f'{error}\n')
 
 
