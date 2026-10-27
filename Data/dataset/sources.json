@@ -149,6 +149,16 @@
         "Москва": "Москва"
       },
       "enrichment_status": "not_run"
+    },
+    {
+      "run_id": "flexible_first5_2026-10-28",
+      "source": "avito",
+      "path": "Data/avito_runs/flexible_first5_2026-10-28/exports/vacancies_flat.csv",
+      "sha256": "74384d2e00b5209b5d4c4ab129348fac57e1ff8b1272d7edc04164ac08aaf5cf",
+      "placement_regions": {
+        "Москва": "Москва"
+      },
+      "enrichment_status": "not_run"
     }
   ]
 }

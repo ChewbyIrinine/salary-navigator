@@ -1,0 +1,52 @@
+[
+  {
+    "id": "8305858279",
+    "url": "https://www.avito.ru/moskva/vakansii/povar-kassir_sotrudnik_restorana_8305858279",
+    "title": "Повар-кассир (Сотрудник ресторана)",
+    "salary_raw": "64 000 — 97 000 ₽",
+    "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+    "location_raw": "Таганская, до 5 мин.",
+    "promoted": true,
+    "listing_rank": 1
+  },
+  {
+    "id": "8355310440",
+    "url": "https://www.avito.ru/moskva/vakansii/sotrudnik_restorana_rostics_rostiks_8355310440",
+    "title": "Сотрудник ресторана Rostic's (Ростикс)",
+    "salary_raw": "до 105 000 ₽",
+    "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+    "location_raw": "Охотный ряд, до 5 мин.",
+    "promoted": true,
+    "listing_rank": 2
+  },
+  {
+    "id": "8484866562",
+    "url": "https://www.avito.ru/moskva/vakansii/sotrudnik_supermarketa_zp_kazhduyu_nedelyu_po_tk_8484866562",
+    "title": "Сотрудник супермаркета: (З/П каждую неделю, по ТК)",
+    "salary_raw": "от 70 000 ₽ на руки",
+    "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Вавиловская, до 5 мин.",
+    "promoted": true,
+    "listing_rank": 3
+  },
+  {
+    "id": "8274016611",
+    "url": "https://www.avito.ru/moskva/vakansii/kurer_vydaem_besplatnyy_velosiped_8274016611",
+    "title": "Курьер / выдаем бесплатный велосипед",
+    "salary_raw": "до 190 000 ₽ на руки",
+    "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Нахимовский проспект, 6–10 мин.",
+    "promoted": true,
+    "listing_rank": 4
+  },
+  {
+    "id": "7897020363",
+    "url": "https://www.avito.ru/moskva/vakansii/kurer_v_dodo_pitstsa_7897020363",
+    "title": "Курьер в Додо Пицца",
+    "salary_raw": "60 000 — 150 000 ₽ на руки",
+    "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Коломенская, 6–10 мин.",
+    "promoted": true,
+    "listing_rank": 5
+  }
+]
