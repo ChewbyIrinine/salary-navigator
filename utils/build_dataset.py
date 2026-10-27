@@ -67,8 +67,8 @@ def build(root, registry):
             seen.add(identity)
             if row["analysis_status"] != "validated" or row["export_eligibility"] not in {"included", "fit_review_required"}:
                 raise ValueError(f"Unreviewed record: {path}:{identity}")
-            if not row["source_url"] or not row["city"] or not row["profession"]:
-                raise ValueError(f"Missing URL/city/profession: {identity}")
+            if not row["source_url"] or not row["city"]:
+                raise ValueError(f"Missing URL/city: {identity}")
             observed = timestamp(row["observed_at"])
             cities = parts(row["city"])
             regions = entry["placement_regions"]

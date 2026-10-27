@@ -121,6 +121,14 @@ class DatasetTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "region mapping"):
             self.result()
 
+    def test_collection_without_profession_filter_preserves_empty_value(self):
+        row = self.row()
+        row["profession"] = ""
+        row["segments"] = "moscow_all_professions"
+        self.add("unfiltered", [row])
+        self.assertEqual(self.result()[0]["profession"], "")
+        self.assertEqual(self.result()[0]["segments"], "moscow_all_professions")
+
 
 if __name__ == "__main__":
     unittest.main()

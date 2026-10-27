@@ -1,0 +1,67 @@
+{
+  "run_id": "courier_next5_2026-10-26",
+  "published_on": "2026-10-27",
+  "geography": "Москва",
+  "profession_filter": "Курьер",
+  "selection_mode": "first_5_new_unique_ids_in_listing_order",
+  "max_detail_visits": 5,
+  "max_saved": 5,
+  "source_listing_url": "https://www.avito.ru/moskva/vakansii/kurer-ASgBAgICAUTUzBHK64YD/tag/kurer?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlJLZ2FFUFVMVGloR1NRbHciO302UkxiJgAAAA",
+  "selected_controls": [
+    {
+      "label": "Курьер",
+      "marker": "params[144170]/checkbox/3201765",
+      "value": null
+    },
+    {
+      "label": "Курьер",
+      "marker": "params[144170]/checkbox/toggle",
+      "value": "3201765"
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "enrichment_status": "not_run",
+  "preflight": {
+    "aside_ready": true,
+    "local_config": "missing",
+    "user_confirmed_working_config": true,
+    "live_route_verified": false
+  },
+  "code_git_commit": "c2865b72409e3b66f4672e0c7c5d94c3865e9a33",
+  "instruction_version": "1.2",
+  "instruction_final_working_tree_sha256": "051970c664e4eea733bf28f0e33399d74333d754e69266236128f900349891c8",
+  "instruction_note": "Skill revised during publication task; working-tree hash recorded separately from baseline commit",
+  "extractor_sha256": "177d3b634d52d114c2beaa9669934c6b5b2d6220dd19c0a9637af0585429449d",
+  "agent_model_and_settings": null,
+  "task_url": null,
+  "research_url": null
+}
