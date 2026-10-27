@@ -1,9 +1,19 @@
 import unittest
 
-from utils.dataset_pr import browser_evidence, render
+from utils.dataset_pr import browser_evidence, render, validate_automation_changes
 
 
 class PublicationTests(unittest.TestCase):
+    def test_automation_notes_cover_every_file_test_and_skill(self):
+        def note(path):
+            return dict(file=path, reason='Новый шаблон', validation='Тест пройден')
+        files = ['Scraper/extract.js', 'Scraper/test_aside_runner.py', 'Scraper/skills/collect-avito/SKILL.md']
+        validate_automation_changes([note(path) for path in files], files)
+        for changes in [[], [note(files[0])], [note(files[0]), note(files[1])]]:
+            with self.assertRaises(ValueError):
+                validate_automation_changes(changes, files)
+        with self.assertRaisesRegex(ValueError, 'regression'):
+            validate_automation_changes([note(files[0]), note(files[2])], [files[0]])
     def test_new_and_repeated_observations_and_new_columns(self):
         before = (["source", "id"], [{"source": "avito", "id": "1"}])
         after = (["source", "id", "Цех"], [

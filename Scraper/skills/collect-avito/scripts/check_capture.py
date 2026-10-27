@@ -20,6 +20,10 @@ def check(raw, expected_id):
         errors.append('description is empty or missing')
     if not isinstance(raw.get('fields'), list):
         errors.append('fields must be a list; empty is distinct from unread')
+    elif any(not isinstance(field, dict) or
+             any(not isinstance(field.get(key), str) or not field[key].strip() for key in ('name', 'value'))
+             for field in raw['fields']):
+        errors.append('fields contain missing or empty names/values')
     try:
         observed = datetime.datetime.fromisoformat(raw.get('observed_at', '').replace('Z', '+00:00'))
         if observed.tzinfo is None:
