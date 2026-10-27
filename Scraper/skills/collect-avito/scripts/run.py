@@ -21,11 +21,11 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(SCRIPTS))
 from utils.build_dataset import build
 from check_capture import check
-from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired
+from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired, authorize_offline
 from preflight import find_aside
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.6.1'
+VERSION = '1.6.2'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py')]
 
@@ -317,14 +317,20 @@ def placement(data, item, regions, override=None):
         city, region = override['city'], override['region']
         if norm(override.get('evidence', '')) not in location or not override.get('evidence'):
             raise ValueError('Placement override requires an exact quote from visible location')
-        if not re.search(r'(?<!\w)' + re.escape(city) + r'(?!\w)', location):
+        if not region:
+            raise ValueError('Placement region is required')
+        if not city and override.get('city_unknown_confirmed') is not True:
+            raise ValueError('Empty city requires explicit confirmation')
+        if city and not re.search(r'(?<!\w)' + re.escape(city) + r'(?!\w)', location):
             raise ValueError('Placement city must occur in visible location')
         return city, region, location
-    # Match whole locality components only. Never match a city name inside a street/object.
+    # The first line is the address; later lines are nearby metro/district UI.
+    # Match whole locality components only, stopping before street/object names.
     matches = []
-    for component in re.split(r'[,;\n]', '\n'.join(data.get('location_raw', []))):
+    address = '\n'.join(data.get('location_raw', [])).split('\n', 1)[0]
+    for component in re.split(r'[,;]', address):
         component = norm(component)
-        if re.search(r'(?:^|\s)(?:ул\.|улица|проспект|пр-т|шоссе|пер\.|переулок|дом)(?:\s|$)|^д\.\s*\d', component, re.I):
+        if re.search(r'(?:^|\s)(?:ул\.|улица|проспект|пр-т|шоссе|пер\.|переулок|пл\.|площадь|тракт|линия|дом)(?:\s|$)|^д\.\s*\d', component, re.I):
             break
         locality = re.sub(r'^(?:г\.|город |пос\.|посёлок |поселок |д\.|деревня |с\.|село |пгт\.?\s)\s*', '', component)
         if locality in regions:
@@ -354,7 +360,31 @@ def reviewed_row(data, item, regions, plan, override=None):
         if not name or not value or name in fields:
             raise ValueError('Empty or duplicate parameter')
         fields[name] = value
-    city, region, location = placement(data, item, regions, override)
+    anomaly = ''
+    city_source = 'card'
+    try:
+        city, region, location = placement(data, item, regions, override)
+        if not city:
+            city_source = 'missing'
+            anomaly = 'city_not_visible_in_card'
+    except ValueError as error:
+        policy = plan.get('city_anomaly_policy')
+        if override is not None or policy not in ('blank', 'search_filter'):
+            raise
+        anomaly = str(error)
+        location = norm('\n'.join(data.get('location_raw', [])))
+        city, region, city_source = '', '', 'missing'
+        # Region can still be explicit even when the locality is not.
+        region_matches = {value for value in regions.values()
+            if value in location or value.replace('область','обл.') in location}
+        if len(region_matches) == 1:
+            region = region_matches.pop()
+        if policy == 'search_filter':
+            search_city = plan.get('geography')
+            if search_city not in regions or not plan.get('filter_evidence'):
+                raise ValueError('Search fallback requires a confirmed single city and filter evidence')
+            avito_url(plan['listing_url'])
+            city, region, city_source = search_city, regions[search_city], 'search_filter'
     row = dict(id=data['id'], city=city, profession=plan.get('profession') or '',
         segments=plan.get('segments') or '', title=data['title'], salary_raw=data.get('salary_raw') or '',
         source_url=data['source_url'], observed_at=data['observed_at'], description=data['description'],
@@ -365,13 +395,17 @@ def reviewed_row(data, item, regions, plan, override=None):
         read_status_parameters='observed', read_status_description='observed', read_status_location='observed',
         read_limitations='rendered_DOM_only; contact_controls_not_opened; live_route_unverified',
         enrichment_status='not_run', enriched_fields='', enrichment_version='')
+    row.update(city__source=city_source,
+               city__evidence=plan['listing_url'] if city_source == 'search_filter' else location,
+               city_anomaly=anomaly)
     # Parameter labels may be new, but cannot replace identity or provenance.
     if set(fields) & set(row):
         raise ValueError('Parameter collides with metadata')
     row.update(fields)
     review = dict(id=data['id'], structural_check=result, parameter_audit=data['parameter_audit'],
         review_method='deterministic_rendered_template_v1', semantic_review_performed=False,
-        city=city, region=region, location_evidence=location, analysis_status='validated')
+        city=city, region=region, location_evidence=location, city_source=city_source,
+        city_anomaly=anomaly, analysis_status='validated')
     return row, review, region
 
 
@@ -382,13 +416,17 @@ def finalize(args):
         raise ValueError('Finalized run exists; do not overwrite')
     started = time.perf_counter()
     queue, plan = read(out / 'queue.json'), read(service / 'plan.json')
-    if any(sha(ROOT/file) != value for file,value in plan.get('automation_sha256', {}).items()):
-        raise ValueError('Collector source changed after capture; use a new run')
+    plan = dict(plan, city_anomaly_policy=getattr(args,'city_anomaly_policy','blank'))
+    changes = read(diag / 'automation_changes.json') if (diag / 'automation_changes.json').exists() else []
+    changed = {file for file,value in plan.get('automation_sha256', {}).items() if sha(ROOT/file) != value}
+    reviewed_changes = {change['file'] for change in changes}
+    if changed - (reviewed_changes & {'Scraper/skills/collect-avito/scripts/run.py',
+            'Scraper/skills/collect-avito/scripts/failure_log.py', 'Scraper/skills/collect-avito/SKILL.md'}):
+        raise ValueError('Unregistered collector source changed after capture; use a new run')
     registry_path = ROOT / 'Data/dataset/sources.json'
     registry = read(registry_path)
     registered = [e for e in registry['exports'] if e['run_id'] == args.run_id]
-    changes = read(diag / 'automation_changes.json') if (diag / 'automation_changes.json').exists() else []
-    validate_automation_changes(changes, plan.get('uncommitted_automation_files', []))
+    validate_automation_changes(changes, set(plan.get('uncommitted_automation_files', [])) | changed)
     regions = {}
     for entry in registry['exports']:
         for city, region in entry['placement_regions'].items():
@@ -396,11 +434,16 @@ def finalize(args):
                 raise ValueError(f'Ambiguous city {city}; require disambiguated placement mapping')
             regions[city] = region
     overrides = read(args.placements) if args.placements else {}
-    rows, reviews, mapping = [], [], {}
+    rows, reviews, mapping, unknown_cities = [], [], {}, {}
     for item in queue:
         data = read(out / 'raw' / (item['id'] + '.json'))
         row, review, region = reviewed_row(data, item, regions, plan, overrides.get(item['id']))
-        rows.append(row); reviews.append(review); mapping[row['city']] = region
+        rows.append(row); reviews.append(review)
+        if row['city']:
+            mapping[row['city']] = region
+        else:
+            unknown_cities[item['id']] = {'region': region, 'evidence': row['location_observed'],
+                                        'region_unknown': not bool(region)}
     columns = list(dict.fromkeys(k for row in rows for k in row))
     exports = out / 'exports'
     exports.mkdir(exist_ok=True)  # unfinished drafts may be retried; completed runs cannot
@@ -415,6 +458,11 @@ def finalize(args):
     entry = dict(run_id=args.run_id, source='avito',
         path=str((exports / 'vacancies_flat.csv').relative_to(ROOT)), sha256=sha(exports / 'vacancies_flat.csv'),
         placement_regions=mapping, enrichment_status='not_run')
+    if unknown_cities:
+        entry['unknown_city_placements'] = unknown_cities
+    if any(row.get('city__source') == 'search_filter' for row in rows):
+        entry['search_city'] = plan['geography']
+        entry['search_city_evidence'] = plan['listing_url']
     if registered and registered != [entry]:
         raise ValueError('Registered draft differs; preserve it and resolve collision')
     registry['exports'] = [e for e in registry['exports'] if e['run_id'] != args.run_id] + [entry]
@@ -428,7 +476,8 @@ def finalize(args):
             limitations=['Visible rendered parameters only; enrichment not run; placement on site; live route unverified']),
         timing=dict(setup_seconds=plan['setup_seconds'], capture_seconds=read(diag/'checkpoint.json').get('capture_seconds'),
             review_export_seconds=time.perf_counter()-started, publication_seconds=None),
-        review_model=args.review_model, automation_changes=changes, files={})
+        review_model=args.review_model, automation_changes=changes,
+        post_capture_automation_sha256={file: sha(ROOT/file) for file in sorted(changed)}, files={})
     for path in sorted(list(out.rglob('*')) + [service / 'plan.json']):
         if path.is_file():
             manifest['files'][str(path.relative_to(ROOT))] = dict(bytes=path.stat().st_size, sha256=sha(path))
@@ -475,6 +524,12 @@ def stage_ok(args):
     succeeded(diag, args.stage, args.evidence)
 
 
+def resume_offline(args):
+    _, _, diag = paths(ROOT, args.run_id)
+    authorize_offline(diag, args.human_instruction)
+    print('Human instruction recorded: finalize/publish allowed; browser remains stopped')
+
+
 def publish(args):
     out, service, diag = paths(ROOT, args.run_id)
     ensure_allowed(diag, 'publish', getattr(args, 'retry_reason', None))
@@ -490,7 +545,9 @@ def publish(args):
     for path, expected in manifest['files'].items():
         if sha(ROOT / path) != expected['sha256']:
             raise ValueError(f'Published artifact changed: {path}')
-    if any(sha(ROOT/file) != value for file,value in manifest['collection'].get('automation_sha256', {}).items()):
+    expected_automation = dict(manifest['collection'].get('automation_sha256', {}))
+    expected_automation.update(manifest.get('post_capture_automation_sha256', {}))
+    if any(sha(ROOT/file) != value for file,value in expected_automation.items()):
         raise ValueError('Collector source changed after collection; document and resolve before publication')
     # Existing fast batch validations suffice for data-only runs; changed code needs its own tests.
     subprocess.run([sys.executable, 'utils/build_dataset.py', '--check'], check=True, cwd=ROOT)
@@ -525,7 +582,7 @@ def publish(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ['freeze', 'capture', 'finalize', 'publish', 'note-change', 'record-error', 'check-stage', 'stage-ok']:
+    for name in ['freeze', 'capture', 'finalize', 'publish', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline']:
         command = commands.add_parser(name)
         command.add_argument('--run-id', required=True)
         if name in ('freeze', 'capture'):
@@ -544,6 +601,7 @@ def main():
             command.add_argument('--retry-reason')
             command.add_argument('--batch-size', type=int, default=30)
         elif name == 'finalize':
+            command.add_argument('--city-anomaly-policy', choices=['blank','search_filter'], default='blank')
             command.add_argument('--retry-reason')
             command.add_argument('--review-model', default=None, help='Actual reviewer model, not a model switch')
             command.add_argument('--placements', type=Path, help='Reviewed ID -> city,region,evidence JSON for unknown places')
@@ -561,6 +619,8 @@ def main():
         elif name in ('check-stage', 'stage-ok'):
             command.add_argument('--stage', required=True)
             command.add_argument('--retry-reason' if name == 'check-stage' else '--evidence', required=name == 'stage-ok')
+        elif name == 'resume-offline':
+            command.add_argument('--human-instruction', required=True)
         else:
             for flag in ['file', 'reason', 'validation']:
                 command.add_argument('--' + flag, required=True)

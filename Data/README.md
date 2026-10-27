@@ -103,3 +103,5 @@ avito_runs/<название_сбора>/
 Таблицы можно заново подготовить из сохранённых файлов через
 [utils/flatten_export.py](../utils/flatten_export.py), без открытия сайта.
 Пример полной проверки происхождения — [отдельный ноутбук](../ML/01_load_with_passport.ipynb).
+
+- [truck_driver_ekaterinburg_first40_2026-10-27](avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/exports/vacancies_flat.csv): 40 вакансий.

@@ -27,6 +27,24 @@ def raw(identity='123'):
 
 
 class RunnerTests(unittest.TestCase):
+    def test_city_anomaly_can_be_missing_or_explicit_search_fallback(self):
+        data = dict(raw(), location_raw=['Свердловская обл., Белоярский муниципальный округ, промышленный район Прохладный'])
+        regions = {'Екатеринбург':'Свердловская область'}
+        plan = dict(city_anomaly_policy='blank', geography='Екатеринбург',
+                    listing_url='https://www.avito.ru/ekaterinburg/vakansii', filter_evidence='Екатеринбург подтверждён')
+        row, _, region = runner.reviewed_row(data,item(),regions,plan)
+        self.assertEqual((row['city'],row['city__source'],region),('','missing','Свердловская область'))
+        row, _, region = runner.reviewed_row(data,item(),regions,dict(plan,city_anomaly_policy='search_filter'))
+        self.assertEqual((row['city'],row['city__source']),('Екатеринбург','search_filter'))
+        self.assertEqual(row['city__evidence'],plan['listing_url'])
+        self.assertEqual(row['location_observed'],data['location_raw'][0])
+        self.assertTrue(row['city_anomaly'])
+        for changes in [dict(geography='Все регионы'),dict(filter_evidence='')]:
+            with self.assertRaises(ValueError):
+                runner.reviewed_row(data,item(),regions,dict(plan,city_anomaly_policy='search_filter',**changes))
+        with self.assertRaises(ValueError):
+            runner.reviewed_row(dict(data,id='wrong'),item(),regions,dict(plan,city_anomaly_policy='search_filter'))
+
     def test_publish_retry_reuses_own_commit_and_existing_pr(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); run_id = 'publish_retry'
@@ -98,6 +116,25 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(runner.placement(data, item(), {'Москва': 'Москва', 'Тверь': 'Тверская область'})[0], 'Москва')
         with self.assertRaisesRegex(ValueError, 'Unknown locality'):
             runner.placement(dict(raw(), location_raw=['Москва, пос. Неизвестный']), item(), {'Москва': 'Москва'})
+
+    def test_empty_city_requires_explicit_confirmation_and_visible_evidence(self):
+        data = dict(raw(), location_raw=['Свердловская обл., Белоярский муниципальный округ'])
+        override = {'city': '', 'region': 'Свердловская область', 'evidence': 'Свердловская обл.', 'city_unknown_confirmed': True}
+        self.assertEqual(runner.placement(data, item(), {}, override)[:2], ('', 'Свердловская область'))
+        for invalid in [dict(override, city_unknown_confirmed=False), dict(override, evidence='Москва'), dict(override, region='')]:
+            with self.assertRaises(ValueError):
+                runner.placement(data, item(), {}, invalid)
+
+    def test_location_address_excludes_metro_and_stops_at_streets(self):
+        regions = {'Екатеринбург': 'Свердловская область', 'Тверь': 'Тверская область'}
+        for address in ['Свердловская обл., Екатеринбург\nПлощадь 1905 года\nдо 5 мин.',
+                        'Свердловская обл., Екатеринбург, пл. 1905 года\nПлощадь 1905 года',
+                        'Свердловская обл., Екатеринбург, Первая линия\nУралмаш',
+                        'Свердловская обл., Екатеринбург, Сибирский тракт, 16-й километр, 2']:
+            with self.subTest(address=address):
+                self.assertEqual(runner.placement(dict(raw(), location_raw=[address]), item(), regions)[0], 'Екатеринбург')
+        with self.assertRaisesRegex(ValueError, 'Unknown locality'):
+            runner.placement(dict(raw(), location_raw=['Свердловская обл., Екатеринбург, пос. Неизвестный\nТверь']), item(), regions)
 
     def test_interrupted_transfer_preserves_raw_and_refuses_replacement(self):
         with tempfile.TemporaryDirectory() as directory:

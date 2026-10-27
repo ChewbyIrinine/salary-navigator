@@ -100,6 +100,18 @@
         "Люберцы": "Московская область",
         "Новосибирск": "Новосибирская область"
       }
+    },
+    {
+      "run_id": "truck_driver_ekaterinburg_first40_2026-10-27",
+      "source": "avito",
+      "path": "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/exports/vacancies_flat.csv",
+      "sha256": "f31bbf512c73a013513789210e62d2c5405bf45bbf552eb9084bae5884ed5c92",
+      "placement_regions": {
+        "Екатеринбург": "Свердловская область"
+      },
+      "enrichment_status": "not_run",
+      "search_city": "Екатеринбург",
+      "search_city_evidence": "https://www.avito.ru/ekaterinburg/vakansii/voditel_gruzovogo_transporta-ASgBAgICAUTUzBHOjqAV"
     }
   ]
 }

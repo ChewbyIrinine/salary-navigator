@@ -121,6 +121,34 @@ class DatasetTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "region mapping"):
             self.result()
 
+    def test_unknown_city_requires_id_specific_visible_placement_evidence(self):
+        row = self.row(location_observed='Свердловская обл., Белоярский муниципальный округ')
+        row['city'] = ''
+        self.add('one', [row])
+        with self.assertRaisesRegex(ValueError, 'unknown-city'):
+            self.result()
+
+        entry = self.registry['exports'][0]
+        entry['unknown_city_placements'] = {'1': {'region': 'Свердловская область', 'evidence': 'Свердловская обл.'}}
+        result = self.result()[0]
+        self.assertEqual((result['city'], result['region']), ('', 'Свердловская область'))
+        entry['unknown_city_placements']['1']['evidence'] = 'Москва'
+        with self.assertRaisesRegex(ValueError, 'unknown-city'):
+            self.result()
+
+    def test_search_city_requires_explicit_source_and_registered_evidence(self):
+        row = self.row(city__source='search_filter', city__evidence='https://www.avito.ru/moskva/vakansii',
+                       city_anomaly='city_not_visible_in_card')
+        self.add('one',[row])
+        with self.assertRaisesRegex(ValueError,'search-filter provenance'):
+            self.result()
+        entry=self.registry['exports'][0]
+        entry.update(search_city=row['city'],search_city_evidence=row['city__evidence'])
+        self.assertEqual(self.result()[0]['city__source'],'search_filter')
+        entry['search_city']='Екатеринбург'
+        with self.assertRaisesRegex(ValueError,'search-filter provenance'):
+            self.result()
+
     def test_collection_without_profession_filter_preserves_empty_value(self):
         row = self.row()
         row["profession"] = ""
