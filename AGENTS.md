@@ -30,6 +30,10 @@
   с коротким контекстом; не заменяйте этапы своей моделью молча.
   Обычный сбор запускайте готовым `scripts/run.py` (freeze/capture/finalize/publish);
   freeze/capture сами выполняют `preflight.py --probe-aside`, отдельно не дублируйте.
+  До ручного REPL проверьте `aside host profiles --host local --json` и используйте
+  подключённый профиль. Отключённый default не требует переустановки/login.
+  Общий skill описывает --profile и TL_ASIDE_PROFILE/HOST/ACCOUNT для всех этапов;
+  постоянные настройки Aside не меняйте.
   Не пишите заново временные capture/export-скрипты. Новый случай закрепляйте
   общим исправлением, тестом и обновлением skill; укажите их в том же PR.
   Локальный конфиг `Scraper/collect-avito.local.json` не коммитим; проверка файла

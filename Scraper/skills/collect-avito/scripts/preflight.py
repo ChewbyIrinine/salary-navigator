@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -119,17 +120,67 @@ def find_aside():
     return executable
 
 
-def aside_ready(executable):
+def aside_command(executable):
+    """Select a connected profile without changing Aside's persistent default."""
+    host = os.environ.get("TL_ASIDE_HOST", "local")
+    prefix = [executable, "--host", host]
+    account = os.environ.get("TL_ASIDE_ACCOUNT")
+    if not account:
+        try:
+            status = subprocess.run([executable, "account", "status"],
+                                    capture_output=True, text=True, timeout=20)
+            match = re.search(r"(?m)^\*?\s*(u\d+)\s", status.stdout)
+            if status.returncode or not match:
+                raise RuntimeError("Cannot determine Aside account; specify TL_ASIDE_ACCOUNT from aside account status")
+            account = match[1]
+        except (OSError, subprocess.TimeoutExpired) as error:
+            raise RuntimeError("Cannot determine Aside account; inspect aside account status") from error
+    prefix += ["--account", account]
+    try:
+        result = subprocess.run(prefix + ["host", "profiles", "--json"],
+                                capture_output=True, text=True, timeout=20)
+        if result.returncode:
+            raise RuntimeError("Aside profiles unavailable; inspect host/account, not CLI installation")
+        data = json.loads(result.stdout)
+        profiles = data.get("profiles") if isinstance(data, dict) else None
+        if not isinstance(profiles, list):
+            raise ValueError("Invalid profiles list")
+    except (ValueError, OSError, subprocess.TimeoutExpired) as error:
+        raise RuntimeError("Cannot read Aside profiles; inspect aside host profiles --json") from error
+    connected = [p["profileId"] for p in profiles if isinstance(p, dict)
+                 and p.get("connected") is True and isinstance(p.get("profileId"), str)
+                 and p["profileId"]]
+    selected = os.environ.get("TL_ASIDE_PROFILE")
+    if selected:
+        if selected not in connected:
+            raise RuntimeError("Selected TL_ASIDE_PROFILE is not connected; open that profile in Aside")
+    elif len(connected) == 1:
+        selected = connected[0]
+    elif not connected:
+        raise RuntimeError("No connected Aside profiles; open a browser profile, do not reinstall CLI")
+    else:
+        raise RuntimeError("Multiple connected Aside profiles; select one with TL_ASIDE_PROFILE")
+    return prefix + ["--profile", selected]
+
+
+def aside_ready(executable, *, strict=False):
     try:
         result = subprocess.run(
-            [executable, "repl", 'console.log("TNL_ASIDE_READY")'],
+            aside_command(executable) + ["repl", 'console.log("TNL_ASIDE_READY")'],
             capture_output=True, text=True, timeout=20,
         )
-        # Do not print CLI diagnostics: they may contain private session paths.
-        return (result.returncode == 0
-                and "TNL_ASIDE_READY" in result.stdout.splitlines()
-                and "[error" not in (result.stdout + result.stderr).lower())
-    except (OSError, subprocess.TimeoutExpired):
+        # Only static reasons are exposed: CLI output may contain private paths.
+        ready = (result.returncode == 0
+                 and "TNL_ASIDE_READY" in result.stdout.splitlines()
+                 and "[error" not in (result.stdout + result.stderr).lower())
+        if not ready and strict:
+            raise RuntimeError("Aside REPL probe failed for the selected profile; inspect host/profile connection")
+        return ready
+    except (OSError, RuntimeError, subprocess.TimeoutExpired) as error:
+        if strict:
+            if isinstance(error, RuntimeError):
+                raise
+            raise RuntimeError("Aside REPL probe unavailable or timed out") from None
         return False
 
 
@@ -160,8 +211,14 @@ def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False, strict_routing=Fal
     add("aside_cli", bool(aside), "Проверено наличие Aside CLI.",
         "Установите Aside для своей ОС с https://aside.com/download и CLI по инструкции приложения; см. FIRST_RUN.md.")
     if probe_aside and aside:
-        add("aside_session", aside_ready(aside), "Проверка REPL без открытия вкладок и сайта.",
-            "Откройте Aside; проверьте aside --help, aside login и выбранный host/profile. Авторизацию подтвердите лично; затем повторите preflight. См. FIRST_RUN.md.")
+        detail = "Проверка REPL без открытия вкладок и сайта."
+        try:
+            ready = aside_ready(aside, strict=True)
+        except RuntimeError as error:
+            ready = False
+            detail += " " + str(error)
+        add("aside_session", ready, detail,
+            "Проверьте aside host profiles --host local --json. Если подключённых нет, откройте нужный профиль; если их несколько, задайте TL_ASIDE_PROFILE. TL_ASIDE_HOST/TL_ASIDE_ACCOUNT задают иной host/account. Повторная установка/login нужны только при подтверждённой ошибке установки/авторизации. См. FIRST_RUN.md.")
 
     if settings is None:
         add("local_config", False, "Локальные настройки отсутствуют или не читаются как JSON-объект.",

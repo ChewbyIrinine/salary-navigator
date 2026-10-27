@@ -45,6 +45,25 @@ class RunnerTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             runner.reviewed_row(dict(data,id='wrong'),item(),regions,dict(plan,city_anomaly_policy='search_filter'))
 
+    def test_aside_target_is_pinned_across_capture_and_profile_changes(self):
+        with tempfile.TemporaryDirectory() as directory, patch.dict(runner.os.environ, {}, clear=True):
+            diag = Path(directory) / 'diagnostics'
+            with patch.object(runner, 'find_aside', return_value='aside'), \
+                    patch.object(runner, 'aside_command', return_value=['aside', '--host', 'local', '--account', 'u0', '--profile', 'first']) as choose:
+                runner.pin_aside_target(diag)
+                self.assertEqual(runner.os.environ['TL_ASIDE_PROFILE'], 'first')
+                self.assertEqual(runner.os.environ['TL_ASIDE_ACCOUNT'], 'u0')
+                runner.os.environ.pop('TL_ASIDE_ACCOUNT')
+                runner.os.environ.pop('TL_ASIDE_PROFILE')
+                runner.pin_aside_target(diag)
+                self.assertEqual(runner.os.environ['TL_ASIDE_PROFILE'], 'first')
+                choose.assert_called_once()
+                self.assertEqual(runner.os.environ['TL_ASIDE_ACCOUNT'], 'u0')
+            runner.os.environ['TL_ASIDE_PROFILE'] = 'different'
+            with self.assertRaisesRegex(RuntimeError, 'pinned'):
+                runner.pin_aside_target(diag)
+            self.assertEqual(runner.read(diag/'aside-target.local.json')['TL_ASIDE_PROFILE'], 'first')
+
     def test_publish_retry_reuses_own_commit_and_existing_pr(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); run_id = 'publish_retry'

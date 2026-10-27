@@ -22,12 +22,12 @@ sys.path.insert(0, str(SCRIPTS))
 from utils.build_dataset import build
 from check_capture import check
 from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired, authorize_offline
-from preflight import find_aside
+from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7'
+VERSION = '1.7.4'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
-    'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py')]
+    'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
 
 class CollectionStopped(RuntimeError):
@@ -102,7 +102,34 @@ def queue_from(listing, limit):
     raise ValueError(f'Only {len(queue)} unique rendered cards; requested {limit}; do not invent pagination')
 
 
-def preflight(config_path=None):
+def pin_aside_target(diag):
+    """Keep browser identity stable across preflight, capture and resume locally."""
+    target_file = diag / 'aside-target.local.json'
+    keys = ('TL_ASIDE_HOST', 'TL_ASIDE_ACCOUNT', 'TL_ASIDE_PROFILE')
+    if target_file.exists():
+        target = read(target_file)
+        if any(os.environ.get(key) and os.environ[key] != target.get(key) for key in keys):
+            raise RuntimeError('Aside host/account/profile differs from the pinned run; keep the original target')
+        for key in keys:
+            if target.get(key):
+                os.environ[key] = target[key]
+            else:
+                os.environ.pop(key, None)
+    else:
+        executable = find_aside()
+        if not executable:
+            raise RuntimeError('Aside CLI not found; follow collect-avito/references/FIRST_RUN.md')
+        command = aside_command(executable)
+        target = dict(TL_ASIDE_HOST=command[command.index('--host')+1],
+                      TL_ASIDE_ACCOUNT=command[command.index('--account')+1],
+                      TL_ASIDE_PROFILE=command[command.index('--profile')+1])
+        write(target_file, target)
+        os.environ.update({key: value for key, value in target.items() if value})
+
+
+def preflight(config_path=None, diag=None):
+    if diag is not None:
+        pin_aside_target(diag)
     command = [sys.executable, str(SCRIPTS / 'preflight.py'), '--probe-aside']
     if config_path is not None:
         command.extend(['--config', str(config_path)])
@@ -161,7 +188,7 @@ def browser(job, out, diag):
     executable = find_aside()
     if not executable:
         raise RuntimeError('Aside CLI not found; follow collect-avito/references/FIRST_RUN.md')
-    process = subprocess.Popen([executable, 'repl'], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+    process = subprocess.Popen(aside_command(executable) + ['repl'], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                stderr=subprocess.STDOUT, cwd=ROOT)
     incoming, reader = pipe_chunks(process.stdout)
     chunks = bytearray()
@@ -235,7 +262,7 @@ def freeze(args):
     if (service / 'manifest.json').exists() or (service / 'plan.json').exists():
         raise ValueError('Queue already frozen; use capture, not freeze')
     avito_url(args.url)
-    preflight(getattr(args, 'config', None))
+    preflight(getattr(args, 'config', None), diag)
     started = time.perf_counter()
     diag.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
@@ -278,7 +305,7 @@ def capture(args):
     ensure_allowed(diag, 'capture', getattr(args, 'retry_reason', None))
     if (service / 'manifest.json').exists():
         raise ValueError('Completed run is immutable')
-    preflight(getattr(args, 'config', None))
+    preflight(getattr(args, 'config', None), diag)
     plan = read(service / 'plan.json')
     if any(sha(ROOT/file) != value for file,value in plan['automation_sha256'].items()):
         raise ValueError('Collector changed; preserve old run and start a new observation')
