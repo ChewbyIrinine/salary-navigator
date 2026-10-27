@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import tempfile
+import subprocess
 import unittest
 from unittest.mock import patch
 
@@ -26,6 +27,37 @@ def raw(identity='123'):
 
 
 class RunnerTests(unittest.TestCase):
+    def test_publish_retry_reuses_own_commit_and_existing_pr(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); run_id = 'publish_retry'
+            out, service, diag = runner.paths(root, run_id)
+            runner.write(service/'manifest.json', dict(status='complete', files={}, collection={}, coverage={'accepted':1}))
+            state = {'commits': 0, 'pushes': 0}
+            def output(command, **kwargs):
+                if command[:2] == ['git','branch']:
+                    return 'codex/publish_retry'
+                if command[:5] == ['git','diff','--cached','--name-only']:
+                    return str((out/'raw/123.json').relative_to(root)) if not state['commits'] else ''
+                if command[:2] == ['git','commit']:
+                    state['commits'] += 1
+                if command[:2] == ['git','push']:
+                    state['pushes'] += 1
+                    if state['pushes'] == 1:
+                        raise subprocess.CalledProcessError(1,command)
+                if command[:3] == ['gh','pr','create']:
+                    self.fail('Existing PR must be reused')
+                return ''
+            def run(command, **kwargs):
+                return subprocess.CompletedProcess(command,0,stdout=json.dumps({'state':'OPEN','url':'https://github.com/example/repo/pull/1'}))
+            args = argparse.Namespace(run_id=run_id, retry_reason=None, summary='Sample', title='Data', prepare_only=False)
+            with patch.object(runner,'ROOT',root), patch.object(runner.subprocess,'check_output',side_effect=output), patch.object(runner.subprocess,'run',side_effect=run):
+                with self.assertRaises(subprocess.CalledProcessError):
+                    runner.publish(args)
+                runner.record_failure(diag,'publish','push failed','push')
+                args.retry_reason = 'Connection restored'
+                runner.publish(args)
+            self.assertEqual(state, {'commits':1,'pushes':2})
+
     def test_queue_preserves_unique_order_and_requires_enough_real_links(self):
         listing = dict(state='LISTING', items=[item('123'), item('123'), item('456')])
         queue = runner.queue_from(listing, 2)
