@@ -89,10 +89,17 @@
       date_raw: get('item-view/item-date'), views_raw: get('item-view/total-views'), today_views_raw: get('item-view/today-views')};
   }
   // Do not infer opaque URL filter encodings. Preserve URL plus visible UI state.
-  const controls = [...document.querySelectorAll('input[type="checkbox"]:checked,input[type="radio"]:checked,[role="checkbox"][aria-checked="true"],[role="radio"][aria-checked="true"],[role="switch"][aria-checked="true"]')].map(e => ({
+  const selected = [...document.querySelectorAll('input[type="checkbox"]:checked,input[type="radio"]:checked,[role="checkbox"][aria-checked="true"],[role="radio"][aria-checked="true"],[role="switch"][aria-checked="true"]')];
+  const marker = e => e.closest('[data-marker^="params[144170]/"]')?.getAttribute('data-marker') || e.getAttribute('data-marker') || null;
+  const controls = selected.map(e => ({
     label: e.getAttribute('aria-label') || text(e.closest('label')) || text(e.parentElement),
-    marker: e.getAttribute('data-marker'), value: e.value || null
+    marker: marker(e), value: e.value || null
   }));
+  const profession_filter = {
+    observed: [...document.querySelectorAll('[data-marker^="params[144170]/"]')].some(e => visible(e) || visible(e.closest('label'))),
+    selected_count: controls.filter(c => c.marker?.startsWith('params[144170]/') &&
+      c.value !== 'all' && !c.marker.endsWith('/all')).length
+  };
   const items = cards.map(r => {
     const read = m => text(r.querySelector(`[data-marker="${m}"]`));
     const a = r.querySelector('[data-marker="item-title"]');
@@ -109,5 +116,5 @@
   const pagination = {next_url: !disabled ? nextURL : null, end_confirmed: !!disabled,
     evidence: next ? {text: text(next), label: next.getAttribute('aria-label'), href: nextHref, disabled: !!disabled} : null,
     limitation: 'No next control is not proof of end; infinite loading not verified'};
-  return {...base, heading: text(document.querySelector('h1')), selected_controls: controls, items, pagination};
+  return {...base, heading: text(document.querySelector('h1')), selected_controls: controls, profession_filter, items, pagination};
 })()

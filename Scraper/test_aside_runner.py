@@ -1,5 +1,6 @@
 """Offline collector regressions; no network, Aside or GitHub required."""
 import argparse
+import csv
 import importlib.util
 import json
 from pathlib import Path
@@ -17,6 +18,13 @@ spec.loader.exec_module(runner)
 def item(identity='123'):
     return dict(id=identity, url=f'https://www.avito.ru/moskva/vakansii/example_{identity}',
                 listing_rank=1, promoted=True, location_raw='Москва')
+
+
+def courier_controls():
+    # Actual duplicated label/input controls saved by the first-run smoke.
+    return [dict(label='Курьер', marker='params[144170]/checkbox/3201765', value=None),
+            dict(label='Курьер', marker='params[144170]/checkbox/toggle', value='3201765'),
+            dict(label='Любой', marker='params[196929]/toggle', value='all')]
 
 
 def raw(identity='123'):
@@ -168,6 +176,64 @@ class RunnerTests(unittest.TestCase):
                 runner.import_sandbox(sandbox, out, diag)
             self.assertEqual(runner.read(out / 'raw/123.json')['title'], 'Работа')
 
+    def test_profession_is_observed_deduplicated_and_not_inferred_from_other_fields(self):
+        listing = dict(selected_controls=courier_controls(), heading='Курьер')
+        self.assertEqual(runner.profession_from_listing(listing), 'Курьер')
+        self.assertEqual(runner.profession_from_listing(listing, '  курьер '), 'Курьер')
+        # Whitespace from the DOM is normalized, including nonbreaking spaces.
+        truck = dict(label='Водитель\u00a0 грузового транспорта', marker='params[144170]/checkbox/22283175', value=None)
+        controls = courier_controls() + [truck]
+        self.assertEqual(runner.profession_from_listing({'selected_controls': controls}),
+                         'Водитель грузового транспорта; Курьер')
+        other = dict(label='Курьер', marker='params[999]/checkbox/1', value='1')
+        for controls in [[], [other], [dict(label='Все', marker='params[144170]/all', value='all')]]:
+            self.assertEqual(runner.profession_from_listing(dict(selected_controls=controls,
+                profession_filter={'observed': True, 'selected_count': 0},
+                source_url='https://www.avito.ru/moskva/vakansii/kurer', heading='Работа и вакансии')), '')
+
+    def test_profession_mismatch_and_unreadable_filter_are_rejected(self):
+        for listing, requested in [({'selected_controls': courier_controls()}, 'Водитель'),
+                ({'selected_controls': []}, 'Курьер'),
+                ({'selected_controls': [], 'heading': 'Вакансии по профессии Курьер'}, ''),
+                ({'selected_controls': [], 'heading': 'Курьер: работа и вакансии в Москве'}, ''),
+                ({'selected_controls': [], 'profession_filter': {'observed': False, 'selected_count': 0}}, ''),
+                ({'selected_controls': [], 'profession_filter': {'observed': True, 'selected_count': 1}}, ''),
+                ({'selected_controls': [dict(label='', marker='params[144170]/checkbox/1')]}, ''),
+                ({}, '')]:
+            with self.subTest(listing=listing, requested=requested), self.assertRaises(ValueError):
+                runner.profession_from_listing(listing, requested)
+
+    def test_inconsistent_plan_stops_capture_and_finalize_before_browser_or_export(self):
+        for profession in ['', 'Водитель']:
+            with tempfile.TemporaryDirectory() as directory:
+                root = Path(directory); out, service, diag = runner.paths(root, 'bad_profession')
+                runner.write(service/'plan.json', {'profession': profession})
+                runner.write(out/'listing.json', {'selected_controls': courier_controls()})
+                runner.write(out/'queue.json', [item()])
+                args = argparse.Namespace(run_id='bad_profession', retry_reason=None)
+                with patch.object(runner, 'ROOT', root), patch.object(runner, 'preflight') as probe, \
+                        patch.object(runner, 'browser') as browser:
+                    for stage in [runner.capture, runner.finalize]:
+                        with self.assertRaisesRegex(ValueError, 'Plan profession'):
+                            stage(args)
+                    probe.assert_not_called(); browser.assert_not_called()
+                self.assertFalse((out/'exports').exists())
+                self.assertFalse((service/'manifest.json').exists())
+
+    def test_profession_validation_rejects_missing_key_and_changed_listing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            listing = Path(directory)/'listing.json'
+            runner.write(listing, {'selected_controls': [],
+                'profession_filter': {'observed': True, 'selected_count': 0}})
+            with self.assertRaisesRegex(ValueError, 'missing'):
+                runner.validate_plan_profession({}, listing)
+            plan = {'profession': '', 'listing_sha256': runner.sha(listing)}
+            runner.validate_plan_profession(plan, listing)
+            runner.write(listing, {'selected_controls': [], 'heading': 'Changed',
+                'profession_filter': {'observed': True, 'selected_count': 0}})
+            with self.assertRaisesRegex(ValueError, 'Frozen listing changed'):
+                runner.validate_plan_profession(plan, listing)
+
     def test_freeze_resumes_even_if_interrupted_before_request_was_saved(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -179,7 +245,7 @@ class RunnerTests(unittest.TestCase):
             def fake_browser(job, output, diagnostics):
                 self.assertTrue((diagnostics/'freeze_request.json').exists())
                 runner.write(diagnostics/'listing.json', dict(state='LISTING', source_url=item()['url'],
-                    heading='Вакансии', selected_controls=[], items=[item()]))
+                    heading='Вакансии', selected_controls=courier_controls(), items=[item()]))
                 cp = dict(state='READY', completed_ids=[], next_id=None)
                 runner.write(diagnostics/'checkpoint.json', cp)
                 return cp, 0
@@ -191,6 +257,7 @@ class RunnerTests(unittest.TestCase):
                 runner.freeze(args)
             self.assertEqual(runner.read(out/'queue.json')[0]['id'], '123')
             self.assertEqual(runner.read(service/'plan.json')['execution_model'], 'gpt-6-luna')
+            self.assertEqual(runner.read(service/'plan.json')['profession'], 'Курьер')
 
     def test_finalize_registers_and_builds_once_without_browser(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -200,7 +267,8 @@ class RunnerTests(unittest.TestCase):
             (root / 'Data/README.md').write_text('# Data\n')
             (root / 'Data/dataset/README.md').write_text('Текущий состав: старый\n')
             runner.write(out / 'queue.json', [item()]); runner.write(out / 'raw/123.json', raw())
-            runner.write(service / 'plan.json', {'setup_seconds': 1, 'profession': '', 'segments': 'all'})
+            runner.write(out / 'listing.json', {'selected_controls': courier_controls()})
+            runner.write(service / 'plan.json', {'setup_seconds': 1, 'profession': 'Курьер', 'segments': 'all'})
             runner.write(diag / 'checkpoint.json', {'capture_seconds': 0.5})
             placements = root / 'placements.json'
             runner.write(placements, {'123': {'city': 'Коммунарка', 'region': 'Москва', 'evidence': 'пос. Коммунарка'}})
@@ -227,6 +295,9 @@ class RunnerTests(unittest.TestCase):
             self.assertEqual(before, (out / 'exports/vacancies_flat.csv').read_bytes())
             manifest = runner.read(service / 'manifest.json')
             self.assertEqual(manifest['coverage']['accepted'], 1)
+            with (out/'exports/vacancies_flat.csv').open(encoding='utf-8-sig', newline='') as stream:
+                self.assertEqual(next(csv.DictReader(stream))['profession'], 'Курьер')
+            self.assertEqual(manifest['collection']['profession'], 'Курьер')
             self.assertTrue(all('diagnostics' not in name for name in manifest['files']))
 
 
