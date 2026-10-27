@@ -132,3 +132,27 @@ python3 utils/dataset_pr.py --run-id <run_id> --base origin/main \
 resume-browser с новым authorization-id этой инструкции человека. История
 сохраняется. Для старого разрешения ID не меняют, чтобы повтор команды не
 обновлял бюджет. Разрешение на обработку сохранённого — только resume-offline.
+
+
+## Git push: недоступен системный credential helper
+
+Если publish записал ошибку git push, сначала проверьте её локальную диагностику:
+код 128 сам по себе не доказывает проблему авторизации. Для HTTPS GitHub,
+когда причина именно в недоступном системном helper, а `gh auth status`
+подтверждает действующую авторизацию, можно выполнить осмысленный повтор ниже.
+Не запрашивайте токен/повторный login и не меняйте глобальные Git-настройки.
+
+```sh
+GIT_CONFIG_COUNT=2 \
+GIT_CONFIG_KEY_0=credential.helper GIT_CONFIG_VALUE_0= \
+GIT_CONFIG_KEY_1=credential.helper GIT_CONFIG_VALUE_1='!gh auth git-credential' \
+python3 Scraper/skills/collect-avito/scripts/run.py publish --run-id <id> \
+  --summary '<условия того же сбора>' --title '<заголовок того же PR>' \
+  --retry-reason 'Подтверждён сбой системного credential helper; используем уже авторизованный gh только для этой команды'
+```
+
+Переменные действуют только для этого вызова. Если GIT_CONFIG_* уже используются
+окружением, сохраните их пары и добавьте override, не затирая другие параметры.
+Обычный лимит повторов/NEEDS_HUMAN остаётся в силе. Команда переиспользует уже
+созданный commit/PR и не собирает карточки заново. Путь проверен при публикации
+first5_2026-10-28_01 в TL Demo test; его история сбоев осталась локальной.
