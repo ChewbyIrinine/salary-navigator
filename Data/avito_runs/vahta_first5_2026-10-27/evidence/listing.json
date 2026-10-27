@@ -1,0 +1,513 @@
+{
+  "source_url": "https://www.avito.ru/all/vakansii/vahtovyy-ASgBAgICAUSQC_b3AQ?context=H4sIAAAAAAAA_wFMALP_YToyOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO3M6MToieSI7czoxNjoiZ2ZyUzM2dWhub2huOExIeiI7fZEpK9NMAAAA",
+  "observed_at": "2026-10-27T13:43:06.573Z",
+  "channel": "gstack DOM",
+  "schema_version": 3,
+  "state": "LISTING",
+  "heading": "Работа вахтой",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Вахта",
+      "marker": "params[712]/checkbox/15867",
+      "value": null
+    },
+    {
+      "label": "Вахта",
+      "marker": "params[712]/checkbox/toggle",
+      "value": "15867"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "items": [
+    {
+      "id": "8365163007",
+      "url": "https://www.avito.ru/lyubertsy/vakansii/vahta_1530_nalichka_s_prozhivaniemupakovschik_8365163007",
+      "title": "Вахта 15/30 Наличка с проживанием/Упаковщик",
+      "salary_raw": "до 230 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Московская обл., Люберцы",
+      "promoted": true
+    },
+    {
+      "id": "8341201688",
+      "url": "https://www.avito.ru/moskva/vakansii/vahta_15_smens_3_razov._pitaniemsborschik_8341201688",
+      "title": "Вахта 15 смен/с 3 разов. питанием/сборщик",
+      "salary_raw": "до 250 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8445490610",
+      "url": "https://www.avito.ru/kommunarka/vakansii/raznorabochiy_s_ezhednevnoy_oplatoy_i_prozhivaniem_8445490610",
+      "title": "Разнорабочий с ежедневной оплатой и проживанием",
+      "salary_raw": "6 000 ₽ на руки",
+      "params_raw": "Вахта · Без опыта",
+      "location_raw": "Москва, Новомосковский административный округ, р-н Коммунарка, пос. Коммунарка",
+      "promoted": true
+    },
+    {
+      "id": "4299537166",
+      "url": "https://www.avito.ru/moskva/vakansii/rabotniki_na_hlebokombinat_vahta_4299537166",
+      "title": "Работники на хлебокомбинат Вахта",
+      "salary_raw": "от 108 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8223864636",
+      "url": "https://www.avito.ru/podolsk/vakansii/elektrogazosvarschikvahtazhilepitanieproezd_8223864636",
+      "title": "Электрогазосварщик/Вахта/Жилье+питание+проезд",
+      "salary_raw": "8 500 — 8 800 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Опыт более 3 лет",
+      "location_raw": "Московская обл., Подольск",
+      "promoted": true
+    },
+    {
+      "id": "8184259688",
+      "url": "https://www.avito.ru/moskva/vakansii/upakovschik_sniker_legkaya_vahta_v_moskve_15_smen_8184259688",
+      "title": "Упаковщик сникер легкая вахта в Москве 15 смен",
+      "salary_raw": "до 305 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "7910066667",
+      "url": "https://www.avito.ru/moskva/vakansii/operator_bpla_s_obucheniem_spetskontrakt_12_mesyatsev_7910066667",
+      "title": "Оператор бпла с обучением спецконтракт 12 месяцев",
+      "salary_raw": "450 000 — 550 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8459095258",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrannik_granits_kurskoy_oblasti_na_svo_muzhchina_8459095258",
+      "title": "Охранник границ Курской области на сво, мужчина",
+      "salary_raw": "260 000 — 500 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8446839967",
+      "url": "https://www.avito.ru/podolsk/vakansii/armaturschikvahtazhilepitanieproezd_8446839967",
+      "title": "Арматурщик/Вахта/Жильё+питание+проезд",
+      "salary_raw": "7 100 — 7 400 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Московская обл., Подольск",
+      "promoted": true
+    },
+    {
+      "id": "4588313083",
+      "url": "https://www.avito.ru/kotelniki/vakansii/fasovschiktsa_konfet_vahta_pitaniezhile_15_smen_4588313083",
+      "title": "Фасовщик/ца конфет Вахта питание+жилье 15 смен",
+      "salary_raw": "от 5 000 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Московская обл., Котельники",
+      "promoted": true
+    },
+    {
+      "id": "4440024060",
+      "url": "https://www.avito.ru/kotelniki/vakansii/vahta_moskva_vse_vklyucheno_rabochiy_sklada_4440024060",
+      "title": "Вахта Москва (все включено) Рабочий склада",
+      "salary_raw": "от 6 500 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Московская обл., Котельники",
+      "promoted": true
+    },
+    {
+      "id": "8330279817",
+      "url": "https://www.avito.ru/moskva/vakansii/vahta_15_pitanieraznorabochiy_na_sklad_adidas_8330279817",
+      "title": "Вахта 15 Питание/разнорабочий на склад Adidas",
+      "salary_raw": "до 397 700 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8221153835",
+      "url": "https://www.avito.ru/moskva/vakansii/dengi_na_kartu_kazhduyu_nedelyu_kladovschik_8221153835",
+      "title": "Деньги на карту каждую неделю / Кладовщик",
+      "salary_raw": "173 250 — 231 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "7795369735",
+      "url": "https://www.avito.ru/moskva/vakansii/upakovschik_batonchikov_konfet_vahta_v_moskve_7795369735",
+      "title": "Упаковщик батончиков конфет вахта в Москве",
+      "salary_raw": "от 349 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "4587897577",
+      "url": "https://www.avito.ru/kotelniki/vakansii/vahta_ot_20_smen_pitanie_i_zhile_sborschik_zakazov_4587897577",
+      "title": "Вахта от 20 смен (питание и жилье) Сборщик заказов",
+      "salary_raw": "от 210 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Московская обл., Котельники",
+      "promoted": true
+    },
+    {
+      "id": "8231057987",
+      "url": "https://www.avito.ru/moskva/vakansii/komplektovschiklegkaya_vahtapitaniepokupka_bileta_8231057987",
+      "title": "Комплектовщик/Легкая Вахта+Питание/Покупка Билета",
+      "salary_raw": "225 650 — 268 250 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8231290468",
+      "url": "https://www.avito.ru/moskva/vakansii/sotrudnik_sklada_vahtavyzyvaem_taksivse_vklyucheno_8231290468",
+      "title": "Сотрудник склада Вахта/Вызываем такси/Все включено",
+      "salary_raw": "до 245 950 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8224572384",
+      "url": "https://www.avito.ru/rostov-na-donu/vakansii/komplektovschik_vahta_v_rostove_-_na_-_donu_8224572384",
+      "title": "Комплектовщик вахта в Ростове - на - Дону",
+      "salary_raw": "74 572 — 223 716 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Ростовская обл., Ростов-на-Дону",
+      "promoted": true
+    },
+    {
+      "id": "8111387402",
+      "url": "https://www.avito.ru/moskva/vakansii/upakovschiki_sladkih_podarkov_vahta_ot_15_smen_8111387402",
+      "title": "Упаковщики сладких подарков Вахта от 15 смен",
+      "salary_raw": "от 4 500 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "7719993240",
+      "url": "https://www.avito.ru/lyubertsy/vakansii/upakovschik_kofe_vahta_v_moskve_s_prozhivaniem_7719993240",
+      "title": "Упаковщик кофе вахта в Москве с проживанием",
+      "salary_raw": "до 222 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Московская обл., Люберцы",
+      "promoted": true
+    },
+    {
+      "id": "8396842596",
+      "url": "https://www.avito.ru/gelendzhik/vakansii/ohrannik_na_stroyku_vahta_8396842596",
+      "title": "Охранник на стройку вахта",
+      "salary_raw": "от 96 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Краснодарский край, Геленджик",
+      "promoted": true
+    },
+    {
+      "id": "8525196509",
+      "url": "https://www.avito.ru/moskva/vakansii/komplektovschik_na_sklad_s_pitaniem_i_prozhivaniem_8525196509",
+      "title": "Комплектовщик на склад с питанием и проживанием",
+      "salary_raw": "от 7 500 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8317072438",
+      "url": "https://www.avito.ru/moskva/vakansii/betonschik._vahta._prozhivanie._pitanie_8317072438",
+      "title": "Бетонщик. Вахта. Проживание. Питание",
+      "salary_raw": "от 7 040 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8243309186",
+      "url": "https://www.avito.ru/moskva/vakansii/vahta_sotrudnikom_sklada._zhilepitanie._moskva_8243309186",
+      "title": "Вахта сотрудником склада. Жилье+питание. Москва",
+      "salary_raw": "до 6 900 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8485290790",
+      "url": "https://www.avito.ru/moskva/vakansii/razborka_trofeynoy_tehniki_svo_8485290790",
+      "title": "Разборка трофейной техники / сво",
+      "salary_raw": "300 000 — 650 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8275152472",
+      "url": "https://www.avito.ru/moskva/vakansii/boets_v_afrikanskiy_korpus_8275152472",
+      "title": "Боец в Африканский корпус",
+      "salary_raw": "от 13 800 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8345201463",
+      "url": "https://www.avito.ru/moskva/vakansii/stikerovschiktsavahta_3h_pitanieproezd_8345201463",
+      "title": "Стикеровщик/ца(Вахта, 3х питание+проезд)",
+      "salary_raw": "до 237 999 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "4245610665",
+      "url": "https://www.avito.ru/moskva/vakansii/dobrovolets_na_svo_svo_kontrakt_4245610665",
+      "title": "Доброволец на сво, сво контракт",
+      "salary_raw": "300 000 — 500 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "7842673518",
+      "url": "https://www.avito.ru/odintsovo/vakansii/upakovschik_vahta_ot_15_smen_bez_opyta_moskva_7842673518",
+      "title": "Упаковщик вахта от 15 смен, без опыта Москва",
+      "salary_raw": "от 155 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Московская обл., Одинцовский г.о., Одинцово",
+      "promoted": true
+    },
+    {
+      "id": "8409906522",
+      "url": "https://www.avito.ru/moskva/vakansii/komplektovschik_obuvi_vahta_v_moskve_s_prozhivaniem_8409906522",
+      "title": "Комплектовщик обуви вахта в Москве с проживанием",
+      "salary_raw": "165 000 — 230 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8441274251",
+      "url": "https://www.avito.ru/moskva/vakansii/sborschik_bpla_dronov_ne_svo_8441274251",
+      "title": "Сборщик бпла дронов (не сво )",
+      "salary_raw": "350 000 — 4 500 000 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8493120716",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchiki_vahta_v_mo_8493120716",
+      "title": "Грузчики вахта в мо",
+      "salary_raw": "3 900 — 4 100 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8356666264",
+      "url": "https://www.avito.ru/kotelniki/vakansii/gruzchik_na_vahtu_15_smen_s_zhilem_8356666264",
+      "title": "Грузчик на вахту 15 смен с жильем",
+      "salary_raw": "от 4 700 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Московская обл., Котельники",
+      "promoted": true
+    },
+    {
+      "id": "8198948554",
+      "url": "https://www.avito.ru/kotelniki/vakansii/ohrannik_pitanie._vahta_8198948554",
+      "title": "Охранник + Питание. Вахта",
+      "salary_raw": "до 6 300 ₽ за смену на руки",
+      "params_raw": "Вахта · Без опыта",
+      "location_raw": "Московская обл., Котельники",
+      "promoted": true
+    },
+    {
+      "id": "8499457937",
+      "url": "https://www.avito.ru/naro-fominsk/vakansii/vahta_v_moskovskoy_oblasti_s_prozhivaniem_8499457937",
+      "title": "Вахта в Московской области с проживанием",
+      "salary_raw": "66 000 — 250 800 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Московская обл., Наро-Фоминский г.о., Наро-Фоминск",
+      "promoted": true
+    },
+    {
+      "id": "8368129410",
+      "url": "https://www.avito.ru/moskva/vakansii/vahta_moskva_raznorabochiy_oplata_proezda_8368129410",
+      "title": "Вахта Москва Разнорабочий Оплата проезда",
+      "salary_raw": "до 233 280 ₽",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8383582158",
+      "url": "https://www.avito.ru/moskva/vakansii/vahta_1515_ot_zavoda_cherkizovo._ukladka_kolbas_8383582158",
+      "title": "Вахта 15/15 от завода Черкизово. Укладка колбас",
+      "salary_raw": "от 5 900 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8446906342",
+      "url": "https://www.avito.ru/moskva_zelenograd/vakansii/sotrudnik_sklada_vahta_v_moskve_s_prozhivaniem_8446906342",
+      "title": "Сотрудник склада, вахта в Москве с проживанием",
+      "salary_raw": "120 000 — 240 000 ₽",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва, Зеленоград",
+      "promoted": true
+    },
+    {
+      "id": "8375662591",
+      "url": "https://www.avito.ru/moskva/vakansii/upakovschitsa_podarochnyh_naborov_vahta_20_smen_8375662591",
+      "title": "Упаковщица подарочных наборов вахта 20 смен",
+      "salary_raw": "от 4 000 ₽ за смену на руки",
+      "params_raw": "Вахта · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8120042689",
+      "url": "https://www.avito.ru/moskva/vakansii/upakovschik_tovarov_dlya_domavahta_moskva_8120042689",
+      "title": "Упаковщик товаров для дома/вахта Москва",
+      "salary_raw": "от 7 200 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8421462126",
+      "url": "https://www.avito.ru/moskva/vakansii/rabotnik_ekoteplitsy_moskva_bez_opyta._vahta_8421462126",
+      "title": "Работник экотеплицы Москва без опыта. Вахта",
+      "salary_raw": "4 500 — 8 000 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "7670519897",
+      "url": "https://www.avito.ru/moskva/vakansii/fasovschik_kofezhile_pitanievahta_ot_15_smen_7670519897",
+      "title": "Фасовщик кофе/Жильё+ Питание/Вахта от 15 смен",
+      "salary_raw": "от 7 200 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "7321903674",
+      "url": "https://www.avito.ru/moskva/vakansii/upakovschiktsa_chaya_legko_7321903674",
+      "title": "Упаковщик(ца чая легко",
+      "salary_raw": "150 000 — 213 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8405573925",
+      "url": "https://www.avito.ru/moskva/vakansii/mobilnaya_ognevaya_gruppa._zaschita_neba_moskvy_8405573925",
+      "title": "Мобильная огневая группа. Защита неба Москвы",
+      "salary_raw": "222 000 — 670 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "4200893603",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_vahta_moskva_avansy_ezhenedelno_4200893603",
+      "title": "Грузчик Вахта Москва Авансы еженедельно",
+      "salary_raw": "от 7 900 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "7327942988",
+      "url": "https://www.avito.ru/dzerzhinskiy/vakansii/mashinist_avtokranavahtazhilepitanieprozhivanie_7327942988",
+      "title": "Машинист автокрана/Вахта/Жилье+питание+проживание",
+      "salary_raw": "от 9 800 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Московская обл., г.о. Люберцы, Дзержинский",
+      "promoted": true
+    },
+    {
+      "id": "8448963832",
+      "url": "https://www.avito.ru/moskva/vakansii/raznorabochiy._vahta_s_prozhivaniem_i_pitaniem_8448963832",
+      "title": "Разнорабочий. Вахта с проживанием и питанием",
+      "salary_raw": "4 500 — 7 000 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8251661498",
+      "url": "https://www.avito.ru/moskva/vakansii/legkaya_vahta_15_upakovschik_duhov_pitanie_moskva_8251661498",
+      "title": "Легкая Вахта 15 Упаковщик Духов Питание Москва",
+      "salary_raw": "до 9 500 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8327148107",
+      "url": "https://www.avito.ru/moskva/vakansii/podsobnyy_rabochiy_vahta_na_myasokombinate_8327148107",
+      "title": "Подсобный рабочий — вахта на мясокомбинате",
+      "salary_raw": "от 5 005 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8378171640",
+      "url": "https://www.avito.ru/moskva/vakansii/komplektovschik_stabilnyy_dohod_vahta_v_moskve_8378171640",
+      "title": "Комплектовщик Стабильный доход Вахта в Москве",
+      "salary_raw": "4 000 — 11 500 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    }
+  ],
+  "pagination": {
+    "next_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wFMALP_YToyOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO3M6MToieSI7czoxNjoiV09IdFFnc21GamlsSTZFaiI7fS6VTQ1MAAAA&p=2",
+    "end_confirmed": false,
+    "evidence": {
+      "text": null,
+      "label": "Следующая страница",
+      "href": "/moskva/vakansii?context=H4sIAAAAAAAA_wFMALP_YToyOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO3M6MToieSI7czoxNjoiV09IdFFnc21GamlsSTZFaiI7fS6VTQ1MAAAA&p=2",
+      "disabled": false
+    },
+    "limitation": "No next control is not proof of end; infinite loading not verified"
+  }
+}

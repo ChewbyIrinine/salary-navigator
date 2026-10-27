@@ -1,0 +1,18 @@
+{
+  "run_id": "vahta_first5_2026-10-27",
+  "geography": "Все регионы",
+  "profession": "",
+  "query": "",
+  "filters": {
+    "График": "Вахта"
+  },
+  "selection_mode": "first_5_unique_in_listing_order",
+  "view_limit": 5,
+  "save_limit": 5,
+  "reserve": [],
+  "queue_evidence": "Data/avito_runs/vahta_first5_2026-10-27/evidence/queue.json",
+  "plan_documented_after_capture": true,
+  "selection_frozen_before_details": true,
+  "research_url": null,
+  "task_url": null
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "8365163007",
+    "url": "https://www.avito.ru/lyubertsy/vakansii/vahta_1530_nalichka_s_prozhivaniemupakovschik_8365163007",
+    "title": "Вахта 15/30 Наличка с проживанием/Упаковщик",
+    "salary_raw": "до 230 000 ₽ на руки",
+    "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Московская обл., Люберцы",
+    "promoted": true
+  },
+  {
+    "id": "8341201688",
+    "url": "https://www.avito.ru/moskva/vakansii/vahta_15_smens_3_razov._pitaniemsborschik_8341201688",
+    "title": "Вахта 15 смен/с 3 разов. питанием/сборщик",
+    "salary_raw": "до 250 000 ₽ на руки",
+    "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Москва",
+    "promoted": true
+  },
+  {
+    "id": "8445490610",
+    "url": "https://www.avito.ru/kommunarka/vakansii/raznorabochiy_s_ezhednevnoy_oplatoy_i_prozhivaniem_8445490610",
+    "title": "Разнорабочий с ежедневной оплатой и проживанием",
+    "salary_raw": "6 000 ₽ на руки",
+    "params_raw": "Вахта · Без опыта",
+    "location_raw": "Москва, Новомосковский административный округ, р-н Коммунарка, пос. Коммунарка",
+    "promoted": true
+  },
+  {
+    "id": "4299537166",
+    "url": "https://www.avito.ru/moskva/vakansii/rabotniki_na_hlebokombinat_vahta_4299537166",
+    "title": "Работники на хлебокомбинат Вахта",
+    "salary_raw": "от 108 000 ₽ на руки",
+    "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Москва",
+    "promoted": true
+  },
+  {
+    "id": "8223864636",
+    "url": "https://www.avito.ru/podolsk/vakansii/elektrogazosvarschikvahtazhilepitanieproezd_8223864636",
+    "title": "Электрогазосварщик/Вахта/Жилье+питание+проезд",
+    "salary_raw": "8 500 — 8 800 ₽ за смену",
+    "params_raw": "Вахта · Выплаты Дважды в месяц · Опыт более 3 лет",
+    "location_raw": "Московская обл., Подольск",
+    "promoted": true
+  }
+]

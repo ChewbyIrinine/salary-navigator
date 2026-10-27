@@ -2,7 +2,7 @@
   "schema_version": "1",
   "builder_version": "1",
   "builder_sha256": "b5e2796c6e8167a70d28974a61ef169b32bb92df7e668ca0c267714d2b588010",
-  "rows": 258,
+  "rows": 262,
   "columns": [
     "source",
     "id",
@@ -66,6 +66,10 @@
     "Режим работы",
     "С чем надо работать",
     "Разряд",
+    "Формат заведения",
+    "Цех",
+    "Кухня",
+    "Вид сварки",
     "first_seen_at",
     "last_seen_at",
     "run_id",
@@ -74,7 +78,7 @@
     "enriched_fields",
     "enrichment_version"
   ],
-  "sha256": "50f617b5cffaa44ecfd5a9cb065e432ea8fbc69adf6d270cc3ebb93031214bfc",
+  "sha256": "e935931f088c7ea5995fe80964dd6fdd2eddacc006da32559656693467e6711a",
   "inputs": [
     {
       "run_id": "all_professions_first5_2026-10-27",
@@ -132,6 +136,20 @@
         "Екатеринбург": "Свердловская область"
       },
       "rows": 238
+    },
+    {
+      "run_id": "vahta_first5_2026-10-27",
+      "source": "avito",
+      "path": "Data/avito_runs/vahta_first5_2026-10-27/exports/vacancies_flat.csv",
+      "sha256": "f23d9d9e90a921949f258bb61c9a2cb2ae21d23f560b2da5cd7ad59b2fd2974b",
+      "enrichment_status": "not_run",
+      "placement_regions": {
+        "Люберцы": "Московская область",
+        "Москва": "Москва",
+        "Коммунарка": "Москва",
+        "Подольск": "Московская область"
+      },
+      "rows": 5
     }
   ],
   "update_policy": "latest_complete_observation",
