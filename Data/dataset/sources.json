@@ -122,6 +122,23 @@
         "Екатеринбург": "Свердловская область"
       },
       "enrichment_status": "not_run"
+    },
+    {
+      "run_id": "first5_2026-10-28_01",
+      "source": "avito",
+      "path": "Data/avito_runs/first5_2026-10-28_01/exports/vacancies_flat.csv",
+      "sha256": "ccdd84581faa70de24eb73df3ba1c77d5aa70fa17ad7520409bd9a4f53b46b67",
+      "placement_regions": {
+        "Москва": "Москва"
+      },
+      "enrichment_status": "not_run",
+      "unknown_city_placements": {
+        "8283673057": {
+          "region": "Москва",
+          "evidence": "Москва, Страстной б-р, 6с1 Чеховская до 5 мин. Пушкинская до 5 мин. Тверская до 5 мин.",
+          "region_unknown": false
+        }
+      }
     }
   ]
 }

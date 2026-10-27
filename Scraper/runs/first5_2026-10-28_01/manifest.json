@@ -1,0 +1,208 @@
+{
+  "run_id": "first5_2026-10-28_01",
+  "dataset_id": "first5_2026-10-28_01",
+  "status": "complete",
+  "schema": {
+    "columns": [
+      "id",
+      "city",
+      "profession",
+      "segments",
+      "title",
+      "salary_raw",
+      "source_url",
+      "observed_at",
+      "description",
+      "location_observed",
+      "employer_name_observed",
+      "date_raw",
+      "views_total",
+      "views_today",
+      "listing_rank",
+      "listing_promoted",
+      "full_parameters_read",
+      "analysis_status",
+      "export_eligibility",
+      "read_status_parameters",
+      "read_status_description",
+      "read_status_location",
+      "read_limitations",
+      "enrichment_status",
+      "enriched_fields",
+      "enrichment_version",
+      "city__source",
+      "city__evidence",
+      "city_anomaly",
+      "График",
+      "Занятость",
+      "Длительность вахты",
+      "Частота выплат",
+      "Сфера деятельности компании",
+      "Что получают работники",
+      "Тип хозяйства",
+      "Опыт работы",
+      "В том числе для кандидатов",
+      "Медкнижка",
+      "Тип предприятия",
+      "Способ оформления",
+      "Количество рабочих дней в неделю",
+      "Количество рабочих часов в день",
+      "Формат заведения",
+      "Объект",
+      "Категория водительских прав"
+    ],
+    "unknown_policy": "empty_not_zero"
+  },
+  "collection": {
+    "run_id": "first5_2026-10-28_01",
+    "geography": "Москва",
+    "profession": "",
+    "segments": "",
+    "filter_evidence": "На URL наблюдённой московской выдачи подтверждены Москва и отсутствие профессии, текстового запроса и дополнительных фильтров; исходная сортировка сохранена.",
+    "listing_url": "https://www.avito.ru/moskva/vakansii",
+    "selected_controls": [
+      {
+        "label": "Любой",
+        "marker": "params[196929]/all",
+        "value": null
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/all",
+        "value": null
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": null,
+        "value": "all"
+      },
+      {
+        "label": "Все",
+        "marker": null,
+        "value": "all"
+      }
+    ],
+    "listing_sha256": "08df5336f05c76e8ba2a2125fd16dfd34a8b9ce6cfbe7ecbdb126002c9a77792",
+    "selection_mode": "first_N_unique_on_frozen_listing",
+    "limit": 5,
+    "created_at": "2026-10-27T21:55:33.536098+00:00",
+    "instruction_version": "1.7.6",
+    "extractor_sha256": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+    "instruction_sha256": "0c96b15657ae914bf591d455fe390fa8e766d8764f274aa3149a91809560d6f0",
+    "code_git_commit": "e4d1982b27a6b48043e27a677951514d8125fac4",
+    "setup_seconds": 3.5103077080566436,
+    "live_route_verified": false,
+    "execution_model": "gpt-6-luna",
+    "automation_sha256": {
+      "Scraper/extract.js": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+      "Scraper/skills/collect-avito/SKILL.md": "0c96b15657ae914bf591d455fe390fa8e766d8764f274aa3149a91809560d6f0",
+      "Scraper/skills/collect-avito/scripts/run.py": "036bc31c097cacbc1491afd1ef074909ad44c215bc535442e40cab722ffb2400",
+      "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+      "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+      "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+      "Scraper/skills/collect-avito/scripts/preflight.py": "c936fb4f63780090b162e14b8e126c1089fe9ba1974459948b46035546b9d758"
+    },
+    "uncommitted_automation_files": [],
+    "city_anomaly_policy": "blank"
+  },
+  "coverage": {
+    "planned": 5,
+    "accepted": 5,
+    "unique_ids": [
+      "8341201688",
+      "8301288515",
+      "8283673057",
+      "8355310440",
+      "7971508818"
+    ],
+    "errors": [],
+    "limitations": [
+      "Visible rendered parameters only; enrichment not run; placement on site; live route unverified"
+    ]
+  },
+  "timing": {
+    "setup_seconds": 3.5103077080566436,
+    "capture_seconds": 5.634004499996081,
+    "review_export_seconds": 0.038989583030343056,
+    "publication_seconds": null
+  },
+  "review_model": "gpt-6.1-terra",
+  "automation_changes": [],
+  "post_capture_automation_sha256": {},
+  "files": {
+    "Data/avito_runs/first5_2026-10-28_01/exports/vacancies.json": {
+      "bytes": 25592,
+      "sha256": "0c02d5d6eb9f65bf1b61fd5921987c84d53db5cfe309538515bc22e22c3be94b"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/exports/vacancies_flat.csv": {
+      "bytes": 20818,
+      "sha256": "ccdd84581faa70de24eb73df3ba1c77d5aa70fa17ad7520409bd9a4f53b46b67"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/exports/validation.json": {
+      "bytes": 128,
+      "sha256": "497ccaecdd0a020451938c12cd212f3c10e5b74d8fb643cb5fb2b3b53159b5ab"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/listing.json": {
+      "bytes": 25473,
+      "sha256": "08df5336f05c76e8ba2a2125fd16dfd34a8b9ce6cfbe7ecbdb126002c9a77792"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/queue.json": {
+      "bytes": 2364,
+      "sha256": "e4fd3f2280ee2c97025186aa2169dda8b028b1d95bec2463d72d23eed99e346d"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/raw/7971508818.json": {
+      "bytes": 19859,
+      "sha256": "308d6d1db5618b0c6ed56e270b5ad7105bed192b5a15ee548e1c4320aa468ce0"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/raw/8283673057.json": {
+      "bytes": 12504,
+      "sha256": "76b4ed820ab434b4c12a26cbb22f3feb9bf3459904cebdb7acc24669d3729d0e"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/raw/8301288515.json": {
+      "bytes": 13490,
+      "sha256": "651aaad16b1cacd822961b5775cd538e788235550a0b136c8cad6d29d0a7ede1"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/raw/8341201688.json": {
+      "bytes": 15870,
+      "sha256": "f584a1a5fdd2cd667d21da7cbc42061640d3606e2bd1cdf82f3b7216367749bf"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/raw/8355310440.json": {
+      "bytes": 12269,
+      "sha256": "0d7b6c748bb4266c1bb36511ebb5558d5b1078434f913b94b56d7bceeae8deb1"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/reviewed/7971508818.json": {
+      "bytes": 779,
+      "sha256": "b58b49ac5ad446667badd3621b1c35aea55a84155c60c9e554a81012f26b44f4"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/reviewed/8283673057.json": {
+      "bytes": 844,
+      "sha256": "78e40ecb2b4968bf0824a35b0fe562cc5bd2f65ccff19f2fb615b7c6086b335b"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/reviewed/8301288515.json": {
+      "bytes": 786,
+      "sha256": "d3daecb960fb39cde9f7f054ca47a2d34cfbe9d44a1b17d3a8b2e04c13995948"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/reviewed/8341201688.json": {
+      "bytes": 757,
+      "sha256": "299d049f2d0efc4682db186c1d25f9463eae217a6f1d8bdf373e098759d84e67"
+    },
+    "Data/avito_runs/first5_2026-10-28_01/reviewed/8355310440.json": {
+      "bytes": 757,
+      "sha256": "0848075d87d6568c79bdc60023b69fc80c57b74b746104d47b16495792663cd2"
+    },
+    "Scraper/runs/first5_2026-10-28_01/plan.json": {
+      "bytes": 2596,
+      "sha256": "f35c41f2c25a2edb2dbfde86ea8d27ff4f791edb01512d3b8d918d03558d413b"
+    }
+  }
+}

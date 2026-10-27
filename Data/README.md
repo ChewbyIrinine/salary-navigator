@@ -107,3 +107,5 @@ avito_runs/<название_сбора>/
 - [truck_driver_ekaterinburg_first40_2026-10-27](avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/exports/vacancies_flat.csv): 40 вакансий.
 
 - [courier_ekaterinburg_first40_benchmark_2026-10-27](avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/exports/vacancies_flat.csv): 40 вакансий.
+
+- [first5_2026-10-28_01](avito_runs/first5_2026-10-28_01/exports/vacancies_flat.csv): 5 вакансий.
