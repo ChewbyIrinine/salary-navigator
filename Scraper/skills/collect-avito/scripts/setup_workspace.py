@@ -98,7 +98,8 @@ def prepare(mode, config_path=DEFAULT_CONFIG, state_dir=None, xray_path=None,
             "happ_import_required": mode == "happ", "live_route_verified": False,
             "next": ("Импортируйте avito-routing-link.txt в Happ и выберите профиль у своей подписки. "
                      "Остальной трафик этого нового профиля по умолчанию идёт в proxy; пользовательские "
-                     "правила прежнего профиля не перенесены. Затем preflight.py --probe-aside."
+                     "правила прежнего профиля не перенесены. Затем preflight.py --probe-aside --strict-routing "
+                     "с тем же --config; успешность файла не доказывает импорт или действующий маршрут."
                      if mode == "happ" else "Запустите preflight.py --probe-aside; затем первую обычную загрузку сайта.")}
 
 

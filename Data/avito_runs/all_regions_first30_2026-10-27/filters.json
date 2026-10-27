@@ -1,0 +1,40 @@
+{
+  "listing_url": "https://www.avito.ru/all/vakansii?context=H4sIAAAAAAAA_wEsANP_YToxOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO30OjCyoLAAAAA",
+  "geography": "Все регионы",
+  "profession": null,
+  "query": "",
+  "other_filters": {},
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "evidence": "Listing heading: Работа и вакансии во всех регионах России; search textbox empty; no selected profession control; default controls Любой/Неважно/Все. First listing page, 50 rendered vacancy items, first 30 unique selected."
+}

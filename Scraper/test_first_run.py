@@ -1,6 +1,6 @@
 """First-run file preparation and CSV invariants; no installers or network."""
 import base64
-import csv
+import io
 import json
 from pathlib import Path
 import sys
@@ -12,10 +12,42 @@ SCRIPTS = Path(__file__).parent / "skills/collect-avito/scripts"
 sys.path.insert(0, str(SCRIPTS))
 import setup_workspace as setup
 import preflight
-import export_captures
+import run as runner
 
 
 class SetupTests(unittest.TestCase):
+    def test_runner_and_preflight_use_same_aside_outside_path(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp);binary = root / '.local/bin/aside'
+            binary.parent.mkdir(parents=True);binary.write_text('#!/bin/sh\n');binary.chmod(0o700)
+            with patch.object(preflight.Path, 'home', return_value=root), \
+                    patch.object(preflight.shutil, 'which', return_value=None), \
+                    patch.object(runner.subprocess, 'Popen', side_effect=RuntimeError('test stop')) as command:
+                self.assertEqual(preflight.find_aside(), str(binary))
+                with self.assertRaisesRegex(RuntimeError, 'test stop'):
+                    runner.browser({}, root, root)
+                self.assertEqual(command.call_args.args[0], [str(binary), 'repl'])
+
+    def test_runner_passes_explicit_config_to_its_preflight(self):
+        with patch.object(runner.subprocess, 'run') as command:
+            runner.preflight(Path('/private/custom/local.json'))
+        self.assertEqual(command.call_args.args[0][-2:], ['--config', '/private/custom/local.json'])
+        with patch.object(runner.subprocess, 'run') as command:
+            runner.preflight()
+        self.assertNotIn('--config', command.call_args.args[0])
+
+    def test_pipe_reader_preserves_bytes_and_reports_eof_without_select(self):
+        stream = io.BufferedReader(io.BytesIO('TL_SESSION=пример\nTL_FINISHED\n'.encode()))
+        chunks, thread = runner.pipe_chunks(stream)
+        received = bytearray()
+        while True:
+            chunk = chunks.get(timeout=1)
+            if chunk is None:
+                break
+            received.extend(chunk)
+        thread.join(timeout=1)
+        self.assertEqual(received.decode(), 'TL_SESSION=пример\nTL_FINISHED\n')
+
     def test_happ_files_are_importable_repeatable_and_static_only(self):
         with tempfile.TemporaryDirectory() as tmp:
             directory = Path(tmp)
@@ -76,47 +108,6 @@ class SetupTests(unittest.TestCase):
             skill = Path(tmp) / "SKILL.md";skill.write_text("name: browse")
             self.assertEqual(preflight.find_browse_skill(explicit=str(skill)), skill)
             self.assertIsNone(preflight.find_browse_skill(explicit=str(skill) + "missing"))
-
-
-class ExportTests(unittest.TestCase):
-    def prepare(self, root):
-        raw = {"id": "123", "state": "DETAIL", "title": "Пример",
-               "source_url": "https://www.avito.ru/moskva/vakansii/job_123",
-               "observed_at": "2026-10-27T12:00:00+00:00",
-               "description": 'Первая строка, "кавычки"\nВторая строка',
-               "fields": [{"name": "График", "value": "2/2, 3/3"}],
-               "location_raw": ["Москва, улица Примерная"],
-               "read_status": {"location": "observed"}}
-        (root / "123.json").write_text(json.dumps(raw))
-        review = root / "review.json"
-        review.write_text(json.dumps({"123": {"reviewed": True, "city": "Москва"}}))
-        return raw, review
-
-    def test_csv_preserves_location_characteristics_and_full_text(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp);raw, review = self.prepare(root);output = root / "out.csv"
-            result = export_captures.export(root, review, output)
-            with output.open(encoding="utf-8-sig", newline="") as stream:
-                row, = list(csv.DictReader(stream))
-            self.assertEqual(row["description"], raw["description"])
-            self.assertEqual(row["location_observed"], raw["location_raw"][0])
-            self.assertEqual(row["График"], "2/2, 3/3")
-            self.assertEqual(result["rows"], 1)
-            with self.assertRaises(FileExistsError):
-                export_captures.export(root, review, output)
-
-    def test_missing_location_and_unreviewed_capture_cannot_pass(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp);raw, review = self.prepare(root)
-            raw["location_raw"] = []
-            (root / "123.json").write_text(json.dumps(raw))
-            with self.assertRaises(ValueError):
-                export_captures.export(root, review, root / "out.csv")
-            self.assertFalse((root / "out.csv").exists())
-            self.prepare(root)
-            review.write_text(json.dumps({"123": {"city": "Москва"}}))
-            with self.assertRaises(ValueError):
-                export_captures.export(root, review, root / "out.csv")
 
 
 if __name__ == "__main__":

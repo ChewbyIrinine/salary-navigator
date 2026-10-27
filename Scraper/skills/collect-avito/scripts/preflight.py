@@ -110,6 +110,15 @@ def find_browse_skill(root=ROOT, explicit=None):
     return next((p for p in candidates if p.is_file()), None)
 
 
+def find_aside():
+    executable = shutil.which("aside")
+    for name in ("aside", "aside.exe", "aside.cmd"):
+        fallback = Path.home() / ".local/bin" / name
+        if not executable and fallback.is_file() and os.access(fallback, os.X_OK):
+            executable = str(fallback)
+    return executable
+
+
 def aside_ready(executable):
     try:
         result = subprocess.run(
@@ -147,11 +156,7 @@ def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False, strict_routing=Fal
     skill = find_browse_skill(explicit=settings.get("browse_skill_path") if settings else None)
     add("gstack_browse", skill is not None, "Проверено наличие инструкции gstack /browse.",
         "Откройте Scraper/skills/collect-avito/references/FIRST_RUN.md. Установите gstack /browse для своего агента; нестандартный путь задаётся через TL_BROWSE_SKILL.")
-    aside = shutil.which("aside")
-    for name in ("aside", "aside.exe", "aside.cmd"):
-        fallback = Path.home() / ".local/bin" / name
-        if not aside and fallback.is_file() and os.access(fallback, os.X_OK):
-            aside = str(fallback)
+    aside = find_aside()
     add("aside_cli", bool(aside), "Проверено наличие Aside CLI.",
         "Установите Aside для своей ОС с https://aside.com/download и CLI по инструкции приложения; см. FIRST_RUN.md.")
     if probe_aside and aside:

@@ -1,0 +1,22 @@
+{
+  "id": "8408177639",
+  "structural_check": {
+    "id": "8408177639",
+    "structural_check_passed": true,
+    "errors": [],
+    "full_parameters_read": false,
+    "semantic_review_performed": false
+  },
+  "semantic_review_performed": true,
+  "full_parameters_read": true,
+  "parameters_review": "All saved Условия and Требования lines matched to fields; rendered sections contain no expansion control.",
+  "location_observed": "Москва, Енисейская ул., 26А Бабушкинская до 5 мин.Медведково 21–30 мин.Свиблово 21–30 мин.",
+  "location_source": "visible_snapshot_Расположение",
+  "city": "Москва",
+  "region": "Москва",
+  "placement_evidence": "Москва",
+  "employer_review": "Duplicated visible seller-name/link blocks agree.",
+  "description_review": "Nonempty full rendered item-description preserved verbatim; no enrichment.",
+  "analysis_status": "validated",
+  "export_eligibility": "included"
+}

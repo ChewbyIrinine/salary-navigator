@@ -1,0 +1,22 @@
+{
+  "id": "8219024951",
+  "structural_check": {
+    "id": "8219024951",
+    "structural_check_passed": true,
+    "errors": [],
+    "full_parameters_read": false,
+    "semantic_review_performed": false
+  },
+  "semantic_review_performed": true,
+  "full_parameters_read": true,
+  "parameters_review": "All saved Условия and Требования lines matched to fields; rendered sections contain no expansion control.",
+  "location_observed": "Челябинская обл., Челябинск, Енисейская ул., 8 р-н Ленинский",
+  "location_source": "visible_snapshot_Расположение",
+  "city": "Челябинск",
+  "region": "Челябинская область",
+  "placement_evidence": "Челябинская обл., Челябинск",
+  "employer_review": "Duplicated visible seller-name/link blocks agree.",
+  "description_review": "Nonempty full rendered item-description preserved verbatim; no enrichment.",
+  "analysis_status": "validated",
+  "export_eligibility": "included"
+}

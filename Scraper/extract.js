@@ -26,7 +26,8 @@
     const i = s.search(/:\s/); return i < 0 ? null : {name: s.slice(0, i).trim(), value: s.slice(i + 1).trim(), values: s.slice(i + 1).trim().split(/,\s+/), values_parse: 'comma_space_tokens_from_raw_no_inferred_values', evidence_raw: s};
   })).filter(Boolean);
   if (base.state === 'DETAIL') {
-    const blocks = [...document.querySelectorAll('[data-marker="item-view/item-params"]')].map(text).filter(Boolean);
+    const paramElements = [...document.querySelectorAll('[data-marker="item-view/item-params"]')].filter(visible);
+    const blocks = paramElements.map(text).filter(Boolean);
     const descriptionRaw = get('item-view/item-description');
     // Candidate public blocks are explicitly marked as unverified until live-template QA.
     const publicBlock = pattern => [...document.querySelectorAll('[data-marker]')]
@@ -55,11 +56,25 @@
           heading: 'Расположение', text: parts.join('\n')}];
       }
     }
+    const parsedFields = fields(blocks);
+    const canonical = s => s.replace(/\s+/g, ' ').trim();
+    const names = parsedFields.map(f => canonical(f.name));
+    const expansionControls = paramElements.flatMap(e => [...e.querySelectorAll('button,a,[role="button"]')])
+      .filter(visible).map(text).filter(s => /ещ[её]|показать|раскрыть/i.test(s));
+    const renderedComplete = blocks.some(b => /^Условия(?:\n|$)/.test(b)) &&
+      blocks.some(b => /^Требования(?:\n|$)/.test(b)) && parsedFields.length > 0 &&
+      parsedFields.every(f => f.name && f.value) && new Set(names).size === names.length &&
+      blocks.flatMap(b => b.split('\n')).filter(s => /:\s/.test(s)).length === parsedFields.length &&
+      blocks.flatMap(b => b.split('\n')).map(canonical).filter(Boolean)
+        .every(s => /^(?:Условия|Требования)$/.test(s) || /^.+:\s+.+$/.test(s)) &&
+      expansionControls.length === 0;
     const sections = [...document.querySelectorAll('[data-marker="item-view/item-params"],[data-marker="item-view/item-description"]')]
       .filter(visible).map(e => ({marker: e.getAttribute('data-marker'), text: text(e)}));
     return {...base, id: location.pathname.match(/_(\d+)$/)?.[1] || get('item-view/item-id')?.match(/\d+/)?.[0],
       title, salary_raw: get('item-view/item-price-container') || get('item-view/item-price'),
-      params_blocks: blocks, fields: fields(blocks), fields_parse_version: 3, description: descriptionRaw, description_redacted: redact(descriptionRaw),
+      params_blocks: blocks, fields: parsedFields, fields_parse_version: 3, description: descriptionRaw, description_redacted: redact(descriptionRaw),
+      parameter_audit: {rendered_complete: renderedComplete, expansion_controls: expansionControls,
+        scope: 'visible_Условия_and_Требования_only'},
       employer_raw: employers.map(x => x.text), employer_evidence: employers,
       location_raw: locations.map(x => x.text), location_evidence: locations,
       source_sections: sections,

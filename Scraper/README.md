@@ -5,6 +5,29 @@
 Он работает с видимыми страницами: задаёт фильтры, сохраняет очередь,
 читает карточки и готовит выгрузку для анализа.
 
+## Готовый запуск (collect-avito 1.6)
+
+Модели этапов: Luna low — браузерный сбор, Terra — проверка и исключения.
+Ведущий явно запускает этих агентов; одно упоминание модели в тексте не
+переключает текущий чат.
+
+Повторяемый путь теперь реализован в `skills/collect-avito/scripts/run.py`:
+`freeze` фиксирует очередь наблюдённой выдачи, `capture` собирает/продолжает
+пакет, `finalize` проверяет и регистрирует CSV, `publish` готовит commit/push/PR.
+Аргументы и условия отбора — в [skill](skills/collect-avito/SKILL.md).
+Исходники скриптов и исторические инструкции не нужно читать на успешном пути.
+Preflight встроен в freeze/capture. Полный unit suite нужен при изменении кода,
+а обычный сбор проверяется пакетным валидатором и build_dataset --check.
+
+Новый шаблон карточки исправляем в общем коде с тестом и обновлением skill;
+файлы и причину регистрируем `run.py note-change` до finalize. Изменения
+попадают в паспорт и короткое описание PR вместе с данными. Временные
+скрипты не заменяют поддерживаемую реализацию.
+
+Регрессии runner: `python3 -m unittest Scraper.test_aside_runner`.
+Проверка экстрактора и настоящего batch-worker в Aside на localhost, без Авито:
+`python3 Scraper/test_extract_aside.py`.
+
 ## Подготовка рабочего места
 
 Для первого запуска дайте агенту [collect-avito](skills/collect-avito/SKILL.md)
@@ -50,7 +73,7 @@ python3 Scraper/skills/collect-avito/scripts/setup_workspace.py --mode happ
 Скрипт читает выбранный файл и выводит только результат проверки правил.
 Сам туннель, профиль и сетевые настройки он не меняет.
 
-## Перед каждым сбором и после обновления репозитория
+## Отдельная диагностика рабочего места
 
 ```sh
 python3 Scraper/skills/collect-avito/scripts/preflight.py --probe-aside
@@ -131,7 +154,6 @@ Aside CLI и доступность REPL, локальные настройки 
 | [preflight.py](skills/collect-avito/scripts/preflight.py) | Повторяемая проверка рабочего места |
 | [FIRST_RUN.md](skills/collect-avito/references/FIRST_RUN.md) | Настройка с нуля и пробный CSV |
 | [setup_workspace.py](skills/collect-avito/scripts/setup_workspace.py) | Локальные настройки, JSON и ссылка импорта Happ |
-| [export_captures.py](skills/collect-avito/scripts/export_captures.py) | Плоский CSV из проверенных raw JSON с расположением |
 | [check_capture.py](skills/collect-avito/scripts/check_capture.py) | Проверка структуры и ID сохранённой карточки |
 | [extract.js](extract.js) | Извлечение полей из уже открытой карточки; само не навигирует |
 | [ASIDE_WORKFLOW.md](ASIDE_WORKFLOW.md) | Детали фильтров, чтения, сохранения и восстановления |
