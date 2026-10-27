@@ -1,0 +1,61 @@
+{
+  "run_id": "first5_2026-10-28_01",
+  "geography": "Москва",
+  "profession": "",
+  "segments": "",
+  "filter_evidence": "На URL наблюдённой московской выдачи подтверждены Москва и отсутствие профессии, текстового запроса и дополнительных фильтров; исходная сортировка сохранена.",
+  "listing_url": "https://www.avito.ru/moskva/vakansii",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "listing_sha256": "08df5336f05c76e8ba2a2125fd16dfd34a8b9ce6cfbe7ecbdb126002c9a77792",
+  "selection_mode": "first_N_unique_on_frozen_listing",
+  "limit": 5,
+  "created_at": "2026-10-27T21:55:33.536098+00:00",
+  "instruction_version": "1.7.6",
+  "extractor_sha256": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+  "instruction_sha256": "0c96b15657ae914bf591d455fe390fa8e766d8764f274aa3149a91809560d6f0",
+  "code_git_commit": "e4d1982b27a6b48043e27a677951514d8125fac4",
+  "setup_seconds": 3.5103077080566436,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/extract.js": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+    "Scraper/skills/collect-avito/SKILL.md": "0c96b15657ae914bf591d455fe390fa8e766d8764f274aa3149a91809560d6f0",
+    "Scraper/skills/collect-avito/scripts/run.py": "036bc31c097cacbc1491afd1ef074909ad44c215bc535442e40cab722ffb2400",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+    "Scraper/skills/collect-avito/scripts/preflight.py": "c936fb4f63780090b162e14b8e126c1089fe9ba1974459948b46035546b9d758"
+  },
+  "uncommitted_automation_files": []
+}
