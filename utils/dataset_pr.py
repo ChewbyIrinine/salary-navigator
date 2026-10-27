@@ -30,6 +30,21 @@ def browser_evidence(path):
         ".txt", ".jpg", ".jpeg", ".png", ".webp", ".gif", ".html", ".mhtml"}
 
 
+def validate_automation_changes(changes, code_paths):
+    """Require each changed source plus a regression and updated skill, not a token note."""
+    if not code_paths:
+        return
+    noted = {change.get('file') for change in changes
+             if change.get('reason', '').strip() and change.get('validation', '').strip()}
+    missing = set(code_paths) - noted
+    if missing:
+        raise ValueError('Record collector changes for every source/test/skill file: ' + ', '.join(sorted(missing)))
+    if not any(path and (Path(path).name.startswith('test_') or '/tests/' in path) for path in noted):
+        raise ValueError('Collector fix requires a recorded regression test')
+    if 'Scraper/skills/collect-avito/SKILL.md' not in noted:
+        raise ValueError('Collector fix requires an updated and recorded SKILL.md')
+
+
 def render(summary, before, after, batches):
     old_columns, old_rows = before
     new_columns, new_rows = after
@@ -78,11 +93,22 @@ def main():
     registry = json.loads((ROOT / "Data/dataset/sources.json").read_text())
     entries = {entry["run_id"]: entry for entry in registry["exports"]}
     batches = []
+    automation_changes = []
     for run_id in args.run_id:
         entry = entries[run_id]
         _, rows = read_csv((ROOT / entry["path"]).read_bytes())
         batches.append((entry["source"], rows))
-    args.output.write_text(render(args.summary, read_csv(base), read_csv(current), batches), encoding="utf-8")
+        manifest_path = ROOT / 'Scraper/runs' / run_id / 'manifest.json'
+        if manifest_path.exists():
+            automation_changes.extend(json.loads(manifest_path.read_text()).get('automation_changes', []))
+    code = [p for p in staged if p.startswith(('Scraper/', 'utils/')) and
+            (p.endswith(('.py', '.js', 'SKILL.md')) and '/runs/' not in p)]
+    validate_automation_changes(automation_changes, code)
+    body = render(args.summary, read_csv(base), read_csv(current), batches)
+    if automation_changes:
+        body += '\nИзменения сборщика:\n' + ''.join(
+            f'- `{c["file"]}`: {c["reason"]}. Проверка: {c["validation"]}.\n' for c in automation_changes)
+    args.output.write_text(body, encoding="utf-8")
     print(f"PR body saved: {args.output}")
 
 

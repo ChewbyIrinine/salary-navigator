@@ -79,7 +79,6 @@ moscow = df[df["city"] == "Москва"]
 
    ```sh
    python3 utils/build_dataset.py
-   python3 -m unittest utils.test_build_dataset Scraper.test_preflight utils.test_dataset_pr
    python3 utils/build_dataset.py --check
    ```
 
@@ -125,3 +124,8 @@ Manifest содержит входные хеши, хеш CSV, колонки и
 не хватает разрешения `workflow`, поэтому CI пока не включён. Установите шаблон
 через доступ с этим разрешением; обязательность проверки в защите ветки
 настраивается отдельно.
+
+Обычный сбор использует готовый runner collect-avito 1.5. Полный unit suite
+выполняется при изменении кода; проверки очереди, карточек, хешей и общей
+таблицы выполняются на каждом пакете без участия модели. Новые исправления
+фиксируются в automation_changes паспорта и кратко перечисляются в PR.
