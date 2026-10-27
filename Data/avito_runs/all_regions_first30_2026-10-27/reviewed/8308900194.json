@@ -1,0 +1,22 @@
+{
+  "id": "8308900194",
+  "structural_check": {
+    "id": "8308900194",
+    "structural_check_passed": true,
+    "errors": [],
+    "full_parameters_read": false,
+    "semantic_review_performed": false
+  },
+  "semantic_review_performed": true,
+  "full_parameters_read": true,
+  "parameters_review": "All saved Условия and Требования lines matched to fields; rendered sections contain no expansion control.",
+  "location_observed": "Москва Охотный ряд до 5 мин.Театральная до 5 мин.Площадь революции до 5 мин.",
+  "location_source": "visible_snapshot_Расположение",
+  "city": "Москва",
+  "region": "Москва",
+  "placement_evidence": "Москва",
+  "employer_review": "Duplicated visible seller-name/link blocks agree.",
+  "description_review": "Nonempty full rendered item-description preserved verbatim; no enrichment.",
+  "analysis_status": "validated",
+  "export_eligibility": "included"
+}
