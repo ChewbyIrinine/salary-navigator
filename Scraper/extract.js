@@ -12,7 +12,7 @@
     ((!cards.length && !title) && blockingText.test(body.slice(0, 5000))) ||
     [...document.querySelectorAll('[role="dialog"],iframe[src*="captcha"]')].some(e => visible(e) && (e.tagName === 'IFRAME' || /капч|captcha|Доступ ограничен/i.test(e.innerText)));
   const base = {source_url: location.href, observed_at: new Date().toISOString(),
-    channel: 'gstack DOM', schema_version: 3,
+    channel: 'gstack DOM', schema_version: 4,
     state: blocked ? 'NEEDS_HUMAN' : title ? 'DETAIL' : cards.length ? 'LISTING' : 'UNKNOWN_PAGE'};
   // Do not extract even underlying DOM when a blocking overlay is present.
   if (blocked) return {...base, reason: 'access_restriction_or_captcha', items: []};
@@ -33,7 +33,28 @@
       .filter(e => visible(e) && pattern.test(e.getAttribute('data-marker')))
       .map(e => ({marker: e.getAttribute('data-marker'), text: text(e)})).filter(x => x.text);
     const employers = publicBlock(/^(?:seller-info\/name|seller-link\/link)$/);
-    const locations = publicBlock(/^(?:item-view\/item-address|item-view\/address|item-view\/location)$/);
+    let locations = publicBlock(/^(?:item-view\/item-address|item-view\/address|item-view\/location)$/);
+    // Current job templates have no address marker. Read only the visible block
+    // immediately after the location heading, never the description, map or URL.
+    if (!locations.length) {
+      const locationHeading = [...document.querySelectorAll('h2,h3')]
+        .find(e => visible(e) && /^Расположение$/.test(text(e)));
+      const block = locationHeading?.nextElementSibling;
+      if (block && !block.matches('h1,h2,h3') &&
+          !block.querySelector('h1,h2,h3,[data-marker="item-view/item-description"],[data-marker="item-view/item-params"]') &&
+          !block.matches('[data-marker="item-view/item-description"],[data-marker="item-view/item-params"]')) {
+        const walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT);
+        const parts = [];
+        while (walker.nextNode()) {
+          const node = walker.currentNode, parent = node.parentElement;
+          if (parent && visible(parent) && !parent.closest(
+            'button,[role="button"],[data-marker^="item-map"],ymaps,script,style'
+          ) && node.textContent.trim()) parts.push(node.textContent.trim());
+        }
+        if (parts.length) locations = [{marker: null, method: 'visible_location_heading',
+          heading: 'Расположение', text: parts.join('\n')}];
+      }
+    }
     const sections = [...document.querySelectorAll('[data-marker="item-view/item-params"],[data-marker="item-view/item-description"]')]
       .filter(visible).map(e => ({marker: e.getAttribute('data-marker'), text: text(e)}));
     return {...base, id: location.pathname.match(/_(\d+)$/)?.[1] || get('item-view/item-id')?.match(/\d+/)?.[0],
@@ -47,7 +68,8 @@
         employer: employers.length ? 'observed' : 'unread', location: locations.length ? 'observed' : 'unread'},
       full_parameters_read: false,
       read_limitations: ['rendered_DOM_only', 'expanded_sections_and_template_completeness_not_live_verified',
-        'employer_and_location_selectors_not_live_verified'],
+        'employer_template_completeness_not_live_verified',
+        ...(locations.length ? ['placement_city_and_region_require_review'] : ['location_not_observed'])],
       raw_policy: 'Public description preserved; derived redacted copy separate; contact controls not opened',
       date_raw: get('item-view/item-date'), views_raw: get('item-view/total-views'), today_views_raw: get('item-view/today-views')};
   }

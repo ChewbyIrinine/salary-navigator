@@ -73,13 +73,40 @@ def check_xray(config):
     return errors
 
 
-def find_browse_skill(root=ROOT):
+def check_happ(config):
+    """Only validates a routing profile, never its activation or subscription."""
+    if not isinstance(config, dict) or not isinstance(config.get("Name"), str) or not config["Name"].strip():
+        return ["Нужен именованный JSON-профиль маршрутизации Happ."]
+    sites = config.get("DirectSites", [])
+    order = config.get("RouteOrder", "block-proxy-direct")
+    if not isinstance(order, str) or order not in (
+            "direct-block-proxy", "direct-proxy-block"):
+        return ["Direct должен проверяться первым; иначе proxy/block могут перекрыть Авито."]
+    if not isinstance(sites, list) or not all(
+            d in sites for d in ("domain:avito.ru", "domain:avito.st")):
+        return ["DirectSites должен содержать domain:avito.ru и domain:avito.st."]
+    return []
+
+
+def find_browse_skill(root=ROOT, explicit=None):
     codex = Path(os.environ.get("CODEX_HOME", str(Path.home() / ".codex")))
     candidates = [root / ".agents/skills/gstack/browse/SKILL.md",
+                  root / ".claude/skills/gstack/browse/SKILL.md",
+                  root / ".claude/skills/browse/SKILL.md",
                   codex / "skills/gstack/browse/SKILL.md",
-                  codex / "skills/gstack-browse/SKILL.md"]
+                  codex / "skills/gstack-browse/SKILL.md",
+                  Path.home() / ".claude/skills/gstack/browse/SKILL.md",
+                  Path.home() / ".claude/skills/browse/SKILL.md",
+                  Path.home() / ".agents/skills/gstack/browse/SKILL.md"]
     if os.environ.get("GSTACK_ROOT"):
         candidates.insert(0, Path(os.environ["GSTACK_ROOT"]) / "browse/SKILL.md")
+    override = explicit or os.environ.get("TL_BROWSE_SKILL")
+    if override:
+        # An invalid explicit choice must not silently validate another installation.
+        if not isinstance(override, (str, os.PathLike)):
+            return None
+        selected = Path(override).expanduser()
+        return selected if selected.is_file() else None
     return next((p for p in candidates if p.is_file()), None)
 
 
@@ -111,36 +138,50 @@ def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False, strict_routing=Fal
     add("project", all((ROOT / p).is_file() for p in required),
         "Проверка наличия файлов навыка, экстрактора и паспорта.",
         "Обновите checkout проекта; не копируйте один SKILL.md отдельно от файлов.")
-    skill = find_browse_skill()
-    add("gstack_browse", skill is not None, "Проверено наличие инструкции gstack /browse.",
-        "Установите gstack /browse для своего агента; затем повторите проверку.")
-    aside = shutil.which("aside")
-    fallback = Path.home() / ".local/bin/aside"
-    if not aside and fallback.is_file() and os.access(fallback, os.X_OK):
-        aside = str(fallback)
-    add("aside_cli", bool(aside), "Проверено наличие Aside CLI.",
-        "Установите Aside (aside.com, macOS 15+) и настройте CLI по инструкции приложения.")
-    if probe_aside and aside:
-        add("aside_session", aside_ready(aside), "Проверка REPL без открытия вкладок и сайта.",
-            "Откройте Aside и проверьте aside --help; затем повторите проверку. Подробности CLI остаются локально.")
-
-    settings = None
     try:
         settings = json.loads(Path(config_path).read_text(encoding="utf-8"))
         if not isinstance(settings, dict):
-            raise ValueError
+            settings = None
     except (OSError, ValueError):
+        settings = None
+    skill = find_browse_skill(explicit=settings.get("browse_skill_path") if settings else None)
+    add("gstack_browse", skill is not None, "Проверено наличие инструкции gstack /browse.",
+        "Откройте Scraper/skills/collect-avito/references/FIRST_RUN.md. Установите gstack /browse для своего агента; нестандартный путь задаётся через TL_BROWSE_SKILL.")
+    aside = shutil.which("aside")
+    for name in ("aside", "aside.exe", "aside.cmd"):
+        fallback = Path.home() / ".local/bin" / name
+        if not aside and fallback.is_file() and os.access(fallback, os.X_OK):
+            aside = str(fallback)
+    add("aside_cli", bool(aside), "Проверено наличие Aside CLI.",
+        "Установите Aside для своей ОС с https://aside.com/download и CLI по инструкции приложения; см. FIRST_RUN.md.")
+    if probe_aside and aside:
+        add("aside_session", aside_ready(aside), "Проверка REPL без открытия вкладок и сайта.",
+            "Откройте Aside; проверьте aside --help, aside login и выбранный host/profile. Авторизацию подтвердите лично; затем повторите preflight. См. FIRST_RUN.md.")
+
+    if settings is None:
         add("local_config", False, "Локальные настройки отсутствуют или не читаются как JSON-объект.",
-            "Для статического аудита укажите локальный конфиг; для обычного сбора используйте готовый Aside и первую загрузку сайта.",
+            "Для первого запуска: setup_workspace.py --mode disabled (без VPN) или --mode happ (профиль для импорта). Режим выбирается по вашей среде; см. FIRST_RUN.md.",
             blocking=strict_routing)
     if settings is not None:
         mode = settings.get("tunnel_mode")
-        add("tunnel_mode", mode in ("disabled", "xray"),
-            "Режим туннеля должен быть указан явно: disabled или xray.",
-            "Укажите disabled, если работаете без туннеля, или xray и путь к актуальному конфигу Happ/Xray.",
+        add("tunnel_mode", mode in ("disabled", "happ", "xray"),
+            "Режим туннеля должен быть указан явно: disabled, happ или xray.",
+            "Запустите setup_workspace.py с выбранным режимом по FIRST_RUN.md.",
             blocking=strict_routing)
         if mode == "disabled":
             add("tunnel_config", True, "В локальных настройках заявлена работа без туннеля; состояние ОС и маршрут не проверены.")
+        elif mode == "happ":
+            try:
+                profile_path = Path(settings["happ_routing_path"]).expanduser()
+                if not profile_path.is_absolute() or profile_path.resolve().is_relative_to(ROOT):
+                    raise ValueError
+                errors = check_happ(json.loads(profile_path.read_text(encoding="utf-8")))
+                add("tunnel_config", not errors,
+                    "Статическая проверка профиля Happ; импорт и работающий маршрут не проверяются.",
+                    " ".join(errors) + " См. VPN_HAPP.md.", blocking=strict_routing)
+            except (OSError, ValueError, TypeError, KeyError):
+                add("tunnel_config", False, "Профиль Happ отсутствует или не читается.",
+                    "Создайте профиль через setup_workspace.py --mode happ; затем импортируйте по VPN_HAPP.md.", blocking=strict_routing)
         elif mode == "xray":
             path = settings.get("xray_config_path")
             try:

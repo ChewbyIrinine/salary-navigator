@@ -1,13 +1,29 @@
 ---
 name: collect-avito
-description: Collect a bounded Avito job sample through gstack /browse and Aside, preserve evidence, rebuild the shared CSV and publish accepted batches through GitHub PRs into main under the team workflow. Use for new samples or continuation; not unattended site-wide crawling.
+description: Help a teammate set up Python, gstack, Aside and local Happ routing, then collect a bounded Avito job sample into a reviewed CSV and publish accepted batches under the team workflow. Use for first setup, new samples or continuation; not unattended site-wide crawling.
 ---
 
 # Сбор вакансий для T&L
 
-Версия инструкции: 1.4, 27.10.2026. Корень проекта определяйте по наличию
+Версия инструкции: 1.5, 27.10.2026. Корень проекта определяйте по наличию
 `Scraper/extract.js`; не используйте пути, вкладки или session ID автора.
 Для параметров неизвестного интерфейса сначала прочитайте фактический snapshot.
+
+## Первый запуск и неполное окружение
+
+Если участник скачал проект впервые, просит настройку с нуля или preflight
+обнаружил отсутствующие зависимости, прочитайте [FIRST_RUN.md](references/FIRST_RUN.md)
+и проведите его до пробного CSV. Не завершайте работу одним `NEEDS_SETUP`:
+помогите установить недостающее по актуальной официальной инструкции, создать
+локальные настройки через `scripts/setup_workspace.py` и повторить проверку.
+Вход в аккаунт, разрешения ОС и выбор профиля Happ выполняются участником,
+если для них нужно его действие. После ответа продолжайте с места остановки.
+Режим сети не угадывайте; подтверждённый выбор не спрашивайте повторно.
+Для Happ генератор создаёт JSON и ссылку импорта маршрутизации вне проекта,
+не подписку/сервер. Не меняйте работающий туннель ради проверки навыка.
+Один и тот же навык используется в Codex/Claude Code через путь к файлу;
+для нестандартного размещения /browse есть `--browse-skill`/`TL_BROWSE_SKILL`.
+Другие агенты и Windows требуют фактической проверки, не обещания совместимости.
 
 ## Что прочитать
 
@@ -65,6 +81,8 @@ description: Collect a bounded Avito job sample through gstack /browse and Aside
    непроверенность конфигурации маршрута не означает отказ работающего браузера.
    Не запрашивайте повторно полный конфиг или уже полученное подтверждение.
    Не ищите настройки VPN по всему диску и не меняйте их в обычном сборе.
+   При первом запуске помогите создать недостающие настройки по FIRST_RUN.md;
+   это не должно сбрасывать уже работающую конфигурацию.
    Статический аудит маршрутизации запускается отдельно с `--strict-routing`;
    сведения о настройке — в [Scraper/README.md](../../README.md).
    Для разных checkout один и тот же локальный файл можно передать через
@@ -94,6 +112,9 @@ description: Collect a bounded Avito job sample through gstack /browse and Aside
    несколько значений и конфликты — раздельно. Период суммы, частота выплат,
    налоги и нагрузка различаются. Неизвестное не превращайте в ноль или месяц.
    `full_parameters_read` не выставляется автоматически по успешному JSON.parse.
+   Проверьте `location_raw` и `read_status.location`: экстрактор читает маркеры
+   адреса или видимый блок «Расположение», но город/регион всё равно сверяются
+   со страницей. Пустое расположение не подменяйте slug URL или описанием.
 
 ## Остановка и продолжение
 
@@ -123,6 +144,9 @@ CAPTCHA, ограничение доступа, неожиданный ID или
 Обязательные колонки, допустимые статусы и служебные поля определены в
 [контракте](../../../Data/dataset/README.md). Для схемы первой выгрузки есть
 офлайн-преобразование `utils/flatten_export.py`; новую схему проверьте отдельно.
+Для новых raw JSON используйте [export_captures.py](scripts/export_captures.py)
+с проверенным `review.json` по [FIRST_RUN.md](references/FIRST_RUN.md#6-получить-csv):
+он сохраняет расположение и все характеристики без ручного написания экспортёра.
 Ссылку на CSV добавьте в `Data/README.md`. Архив raw — дополнительный материал,
 он не должен быть обязательным для открытия готовой таблицы.
 
