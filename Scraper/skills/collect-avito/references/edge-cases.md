@@ -122,4 +122,3 @@ python3 utils/dataset_pr.py --run-id <run_id> --base origin/main \
 `--check`. Если установлен `.github/workflows/dataset.yml`, GitHub Actions
 проверяет соответствие таблицы реестру и тесты. До его установки проверки
 выполняются локально; готовый шаблон находится в `Scraper/templates/`.
-
