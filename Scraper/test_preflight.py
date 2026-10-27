@@ -76,12 +76,52 @@ class RoutingTests(unittest.TestCase):
 
 
 class EnvironmentTests(unittest.TestCase):
-    def test_missing_config_gives_action_without_starting_browser(self):
+    def setUp(self):
+        # These checks must not depend on a developer's installed browser/skills.
+        self.skill_patch = patch.object(preflight, "find_browse_skill", return_value=Path("SKILL.md"))
+        self.cli_patch = patch.object(preflight.shutil, "which", return_value="aside")
+        self.skill_patch.start()
+        self.cli_patch.start()
+        self.addCleanup(self.skill_patch.stop)
+        self.addCleanup(self.cli_patch.stop)
+
+    def test_missing_config_is_warning_without_starting_browser(self):
         with tempfile.TemporaryDirectory() as tmp, patch.object(preflight, "aside_ready") as probe:
             result = preflight.run_checks(Path(tmp) / "missing.json")
-        self.assertEqual(result["status"], "NEEDS_SETUP")
+        self.assertEqual(result["status"], "READY_WITH_WARNINGS")
+        self.assertFalse(result["can_collect"])  # REPL not probed in this call.
         self.assertTrue(any(c.get("next_step") for c in result["checks"]))
         probe.assert_not_called()
+
+    def test_ready_aside_with_missing_config_can_collect(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(preflight, "aside_ready", return_value=True), \
+                patch.object(preflight.shutil, "which", return_value="aside"):
+            result = preflight.run_checks(Path(tmp) / "missing.json", probe_aside=True)
+        self.assertEqual(result["status"], "READY_WITH_WARNINGS")
+        self.assertTrue(result["can_collect"])
+        self.assertFalse(result["live_route_verified"])
+
+    def test_failed_aside_remains_blocking_even_with_routing_warning(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(preflight, "aside_ready", return_value=False), \
+                patch.object(preflight.shutil, "which", return_value="aside"):
+            result = preflight.run_checks(Path(tmp) / "missing.json", probe_aside=True)
+        self.assertEqual(result["status"], "NEEDS_SETUP")
+        self.assertFalse(result["can_collect"])
+
+    def test_strict_route_audit_requires_config(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result = preflight.run_checks(Path(tmp) / "missing.json", strict_routing=True)
+        self.assertEqual(result["status"], "NEEDS_SETUP")
+
+    def test_unreadable_xray_file_is_not_aside_failure(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(preflight, "aside_ready", return_value=True), \
+                patch.object(preflight.shutil, "which", return_value="aside"):
+            path = Path(tmp) / "settings.json"
+            path.write_text(json.dumps({"tunnel_mode": "xray", "xray_config_path": str(Path(tmp) / "absent.json")}))
+            result = preflight.run_checks(path, probe_aside=True)
+        self.assertEqual(result["status"], "READY_WITH_WARNINGS")
+        self.assertTrue(result["can_collect"])
+        self.assertFalse(result["live_route_verified"])
 
     def test_repeated_check_reads_changed_config(self):
         with tempfile.TemporaryDirectory() as tmp:

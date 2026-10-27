@@ -97,11 +97,11 @@ def aside_ready(executable):
         return False
 
 
-def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False):
+def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False, strict_routing=False):
     checks = []
 
-    def add(name, ok, detail, fix=""):
-        checks.append({"check": name, "ok": ok, "detail": detail,
+    def add(name, ok, detail, fix="", *, blocking=True):
+        checks.append({"check": name, "ok": ok, "detail": detail, "blocking": blocking,
                        **({"next_step": fix} if not ok else {})})
 
     add("python", sys.version_info >= (3, 10), "Нужен Python 3.10+.",
@@ -131,12 +131,14 @@ def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False):
             raise ValueError
     except (OSError, ValueError):
         add("local_config", False, "Локальные настройки отсутствуют или не читаются как JSON-объект.",
-            "Скопируйте Scraper/collect-avito.config.example.json в Scraper/collect-avito.local.json; укажите tunnel_mode.")
+            "Для статического аудита укажите локальный конфиг; для обычного сбора используйте готовый Aside и первую загрузку сайта.",
+            blocking=strict_routing)
     if settings is not None:
         mode = settings.get("tunnel_mode")
         add("tunnel_mode", mode in ("disabled", "xray"),
             "Режим туннеля должен быть указан явно: disabled или xray.",
-            "Укажите disabled, если работаете без туннеля, или xray и путь к актуальному конфигу Happ/Xray.")
+            "Укажите disabled, если работаете без туннеля, или xray и путь к актуальному конфигу Happ/Xray.",
+            blocking=strict_routing)
         if mode == "disabled":
             add("tunnel_config", True, "В локальных настройках заявлена работа без туннеля; состояние ОС и маршрут не проверены.")
         elif mode == "xray":
@@ -151,35 +153,45 @@ def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False):
                 errors = check_xray(config)
                 add("tunnel_config", not errors,
                     "Проверка явных TCP-правил avito.ru/avito.st и freedom-outbound в файле; работающий туннель не проверяется.",
-                    " ".join(errors) + " См. Scraper/VPN_HAPP.md; проверьте актуальный профиль и повторите команду.")
+                    " ".join(errors) + " См. Scraper/VPN_HAPP.md; проверьте актуальный профиль и повторите команду.",
+                    blocking=strict_routing)
             except (OSError, ValueError, TypeError):
                 add("tunnel_config", False, "Не удалось прочитать локальную Xray-конфигурацию.",
-                    "Укажите абсолютный xray_config_path к актуальному JSON вне репозитория. Полный конфиг не публикуйте.")
-    ok = all(c["ok"] for c in checks)
-    return {"status": "LOCAL_CHECKS_OK" if ok else "NEEDS_SETUP", "checks": checks,
+                    "Укажите абсолютный xray_config_path к актуальному JSON вне репозитория. Полный конфиг не публикуйте.",
+                    blocking=strict_routing)
+    blocked = any(not c["ok"] and c["blocking"] for c in checks)
+    warnings = any(not c["ok"] and not c["blocking"] for c in checks)
+    status = "NEEDS_SETUP" if blocked else "READY_WITH_WARNINGS" if warnings else "LOCAL_CHECKS_OK"
+    return {"status": status, "checks": checks,
             "aside_session_checked": bool(probe_aside and aside),
+            "can_collect": not blocked and bool(probe_aside and aside),
             "live_route_verified": False,
-            "next": "Перед сбором: --probe-aside, проверка владельца, затем одна обычная загрузка по /browse и сверка маршрута. При resume сначала checkpoint. Наличие правил не гарантирует доступ к сайту."}
+            "strict_routing": strict_routing,
+            "next": "Перед сбором: --probe-aside, собственная сессия /browse, одна обычная загрузка сайта. Предупреждение о конфиге не означает отказ браузера. При блокировке сайта остановитесь; при resume сначала checkpoint. Маршрут остаётся неподтверждённым без отдельного измерения."}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    parser.add_argument("--config", type=Path,
+                        default=Path(os.environ.get("TL_AVITO_CONFIG", str(DEFAULT_CONFIG))))
     parser.add_argument("--probe-aside", action="store_true",
                         help="Readiness-only REPL; no tabs, navigation or Avito requests")
     parser.add_argument("--json", action="store_true")
+    parser.add_argument("--strict-routing", action="store_true",
+                        help="Require a valid static routing config when auditing network setup")
     args = parser.parse_args()
-    result = run_checks(args.config, args.probe_aside)
+    result = run_checks(args.config, args.probe_aside, args.strict_routing)
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         print(result["status"])
         for check in result["checks"]:
-            print(f"{'OK' if check['ok'] else 'НУЖНО ДЕЙСТВИЕ'} · {check['check']}: {check['detail']}")
+            label = "OK" if check["ok"] else "НУЖНО ДЕЙСТВИЕ" if check["blocking"] else "ПРЕДУПРЕЖДЕНИЕ"
+            print(f"{label} · {check['check']}: {check['detail']}")
             if "next_step" in check:
                 print("  " + check["next_step"])
         print(result["next"])
-    return 0 if result["status"] == "LOCAL_CHECKS_OK" else 2
+    return 2 if result["status"] == "NEEDS_SETUP" else 0
 
 
 if __name__ == "__main__":
