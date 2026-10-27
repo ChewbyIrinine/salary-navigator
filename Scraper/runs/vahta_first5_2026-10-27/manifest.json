@@ -1,0 +1,236 @@
+{
+  "dataset_id": "vahta_first5_2026-10-27",
+  "run_id": "vahta_first5_2026-10-27",
+  "status": "COMPLETE",
+  "observation_window": {
+    "started_at_utc": "2026-10-27T13:43:27.548Z",
+    "ended_at_utc": "2026-10-27T13:43:41.574Z"
+  },
+  "slice": {
+    "run_id": "vahta_first5_2026-10-27",
+    "geography": "Все регионы",
+    "profession": "",
+    "query": "",
+    "filters": {
+      "График": "Вахта"
+    },
+    "selection_mode": "first_5_unique_in_listing_order",
+    "view_limit": 5,
+    "save_limit": 5,
+    "reserve": [],
+    "queue_evidence": "Data/avito_runs/vahta_first5_2026-10-27/evidence/queue.json",
+    "plan_documented_after_capture": true,
+    "selection_frozen_before_details": true,
+    "research_url": null,
+    "task_url": null
+  },
+  "schema": {
+    "field_set_version": 3,
+    "columns": [
+      "id",
+      "city",
+      "profession",
+      "segments",
+      "title",
+      "salary_raw",
+      "employer_name_observed",
+      "location_observed",
+      "source_url",
+      "observed_at",
+      "description",
+      "employer_profile_url",
+      "date_raw",
+      "views_total",
+      "views_today",
+      "full_parameters_read",
+      "analysis_status",
+      "export_eligibility",
+      "График",
+      "Занятость",
+      "Длительность вахты",
+      "Частота выплат",
+      "Сфера деятельности компании",
+      "Тип предприятия",
+      "Опыт работы",
+      "В том числе для кандидатов",
+      "Медкнижка",
+      "read_status_parameters",
+      "read_status_description",
+      "read_status_employer",
+      "read_status_location",
+      "read_limitations",
+      "listing_rank",
+      "listing_promoted",
+      "enrichment_status",
+      "enriched_fields",
+      "enrichment_version",
+      "Что получают работники",
+      "Тип хозяйства",
+      "Способ оформления",
+      "Количество рабочих часов в день",
+      "Формат заведения",
+      "Цех",
+      "Кухня",
+      "Инструменты",
+      "Тип работ",
+      "Вид сварки"
+    ],
+    "unknown_policy": "empty_not_zero"
+  },
+  "collection": {
+    "code_git_commit": "8c97deb0b3a1a146cfa0b5c877500420528aacb1",
+    "extractor_sha256": "177d3b634d52d114c2beaa9669934c6b5b2d6220dd19c0a9637af0585429449d",
+    "instruction_path": "Scraper/skills/collect-avito/SKILL.md",
+    "instruction_sha256": "051970c664e4eea733bf28f0e33399d74333d754e69266236128f900349891c8",
+    "instruction_version": "1.3",
+    "agent_model_and_settings": null,
+    "stop_reason": "requested_limit_reached"
+  },
+  "coverage": {
+    "planned": 5,
+    "captured": 5,
+    "accepted": 5,
+    "unique_ids": 5,
+    "new_to_shared": 4,
+    "overlap_with_shared": 1,
+    "promoted": 5
+  },
+  "limitations": [
+    "rendered_DOM_only",
+    "convenience_sample_all_promoted",
+    "description_enrichment_not_run",
+    "stitched_screenshots_repeat_top_viewport",
+    "live_route_unverified_access_log_denied"
+  ],
+  "files": {
+    "Data/avito_runs/vahta_first5_2026-10-27/README.md": {
+      "bytes": 3795,
+      "sha256": "39b8fbb353f1bcc876eec0c43e50f58c7e5e887f80df3ac119b343aa2f6653db"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/cards/4299537166.json": {
+      "bytes": 5240,
+      "sha256": "261718abe3d844f8ce1c1a0e023f5eb6a46fa135cad1d98f8a53889c9d5adbd0"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/cards/8223864636.json": {
+      "bytes": 4304,
+      "sha256": "3e6b2ba1c9f213a9dc04dea7384769d035fa57f65588d170c0b7a193aebc0d92"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/cards/8341201688.json": {
+      "bytes": 5573,
+      "sha256": "31ae63130783e17de2679a82f55a2f46c1b75ce107ec8b2856326dd07f8508f6"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/cards/8365163007.json": {
+      "bytes": 5048,
+      "sha256": "e779dcbd5abd5ff5090b69aae8812865e5f3cce1a605fde4090c44f206abddf1"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/cards/8445490610.json": {
+      "bytes": 4660,
+      "sha256": "16b4bc0832571b392dc8878529a4e382241104eb63d70eb6e705fd7b9db33dd3"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/4299537166.interactive.txt": {
+      "bytes": 9086,
+      "sha256": "eef6de8aab8c1dfe0e4c6b08261d6ee18e6104b52c001167250f0a1913c19f27"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/4299537166.jpg": {
+      "bytes": 707837,
+      "sha256": "268d9022a654e1a51ca5cac668257af6df1144f1e8fcbaeb5cf864913336db58"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/4299537166.txt": {
+      "bytes": 10856,
+      "sha256": "996c19a92fd7a88ff45479040c5bf6e842b5a7dfb0889287048bec6f1b90f6b5"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8223864636.interactive.txt": {
+      "bytes": 8781,
+      "sha256": "1767daedba1c28c7e08ffa5ad18229d6df7b1a1933ce1037ab15a014f3d16a3b"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8223864636.jpg": {
+      "bytes": 692622,
+      "sha256": "d682d02296015e618f728ce8e8f270591bcdf3f84e3cc31af1191c826b3e9211"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8223864636.txt": {
+      "bytes": 12232,
+      "sha256": "eeb98e8f6e4f86b6a1f5faffc696204530a028eb1567f9c1da9677419115407e"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8341201688.interactive.txt": {
+      "bytes": 8998,
+      "sha256": "a11db77b1df28a37bad70849a443184ed18a4a97cd113ef77e31bd2a4b07fce2"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8341201688.jpg": {
+      "bytes": 764341,
+      "sha256": "579bd8317932118d41214369dbb111cd002b6812f2ccb467bc9dbc86aff1b0a4"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8341201688.txt": {
+      "bytes": 10424,
+      "sha256": "04b3fca5498a69f472119aed03782885118b0a2c6cb3f494ece84c34e18aa166"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8365163007.jpg": {
+      "bytes": 675588,
+      "sha256": "5cfeef39a10a830f87a9043c0b7d982e6c738c046d306dc007fdc1a023ef2426"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8365163007.txt": {
+      "bytes": 9666,
+      "sha256": "1c13ce29541e4efec78a3457f7177952a464f10bb24dddbcb2601d39a8d1839e"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8445490610.interactive.txt": {
+      "bytes": 9287,
+      "sha256": "6b58bf0e16866f643d2d3aadf2504797ad2673725ccf2a43d0adb2cd5c3ab89e"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8445490610.jpg": {
+      "bytes": 789847,
+      "sha256": "f6f72c41750ead647844bbff1abe0aaa7bb8d47327439e270b4393ffec9f3954"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/8445490610.txt": {
+      "bytes": 10401,
+      "sha256": "37fff1cb6850d2aa7e01ea24b0695cadd62e8fef116b208d462f2b082ff2085d"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/filters.txt": {
+      "bytes": 8608,
+      "sha256": "a6c642d9fa6a53b730a293d49692d6e725c0afb4018facc2bad399e5bdd53958"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/listing.jpg": {
+      "bytes": 312449,
+      "sha256": "2d3f88df4a610b56ad1c4f1dd043c8fe169a9ae2db94f451caaddfc8f91ab1f8"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/listing.json": {
+      "bytes": 25805,
+      "sha256": "e8339321b2bd299c8c3ee640fb138f49ab83d7194226df656315bddefeaae1a1"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/evidence/queue.json": {
+      "bytes": 2375,
+      "sha256": "c92bac09a775599d095cc9e19f85e1af8ee5b27aae5e0d527a739b970d6c13e1"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/exports/vacancies.json": {
+      "bytes": 23058,
+      "sha256": "c711cf43dd874538e12d15cb634b83adca8bae6b4b6e50559b9e3cbde23dfe6f"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/exports/vacancies_flat.csv": {
+      "bytes": 18259,
+      "sha256": "f23d9d9e90a921949f258bb61c9a2cb2ae21d23f560b2da5cd7ad59b2fd2974b"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/prepare_export.py": {
+      "bytes": 3822,
+      "sha256": "8ca756713b85d456cafe884d16b405951770cc5c35d10be6c4163ec217971627"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/raw/4299537166.raw.json": {
+      "bytes": 15880,
+      "sha256": "a43b6a53ecd104111318f4db594a1ad3e935625daffe6dfc69326a22f473053b"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/raw/8223864636.raw.json": {
+      "bytes": 13516,
+      "sha256": "39c95f90316438cd52b247b4ccd0a570922c79f52c8b682e06b48afc76365834"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/raw/8341201688.raw.json": {
+      "bytes": 16393,
+      "sha256": "2a3f93bd32b7e741823dee6bf49cb1376a826549a93c35a5d0e5324811725012"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/raw/8365163007.raw.json": {
+      "bytes": 13808,
+      "sha256": "2dc9d04901126f079baa7cee21aca938f420670a12a1842cb2b827f4e59c3508"
+    },
+    "Data/avito_runs/vahta_first5_2026-10-27/raw/8445490610.raw.json": {
+      "bytes": 12218,
+      "sha256": "0552e3bc437a995754d56b0b0b6edc076ce90379effd0c803b87d10a382d5a8a"
+    }
+  },
+  "plan_path": "Scraper/runs/vahta_first5_2026-10-27/plan.json"
+}
