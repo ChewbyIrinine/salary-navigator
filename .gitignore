@@ -23,3 +23,22 @@
 /Scraper/collect-avito.local.json
 
 /Scraper/runs/*/diagnostics/
+
+# Browser evidence stays local. Existing tracked historical exports are retained.
+/Data/avito_runs/*/evidence/*.txt
+/Data/avito_runs/*/evidence/*.jpg
+/Data/avito_runs/*/evidence/*.jpeg
+/Data/avito_runs/*/evidence/*.png
+/Data/avito_runs/*/evidence/*.webp
+/Data/avito_runs/*/evidence/*.html
+/Data/avito_runs/*/evidence/*.mhtml
+/Data/avito_runs/*/snapshots/
+/Data/avito_runs/*/screenshots/
+/Data/avito_runs/**/*.txt
+/Data/avito_runs/**/*.jpg
+/Data/avito_runs/**/*.jpeg
+/Data/avito_runs/**/*.png
+/Data/avito_runs/**/*.webp
+/Data/avito_runs/**/*.gif
+/Data/avito_runs/**/*.html
+/Data/avito_runs/**/*.mhtml

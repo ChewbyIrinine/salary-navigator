@@ -36,6 +36,14 @@
     "limitations": []
   },
   "files": {},
+  "timing": {
+    "setup_seconds": null,
+    "capture_seconds": null,
+    "review_export_seconds": null,
+    "publication_seconds": null,
+    "total_seconds": null,
+    "measurement_scope": null
+  },
   "research_url": null,
   "task_url": null,
   "instructions": "Copy outside the immutable run before collecting; replace null with confirmed facts, preserve unknowns explicitly. Store path, bytes, SHA-256 and row count for every published file. New collection or changed processing creates a new dataset_id, not an overwrite."
