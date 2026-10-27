@@ -1,0 +1,22 @@
+{
+  "id": "8308813815",
+  "structural_check": {
+    "id": "8308813815",
+    "structural_check_passed": true,
+    "errors": [],
+    "full_parameters_read": false,
+    "semantic_review_performed": false
+  },
+  "semantic_review_performed": true,
+  "full_parameters_read": true,
+  "parameters_review": "All saved Условия and Требования lines matched to fields; rendered sections contain no expansion control.",
+  "location_observed": "Московская обл., Химки, Ленинский пр-т, 1к3 Химки до 5 мин.Левобережная от 31 мин.Ховрино от 31 мин.",
+  "location_source": "visible_snapshot_Расположение",
+  "city": "Химки",
+  "region": "Московская область",
+  "placement_evidence": "Московская обл., Химки",
+  "employer_review": "Duplicated visible seller-name/link blocks agree.",
+  "description_review": "Nonempty full rendered item-description preserved verbatim; no enrichment.",
+  "analysis_status": "validated",
+  "export_eligibility": "included"
+}

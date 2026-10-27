@@ -1,0 +1,22 @@
+{
+  "id": "7627732427",
+  "structural_check": {
+    "id": "7627732427",
+    "structural_check_passed": true,
+    "errors": [],
+    "full_parameters_read": false,
+    "semantic_review_performed": false
+  },
+  "semantic_review_performed": true,
+  "full_parameters_read": true,
+  "parameters_review": "All saved Условия and Требования lines matched to fields; rendered sections contain no expansion control.",
+  "location_observed": "Московская обл., Люберцы Люберцы 6–10 мин.Панки 21–30 мин.Котельники от 31 мин.",
+  "location_source": "visible_snapshot_Расположение",
+  "city": "Люберцы",
+  "region": "Московская область",
+  "placement_evidence": "Московская обл., Люберцы",
+  "employer_review": "Duplicated visible seller-name/link blocks agree.",
+  "description_review": "Nonempty full rendered item-description preserved verbatim; no enrichment.",
+  "analysis_status": "validated",
+  "export_eligibility": "included"
+}

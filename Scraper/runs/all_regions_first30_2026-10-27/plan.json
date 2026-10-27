@@ -1,0 +1,15 @@
+{
+  "run_id": "all_regions_first30_2026-10-27",
+  "geography": "Все регионы",
+  "profession": null,
+  "query": "",
+  "other_filters": {},
+  "selection_mode": "first_30_unique_ids_on_first_listing_page",
+  "max_detail_visits": 30,
+  "max_saved": 30,
+  "listing_url": "https://www.avito.ru/all/vakansii?context=H4sIAAAAAAAA_wEsANP_YToxOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO30OjCyoLAAAAA",
+  "created_at": "2026-10-27T14:18:14.147Z",
+  "live_route_verified": false,
+  "task_url": null,
+  "research_url": null
+}
