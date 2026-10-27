@@ -1,0 +1,26 @@
+{
+  "run_id": "courier_first5_2026-10-26",
+  "city": "Москва",
+  "region": "Москва",
+  "profession": "Курьер",
+  "selection_mode": "first_5_unique_in_listing_order",
+  "other_filters": {
+    "tag": "kurer (popular landing route retained)"
+  },
+  "max_saved": 5,
+  "max_detail_visits": 5,
+  "enrichment": "not_run",
+  "instruction_version": "1.2",
+  "instruction_sha256": "dc7ca3307e8b752ba7bf85040d09b6e1a94faae508adc461541f7adb4ad535b3",
+  "extractor_sha256": "177d3b634d52d114c2beaa9669934c6b5b2d6220dd19c0a9637af0585429449d",
+  "code_git_commit": "313160f0256066f14898ae2acc82794d98863403",
+  "preflight": {
+    "aside_ready": true,
+    "local_config": "missing",
+    "user_override": "User confirmed configuration works and explicitly requested collection",
+    "live_route_verified": false
+  },
+  "task_url": null,
+  "research_url": null,
+  "entry_route": "Observed popular Courier link, then exact Courier checkbox; tag/kurer retained by site"
+}

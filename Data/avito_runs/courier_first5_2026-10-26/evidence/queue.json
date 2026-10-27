@@ -1,0 +1,52 @@
+[
+  {
+    "id": "8488858312",
+    "url": "https://www.avito.ru/moskva/vakansii/kurer_dodo_pitstsa_8488858312",
+    "title": "Курьер / Додо Пицца",
+    "salary_raw": "до 120 000 ₽ на руки",
+    "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Первомайская, 21–30 мин.",
+    "promoted": true,
+    "rank": 1
+  },
+  {
+    "id": "8093673883",
+    "url": "https://www.avito.ru/moskva/vakansii/kurer_dlya_servisa_dostavki._moskva_8093673883",
+    "title": "Курьер для сервиса доставки. Москва",
+    "salary_raw": "от 130 000 ₽",
+    "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Жулебино, 6–10 мин.",
+    "promoted": true,
+    "rank": 2
+  },
+  {
+    "id": "8485769201",
+    "url": "https://www.avito.ru/moskva/vakansii/kurer_na_velosipede_v_dostavku_samokat_bez_opyta_8485769201",
+    "title": "Курьер на велосипеде в доставку Самокат без опыта",
+    "salary_raw": "до 190 000 ₽ на руки",
+    "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Рассказовка, 6–10 мин.",
+    "promoted": true,
+    "rank": 3
+  },
+  {
+    "id": "8543883487",
+    "url": "https://www.avito.ru/moskva/vakansii/kurer_na_velosipede_dlya_sng_8543883487",
+    "title": "Курьер на велосипеде (для снг)",
+    "salary_raw": "4 300 — 7 300 ₽ за смену на руки",
+    "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Тульская, до 5 мин.",
+    "promoted": true,
+    "rank": 4
+  },
+  {
+    "id": "2662580541",
+    "url": "https://www.avito.ru/moskva/vakansii/kurer-voditel_m._mitino_podrabotka_2662580541",
+    "title": "Курьер-водитель (м. Митино, подработка)",
+    "salary_raw": "150 000 — 200 000 ₽",
+    "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+    "location_raw": "Митино, 6–10 мин.",
+    "promoted": true,
+    "rank": 5
+  }
+]

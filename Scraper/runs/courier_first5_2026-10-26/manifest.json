@@ -1,0 +1,245 @@
+{
+  "dataset_id": "courier_first5_2026-10-26",
+  "dataset_revision": 1,
+  "run_id": "courier_first5_2026-10-26",
+  "status": "COMPLETE",
+  "observation_window": {
+    "started_at_utc": "2026-10-26T15:19:01.394Z",
+    "ended_at_utc": "2026-10-26T15:20:45.130Z"
+  },
+  "schema": {
+    "field_set_version": "flat_v1_shared_dataset_v1",
+    "columns": [
+      "id",
+      "city",
+      "profession",
+      "segments",
+      "title",
+      "salary_raw",
+      "employer_name_observed",
+      "location_observed",
+      "source_url",
+      "observed_at",
+      "description",
+      "employer_profile_url",
+      "date_raw",
+      "views_total",
+      "views_today",
+      "full_parameters_read",
+      "analysis_status",
+      "export_eligibility",
+      "График",
+      "Занятость",
+      "Способ оформления",
+      "Количество рабочих дней в неделю",
+      "Количество рабочих часов в день",
+      "Частота выплат",
+      "Сфера деятельности компании",
+      "Что получают работники",
+      "Опыт работы",
+      "В том числе для кандидатов",
+      "Способ доставки",
+      "Вид доставки",
+      "Автомобиль",
+      "Статус самозанятости",
+      "Медкнижка",
+      "Можно заканчивать в 17:00",
+      "Категория водительских прав",
+      "Навык мелкого ремонта автомобиля",
+      "read_status_parameters",
+      "read_status_description",
+      "read_status_employer",
+      "read_status_location",
+      "read_limitations",
+      "listing_rank",
+      "listing_promoted",
+      "enrichment_status",
+      "enriched_fields",
+      "enrichment_version"
+    ],
+    "unknown_policy": "empty_cell_not_zero"
+  },
+  "collection": {
+    "instruction_version": "1.2",
+    "instruction_sha256": "dc7ca3307e8b752ba7bf85040d09b6e1a94faae508adc461541f7adb4ad535b3",
+    "code_git_commit": "313160f0256066f14898ae2acc82794d98863403",
+    "extractor_sha256": "177d3b634d52d114c2beaa9669934c6b5b2d6220dd19c0a9637af0585429449d",
+    "agent_model_and_settings": null,
+    "selection_mode": "first_5_unique_in_listing_order",
+    "stop_reason": "requested_limit_reached",
+    "profession_checkbox_confirmed": true,
+    "site_tag_retained": "kurer",
+    "list_order_preserved": true,
+    "contact_controls_opened": false,
+    "preflight": {
+      "aside_ready": true,
+      "local_config": "missing",
+      "user_override": "User confirmed configuration works and explicitly requested collection",
+      "live_route_verified": false
+    }
+  },
+  "coverage": {
+    "planned": 5,
+    "captured": 5,
+    "accepted": 5,
+    "unique_ids": 5,
+    "new_to_shared": 5,
+    "overlap_with_shared": 0,
+    "promoted": 5,
+    "parameters_per_card": {
+      "8488858312": 10,
+      "8093673883": 12,
+      "8485769201": 13,
+      "8543883487": 15,
+      "2662580541": 17
+    }
+  },
+  "limitations": [
+    "Top five promoted listings, not a representative sample",
+    "Popular tag/kurer route retained alongside exact Courier checkbox",
+    "Only rendered DOM and snapshots; screenshots cover one viewport",
+    "No description enrichment; head salary period not inferred",
+    "Local config file missing; proceeded on explicit user confirmation of working configuration; live network route not independently verified",
+    "First popup wait timed out although tab opened; read existing popup by ID, no repeated click"
+  ],
+  "files": {
+    "Data/avito_runs/courier_first5_2026-10-26/README.md": {
+      "bytes": 4946,
+      "sha256": "0c862be3f51f249c4b3c89d69507637c2c971d08a4a4284ec23fc4b65e501973"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/2662580541.json": {
+      "bytes": 5270,
+      "sha256": "a9c25cb423a7ed30804700fdaa94a58fb78744ada5b13a74683af81d729c78fc"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/2662580541.public.json": {
+      "bytes": 141,
+      "sha256": "6ed1a660eebca6ff136a549d3682b4bf975b64477cc70fcb96b75305142ba945"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/8093673883.json": {
+      "bytes": 5219,
+      "sha256": "e195fee9f1441930d970025bdbd8903c0dc0495216debf80ac5ed3f424eb1acc"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/8093673883.public.json": {
+      "bytes": 141,
+      "sha256": "4af48458b6081e1c26484b8eb3c93dfeb73e7f54de3c5655c8a92cfda20ff15f"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/8485769201.json": {
+      "bytes": 5361,
+      "sha256": "841007c94fee6e1a3108c46f7d6632e81157dd4780328e425965f8c05f0b4445"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/8485769201.public.json": {
+      "bytes": 142,
+      "sha256": "8df47f57429739d6849dfdf9036d4e123da11c20764db488f1b35cae4041a91e"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/8488858312.json": {
+      "bytes": 4433,
+      "sha256": "8d0a7dd389c6c85bd6abd87df5d513255f6ba8fa17088bc47acc040ee0a17256"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/8488858312.public.json": {
+      "bytes": 163,
+      "sha256": "619e89f23a9bb37bdb23e5fe7f2cbba28726b2bd3e2d5e8bdfb46ff2ea07a474"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/8543883487.json": {
+      "bytes": 6322,
+      "sha256": "7be308e341666c78c6bf5147d1f9eff785bb1b936f661b8968fc43ffcfcf1c36"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/cards/8543883487.public.json": {
+      "bytes": 163,
+      "sha256": "2302587a570a638daad3f7c776c89252dda53cdd8f01a8d9ddcd8166f6e9d3d0"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/2662580541.jpg": {
+      "bytes": 238018,
+      "sha256": "ce02b247ae2bfbbe19dae85a0b6552d21895cf7e9893f409169c3f97d34d3057"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/2662580541.snapshot.txt": {
+      "bytes": 10473,
+      "sha256": "9e798bea0746838f143505fd0d374b7f548ec2221e8ac1b997c8963a80e9016e"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/8093673883.jpg": {
+      "bytes": 244133,
+      "sha256": "6ae49ba42c5f0d1f84a870bb9cb873d97e776de62183fb23ff1fb3f648afde19"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/8093673883.snapshot.txt": {
+      "bytes": 13563,
+      "sha256": "c83a5ddfac733ef303fa14b4244e938f4af2df65ac4f79ff97524cdd07caa6c7"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/8485769201.jpg": {
+      "bytes": 247609,
+      "sha256": "7bbbbd8ea90b720500a6db5a627c00797ecacf10c2abb8f3b3fa2c1526a21c12"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/8485769201.snapshot.txt": {
+      "bytes": 10963,
+      "sha256": "b77668eee1246107fe4e642522766f468d001db67affd0616257955ebb511910"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/8488858312.jpg": {
+      "bytes": 229441,
+      "sha256": "c535591e5134d94e827bac9b0b12dcb0185ce7e4a49879f8cf3eb318cbb3e9da"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/8488858312.snapshot.txt": {
+      "bytes": 11958,
+      "sha256": "a8d9a70aae855bafc2d1f35411bfc75c98a7674b90ac0827a246c86cae6682bb"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/8543883487.jpg": {
+      "bytes": 263081,
+      "sha256": "caeb0987b1e157177927dc52579ed622b6a6f77823145439c387c7ead884408c"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/8543883487.snapshot.txt": {
+      "bytes": 14668,
+      "sha256": "9c5b468339ebae009f1e0196ab3910e4b9908a75f267c1663260eb3fa3cbac5c"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/filters.snapshot.txt": {
+      "bytes": 9234,
+      "sha256": "1a2b33876433e69337eac3b18119ff0a541f9f857823f15f055fbf5acd5aa5f2"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/listing.jpg": {
+      "bytes": 268656,
+      "sha256": "c340feb82af7b39624c85478584614abb2be8d957d9d95217889a778fd196e61"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/listing.json": {
+      "bytes": 25888,
+      "sha256": "befea34d6dee9aff12426648be228526ab6732891a0634c04d4fd47dd202c02d"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/evidence/queue.json": {
+      "bytes": 2337,
+      "sha256": "5e3aa2a005750d3107cd4f0e050817a6668485c811e36bafb2a2d742c2d65183"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/exports/vacancies_flat.csv": {
+      "bytes": 18559,
+      "sha256": "6c05d0f9cc04abdd84ccfb3a70f854f03c0f7ac5b5b682d503c8b64201a793bc"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/prepare_export.py": {
+      "bytes": 4200,
+      "sha256": "1c12c14b26c3658ffc1970e4a58670e922b411e290323dc33ffa8e0bbc82991c"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/raw/2662580541.json": {
+      "bytes": 15919,
+      "sha256": "d44f0401c3760b9aa24d44902f04d6f02dcafe01e5613c3055f2cff2643bcecc"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/raw/8093673883.json": {
+      "bytes": 14681,
+      "sha256": "613b3c7b10bba8786ae5eae073dc48cd21f294e9dc7f2af36186343e2a54417d"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/raw/8485769201.json": {
+      "bytes": 15198,
+      "sha256": "df88b743d72d16dfc876bf9b5600340e310dc959d607f961b4e58992a62d354b"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/raw/8488858312.json": {
+      "bytes": 11765,
+      "sha256": "8dca91691c6baeae4311d5a199fbe2edb3e496ffe203aa19389612c78622ee8d"
+    },
+    "Data/avito_runs/courier_first5_2026-10-26/raw/8543883487.json": {
+      "bytes": 19096,
+      "sha256": "adc57f22f511461cca59f7bbb82623c63c5a553c1ff8cd802aff89655971a3a3"
+    }
+  },
+  "research_url": null,
+  "task_url": null,
+  "verification": {
+    "raw_id_checks": 5,
+    "csv_offline_replay": "byte_identical",
+    "old_values_preserved": true,
+    "shared_rows": 243,
+    "shared_columns": 66,
+    "unique_keys": 243
+  }
+}

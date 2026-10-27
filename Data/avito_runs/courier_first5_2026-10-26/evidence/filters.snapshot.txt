@@ -1,0 +1,209 @@
+# note: interactive (clickable / focusable) elements only.
+- title: "Курьер: работа и свежие вакансии в Москве на Авито. Найти работу от прямых работодателей. Подработка, гибкий график, с ежедневной оплатой, без опыта" [url=https://www.avito.ru/moskva/vakansii/kurer-ASgBAgICAUTUzBHK64YD/tag/kurer?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6Il…]
+- heading "Профессия" [level=5]
+- button "Сбросить" [ref=e124]
+- checkbox [ref=e1]:
+  - checkbox "xАдминистратор" [ref=e2] [hidden]
+  - text: "x Администратор"
+- checkbox [ref=e3]:
+  - checkbox "xРазнорабочий" [ref=e4] [hidden]
+  - text: "x Разнорабочий"
+- checkbox [ref=e5] [checked]:
+  - checkbox "xКурьер" [ref=e6] [hidden] [checked]
+  - text: "x Курьер"
+- checkbox [ref=e7]:
+  - checkbox "xУпаковщик" [ref=e8] [hidden]
+  - text: "x Упаковщик"
+- checkbox [ref=e9]:
+  - checkbox "xВодитель грузового транспорта" [ref=e10] [hidden]
+  - text: "x Водитель грузового транспорта"
+- button "Показать ещё" [ref=e11]
+- heading "Сфера деятельности компании" [level=5]
+- checkbox [ref=e12]:
+  - checkbox "xВсе" [ref=e13] [hidden]
+  - text: "x Все"
+- checkbox [ref=e14]:
+  - checkbox "xАрхитектура и дизайн" [ref=e15] [hidden]
+  - text: "x Архитектура и дизайн"
+- checkbox [ref=e16]:
+  - checkbox "xБанковские и финансовые услуги" [ref=e17] [hidden]
+  - text: "x Банковские и финансовые услуги"
+- checkbox [ref=e18]:
+  - checkbox "xБытовые и персональные услуги" [ref=e19] [hidden]
+  - text: "x Бытовые и персональные услуги"
+- checkbox [ref=e20]:
+  - checkbox "xГосслужба" [ref=e21] [hidden]
+  - text: "x Госслужба"
+- button "Показать ещё" [ref=e22]
+- heading "Поиск по приоритетам" [level=5]
+- radio [ref=e23] [checked]:
+  - radio "xЛюбой" [ref=e24] [hidden] [checked]
+  - text: "x Любой"
+- radio [ref=e25]:
+  - radio "xЕжедневные выплаты" [ref=e26] [hidden]
+  - text: "x Ежедневные выплаты"
+- radio [ref=e27]:
+  - radio "xРабота до 17:00" [ref=e28] [hidden]
+  - text: "x Работа до 17:00"
+- radio [ref=e29]:
+  - radio "xБез тяжестей" [ref=e30] [hidden]
+  - text: "x Без тяжестей"
+- radio [ref=e31]:
+  - radio "xРабота руками" [ref=e32] [hidden]
+  - text: "x Работа руками"
+- radio [ref=e33]:
+  - radio "xПриступить завтра" [ref=e34] [hidden]
+  - text: "x Приступить завтра"
+- radio [ref=e35]:
+  - radio "xВостребовано в городе" [ref=e36] [hidden]
+  - text: "x Востребовано в городе"
+- radio [ref=e37]:
+  - radio "xСезон заработка" [ref=e38] [hidden]
+  - text: "x Сезон заработка"
+- heading "Занятость" [level=5]
+- checkbox [ref=e39]:
+  - checkbox "xПолная" [ref=e40] [hidden]
+  - text: "x Полная"
+- checkbox [ref=e41]:
+  - checkbox "xЧастичная" [ref=e42] [hidden]
+  - text: "x Частичная"
+- checkbox [ref=e43]:
+  - checkbox "xВременная" [ref=e44] [hidden]
+  - text: "x Временная"
+- checkbox [ref=e45]:
+  - checkbox "xСтажировка" [ref=e46] [hidden]
+  - text: "x Стажировка"
+- heading "График" [level=5]
+- checkbox [ref=e47]:
+  - checkbox "xФиксированный" [ref=e48] [hidden]
+  - text: "x Фиксированный"
+- checkbox [ref=e49]:
+  - checkbox "xГибкий" [ref=e50] [hidden]
+  - text: "x Гибкий"
+- checkbox [ref=e51]:
+  - checkbox "xСменный" [ref=e52] [hidden]
+  - text: "x Сменный"
+- checkbox [ref=e53]:
+  - checkbox "xВахта" [ref=e54] [hidden]
+  - text: "x Вахта"
+- heading "Формат работы" [level=5]
+- radio [ref=e55] [checked]:
+  - radio "xНеважно" [ref=e56] [hidden] [checked]
+  - text: "x Неважно"
+- radio [ref=e57]:
+  - radio "xУдалённо" [ref=e58] [hidden]
+  - text: "x Удалённо"
+- radio [ref=e59]:
+  - radio "xВ офисе или на объекте" [ref=e60] [hidden]
+  - text: "x В офисе или на объекте"
+- radio [ref=e61]:
+  - radio "xГибрид" [ref=e62] [hidden]
+  - text: "x Гибрид"
+- radio [ref=e63]:
+  - radio "xРазъездной формат" [ref=e64] [hidden]
+  - text: "x Разъездной формат"
+- heading "Зарплата, ₽" [level=5]
+- text: "От"
+- textbox "От" [ref=e65]
+- text: "до"
+- textbox "до" [ref=e66]
+- group:
+  - radio "Неважно" [ref=e67] [hidden] [checked]
+  - generic "Неважно" [ref=e68]
+  - radio "В месяц" [ref=e69] [hidden]
+  - generic "В месяц" [ref=e70]
+  - radio "За смену" [ref=e71] [hidden]
+  - generic "За смену" [ref=e72]
+  - radio "В неделю" [ref=e73] [hidden]
+  - generic "В неделю" [ref=e74]
+  - radio "За час" [ref=e75] [hidden]
+  - generic "За час" [ref=e76]
+  - radio "Сдельно" [ref=e77] [hidden]
+  - generic "Сдельно" [ref=e78]
+- heading "Частота выплат" [level=5]
+- checkbox [ref=e79]:
+  - checkbox "xКаждый день" [ref=e80] [hidden]
+  - text: "x Каждый день"
+- checkbox [ref=e81]:
+  - checkbox "xРаз в неделю" [ref=e82] [hidden]
+  - text: "x Раз в неделю"
+- checkbox [ref=e83]:
+  - checkbox "xРаз в месяц" [ref=e84] [hidden]
+  - text: "x Раз в месяц"
+- checkbox [ref=e85]:
+  - checkbox "xДважды в месяц" [ref=e86] [hidden]
+  - text: "x Дважды в месяц"
+- checkbox [ref=e87]:
+  - checkbox "xТри раза в месяц" [ref=e88] [hidden]
+  - text: "x Три раза в месяц"
+- heading "Опыт работы" [level=5]
+- combobox "Опыт работы" [ref=e89]
+- heading "Способ доставки" [level=5]
+- checkbox [ref=e125]:
+  - checkbox "xНа автомобиле" [ref=e126] [hidden]
+  - text: "x На автомобиле"
+- checkbox [ref=e127]:
+  - checkbox "xНа велосипеде" [ref=e128] [hidden]
+  - text: "x На велосипеде"
+- checkbox [ref=e129]:
+  - checkbox "xНа самокате" [ref=e130] [hidden]
+  - text: "x На самокате"
+- checkbox [ref=e131]:
+  - checkbox "xПешком" [ref=e132] [hidden]
+  - text: "x Пешком"
+- checkbox [ref=e133]:
+  - checkbox "xНа скутере" [ref=e134] [hidden]
+  - text: "x На скутере"
+- button "Показать ещё" [ref=e135]
+- heading "Стаж вождения" [level=5]
+- combobox "Стаж вождения" [ref=e136]
+- checkbox [ref=e137]:
+  - checkbox "xКомпания проверена" [ref=e138] [hidden]
+  - text: "x Компания проверена"
+- checkbox [ref=e140]:
+  - checkbox "xКрупные компании" [ref=e141] [hidden]
+  - text: "x Крупные компании"
+- heading "Компания предоставляет" [level=5]
+- checkbox [ref=e143]:
+  - checkbox "xПроживание" [ref=e144] [hidden]
+  - text: "x Проживание"
+- checkbox [ref=e145]:
+  - checkbox "xМедицинскую страховку" [ref=e146] [hidden]
+  - text: "x Медицинскую страховку"
+- checkbox [ref=e147]:
+  - checkbox "xПитание" [ref=e148] [hidden]
+  - text: "x Питание"
+- checkbox [ref=e149]:
+  - checkbox "xОбучение" [ref=e150] [hidden]
+  - text: "x Обучение"
+- heading "В том числе для кандидатов" [level=5]
+- checkbox [ref=e151]:
+  - checkbox "xОт 14 лет" [ref=e152] [hidden]
+  - text: "x От 14 лет"
+- checkbox [ref=e153]:
+  - checkbox "xОт 16 лет" [ref=e154] [hidden]
+  - text: "x От 16 лет"
+- checkbox [ref=e155]:
+  - checkbox "xСтарше 45 лет" [ref=e156] [hidden]
+  - text: "x Старше 45 лет"
+- checkbox [ref=e157]:
+  - checkbox "xДля студентов" [ref=e158] [hidden]
+  - text: "x Для студентов"
+- checkbox [ref=e159]:
+  - checkbox "xДля пенсионеров" [ref=e160] [hidden]
+  - text: "x Для пенсионеров"
+- checkbox [ref=e161]:
+  - checkbox "xС нарушениями здоровья" [ref=e162] [hidden]
+  - text: "x С нарушениями здоровья"
+- heading "Слова в описании" [level=5]
+- textbox "Что-то важное для вас" [ref=e163] [placeholder="Что-то важное для вас"]
+- heading "Скрыть объявлениясо словами" [level=5]: "Скрыть объявления со словами"
+- textbox "То, что вам не нужно" [ref=e164] [placeholder="То, что вам не нужно"]
+- heading "Способы связи" [level=5]
+- group:
+  - radio "Все" [ref=e165] [hidden] [checked]
+  - generic "Все" [ref=e166]
+  - radio "Звонки" [ref=e167] [hidden]
+  - generic "Звонки" [ref=e168]
+  - radio "Сообщения" [ref=e169] [hidden]
+  - generic "Сообщения" [ref=e170]
