@@ -8,10 +8,11 @@ import os
 from pathlib import Path
 import re
 import shutil
-import select
+from queue import Queue, Empty
 import subprocess
 import sys
 import time
+from threading import Thread
 from urllib.parse import urlsplit
 
 SCRIPTS = Path(__file__).resolve().parent
@@ -20,9 +21,10 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(SCRIPTS))
 from utils.build_dataset import build
 from check_capture import check
+from preflight import find_aside
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.5'
+VERSION = '1.6'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py')]
 
@@ -93,8 +95,11 @@ def queue_from(listing, limit):
     raise ValueError(f'Only {len(queue)} unique rendered cards; requested {limit}; do not invent pagination')
 
 
-def preflight():
-    subprocess.run([sys.executable, str(SCRIPTS / 'preflight.py'), '--probe-aside'], check=True, cwd=ROOT)
+def preflight(config_path=None):
+    command = [sys.executable, str(SCRIPTS / 'preflight.py'), '--probe-aside']
+    if config_path is not None:
+        command.extend(['--config', str(config_path)])
+    subprocess.run(command, check=True, cwd=ROOT)
 
 
 def import_sandbox(sandbox, out, diag):
@@ -122,11 +127,36 @@ def import_sandbox(sandbox, out, diag):
                 temporary.replace(target)
 
 
+def pipe_chunks(stream):
+    """Read subprocess stdout without select(), which only accepts sockets on Windows."""
+    chunks = Queue()
+
+    def read_chunks():
+        try:
+            while True:
+                chunk = stream.read1(65536)
+                if not chunk:
+                    break
+                chunks.put(chunk)
+        except (OSError, ValueError):
+            pass  # EOF/error is reported by the waiting caller as disconnect.
+        finally:
+            chunks.put(None)
+
+    reader = Thread(target=read_chunks, daemon=True)
+    reader.start()
+    return chunks, reader
+
+
 def browser(job, out, diag):
     # One-shot Aside buffers stdout until completion. An interactive handshake
     # records its sandbox BEFORE collection, so interruption cannot orphan raw.
-    process = subprocess.Popen(['aside', 'repl'], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+    executable = find_aside()
+    if not executable:
+        raise RuntimeError('Aside CLI not found; follow collect-avito/references/FIRST_RUN.md')
+    process = subprocess.Popen([executable, 'repl'], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                stderr=subprocess.STDOUT, cwd=ROOT)
+    incoming, reader = pipe_chunks(process.stdout)
     chunks = bytearray()
     def until(pattern, timeout, offset=0):
         deadline = time.monotonic() + timeout
@@ -136,10 +166,13 @@ def browser(job, out, diag):
             if found:
                 return found
             remaining = deadline - time.monotonic()
-            if remaining <= 0 or not select.select([process.stdout], [], [], remaining)[0]:
+            if remaining <= 0:
                 raise RuntimeError('Aside timed out; sandbox pointer and partial raw preserved')
-            chunk = os.read(process.stdout.fileno(), 65536)
-            if not chunk:
+            try:
+                chunk = incoming.get(timeout=remaining)
+            except Empty:
+                raise RuntimeError('Aside timed out; sandbox pointer and partial raw preserved') from None
+            if chunk is None:
                 raise RuntimeError('Aside disconnected; partial raw preserved')
             chunks.extend(chunk)
     sandbox = None
@@ -179,6 +212,7 @@ def browser(job, out, diag):
         except subprocess.TimeoutExpired:
             process.terminate(); process.wait(timeout=3)
         process.stdout.close()
+        reader.join(timeout=1)
         (diag / f'aside-{stamp}.local.log').write_text(chunks.decode('utf-8', errors='replace'))
         if sandbox:
             import_sandbox(sandbox, out, diag)
@@ -193,7 +227,7 @@ def freeze(args):
     if (service / 'manifest.json').exists() or (service / 'plan.json').exists():
         raise ValueError('Queue already frozen; use capture, not freeze')
     avito_url(args.url)
-    preflight()
+    preflight(getattr(args, 'config', None))
     started = time.perf_counter()
     diag.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
@@ -235,7 +269,7 @@ def capture(args):
     out, service, diag = paths(ROOT, args.run_id)
     if (service / 'manifest.json').exists():
         raise ValueError('Completed run is immutable')
-    preflight()
+    preflight(getattr(args, 'config', None))
     plan = read(service / 'plan.json')
     if any(sha(ROOT/file) != value for file,value in plan['automation_sha256'].items()):
         raise ValueError('Collector changed; preserve old run and start a new observation')
@@ -460,6 +494,8 @@ def main():
     for name in ['freeze', 'capture', 'finalize', 'publish', 'note-change']:
         command = commands.add_parser(name)
         command.add_argument('--run-id', required=True)
+        if name in ('freeze', 'capture'):
+            command.add_argument('--config', type=Path, help='Local config also used by setup_workspace/preflight')
         if name == 'freeze':
             command.add_argument('--resume', action='store_true', help='Recover an interrupted freeze with identical inputs')
             command.add_argument('--agent-model', default=None, help='Actual browser agent model, not a model switch')
