@@ -11,6 +11,13 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def fixture_runner():
+    spec = importlib.util.spec_from_file_location('fixture_runner', ROOT / 'Scraper/skills/collect-avito/scripts/run.py')
+    runner = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(runner)
+    return runner
+
+
 class FixtureHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         html = (ROOT / 'Scraper/tests/fixtures/detail_123.html').read_text()
@@ -22,6 +29,16 @@ class FixtureHandler(BaseHTTPRequestHandler):
             html = html.replace('Опыт работы: Без опыта', 'Опыт работы<br>Без опыта')
         if 'blocked' in self.path:
             html += '<div role="dialog">Доступ ограничен: проблема с IP</div>'
+        if self.path.startswith('/listing-'):
+            checked = 'checked' if self.path in ('/listing-selected', '/listing-nested-selected') else ''
+            role = '' if self.path == '/listing-nested-selected' else 'role="checkbox" aria-checked="' + ('true' if checked else 'false') + '"'
+            control = '' if self.path == '/listing-missing' else (
+                '<label ' + role + ' data-marker="params[144170]/checkbox/3201765">Курьер'
+                '<input type="checkbox" data-marker="other-marker" value="3201765" ' + checked + '></label>')
+            html = ('<html><body><h1>Работа и вакансии</h1>' + control +
+                '<label data-marker="params[999]/checkbox/1"><input type="checkbox" checked>Гибкий график</label>'
+                '<div data-marker="item"><a data-marker="item-title" href="/detail_123">Вакансия</a></div>'
+                '</body></html>')
         self.send_response(200)
         self.send_header('Content-Type', 'text/html; charset=utf-8')
         self.end_headers()
@@ -36,9 +53,7 @@ class ExtractorBrowserTests(unittest.TestCase):
         server = ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
-        spec = importlib.util.spec_from_file_location('fixture_runner', ROOT / 'Scraper/skills/collect-avito/scripts/run.py')
-        runner = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(runner)
+        runner = fixture_runner()
         origin = f'http://127.0.0.1:{server.server_port}'
         try:
             with tempfile.TemporaryDirectory() as directory:
@@ -56,6 +71,45 @@ class ExtractorBrowserTests(unittest.TestCase):
                 self.assertTrue((diag/'problem.snapshot.txt').exists())
                 self.assertGreater(elapsed, 0)
                 print('Reusable batch: first raw saved, block checkpoint preserved, third URL not opened')
+        finally:
+            server.shutdown(); server.server_close(); thread.join()
+
+    def test_listing_profession_audit_selected_unfiltered_and_unreadable(self):
+        server = ThreadingHTTPServer(('127.0.0.1', 0), FixtureHandler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
+        runner = fixture_runner()
+        script = """
+var extractor = __EXTRACTOR__;
+var results = [];
+var p;
+try {
+  for (var test of ['selected', 'nested-selected', 'unfiltered', 'missing']) {
+    if (!p) p = await openTab(__ORIGIN__ + '/listing-' + test);
+    else await p.goto(__ORIGIN__ + '/listing-' + test);
+    await snapshot(p);
+    results.push({test, data: await p.evaluate(extractor)});
+  }
+} finally { if (p) await closeTab(p); }
+console.log('TL_LISTINGS=' + JSON.stringify(results));
+""".replace('__EXTRACTOR__', json.dumps((ROOT/'Scraper/extract.js').read_text()))
+        script = script.replace('__ORIGIN__', json.dumps(f'http://127.0.0.1:{server.server_port}'))
+        try:
+            result = subprocess.run(runner.aside_command(runner.find_aside()) + ['repl', script],
+                                    capture_output=True, text=True, timeout=90)
+            lines = [line[len('TL_LISTINGS='):] for line in result.stdout.splitlines()
+                     if line.startswith('TL_LISTINGS=')]
+            self.assertEqual(result.returncode, 0)
+            self.assertTrue(lines, 'Local listing fixture returned no results')
+            selected, nested, unfiltered, missing = [row['data'] for row in json.loads(lines[0])]
+            self.assertEqual(runner.profession_from_listing(selected), 'Курьер')
+            self.assertEqual(runner.profession_from_listing(nested), 'Курьер')
+            self.assertEqual(nested['profession_filter'], {'observed': True, 'selected_count': 1})
+            self.assertEqual(selected['profession_filter'], {'observed': True, 'selected_count': 2})
+            self.assertEqual(runner.profession_from_listing(unfiltered), '')
+            self.assertEqual(unfiltered['profession_filter'], {'observed': True, 'selected_count': 0})
+            self.assertFalse(missing['profession_filter']['observed'])
+            with self.assertRaises(ValueError):
+                runner.profession_from_listing(missing)
         finally:
             server.shutdown(); server.server_close(); thread.join()
 
@@ -85,7 +139,7 @@ console.log('TL_TESTS=' + JSON.stringify(results));
 '''.replace('__EXTRACTOR__', json.dumps((ROOT/'Scraper/extract.js').read_text()))
         script = script.replace('__ORIGIN__', json.dumps(f'http://127.0.0.1:{server.server_port}'))
         try:
-            result = subprocess.run(['aside', 'repl', script], capture_output=True, text=True, timeout=90)
+            result = subprocess.run(fixture_runner().aside_command(fixture_runner().find_aside()) + ['repl', script], capture_output=True, text=True, timeout=90)
             output = result.stdout + result.stderr
             lines = [line[len('TL_TESTS='):] for line in output.splitlines() if line.startswith('TL_TESTS=')]
             self.assertEqual(result.returncode, 0, output)

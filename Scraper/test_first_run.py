@@ -22,11 +22,15 @@ class SetupTests(unittest.TestCase):
             binary.parent.mkdir(parents=True);binary.write_text('#!/bin/sh\n');binary.chmod(0o700)
             with patch.object(preflight.Path, 'home', return_value=root), \
                     patch.object(preflight.shutil, 'which', return_value=None), \
+                    patch.object(runner, 'aside_command', side_effect=lambda executable:
+                        [executable, '--host', 'local', '--account', 'u0', '--profile', 'connected']) as target, \
                     patch.object(runner.subprocess, 'Popen', side_effect=RuntimeError('test stop')) as command:
                 self.assertEqual(preflight.find_aside(), str(binary))
                 with self.assertRaisesRegex(RuntimeError, 'test stop'):
                     runner.browser({}, root, root)
-                self.assertEqual(command.call_args.args[0], [str(binary), 'repl'])
+                target.assert_called_once_with(str(binary))
+                self.assertEqual(command.call_args.args[0], [str(binary), '--host', 'local',
+                    '--account', 'u0', '--profile', 'connected', 'repl'])
 
     def test_runner_passes_explicit_config_to_its_preflight(self):
         with patch.object(runner.subprocess, 'run') as command:

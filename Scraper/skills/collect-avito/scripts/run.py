@@ -25,7 +25,7 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.4'
+VERSION = '1.7.5'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -82,6 +82,44 @@ def avito_url(url, identity=None):
     if identity and not parsed.path.endswith('_' + identity):
         raise ValueError('Queue URL and ID differ')
     return url
+
+
+def profession_from_listing(listing, requested=''):
+    """Use checked profession controls, never a title/URL or another filter group."""
+    controls = listing.get('selected_controls')
+    if not isinstance(controls, list):
+        raise ValueError('Listing selected_controls missing; cannot verify profession filter')
+    labels = {}
+    for control in controls:
+        if not isinstance(control, dict):
+            raise ValueError('Invalid selected control')
+        marker = control.get('marker') or ''
+        if not isinstance(marker, str) or not marker.startswith('params[144170]/'):
+            continue
+        label = norm(control.get('label') or '')
+        if control.get('value') == 'all' or marker.endswith('/all'):
+            continue
+        if not label or label.casefold() in ('все', 'любая', 'любой'):
+            raise ValueError('Selected profession has no specific visible label')
+        labels.setdefault(label.casefold(), label)
+    # Stable order also makes duplicate input/label controls harmless.
+    observed = '; '.join(labels[key] for key in sorted(labels))
+    audit = listing.get('profession_filter') or {}
+    if not observed and (audit.get('observed') is not True or audit.get('selected_count') != 0):
+        raise ValueError('Profession filter was not read; an empty selection does not prove an unfiltered listing')
+    if requested and norm(requested).casefold() != observed.casefold():
+        raise ValueError('Requested profession differs from observed profession filters')
+    return observed
+
+
+def validate_plan_profession(plan, listing_path):
+    if 'profession' not in plan:
+        raise ValueError('Plan profession is missing')
+    if plan.get('listing_sha256') and sha(listing_path) != plan['listing_sha256']:
+        raise ValueError('Frozen listing changed after freeze; preserve the original observation')
+    observed = profession_from_listing(read(listing_path))
+    if norm(plan.get('profession') or '') != observed:
+        raise ValueError('Plan profession differs from frozen listing filters; do not export inconsistent metadata')
 
 
 def queue_from(listing, limit):
@@ -280,12 +318,14 @@ def freeze(args):
     if cp['state'] != 'READY':
         raise CollectionStopped(f'Stopped: {cp["state"]}; inspect local diagnostics', cp['state'])
     listing = read(diag / 'listing.json')
+    profession = profession_from_listing(listing, args.profession)
     queue = queue_from(listing, args.limit)
     write(out / 'listing.json', listing)
     write(out / 'queue.json', queue)
     write(service / 'plan.json', dict(run_id=args.run_id, geography=args.geography,
-        profession=args.profession, segments=args.segments, filter_evidence=args.filter_evidence,
+        profession=profession, segments=args.segments, filter_evidence=args.filter_evidence,
         listing_url=listing['source_url'], selected_controls=listing.get('selected_controls', []),
+        listing_sha256=sha(out / 'listing.json'),
         selection_mode='first_N_unique_on_frozen_listing', limit=args.limit,
         created_at=datetime.now(timezone.utc).isoformat(), instruction_version=VERSION,
         extractor_sha256=sha(ROOT / 'Scraper/extract.js'), instruction_sha256=sha(SCRIPTS.parent / 'SKILL.md'),
@@ -305,8 +345,9 @@ def capture(args):
     ensure_allowed(diag, 'capture', getattr(args, 'retry_reason', None))
     if (service / 'manifest.json').exists():
         raise ValueError('Completed run is immutable')
-    preflight(getattr(args, 'config', None), diag)
     plan = read(service / 'plan.json')
+    validate_plan_profession(plan, out / 'listing.json')
+    preflight(getattr(args, 'config', None), diag)
     if any(sha(ROOT/file) != value for file,value in plan['automation_sha256'].items()):
         raise ValueError('Collector changed; preserve old run and start a new observation')
     cp, queue = read(diag / 'checkpoint.json'), read(out / 'queue.json')
@@ -443,6 +484,7 @@ def finalize(args):
         raise ValueError('Finalized run exists; do not overwrite')
     started = time.perf_counter()
     queue, plan = read(out / 'queue.json'), read(service / 'plan.json')
+    validate_plan_profession(plan, out / 'listing.json')
     plan = dict(plan, city_anomaly_policy=getattr(args,'city_anomaly_policy','blank'))
     changes = read(diag / 'automation_changes.json') if (diag / 'automation_changes.json').exists() else []
     changed = {file for file,value in plan.get('automation_sha256', {}).items() if sha(ROOT/file) != value}
@@ -621,7 +663,7 @@ def main():
             command.add_argument('--url', required=True, help='Observed listing URL after filter confirmation')
             command.add_argument('--limit', type=int, required=True)
             command.add_argument('--geography', required=True)
-            command.add_argument('--profession', default='')
+            command.add_argument('--profession', default='', help='Optional assertion; profession is read from selected listing filters')
             command.add_argument('--segments', default='')
             command.add_argument('--filter-evidence', required=True, help='What was visibly confirmed in the listing')
         elif name == 'capture':
