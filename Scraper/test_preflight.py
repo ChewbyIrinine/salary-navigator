@@ -108,6 +108,15 @@ class EnvironmentTests(unittest.TestCase):
         self.assertEqual(result["status"], "NEEDS_SETUP")
         self.assertFalse(result["can_collect"])
 
+    def test_profile_error_is_actionable_without_private_cli_output(self):
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(preflight, 'aside_command', side_effect=RuntimeError('Multiple connected Aside profiles; select one with TL_ASIDE_PROFILE')):
+            result = preflight.run_checks(Path(tmp)/'missing.json', probe_aside=True)
+        session = next(c for c in result['checks'] if c['check'] == 'aside_session')
+        self.assertFalse(result['can_collect'])
+        self.assertIn('Multiple connected Aside profiles', session['detail'])
+        self.assertIn('TL_ASIDE_PROFILE', session['detail'])
+
     def test_strict_route_audit_requires_config(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = preflight.run_checks(Path(tmp) / "missing.json", strict_routing=True)
@@ -150,13 +159,55 @@ class EnvironmentTests(unittest.TestCase):
         for stdout, stderr, expected in (("TNL_ASIDE_READY\n", "", True),
                                          ("", "", False),
                                          ("TNL_ASIDE_READY\n", "[error] private info", False)):
-            with patch.object(preflight.subprocess, "run", return_value=subprocess.CompletedProcess(
+            with patch.object(preflight, "aside_command", return_value=["aside", "--profile", "connected"]), \
+                    patch.object(preflight.subprocess, "run", return_value=subprocess.CompletedProcess(
                     [], 0, stdout, stderr)) as run:
                 self.assertEqual(preflight.aside_ready("aside"), expected)
                 command = run.call_args.args[0]
-                self.assertEqual(command, ["aside", "repl", 'console.log("TNL_ASIDE_READY")'])
+                self.assertEqual(command, ["aside", "--profile", "connected", "repl", 'console.log("TNL_ASIDE_READY")'])
         with patch.object(preflight.subprocess, "run", side_effect=subprocess.TimeoutExpired("aside", 20)):
             self.assertFalse(preflight.aside_ready("aside"))
+
+
+class AsideProfileTests(unittest.TestCase):
+    def select(self, profiles, env=None):
+        result = subprocess.CompletedProcess([], 0, json.dumps({"profiles": profiles}), "")
+        with patch.dict(preflight.os.environ, env or {}, clear=True), \
+                patch.object(preflight.subprocess, "run", side_effect=lambda command, **kw:
+                    subprocess.CompletedProcess([], 0, '* u0  private-account signed in\n', '')
+                    if command[1:3] == ['account', 'status'] else result) as call:
+            command = preflight.aside_command("aside")
+        return command, call.call_args.args[0]
+
+    def test_disconnected_default_uses_connected_profile(self):
+        command, listing = self.select([
+            {"profileId": "default", "connected": False},
+            {"profileId": "working", "connected": True}])
+        self.assertEqual(command, ["aside", "--host", "local", "--account", "u0", "--profile", "working"])
+        self.assertEqual(listing, ["aside", "--host", "local", "--account", "u0", "host", "profiles", "--json"])
+
+    def test_explicit_profile_host_and_account_are_preserved(self):
+        command, listing = self.select([
+            {"profileId": "first", "connected": True},
+            {"profileId": "chosen", "connected": True}],
+            {"TL_ASIDE_HOST": "my-host", "TL_ASIDE_ACCOUNT": "u1", "TL_ASIDE_PROFILE": "chosen"})
+        self.assertEqual(command, ["aside", "--host", "my-host", "--account", "u1", "--profile", "chosen"])
+        self.assertEqual(listing, command[:5] + ["host", "profiles", "--json"])
+
+    def test_no_connected_profile_or_ambiguous_selection_stops(self):
+        for profiles, env in [([], {}),
+                ([{"profileId": "a", "connected": True}, {"profileId": "b", "connected": True}], {}),
+                ([{"profileId": "a", "connected": True}], {"TL_ASIDE_PROFILE": "missing"})]:
+            with self.assertRaises(RuntimeError):
+                self.select(profiles, env)
+
+    def test_invalid_private_diagnostics_are_not_exposed(self):
+        for stdout, code in [("private SECRET", 0), ("private SECRET", 1), ('{"profiles":null}', 0)]:
+            with patch.dict(preflight.os.environ, {"TL_ASIDE_ACCOUNT": "u0"}, clear=True), \
+                    patch.object(preflight.subprocess, "run", return_value=subprocess.CompletedProcess([], code, stdout, "SECRET")):
+                with self.assertRaises(RuntimeError) as error:
+                    preflight.aside_command("aside")
+                self.assertNotIn("SECRET", str(error.exception))
 
 
 if __name__ == "__main__":

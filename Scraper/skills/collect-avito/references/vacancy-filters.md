@@ -32,7 +32,11 @@
 
 ## Готовые действия для Luna
 
-Используйте **один интерактивный** `aside repl`; JS передавайте в stdin через
+Сначала выберите подключённый профиль по разделу SKILL.md «Подключённый профиль
+Aside». Используйте **один интерактивный**
+`aside --host <host> --profile <ID> repl` (при необходимости `--account <account>`);
+те же TL_ASIDE_HOST/TL_ASIDE_ACCOUNT/TL_ASIDE_PROFILE передавайте runner.
+JS передавайте в stdin через
 `write_stdin(chars=...)`. Не вкладывайте CSS-селекторы в shell-строки: это уже
 вызывало ошибку quoting. Актуальные правила `/browse` остаются обязательными.
 
