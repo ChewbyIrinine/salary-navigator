@@ -52,5 +52,18 @@
     "observed_work_href": "/moskva/vakansii?context=H4sIAAAAAAAA_wEsANP_YToxOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO30OjCyoLAAAAA",
     "result_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEsANP_YToxOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO30OjCyoLAAAAA",
     "result_heading": "Работа и вакансии в Москве"
+  },
+  "all_regions": {
+    "verified_on": "2026-10-28",
+    "verified": false,
+    "url": null,
+    "status": "NOT_CONFIRMED",
+    "observations": [
+      "Все регионы → /regions → Список городов Авито; not a vacancies listing",
+      "Geography input Россия → Неизвестный город или регион",
+      "Все регионы input did not confirm a nationwide selection",
+      "Control input Тула also returned unknown city; autocomplete failure cause not established"
+    ],
+    "cards_opened": false
   }
 }
