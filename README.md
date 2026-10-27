@@ -28,6 +28,14 @@
 Исходные карточки и технические сведения о сборе нужны для подробной проверки;
 для начала анализа их разбирать не требуется.
 
+## Codex и Claude Code
+
+Откройте корень скачанного репозитория. В Codex используйте `$collect-avito`
+(точка входа `.agents/skills/collect-avito/SKILL.md`), в Claude Code —
+`/collect-avito` (`.claude/skills/collect-avito/SKILL.md`, инструкции в `CLAUDE.md`).
+[Карта файлов и моделей](Scraper/skills/collect-avito/references/HOSTS.md)
+объясняет маршруты Luna/Terra и Haiku/Sonnet. Код сборщика общий.
+
 ## Как получить новую выгрузку
 
 Дайте агенту задание и укажите [навык сбора](Scraper/skills/collect-avito/SKILL.md).
