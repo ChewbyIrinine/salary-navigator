@@ -142,7 +142,9 @@ class RunnerTests(unittest.TestCase):
                     with self.assertRaisesRegex(ValueError, '/<region>/vakansii'):
                         runner.freeze(args)
                     preflight.assert_not_called(); browser.assert_not_called()
-        for url in ['https://www.avito.ru/moskva/vakansii',
+        for url in ['https://www.avito.ru/all/vakansii',
+                    'https://www.avito.ru/all/vakansii?context=observed',
+                    'https://www.avito.ru/moskva/vakansii',
                     'https://www.avito.ru/sankt-peterburg/vakansii?context=observed',
                     'https://www.avito.ru/ekaterinburg/vakansii/kurer-ASgObserved', item()['url']]:
             self.assertEqual(runner.avito_url(url), url)

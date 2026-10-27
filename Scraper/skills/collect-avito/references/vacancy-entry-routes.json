@@ -55,15 +55,15 @@
   },
   "all_regions": {
     "verified_on": "2026-10-28",
-    "verified": false,
-    "url": null,
-    "status": "NOT_CONFIRMED",
-    "observations": [
-      "Все регионы → /regions → Список городов Авито; not a vacancies listing",
-      "Geography input Россия → Неизвестный город или регион",
-      "Все регионы input did not confirm a nationwide selection",
-      "Control input Тула also returned unknown city; autocomplete failure cause not established"
-    ],
+    "verified": true,
+    "url": "https://www.avito.ru/all/vakansii",
+    "supplied_url": "https://www.avito.ru/all/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6Im5xaWpUZmlRUXkwVE1DVlAiO30PhemuJgAAAA",
+    "source": "User URL; canonical href observed on page; both entries opened via gstack /browse",
+    "heading": "Работа и вакансии во всех регионах России",
+    "geography_control": {
+      "marker": "search-form/change-location",
+      "text": "Во всех регионах"
+    },
     "cards_opened": false
   }
 }
