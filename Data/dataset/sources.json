@@ -22,6 +22,36 @@
       "placement_regions": {
         "Москва": "Москва"
       }
+    },
+    {
+      "run_id": "courier_next5_2026-10-26",
+      "source": "avito",
+      "path": "Data/avito_runs/courier_next5_2026-10-26/exports/vacancies_flat.csv",
+      "sha256": "d89183541d4f01bfc822027fd9492d8c493c6d002da722cd13fd8f8fcb2b233d",
+      "enrichment_status": "not_run",
+      "placement_regions": {
+        "Москва": "Москва"
+      }
+    },
+    {
+      "run_id": "courier_first5_2026-10-27",
+      "source": "avito",
+      "path": "Data/avito_runs/courier_first5_2026-10-27/exports/vacancies_flat.csv",
+      "sha256": "4d12eab35cd2a4e89b14088c1cec9aff282f7ed96b29aee5200df893f7f82147",
+      "enrichment_status": "not_run",
+      "placement_regions": {
+        "Москва": "Москва"
+      }
+    },
+    {
+      "run_id": "all_professions_first5_2026-10-27",
+      "source": "avito",
+      "path": "Data/avito_runs/all_professions_first5_2026-10-27/exports/vacancies_flat.csv",
+      "sha256": "3b3d99349b429d71856c3d381cb4e87524be6d6d2b052bf49d7e105f393adef9",
+      "enrichment_status": "not_run",
+      "placement_regions": {
+        "Москва": "Москва"
+      }
     }
   ]
 }
