@@ -25,7 +25,7 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.6.3'
+VERSION = '1.7'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py')]
 
