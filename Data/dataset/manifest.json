@@ -2,7 +2,7 @@
   "schema_version": "1",
   "builder_version": "1",
   "builder_sha256": "2bd4fb8026e6c3dbc13ff525255d659d2a69ffffffa5a479c93034eff0caa757",
-  "rows": 372,
+  "rows": 375,
   "columns": [
     "source",
     "id",
@@ -90,7 +90,7 @@
     "enriched_fields",
     "enrichment_version"
   ],
-  "sha256": "859b59e0962d38567b0724b51882187004e4809bf98bf0897a9bb8bf12092f89",
+  "sha256": "2dda027bc2066370e07257415c466eedf19101cf2bfa25a568ac68fd73691f94",
   "inputs": [
     {
       "run_id": "all_professions_first5_2026-10-27",
@@ -213,6 +213,17 @@
         "Троицк": "Москва",
         "Тверь": "Тверская область"
       },
+      "rows": 5
+    },
+    {
+      "run_id": "general_first5_2026-10-28",
+      "source": "avito",
+      "path": "Data/avito_runs/general_first5_2026-10-28/exports/vacancies_flat.csv",
+      "sha256": "8714bce23be8bace7cd58af3e2b0cef276a4c4cff290fe15b800cb69d44b0f72",
+      "placement_regions": {
+        "Москва": "Москва"
+      },
+      "enrichment_status": "not_run",
       "rows": 5
     },
     {

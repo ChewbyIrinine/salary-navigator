@@ -109,3 +109,5 @@ avito_runs/<название_сбора>/
 - [courier_ekaterinburg_first40_benchmark_2026-10-27](avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/exports/vacancies_flat.csv): 40 вакансий.
 
 - [first5_2026-10-28_01](avito_runs/first5_2026-10-28_01/exports/vacancies_flat.csv): 5 вакансий.
+
+- [general_first5_2026-10-28](avito_runs/general_first5_2026-10-28/exports/vacancies_flat.csv): 5 вакансий.
