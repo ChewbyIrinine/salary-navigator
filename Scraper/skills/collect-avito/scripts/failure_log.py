@@ -38,6 +38,8 @@ def ensure_allowed(diag, stage, retry_reason=None):
     with locked(diag):
         ledger = load(diag)
         if ledger['state'] == 'NEEDS_HUMAN':
+            if stage in ledger.get('offline_authorization', {}).get('stages', []):
+                return
             raise HumanRequired('NEEDS_HUMAN: collection stopped; human instruction required, no new navigation')
         if ledger['failures'] and ledger['state'] != 'RECOVERED':
             if not retry_reason:
@@ -69,6 +71,7 @@ def succeeded(diag, stage, evidence):
 def record(diag, stage, message, action, url=None, agent=None, immediate=False):
     with locked(diag):
         ledger = load(diag)
+        ledger.pop('offline_authorization', None)
         current = ledger['stages'].setdefault(stage, {'failures': 0, 'state': 'RETRY_AVAILABLE'})
         current['failures'] += 1
         ledger['failures'] += 1
@@ -88,3 +91,16 @@ def record(diag, stage, message, action, url=None, agent=None, immediate=False):
             'Смена агента, вкладки или URL не сбрасывает счётчик. '
             'При NEEDS_HUMAN новые переходы запрещены до инструкции человека.\n')
         return event
+
+
+def authorize_offline(diag, instruction):
+    """Caller must have a fresh human instruction; this never permits browser work."""
+    if not instruction.strip():
+        raise ValueError('Human instruction is required')
+    with locked(diag):
+        ledger = load(diag)
+        authorization = dict(at=datetime.now(timezone.utc).isoformat(), instruction=instruction,
+                             stages=['finalize', 'publish'])
+        ledger['offline_authorization'] = authorization
+        ledger['events'].append(dict(event='human_authorization', **authorization))
+        save(diag, ledger)

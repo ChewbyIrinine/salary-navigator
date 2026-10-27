@@ -1,0 +1,591 @@
+{
+  "run_id": "truck_driver_ekaterinburg_first40_2026-10-27",
+  "dataset_id": "truck_driver_ekaterinburg_first40_2026-10-27",
+  "status": "complete",
+  "schema": {
+    "columns": [
+      "id",
+      "city",
+      "profession",
+      "segments",
+      "title",
+      "salary_raw",
+      "source_url",
+      "observed_at",
+      "description",
+      "location_observed",
+      "employer_name_observed",
+      "date_raw",
+      "views_total",
+      "views_today",
+      "listing_rank",
+      "listing_promoted",
+      "full_parameters_read",
+      "analysis_status",
+      "export_eligibility",
+      "read_status_parameters",
+      "read_status_description",
+      "read_status_location",
+      "read_limitations",
+      "enrichment_status",
+      "enriched_fields",
+      "enrichment_version",
+      "city__source",
+      "city__evidence",
+      "city_anomaly",
+      "График",
+      "Занятость",
+      "Сфера деятельности компании",
+      "Опыт работы",
+      "В том числе для кандидатов",
+      "Категория водительских прав",
+      "Способ оформления",
+      "Частота выплат",
+      "Что получают работники",
+      "Компания предоставляет",
+      "Стаж вождения",
+      "Статус самозанятости",
+      "Медкнижка",
+      "Длительность вахты",
+      "Количество рабочих часов в день",
+      "Техника",
+      "Режим работы",
+      "Где предстоит работать",
+      "Стажировка",
+      "Возраст автомобиля",
+      "Навык мелкого ремонта автомобиля",
+      "Способ доставки",
+      "Количество рабочих дней в неделю",
+      "Бренд автомобиля",
+      "Автомобиль",
+      "Смены",
+      "Можно заканчивать в 17:00"
+    ],
+    "unknown_policy": "empty_not_zero"
+  },
+  "collection": {
+    "run_id": "truck_driver_ekaterinburg_first40_2026-10-27",
+    "geography": "Екатеринбург",
+    "profession": "Водитель грузового транспорта",
+    "segments": "",
+    "filter_evidence": "Aside snapshot confirmed: profession checkbox Водитель грузового транспорта checked=true (value 22283175); observed city link /ekaterinburg/vakansii/voditel_gruzovogo_transporta-ASgBAgICAUTUzBHOjqAV; final heading Вакансии по профессии Водитель грузового транспорта в Екатеринбурге; query empty; no additional filters selected.",
+    "listing_url": "https://www.avito.ru/ekaterinburg/vakansii/voditel_gruzovogo_transporta-ASgBAgICAUTUzBHOjqAV",
+    "selected_controls": [
+      {
+        "label": "Водитель грузового транспорта",
+        "marker": "params[144170]/checkbox/22283175",
+        "value": null
+      },
+      {
+        "label": "Водитель грузового транспорта",
+        "marker": "params[144170]/checkbox/toggle",
+        "value": "22283175"
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/all",
+        "value": null
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/all",
+        "value": null
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": null,
+        "value": "all"
+      },
+      {
+        "label": "Все",
+        "marker": null,
+        "value": "all"
+      }
+    ],
+    "selection_mode": "first_N_unique_on_frozen_listing",
+    "limit": 40,
+    "created_at": "2026-10-27T15:34:51.008260+00:00",
+    "instruction_version": "1.6.1",
+    "extractor_sha256": "cffafbdf6c2f4d04597f47e825e1f4589949a6cf870d5f1cdf0b791c015cd394",
+    "instruction_sha256": "b3911157b049227516fbdd7151f630ecbe37ae200d3f626a1810b33ad17da5c9",
+    "code_git_commit": "a48b4094061354a5e567a524453d034da9cb7502",
+    "setup_seconds": 2.0832084589637816,
+    "live_route_verified": false,
+    "execution_model": "gpt-6-luna",
+    "automation_sha256": {
+      "Scraper/extract.js": "cffafbdf6c2f4d04597f47e825e1f4589949a6cf870d5f1cdf0b791c015cd394",
+      "Scraper/skills/collect-avito/SKILL.md": "b3911157b049227516fbdd7151f630ecbe37ae200d3f626a1810b33ad17da5c9",
+      "Scraper/skills/collect-avito/scripts/run.py": "715df9f270b10c4789d60a256173b425033db38018a7c32a7385b7afb75ed095",
+      "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+      "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+      "Scraper/skills/collect-avito/scripts/failure_log.py": "371d3dcf127f4e65a1f1dfb8016ece777f2763e5e0568c95196e7b01f77e5fb0"
+    },
+    "uncommitted_automation_files": [],
+    "city_anomaly_policy": "search_filter"
+  },
+  "coverage": {
+    "planned": 40,
+    "accepted": 40,
+    "unique_ids": [
+      "8482689821",
+      "8321082671",
+      "8033678706",
+      "8447208564",
+      "8328820410",
+      "8446982854",
+      "8437816093",
+      "8383775459",
+      "8346140926",
+      "8232403543",
+      "8145315953",
+      "3761858698",
+      "8180385892",
+      "8520996665",
+      "2670442953",
+      "8314125958",
+      "8368072951",
+      "7587304499",
+      "2089204921",
+      "8485404596",
+      "8209052311",
+      "8120151699",
+      "7491001265",
+      "8112511008",
+      "8209788659",
+      "4754084093",
+      "8356482227",
+      "8116197210",
+      "8479069886",
+      "4173124809",
+      "8437003762",
+      "8025964481",
+      "8391323256",
+      "8133652065",
+      "4424468161",
+      "8366757567",
+      "8413407880",
+      "2833656135",
+      "7947088521",
+      "4005581479"
+    ],
+    "errors": [],
+    "limitations": [
+      "Visible rendered parameters only; enrichment not run; placement on site; live route unverified"
+    ]
+  },
+  "timing": {
+    "setup_seconds": 2.0832084589637816,
+    "capture_seconds": 49.3544018343091,
+    "review_export_seconds": 0.04751812480390072,
+    "publication_seconds": null
+  },
+  "review_model": "gpt-6.1-terra",
+  "automation_changes": [
+    {
+      "file": "Data/dataset/README.md",
+      "reason": "Разбор района и метро, происхождение города из карточки или подтверждённого фильтра и офлайн-разрешение",
+      "validation": "59 офлайн unit-тестов пройдены"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Разбор района и метро, происхождение города из карточки или подтверждённого фильтра и офлайн-разрешение",
+      "validation": "59 офлайн unit-тестов пройдены"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/failure_log.py",
+      "reason": "Разбор района и метро, происхождение города из карточки или подтверждённого фильтра и офлайн-разрешение",
+      "validation": "59 офлайн unit-тестов пройдены"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Разбор района и метро, происхождение города из карточки или подтверждённого фильтра и офлайн-разрешение",
+      "validation": "59 офлайн unit-тестов пройдены"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Разбор района и метро, происхождение города из карточки или подтверждённого фильтра и офлайн-разрешение",
+      "validation": "59 офлайн unit-тестов пройдены"
+    },
+    {
+      "file": "Scraper/test_failure_log.py",
+      "reason": "Разбор района и метро, происхождение города из карточки или подтверждённого фильтра и офлайн-разрешение",
+      "validation": "59 офлайн unit-тестов пройдены"
+    },
+    {
+      "file": "utils/build_dataset.py",
+      "reason": "Разбор района и метро, происхождение города из карточки или подтверждённого фильтра и офлайн-разрешение",
+      "validation": "59 офлайн unit-тестов пройдены"
+    },
+    {
+      "file": "utils/test_build_dataset.py",
+      "reason": "Разбор района и метро, происхождение города из карточки или подтверждённого фильтра и офлайн-разрешение",
+      "validation": "59 офлайн unit-тестов пройдены"
+    },
+    {
+      "file": "Scraper/README.md",
+      "reason": "Документирован выбор политики города и источник значения",
+      "validation": "59 офлайн unit-тестов пройдены"
+    }
+  ],
+  "post_capture_automation_sha256": {
+    "Scraper/skills/collect-avito/SKILL.md": "7f5d45834c0f88aca91abc1877d29868f27bc3e2946c22b6a6a65927db21c745",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "26d2eadcd4202686a2618c93deb19186371c1e7be68871584397a9e300448de8",
+    "Scraper/skills/collect-avito/scripts/run.py": "586f2cd638005ab9b4549ea472b026c41608db628f89049c08e8e39f32537b1f"
+  },
+  "files": {
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/exports/vacancies.json": {
+      "bytes": 172382,
+      "sha256": "ac311b930a30b9df799be2e3d6ca56f9e7588d4412a01e1b271ab9d47843fe9b"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/exports/vacancies_flat.csv": {
+      "bytes": 125027,
+      "sha256": "f31bbf512c73a013513789210e62d2c5405bf45bbf552eb9084bae5884ed5c92"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/exports/validation.json": {
+      "bytes": 131,
+      "sha256": "1b30d6b6cd2116c019ed97ea70e553516c26bc6b94a2f0f54d3f4071947ca971"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/listing.json": {
+      "bytes": 26085,
+      "sha256": "862ea4e15e23a5098a51d4967360e6848b94948484c126fa76a6ad7b39b64335"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/queue.json": {
+      "bytes": 19526,
+      "sha256": "76cab3bb30583014dcdd1ced14fc6db5b97d579893884325f4c697353f91eb18"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/2089204921.json": {
+      "bytes": 9117,
+      "sha256": "f27019af67cebf55dec20dc8f1b8ddc2ed8ecd4d62ada04e836658a3cb9643e2"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/2670442953.json": {
+      "bytes": 13788,
+      "sha256": "d9bdd4e80e1b41dcd61508c9a3966c173da44ee0c07c2fa78ec38987574493e6"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/2833656135.json": {
+      "bytes": 12002,
+      "sha256": "c9ca194f3169cda7720c8a54e5e229096cf38af9fb7cf5311a2242c2c71d3204"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/3761858698.json": {
+      "bytes": 8596,
+      "sha256": "81e7b2f63b4a5ffb0c55c20376829fb0400365dbe0824cf07a52be3797fbe15c"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/4005581479.json": {
+      "bytes": 11046,
+      "sha256": "6388cf284b75265c4c1331b10ab8c7abf2b879388330477e1d96c3657994e3e8"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/4173124809.json": {
+      "bytes": 14162,
+      "sha256": "43e07e55264f0a9e40253c1d305eb59501e10bf576f788e04d71652fef54f38e"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/4424468161.json": {
+      "bytes": 20192,
+      "sha256": "9ae29fa7ed151608e0e9a6d4fb0aae21055b09139b1bb78d516510e0a1f756ed"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/4754084093.json": {
+      "bytes": 12404,
+      "sha256": "d64ff0fc13d62f0caf85f72475293a10b634d981fc1963a7a7c658d74c732b73"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/7491001265.json": {
+      "bytes": 12664,
+      "sha256": "3ffce54298e26c1065940c08250ed48cba09fefe0283dc184ee165041afafcbf"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/7587304499.json": {
+      "bytes": 14689,
+      "sha256": "169de87b052faf29a71be87119e25c85aad436b5ae00540290df96b8cf6e6f31"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/7947088521.json": {
+      "bytes": 11982,
+      "sha256": "f1b0cb3d513bddb4078c5461b0318b4ff94fc0f9ffdee9e2e1ffc8b681935cc8"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8025964481.json": {
+      "bytes": 10099,
+      "sha256": "b1a74ecf0c7e1f04b665909ba92f5729e073410edc28630b2cc28a7e328e96a3"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8033678706.json": {
+      "bytes": 11634,
+      "sha256": "051a7af076d5796f46d71d61d2cc416f68930e47c1be8aef32de54cc4b4d53c8"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8112511008.json": {
+      "bytes": 10888,
+      "sha256": "b3fc0ceebb6688d03ccdfaaebb9b716334171de723d886fbe642d20d186696e3"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8116197210.json": {
+      "bytes": 14880,
+      "sha256": "558a1e4b0ca0258e779db22be7e0f37c13dcd7d414dc1993df47403dffa66df4"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8120151699.json": {
+      "bytes": 11802,
+      "sha256": "841435551b0b44cc865f9b1c85ca3fb75ee64d8535510aa94c93032c84ac7299"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8133652065.json": {
+      "bytes": 9868,
+      "sha256": "70a5cd316a0d847c58ad817192cf58742643fbe47dc08bc6c2881c73a02b7786"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8145315953.json": {
+      "bytes": 11220,
+      "sha256": "79805617d025353578e85eda6c4601d3de10f34a7debd49f5bb7e488389c12b5"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8180385892.json": {
+      "bytes": 16316,
+      "sha256": "990bf96e32174e7d7204771d7569b642bea8fda8c0cd04eb77349ac24d090eda"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8209052311.json": {
+      "bytes": 16771,
+      "sha256": "619175db2d9dbc7d8321083daf8391fb07c1a140964b55f4bbc43c2e5a1d990a"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8209788659.json": {
+      "bytes": 11442,
+      "sha256": "a9df04cfd610c5313d6536e1780c51e7b0b925ffe7fc93f8f8c1ae6b18f1c317"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8232403543.json": {
+      "bytes": 13959,
+      "sha256": "ffa444fcd868a05c9f377a620282c03e9f7564dab0839e224d04a1d88d871621"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8314125958.json": {
+      "bytes": 14670,
+      "sha256": "d7762edfd8e3044b962e178694f80045deba36ba0ce6b148dcddaed94c779ba1"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8321082671.json": {
+      "bytes": 11546,
+      "sha256": "22feab0421e80e183a3ec92d2748084e4aadb01f3feb56bae0278115960d26aa"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8328820410.json": {
+      "bytes": 12493,
+      "sha256": "1b274084daae32cb779901e49c363974e3f3ae7983acdb0d970582fc09194b7e"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8346140926.json": {
+      "bytes": 18655,
+      "sha256": "b0016dbaafc68b6f7faa957fc062b318ad1c7f7ef567765e6b025be4eef2f1f0"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8356482227.json": {
+      "bytes": 10091,
+      "sha256": "fb5f080cb452b47230a8441f5e4d176b63908ad5a5f683873d3cb1ef39f35ad2"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8366757567.json": {
+      "bytes": 8095,
+      "sha256": "18d06f686b64ed083db45bed02bbb4d2ca540306ed14e43a7d7787993d2574fe"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8368072951.json": {
+      "bytes": 9534,
+      "sha256": "cf684a276fe33f329b0416f527ea7005224730fa8c9b9cbad02e6958a037a74d"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8383775459.json": {
+      "bytes": 16184,
+      "sha256": "c1c6292672f51ee69f055e65a7004738b3c4b25ae8d293dfbf245eb345b1339c"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8391323256.json": {
+      "bytes": 6947,
+      "sha256": "c8de1ada0684af3f0bb51fe0b858999e9af05ac4686abb322968f4b8d0e0b6b8"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8413407880.json": {
+      "bytes": 10736,
+      "sha256": "e16967c11ef49e2da94b606eecacc013d2da8875e337014552eb87793b4ab240"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8437003762.json": {
+      "bytes": 8131,
+      "sha256": "0eebef299d1e19d62930c024fac6893b17b9f5e2332d78ba367f416e82b9a3e0"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8437816093.json": {
+      "bytes": 16132,
+      "sha256": "ca7466765bb709bf72733fc72954297be0f9b99f39fd500a2f6e181c3e6de554"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8446982854.json": {
+      "bytes": 14726,
+      "sha256": "150ef9a312d616ea48c50db2c08c2680689ca3cb10130a2b224d5ba4d98b0b8e"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8447208564.json": {
+      "bytes": 16613,
+      "sha256": "0ef04a0c549f92edf3472639dde0bb74333589d3e1577c15c2b0c9cbb3398286"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8479069886.json": {
+      "bytes": 11606,
+      "sha256": "0e9a2beecbfb75e8fe1dac7346a3176f1f26f71b91126769eea0a6f5ff4c4b0e"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8482689821.json": {
+      "bytes": 6074,
+      "sha256": "4b78824cccaec2725c905b25efebe33d5a6aa2f667044bf4460b670a0edf7b9f"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8485404596.json": {
+      "bytes": 10281,
+      "sha256": "828f22ffd73222df2e05a8e2b2d7ab53bdde3fec323b2d09c4619685fd103c61"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/raw/8520996665.json": {
+      "bytes": 12180,
+      "sha256": "92d8fd27ddbbf6bf4f5e823634a7044d74274ce10c99aac490b94d4af96fdfe4"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/2089204921.json": {
+      "bytes": 824,
+      "sha256": "0aa9a9054a6c1fa1e69f7e6a54c505e7dadec12067f322e30353354d536983df"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/2670442953.json": {
+      "bytes": 834,
+      "sha256": "b1570cb6407e6a82a8955a7ac4a9f9794ac472db88cab736fbd82ff8f00ea46a"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/2833656135.json": {
+      "bytes": 774,
+      "sha256": "4009b636b922674637c2452f938c2359ef73567a7dbd7e9d5cfcd80337bd0aaa"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/3761858698.json": {
+      "bytes": 855,
+      "sha256": "0ed3c254a0d061190fab3430126b5a2bbc38716df8306df59894217756a7e836"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/4005581479.json": {
+      "bytes": 875,
+      "sha256": "a1d5516aeb2c459e64db918ba4e542fbc890f83e100d02a736c6fa0742f45805"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/4173124809.json": {
+      "bytes": 834,
+      "sha256": "fe99123ca5ea8a8e3453a4922d82b703a398b66201dfd9d10bd713b897230b6a"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/4424468161.json": {
+      "bytes": 871,
+      "sha256": "82429520e8ff2aee162172edffe7a1f1cf606d29a8a86efdd4594b2f84005af4"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/4754084093.json": {
+      "bytes": 787,
+      "sha256": "202d11b031fa27e5067c3107c2114a9d6bd45d9af41f63c92667c4f85ead4de1"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/7491001265.json": {
+      "bytes": 863,
+      "sha256": "659aca41e999f5ea0c8ff645b680a642425a4298b12883bcd00b9c7c36ed2832"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/7587304499.json": {
+      "bytes": 864,
+      "sha256": "1c280ce73d5335015d277d79896b6d52363822b1467f24da3bd9aca94826faf2"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/7947088521.json": {
+      "bytes": 834,
+      "sha256": "6c5e2819de0d2ff0d8fd897e1a7175522021b758ee81087560c6628dba267c7a"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8025964481.json": {
+      "bytes": 922,
+      "sha256": "e23724cadb1059f6adb1610e0ce49b95305abcd47262af61753a3383397e2cf3"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8033678706.json": {
+      "bytes": 880,
+      "sha256": "3123bdb693f0ee6966a8cfc41aaddf84cf8e2ffa6b4bc55133f8ac50e077465e"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8112511008.json": {
+      "bytes": 808,
+      "sha256": "b588b215aa56a50018ce18d5362bbb8e99e2d3694d8b79da9e2c8ec5842ce46d"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8116197210.json": {
+      "bytes": 834,
+      "sha256": "bb12edbb2d9609514e5d06b01c68cc8742846f7df6436a0b2fa63e8f73c18968"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8120151699.json": {
+      "bytes": 885,
+      "sha256": "50cdd511fc8e8996b006e24088937f55446678d4093b2b8466adbaff9479c359"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8133652065.json": {
+      "bytes": 856,
+      "sha256": "de5c5b2ff2943ee211cd6de1353051616a3fe87f874250d404d8cf63244e6b26"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8145315953.json": {
+      "bytes": 860,
+      "sha256": "e85797e5e9f628c7a53bbbbb899e613baa1b640b173832776ea62b6eb5ef5199"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8180385892.json": {
+      "bytes": 878,
+      "sha256": "ebb42c7004ceb572bb4ed41d553d736915928fe05441816d160df5f0ec760d81"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8209052311.json": {
+      "bytes": 805,
+      "sha256": "15a956f85fb72431dca4f8ff1a285883687783a31fd7a741918ddcf062d470dd"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8209788659.json": {
+      "bytes": 799,
+      "sha256": "3dced8a06726f0c483549e5d90d5387f2b310d8c159001fc0c3ac2860341db6c"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8232403543.json": {
+      "bytes": 856,
+      "sha256": "6fcee0fa12a8880f7edd635fd91f6fab4455dbd40a508e4f1cca4ebfc9b7c2b8"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8314125958.json": {
+      "bytes": 834,
+      "sha256": "8e8320db421536cd0b965da7eaad065e73732f3744e4a8ee5c1a71ac454933dc"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8321082671.json": {
+      "bytes": 834,
+      "sha256": "8b71575efb32bc25e3505eb356ec12bd8d03902f2bb26f9bdfc361adcd16453b"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8328820410.json": {
+      "bytes": 834,
+      "sha256": "16632598bb9afd209422b9d77e236821dcc6f62cb8ded39a3a473ba4e3a91156"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8346140926.json": {
+      "bytes": 855,
+      "sha256": "fb3d576d3782cca63ce58a0edbb37294c7fa0afea011165e97fc3490a9a8ea2a"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8356482227.json": {
+      "bytes": 834,
+      "sha256": "deac4f2f8f77695b687c7357bd75e0033c93acf0958cf39c0f48727a88fce400"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8366757567.json": {
+      "bytes": 820,
+      "sha256": "bf9fe721350dfbc0c4fb2ea1b11c18d8452a0b59419f91e4c5f0fe79a224f7f9"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8368072951.json": {
+      "bytes": 856,
+      "sha256": "05499af71a11dc5deab625c0c789ec0dd341aaed4faedf0384131625ea86db34"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8383775459.json": {
+      "bytes": 834,
+      "sha256": "d17cbdb5640a4f0783c04d8f2a85bfb6bcabbf1fc4a156ffecbd7cc1da0a56e8"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8391323256.json": {
+      "bytes": 787,
+      "sha256": "93291e425973b49e96e2ef11b29a7ecdebc37c48ff1494ceb1df9a4cbc4c8e9e"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8413407880.json": {
+      "bytes": 834,
+      "sha256": "7047f351b665e52db944629b5550edbfdd596aa3a9c286bf0169f0995057a83d"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8437003762.json": {
+      "bytes": 874,
+      "sha256": "2b3775adcc663fcb9814a239280fccaef09e5a3d62df6e30e27c0ff57328d66a"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8437816093.json": {
+      "bytes": 862,
+      "sha256": "bcb90ca1921da2ddc512b317328baa061632ea330a9a6ef7e2881e557a2f54fe"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8446982854.json": {
+      "bytes": 859,
+      "sha256": "890baeacc0b4fdb9e5121adc9fc5bf454fd526a09ceb627976cb566204cd5d03"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8447208564.json": {
+      "bytes": 834,
+      "sha256": "17d1edde1bdba674c82c6da8ac430b2bcd38ba42e44e73235bc6e823f9cf05ca"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8479069886.json": {
+      "bytes": 834,
+      "sha256": "ec197e0652ba8c0da5c1e787c7f7c75a44f9c65c8f0f0eafa82be002015b3f7d"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8482689821.json": {
+      "bytes": 834,
+      "sha256": "f5083bc73ddae5ffab9cf82cf3ea0b83121de2b77c6de644af64c8bdb09d970f"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8485404596.json": {
+      "bytes": 834,
+      "sha256": "1aefe05f1f1d6fbc0419639f10242ed725f03a6166838e7220b0dec940c58aa3"
+    },
+    "Data/avito_runs/truck_driver_ekaterinburg_first40_2026-10-27/reviewed/8520996665.json": {
+      "bytes": 857,
+      "sha256": "d870a417f8779c896eb6d53c019adb13e60af7504923eedd7381fd9584f1a764"
+    },
+    "Scraper/runs/truck_driver_ekaterinburg_first40_2026-10-27/plan.json": {
+      "bytes": 2979,
+      "sha256": "7e9d4f4898990a7b7856e8266445512c8d451b2707f7082843b3f16739cac1d5"
+    }
+  }
+}

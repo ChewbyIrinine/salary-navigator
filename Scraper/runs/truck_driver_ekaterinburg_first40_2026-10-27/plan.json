@@ -1,0 +1,69 @@
+{
+  "run_id": "truck_driver_ekaterinburg_first40_2026-10-27",
+  "geography": "Екатеринбург",
+  "profession": "Водитель грузового транспорта",
+  "segments": "",
+  "filter_evidence": "Aside snapshot confirmed: profession checkbox Водитель грузового транспорта checked=true (value 22283175); observed city link /ekaterinburg/vakansii/voditel_gruzovogo_transporta-ASgBAgICAUTUzBHOjqAV; final heading Вакансии по профессии Водитель грузового транспорта в Екатеринбурге; query empty; no additional filters selected.",
+  "listing_url": "https://www.avito.ru/ekaterinburg/vakansii/voditel_gruzovogo_transporta-ASgBAgICAUTUzBHOjqAV",
+  "selected_controls": [
+    {
+      "label": "Водитель грузового транспорта",
+      "marker": "params[144170]/checkbox/22283175",
+      "value": null
+    },
+    {
+      "label": "Водитель грузового транспорта",
+      "marker": "params[144170]/checkbox/toggle",
+      "value": "22283175"
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "selection_mode": "first_N_unique_on_frozen_listing",
+  "limit": 40,
+  "created_at": "2026-10-27T15:34:51.008260+00:00",
+  "instruction_version": "1.6.1",
+  "extractor_sha256": "cffafbdf6c2f4d04597f47e825e1f4589949a6cf870d5f1cdf0b791c015cd394",
+  "instruction_sha256": "b3911157b049227516fbdd7151f630ecbe37ae200d3f626a1810b33ad17da5c9",
+  "code_git_commit": "a48b4094061354a5e567a524453d034da9cb7502",
+  "setup_seconds": 2.0832084589637816,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/extract.js": "cffafbdf6c2f4d04597f47e825e1f4589949a6cf870d5f1cdf0b791c015cd394",
+    "Scraper/skills/collect-avito/SKILL.md": "b3911157b049227516fbdd7151f630ecbe37ae200d3f626a1810b33ad17da5c9",
+    "Scraper/skills/collect-avito/scripts/run.py": "715df9f270b10c4789d60a256173b425033db38018a7c32a7385b7afb75ed095",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "371d3dcf127f4e65a1f1dfb8016ece777f2763e5e0568c95196e7b01f77e5fb0"
+  },
+  "uncommitted_automation_files": []
+}

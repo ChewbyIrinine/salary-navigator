@@ -67,13 +67,31 @@ def build(root, registry):
             seen.add(identity)
             if row["analysis_status"] != "validated" or row["export_eligibility"] not in {"included", "fit_review_required"}:
                 raise ValueError(f"Unreviewed record: {path}:{identity}")
-            if not row["source_url"] or not row["city"]:
-                raise ValueError(f"Missing URL/city: {identity}")
+            if not row["source_url"]:
+                raise ValueError(f"Missing URL: {identity}")
             observed = timestamp(row["observed_at"])
             cities = parts(row["city"])
             regions = entry["placement_regions"]
-            if not cities or any(not regions.get(city) for city in cities):
-                raise ValueError(f"Missing placement region mapping: {row['city']}")
+            unknown = entry.get("unknown_city_placements", {}).get(identity)
+            city_source = row.get('city__source', '')
+            if city_source not in ('', 'card', 'search_filter', 'missing'):
+                raise ValueError(f'Unknown city source: {identity}')
+            if city_source == 'search_filter' and (
+                    row['city'] != entry.get('search_city') or not entry.get('search_city_evidence')
+                    or row.get('city__evidence') != entry['search_city_evidence'] or not row.get('city_anomaly')):
+                raise ValueError(f'Missing search-filter provenance: {identity}')
+            if city_source == 'missing' and cities:
+                raise ValueError(f'Missing city source has a value: {identity}')
+            if not cities:
+                if (row["city"] or not isinstance(unknown, dict)
+                        or (not unknown.get('region') and unknown.get('region_unknown') is not True)
+                        or not unknown.get("evidence") or unknown["evidence"] not in row.get("location_observed", "")):
+                    raise ValueError(f"Missing reviewed unknown-city placement: {identity}")
+                region = unknown["region"]
+            else:
+                if unknown or any(not regions.get(city) for city in cities):
+                    raise ValueError(f"Missing placement region mapping: {row['city']}")
+                region = "; ".join(dict.fromkeys(regions[c] for c in cities))
             status = row.get("enrichment_status", entry.get("enrichment_status", "not_run"))
             fields = parts(row.get("enriched_fields", ""))
             version = row.get("enrichment_version", "")
@@ -89,7 +107,7 @@ def build(root, registry):
                         or not row.get(field + "__evidence")
                         or row[field + "__evidence"] not in row["description"]):
                     raise ValueError(f"Missing enrichment value/source/quote: {identity}:{field}")
-            row.update(source=source, region="; ".join(dict.fromkeys(regions[c] for c in cities)),
+            row.update(source=source, region=region,
                        run_id=run_id, enrichment_status=status,
                        enriched_fields="; ".join(fields), enrichment_version=version)
             records.setdefault((source, identity), []).append((observed, run_id, row))

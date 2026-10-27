@@ -9,6 +9,20 @@ spec.loader.exec_module(failure_log)
 
 
 class FailureBudgetTests(unittest.TestCase):
+    def test_human_can_authorize_offline_completion_without_browser_or_erasing_failures(self):
+        with tempfile.TemporaryDirectory() as directory:
+            diag=Path(directory)
+            failure_log.record(diag,'filters','failure','action',immediate=True)
+            failure_log.authorize_offline(diag,'Finish saved batch; no new collection')
+            failure_log.ensure_allowed(diag,'finalize')
+            failure_log.ensure_allowed(diag,'publish')
+            with self.assertRaises(failure_log.HumanRequired):
+                failure_log.ensure_allowed(diag,'capture')
+            self.assertEqual(failure_log.load(diag)['failures'],1)
+            failure_log.record(diag,'finalize','new failure','offline')
+            with self.assertRaises(failure_log.HumanRequired):
+                failure_log.ensure_allowed(diag,'publish')
+
     def test_retry_budget_is_shared_across_agents_urls_and_stages(self):
         with tempfile.TemporaryDirectory() as directory:
             diag = Path(directory)
