@@ -26,7 +26,7 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.6'
+VERSION = '1.7.7'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -78,8 +78,8 @@ def avito_url(url, identity=None):
     host = parsed.hostname or ''
     if (parsed.scheme != 'https' or not (host == 'avito.ru' or host.endswith('.avito.ru'))
             or parsed.username or parsed.password or parsed.port not in (None, 443)
-            or '/vakansii' not in parsed.path):
-        raise ValueError('Expected an observed HTTPS Avito vacancies URL')
+            or not re.match(r'^/[^/]+/vakansii(?:/|$)', parsed.path)):
+        raise ValueError('Expected an observed HTTPS Avito /<region>/vakansii URL; see references/vacancy-entry-routes.md')
     if identity and not parsed.path.endswith('_' + identity):
         raise ValueError('Queue URL and ID differ')
     return url

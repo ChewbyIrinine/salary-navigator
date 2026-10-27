@@ -1,0 +1,56 @@
+{
+  "verified_on": "2026-10-28",
+  "method": "gstack /browse via Aside; observed city links then h1 after navigation; no vacancy cards opened",
+  "cities": [
+    {
+      "city": "Москва",
+      "url": "https://www.avito.ru/moskva/vakansii",
+      "heading": "Работа и вакансии в Москве",
+      "verified": true
+    },
+    {
+      "city": "Санкт-Петербург",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii",
+      "heading": "Работа и вакансии в Санкт-Петербурге",
+      "verified": true
+    },
+    {
+      "city": "Екатеринбург",
+      "url": "https://www.avito.ru/ekaterinburg/vakansii",
+      "heading": "Работа и вакансии в Екатеринбурге",
+      "verified": true
+    },
+    {
+      "city": "Казань",
+      "url": "https://www.avito.ru/kazan/vakansii",
+      "heading": "Работа и вакансии в Казани",
+      "verified": true
+    },
+    {
+      "city": "Нижний Новгород",
+      "url": "https://www.avito.ru/nizhniy_novgorod/vakansii",
+      "heading": "Работа и вакансии в Нижнем Новгороде",
+      "verified": true
+    },
+    {
+      "city": "Новосибирск",
+      "url": "https://www.avito.ru/novosibirsk/vakansii",
+      "heading": "Работа и вакансии в Новосибирске",
+      "verified": true
+    },
+    {
+      "city": "Челябинск",
+      "url": "https://www.avito.ru/chelyabinsk/vakansii",
+      "heading": "Работа и вакансии в Челябинске",
+      "verified": true
+    }
+  ],
+  "fallback_moscow": {
+    "verified_on": "2026-10-28",
+    "route": "Москва: региональная главная → Работа и подработка → городская выдача вакансий",
+    "home": "https://www.avito.ru/moskva",
+    "observed_work_href": "/moskva/vakansii?context=H4sIAAAAAAAA_wEsANP_YToxOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO30OjCyoLAAAAA",
+    "result_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEsANP_YToxOntzOjg6ImZyb21QYWdlIjtzOjE1OiJzaG9ydGN1dHNXaWRnZXQiO30OjCyoLAAAAA",
+    "result_heading": "Работа и вакансии в Москве"
+  }
+}
