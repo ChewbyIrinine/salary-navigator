@@ -132,6 +132,21 @@ class RunnerTests(unittest.TestCase):
                 runner.publish(args)
             self.assertEqual(state, {'commits':1,'pushes':2})
 
+    def test_regionless_vacancy_entry_is_rejected_before_browser(self):
+        for url in ['https://www.avito.ru/vakansii', 'https://www.avito.ru/vakansii?context=x',
+                    'https://www.avito.ru/vakansii/kurer', 'https://www.avito.ru/moskva']:
+            with tempfile.TemporaryDirectory() as directory:
+                args = argparse.Namespace(run_id='bad_entry', resume=False, url=url, retry_reason=None)
+                with patch.object(runner, 'ROOT', Path(directory)), patch.object(runner, 'preflight') as preflight, \
+                        patch.object(runner, 'browser') as browser:
+                    with self.assertRaisesRegex(ValueError, '/<region>/vakansii'):
+                        runner.freeze(args)
+                    preflight.assert_not_called(); browser.assert_not_called()
+        for url in ['https://www.avito.ru/moskva/vakansii',
+                    'https://www.avito.ru/sankt-peterburg/vakansii?context=observed',
+                    'https://www.avito.ru/ekaterinburg/vakansii/kurer-ASgObserved', item()['url']]:
+            self.assertEqual(runner.avito_url(url), url)
+
     def test_queue_preserves_unique_order_and_requires_enough_real_links(self):
         listing = dict(state='LISTING', items=[item('123'), item('123'), item('456')])
         queue = runner.queue_from(listing, 2)
