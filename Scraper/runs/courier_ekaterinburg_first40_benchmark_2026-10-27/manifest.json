@@ -1,0 +1,540 @@
+{
+  "run_id": "courier_ekaterinburg_first40_benchmark_2026-10-27",
+  "dataset_id": "courier_ekaterinburg_first40_benchmark_2026-10-27",
+  "status": "complete",
+  "schema": {
+    "columns": [
+      "id",
+      "city",
+      "profession",
+      "segments",
+      "title",
+      "salary_raw",
+      "source_url",
+      "observed_at",
+      "description",
+      "location_observed",
+      "employer_name_observed",
+      "date_raw",
+      "views_total",
+      "views_today",
+      "listing_rank",
+      "listing_promoted",
+      "full_parameters_read",
+      "analysis_status",
+      "export_eligibility",
+      "read_status_parameters",
+      "read_status_description",
+      "read_status_location",
+      "read_limitations",
+      "enrichment_status",
+      "enriched_fields",
+      "enrichment_version",
+      "city__source",
+      "city__evidence",
+      "city_anomaly",
+      "График",
+      "Занятость",
+      "Количество рабочих часов в день",
+      "Частота выплат",
+      "Сфера деятельности компании",
+      "Что получают работники",
+      "Смены",
+      "Способ доставки",
+      "Опыт работы",
+      "Категория водительских прав",
+      "Статус самозанятости",
+      "Медкнижка",
+      "Можно заканчивать в 17:00",
+      "В том числе для кандидатов",
+      "Где предстоит работать",
+      "Способ оформления",
+      "Количество рабочих дней в неделю",
+      "Вид доставки",
+      "Стаж вождения",
+      "Навык мелкого ремонта автомобиля",
+      "Стажировка",
+      "Длительность вахты",
+      "Бренд автомобиля",
+      "Возраст автомобиля",
+      "Компания предоставляет",
+      "Автомобиль"
+    ],
+    "unknown_policy": "empty_not_zero"
+  },
+  "collection": {
+    "run_id": "courier_ekaterinburg_first40_benchmark_2026-10-27",
+    "geography": "Екатеринбург",
+    "profession": "Курьер",
+    "segments": "",
+    "filter_evidence": "Snapshot страницы вакансий: флажок профессии Курьер (value 3201765) checked=true; переход по наблюдённой ссылке города с профессией; URL /ekaterinburg/vakansii/kurer-ASgBAgICAUTUzBHK64YD; заголовок Вакансии по профессии Курьер в Екатеринбурге; поиск пустой; дополнительные фильтры не выбраны.",
+    "listing_url": "https://www.avito.ru/ekaterinburg/vakansii/kurer-ASgBAgICAUTUzBHK64YD",
+    "selected_controls": [
+      {
+        "label": "Курьер",
+        "marker": "params[144170]/checkbox/3201765",
+        "value": null
+      },
+      {
+        "label": "Курьер",
+        "marker": "params[144170]/checkbox/toggle",
+        "value": "3201765"
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/all",
+        "value": null
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/all",
+        "value": null
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": null,
+        "value": "all"
+      },
+      {
+        "label": "Все",
+        "marker": null,
+        "value": "all"
+      }
+    ],
+    "selection_mode": "first_N_unique_on_frozen_listing",
+    "limit": 40,
+    "created_at": "2026-10-27T16:17:03.174339+00:00",
+    "instruction_version": "1.6.2",
+    "extractor_sha256": "cffafbdf6c2f4d04597f47e825e1f4589949a6cf870d5f1cdf0b791c015cd394",
+    "instruction_sha256": "7f5d45834c0f88aca91abc1877d29868f27bc3e2946c22b6a6a65927db21c745",
+    "code_git_commit": "e158119c7d2c4570b93cfa1133f7b5b964b4ba51",
+    "setup_seconds": 2.1649894579313695,
+    "live_route_verified": false,
+    "execution_model": "gpt-6-luna",
+    "automation_sha256": {
+      "Scraper/extract.js": "cffafbdf6c2f4d04597f47e825e1f4589949a6cf870d5f1cdf0b791c015cd394",
+      "Scraper/skills/collect-avito/SKILL.md": "7f5d45834c0f88aca91abc1877d29868f27bc3e2946c22b6a6a65927db21c745",
+      "Scraper/skills/collect-avito/scripts/run.py": "586f2cd638005ab9b4549ea472b026c41608db628f89049c08e8e39f32537b1f",
+      "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+      "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+      "Scraper/skills/collect-avito/scripts/failure_log.py": "26d2eadcd4202686a2618c93deb19186371c1e7be68871584397a9e300448de8"
+    },
+    "uncommitted_automation_files": [],
+    "city_anomaly_policy": "blank"
+  },
+  "coverage": {
+    "planned": 40,
+    "accepted": 40,
+    "unique_ids": [
+      "8316539847",
+      "8313631389",
+      "8354544857",
+      "8020439445",
+      "8102699069",
+      "8204707461",
+      "3061766380",
+      "8291668318",
+      "8391527841",
+      "8134191203",
+      "8212859889",
+      "8398643713",
+      "8398648622",
+      "8426909660",
+      "8369129456",
+      "8169769181",
+      "8400064182",
+      "8258988466",
+      "8369248540",
+      "8425973704",
+      "7866375203",
+      "8373785080",
+      "8333356335",
+      "8574874909",
+      "8470424239",
+      "8471798333",
+      "7947093356",
+      "8445258029",
+      "8382141254",
+      "8409957925",
+      "8545806037",
+      "8192386165",
+      "8207998393",
+      "8378085188",
+      "8440385745",
+      "8437122570",
+      "8331870237",
+      "8227394294",
+      "8485191650",
+      "8471571756"
+    ],
+    "errors": [],
+    "limitations": [
+      "Visible rendered parameters only; enrichment not run; placement on site; live route unverified"
+    ]
+  },
+  "timing": {
+    "setup_seconds": 2.1649894579313695,
+    "capture_seconds": 55.84192654187791,
+    "review_export_seconds": 0.05368908308446407,
+    "publication_seconds": null
+  },
+  "review_model": "gpt-6.1-terra",
+  "automation_changes": [],
+  "post_capture_automation_sha256": {},
+  "files": {
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/exports/vacancies.json": {
+      "bytes": 177686,
+      "sha256": "7f388293c7d421d5e31a52baa31e012993d6724e2c3c857ed743a66b13ddea36"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/exports/vacancies_flat.csv": {
+      "bytes": 129983,
+      "sha256": "02ee432c0ec737dcf50b448fb6e24ef88791bfd37ff9dcb6ba8e82818938257e"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/exports/validation.json": {
+      "bytes": 131,
+      "sha256": "1b30d6b6cd2116c019ed97ea70e553516c26bc6b94a2f0f54d3f4071947ca971"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/listing.json": {
+      "bytes": 26553,
+      "sha256": "16d2f0052147ed53cb46abd6fb1d22dfdaf5cbf483c6a330ad29d3f1be889474"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/queue.json": {
+      "bytes": 20119,
+      "sha256": "ae9d7200fca41de1f38f3ecf505c745294a9b35ad6d2f77283d584dbd04e6bd2"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/3061766380.json": {
+      "bytes": 14334,
+      "sha256": "c693cc71dc84871b8a8e9e037866203dd722551ff4ea958a2b3b9d623a928f5e"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/7866375203.json": {
+      "bytes": 14650,
+      "sha256": "10b9d91540e6d8623c226e99bbf162c2f8a543ca92aea35cf04433386ddc2a97"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/7947093356.json": {
+      "bytes": 14024,
+      "sha256": "85a74e9f8db68ffa50dadb3277ddbf76fc32b336e3e37cff0daec5ff95aae757"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8020439445.json": {
+      "bytes": 20393,
+      "sha256": "f5c9679f69d4996cf28822331f71684ce61d2234783ceb7454852308f9683922"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8102699069.json": {
+      "bytes": 16132,
+      "sha256": "4f43882f18b747672c3d108135a5606acc578469c95a1c64833c7fa7db8d8604"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8134191203.json": {
+      "bytes": 15032,
+      "sha256": "a665529ff7a35247ae4d78c913d02c6135221b70a0f9c3b1fdb3cac34f6306d4"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8169769181.json": {
+      "bytes": 14010,
+      "sha256": "411a8fb6891139bf7a496a70bc2205b81fabdc60a7cd2f3f361094af43b6b65d"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8192386165.json": {
+      "bytes": 14636,
+      "sha256": "17a3e4a484b274333a784f4811afe928f9c6fa7b12d57054a3346795fcb3af0f"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8204707461.json": {
+      "bytes": 13698,
+      "sha256": "8a75bf424403151164045c58b6a74a0d36f2032b7a55adb5dfa1d3c6943ae113"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8207998393.json": {
+      "bytes": 17704,
+      "sha256": "c1d37a805f3bcaac5f28fe2f5d43fb17de0c8072af6a1733e806e925702b234d"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8212859889.json": {
+      "bytes": 11427,
+      "sha256": "7fb83b85ad18a0a37aaa01a45a04dab548b551e2817412dc786c88175a3e5985"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8227394294.json": {
+      "bytes": 11492,
+      "sha256": "a78d2934ce53f811afbf63f83ff8cfab0a67db98072b6ed1191239553f7b4755"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8258988466.json": {
+      "bytes": 11829,
+      "sha256": "2b6045afbb7fd9e21a330696886fc616cb37cdfab826268bff80d06b929b253d"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8291668318.json": {
+      "bytes": 11342,
+      "sha256": "ac6034813e5fad0d48df6ed7f857d25a0a56a36cf3bb874c4fc5ceaf656e2869"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8313631389.json": {
+      "bytes": 11939,
+      "sha256": "f73b4e2ef07d5444eccdc91548dae4855d1ed4fc31a6e47714977f9315ad8bd5"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8316539847.json": {
+      "bytes": 12985,
+      "sha256": "b916c720fea3a78ce899439490635407c531f6d8f79bab14daf368183ba8343f"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8331870237.json": {
+      "bytes": 7795,
+      "sha256": "b11c196ae82e8e359270ab6674d321113d0b45ebe0dbc7f8639c866b7d4d398e"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8333356335.json": {
+      "bytes": 8908,
+      "sha256": "e7259168818b7dbbba096d92f9c4a090a0d2ee805ef68b7ab3cfc3e9bb7c25e5"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8354544857.json": {
+      "bytes": 13620,
+      "sha256": "ee172d5f97c9ab2e91d150ae5fab9eb83b3d6642b6131a703773637b1a27abfb"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8369129456.json": {
+      "bytes": 11984,
+      "sha256": "eaefe1aedc9a5ba1e4994da82ee6c6d440241376aa3b34e8bd8ca8da7e71b411"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8369248540.json": {
+      "bytes": 11170,
+      "sha256": "2581c7018804e3a3afb6d57a7f128236c9ec53a953ad6c28e04cc6e29bb4361c"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8373785080.json": {
+      "bytes": 10562,
+      "sha256": "7bf7786839bf2c4752676647d4eddcc76e321b7e91ee5d5b1ffc3ccb9e14b2b9"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8378085188.json": {
+      "bytes": 9273,
+      "sha256": "6480f3489cab53b940a96613fdf8200055b55ffaf7879be7e6cdbdb0231a876b"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8382141254.json": {
+      "bytes": 19321,
+      "sha256": "3089295540c28e8c0268987f4e81425cdef4cd2600d42990aa5a0aebb791a6a4"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8391527841.json": {
+      "bytes": 13261,
+      "sha256": "b5c367dfc2b87a610dae5b5e49343562f47764ffa19217bea674ef281ff983d2"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8398643713.json": {
+      "bytes": 12842,
+      "sha256": "a0528dab4852e0f160d02da38ceb8f0092847533644615e4bbafb665f45dbe16"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8398648622.json": {
+      "bytes": 14264,
+      "sha256": "5c1b38cc6bd634fc7b023c288e15979c8329d4df6893225fac5ba7271325aea4"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8400064182.json": {
+      "bytes": 13321,
+      "sha256": "f800fb7c92ad669ed6b9a1eb0863d42da8467f1aa317c9c8f11ebdeb34d854ab"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8409957925.json": {
+      "bytes": 9346,
+      "sha256": "a623cc3684e3e49a6eff3b09ee3b931d022ca96ea7688d19cf39679ae0e42ce5"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8425973704.json": {
+      "bytes": 17008,
+      "sha256": "e650349ec9a186ee04a398a4e84193cdf828493575bd87a72ba088be0f7175fd"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8426909660.json": {
+      "bytes": 9643,
+      "sha256": "e2447071d60046fd12ed8fb5558c9307c00e4305b6c6aeb89d1a6b51d651a4db"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8437122570.json": {
+      "bytes": 12928,
+      "sha256": "c51d40be3e0c23f7d3c6241718c4ecd5a738cabe67510101a6ddab2510a6b29f"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8440385745.json": {
+      "bytes": 10878,
+      "sha256": "0ab3e5fe2d78f8f92ae06c6034113ab6a8105c89cfb02d35290d53d794848d8c"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8445258029.json": {
+      "bytes": 10805,
+      "sha256": "6b0deab694a9e95949b41bab7cadc981937a05aea8efaa3dee4b4c9af8238dca"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8470424239.json": {
+      "bytes": 14448,
+      "sha256": "19a8164e11bd2e12c2155d246d83c62f42fd6f28a9c5350cc8b0621efd7b7de6"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8471571756.json": {
+      "bytes": 9331,
+      "sha256": "c9aa8fc23f3a0c0346cf20dc545237376d346c11d513bcd88ba52b116c379d2d"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8471798333.json": {
+      "bytes": 17860,
+      "sha256": "dc1f9d691e631fcb99b5891581ba87e35ed320d241af12005cfcaca1f5a28bd3"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8485191650.json": {
+      "bytes": 8557,
+      "sha256": "e696b93b49b7d4ac5339925b37e4d1bac227d5b0811bcaba14ba391ab4ea1029"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8545806037.json": {
+      "bytes": 17423,
+      "sha256": "c427dfb6346d5937d75ad27c847de96aa8559a8ec4acf21a1e5005477344ea53"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/raw/8574874909.json": {
+      "bytes": 11331,
+      "sha256": "ffbb48b61e1067648d6084cb3466a553204b0da4f63ae496460d15578ae393c5"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/3061766380.json": {
+      "bytes": 863,
+      "sha256": "ff60072d2c928f0cbe4f4856961067d8b66bd590b724c1b182e3ad391f27737d"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/7866375203.json": {
+      "bytes": 834,
+      "sha256": "4f25995af31d1f4935cb1e9b113c0ae6c6870734acc50bed75ac32d66e67d6d3"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/7947093356.json": {
+      "bytes": 856,
+      "sha256": "202587fa28a48eef2bc4f165b8fd50a8a41d61d3f6a02d2c094c3dca65d0aa4a"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8020439445.json": {
+      "bytes": 834,
+      "sha256": "79b2015d6b4de56f34cedec2ae22b5253f2f4eeae476dabf5108a7eee147931d"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8102699069.json": {
+      "bytes": 857,
+      "sha256": "1a904ff5652244ec98ebd18d5df3974dea0f16d6698475621dfee9cd50ed9427"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8134191203.json": {
+      "bytes": 865,
+      "sha256": "56e754629fa7a2cbda51ea5de718486ca07c8367fba66947445e4a92a7f9c002"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8169769181.json": {
+      "bytes": 869,
+      "sha256": "b05b261ec1cced9b6fc519c15f45d7161410987fe01e1cc81295c37e5e0b6f2e"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8192386165.json": {
+      "bytes": 782,
+      "sha256": "b48a98f5daffe102c9cbf104e3142b4773edbbe5bf87860b85d5fcd92b8fd959"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8204707461.json": {
+      "bytes": 784,
+      "sha256": "098555cf1af8058ab328f05549324b24a413e97cb56800cdd6f54d631fdf6e1e"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8207998393.json": {
+      "bytes": 834,
+      "sha256": "50f668cf30f1afc4857a2e0c3dc7c4f9b19da28da9f974198748891e5486e9db"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8212859889.json": {
+      "bytes": 885,
+      "sha256": "ed792e2cd1248d38e3d8e2cb2df6b8a18ee1cfae9bd57ead42eadcb1cbdc7e25"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8227394294.json": {
+      "bytes": 834,
+      "sha256": "2d6964ecc02c9604c8bc9cd3e001482343dadb3db262e9844e5820850144cb93"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8258988466.json": {
+      "bytes": 769,
+      "sha256": "3cc82ed0aba632f09871177ea3e73b9ec173961b5675c00417bb13b27dc2a29f"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8291668318.json": {
+      "bytes": 905,
+      "sha256": "c6129d71c5a1c414c986c39795e625512d48ed0b403989663e0a9e46dda9bfac"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8313631389.json": {
+      "bytes": 834,
+      "sha256": "e4a3228322a55d2d7d99c5d10e1b455fbf9d190b5fb70f23772057783dcb3995"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8316539847.json": {
+      "bytes": 826,
+      "sha256": "9bb9a79a40af5ba0a0857c8cb119adb26a9648da73eb3ce03fdeaadbd7b679b9"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8331870237.json": {
+      "bytes": 862,
+      "sha256": "a789dbb5528a4ff8d826e5096156acde6486a8c4f8d76683aa4b850fd62ef8f9"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8333356335.json": {
+      "bytes": 792,
+      "sha256": "243efdefd892ace64f9b6ea0bde35bf3c2db32c236ac893cff8d1cd16e69ee49"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8354544857.json": {
+      "bytes": 826,
+      "sha256": "18ca481d2d1d402af28b250e957e06d060864e4bce7737cefde7761ae4c9733d"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8369129456.json": {
+      "bytes": 834,
+      "sha256": "0edd62289d289af6415631e4c6f58ea220c8b8f5c31df468d20583fdb42ca269"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8369248540.json": {
+      "bytes": 862,
+      "sha256": "fa99ff40a6beb36fb810c8aeeb5298186272e04fa1778ea2eee1382f12ae572a"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8373785080.json": {
+      "bytes": 864,
+      "sha256": "019a623ab7f8645dcca0eb0a68ab807e7d0b18dbe014974c90964a942b606270"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8378085188.json": {
+      "bytes": 863,
+      "sha256": "759e0677b9c36a72af0631b0a0e7557c8a34e8f8a93e9e6b3138c36e49e9e269"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8382141254.json": {
+      "bytes": 861,
+      "sha256": "ed6e89ef12cebd92c05b4a2d7ef220d0c12f5fea4d9005dbdae48eda6f063377"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8391527841.json": {
+      "bytes": 767,
+      "sha256": "d2a25e2ef3828a1ee6b95d33adbe2648c3800639b770050a79ea341a00681946"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8398643713.json": {
+      "bytes": 870,
+      "sha256": "6aa6ef5bb4ace309b749772538be03acbcc1ead7aa0c71491e1e4f1ed60c90ed"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8398648622.json": {
+      "bytes": 853,
+      "sha256": "ed4ee1e8ae0c13dd768778cde4521604072b20531ec235c7f184120549f21a5b"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8400064182.json": {
+      "bytes": 865,
+      "sha256": "25f95d33e0cebd4b31316a443b86a8591d9d7c0ea84f5ccecc3b6ed8c412e4c5"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8409957925.json": {
+      "bytes": 838,
+      "sha256": "8f6a43c52a806a594415cbb3c2ee5a777790da02608a884af7ce2a98f3e65c0b"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8425973704.json": {
+      "bytes": 862,
+      "sha256": "a475554ea2ea8751fc27415f3d836e9a5a4c7e503f162cd9e11be7d181c154d3"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8426909660.json": {
+      "bytes": 781,
+      "sha256": "61c7d79a8e57f215c843a285d2c20dddbb1d7004fbe311b7ec8eafc0c7364c74"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8437122570.json": {
+      "bytes": 866,
+      "sha256": "7d67589ef9cbb3508007112de7761af287ee4b6d8da52ac346685ee1b4325d01"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8440385745.json": {
+      "bytes": 866,
+      "sha256": "711edd0fcab3cb33d2bba75b03f57db9e343a5ddd742884e1b541b5a222a0752"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8445258029.json": {
+      "bytes": 894,
+      "sha256": "661957b80acdd78320b881a69cd6d5fd463d63fb55db800b0c51fdbe381814be"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8470424239.json": {
+      "bytes": 863,
+      "sha256": "9e38ead2a0793dc1d88d40259d05426461edf8c3963c912dd578f61dc59d1175"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8471571756.json": {
+      "bytes": 870,
+      "sha256": "6d563977dd875ff7eac98cc220c162461a24d44942749acab1f0ac1ae9ad196b"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8471798333.json": {
+      "bytes": 874,
+      "sha256": "d0daa814c15fe26e787661250ee50f7308b4a7abf7a6d568198a11d9ae8cfe8e"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8485191650.json": {
+      "bytes": 852,
+      "sha256": "d61d20adf8b074ca8614a5cf2c5d6f5d1e743f9fdf4169ca4bfc285d99b4f4ee"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8545806037.json": {
+      "bytes": 834,
+      "sha256": "9db71194017307c22b0f3207e95ee204ef4ecb7b83ea62abcc2d36b860629242"
+    },
+    "Data/avito_runs/courier_ekaterinburg_first40_benchmark_2026-10-27/reviewed/8574874909.json": {
+      "bytes": 834,
+      "sha256": "2c729ff7a306a48b9a5f6fd2d6268f399b04e6b1ff73fc2e43f0ff2f53c44674"
+    },
+    "Scraper/runs/courier_ekaterinburg_first40_benchmark_2026-10-27/plan.json": {
+      "bytes": 2874,
+      "sha256": "7debf64282addb31614d752a3cea39ab617a3ad8bfd103f5b4222d3138992a2e"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "run_id": "courier_ekaterinburg_first40_benchmark_2026-10-27",
+  "geography": "Екатеринбург",
+  "profession": "Курьер",
+  "segments": "",
+  "filter_evidence": "Snapshot страницы вакансий: флажок профессии Курьер (value 3201765) checked=true; переход по наблюдённой ссылке города с профессией; URL /ekaterinburg/vakansii/kurer-ASgBAgICAUTUzBHK64YD; заголовок Вакансии по профессии Курьер в Екатеринбурге; поиск пустой; дополнительные фильтры не выбраны.",
+  "listing_url": "https://www.avito.ru/ekaterinburg/vakansii/kurer-ASgBAgICAUTUzBHK64YD",
+  "selected_controls": [
+    {
+      "label": "Курьер",
+      "marker": "params[144170]/checkbox/3201765",
+      "value": null
+    },
+    {
+      "label": "Курьер",
+      "marker": "params[144170]/checkbox/toggle",
+      "value": "3201765"
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "selection_mode": "first_N_unique_on_frozen_listing",
+  "limit": 40,
+  "created_at": "2026-10-27T16:17:03.174339+00:00",
+  "instruction_version": "1.6.2",
+  "extractor_sha256": "cffafbdf6c2f4d04597f47e825e1f4589949a6cf870d5f1cdf0b791c015cd394",
+  "instruction_sha256": "7f5d45834c0f88aca91abc1877d29868f27bc3e2946c22b6a6a65927db21c745",
+  "code_git_commit": "e158119c7d2c4570b93cfa1133f7b5b964b4ba51",
+  "setup_seconds": 2.1649894579313695,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/extract.js": "cffafbdf6c2f4d04597f47e825e1f4589949a6cf870d5f1cdf0b791c015cd394",
+    "Scraper/skills/collect-avito/SKILL.md": "7f5d45834c0f88aca91abc1877d29868f27bc3e2946c22b6a6a65927db21c745",
+    "Scraper/skills/collect-avito/scripts/run.py": "586f2cd638005ab9b4549ea472b026c41608db628f89049c08e8e39f32537b1f",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "26d2eadcd4202686a2618c93deb19186371c1e7be68871584397a9e300448de8"
+  },
+  "uncommitted_automation_files": []
+}
