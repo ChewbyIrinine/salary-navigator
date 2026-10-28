@@ -1,0 +1,267 @@
+{
+  "reviewed_on": "2026-10-28",
+  "scope": "Local saved observations; original inputs are not registered/published by this change. No new browser visits.",
+  "worktree_base": "/Users/ivan/.codex/worktrees",
+  "runs": [
+    {
+      "run_id": "hybrid_first10_2026-10-28",
+      "local_source": "avito-hybrid-10/TL Demo 3/Data/avito_runs/hybrid_first10_2026-10-28/raw",
+      "code_git_commit": "5c745f1c7edc926a5b4a17f27ab5682b3ea8f2f1",
+      "instruction_version": "1.7.10",
+      "items": [
+        {
+          "id": "7817647873",
+          "source_url": "https://www.avito.ru/ufa/vakansii/voditel_v_obespechenie_tylovoe_podrazdelenie_7817647873",
+          "observed_at": "2026-10-27T23:39:51.196Z",
+          "raw_sha256": "b006a3f8f289e60fffebcaa12d2190f58393faff1f86c2c14834aeebe38c951a",
+          "title": "Водитель в обеспечение тыловое подразделение",
+          "promoted": true,
+          "parameters": 15,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8374335892",
+          "source_url": "https://www.avito.ru/moskva/vakansii/pomoschnik_rieltora_so_stipendiey_8374335892",
+          "observed_at": "2026-10-27T23:39:52.163Z",
+          "raw_sha256": "6c3204d0e0229203adf067fc39b060371400a013bf9fb52d2171f4097bc0a990",
+          "title": "Помощник риелтора (со стипендией)",
+          "promoted": false,
+          "parameters": 13,
+          "format_in_fields": true,
+          "format_in_saved_block": true,
+          "rendered_complete": true
+        },
+        {
+          "id": "8378006785",
+          "source_url": "https://www.avito.ru/moskva/vakansii/kurer-ekspeditor_8378006785",
+          "observed_at": "2026-10-27T23:39:46.736Z",
+          "raw_sha256": "53b6da07667cebd51632032c8e383731fd815ed9156cffc4578bb2712cbe519d",
+          "title": "Курьер-экспедитор",
+          "promoted": true,
+          "parameters": 15,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8391323968",
+          "source_url": "https://www.avito.ru/moskva/vakansii/voditel_kategorii_b_c_e_dolgi_uydut_8391323968",
+          "observed_at": "2026-10-27T23:39:43.720Z",
+          "raw_sha256": "82f331abe17d4c78aecc4036ecc3980da324be134a475e0f3f024254b29724d3",
+          "title": "Водитель категории B, C, E (Долги уйдут)",
+          "promoted": true,
+          "parameters": 10,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8408231022",
+          "source_url": "https://www.avito.ru/moskva/vakansii/sluzhba_voditelem_vyplata_31_mln_spishem_dolgi_8408231022",
+          "observed_at": "2026-10-27T23:39:49.680Z",
+          "raw_sha256": "def1cea9dbee5175586e3670902d8232e8dbb9549157e3efa9f1e6d32e66711b",
+          "title": "Служба водителем: выплата 3,1 млн, спишем долги",
+          "promoted": true,
+          "parameters": 10,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8438069503",
+          "source_url": "https://www.avito.ru/moskva/vakansii/podrabotka_kurerom_na_velo_8438069503",
+          "observed_at": "2026-10-27T23:39:44.508Z",
+          "raw_sha256": "9e2fdfb3b25f237f644417220553f5fb3309be95a5abe92a28d85d7ce1c3e376",
+          "title": "Подработка курьером на вело",
+          "promoted": true,
+          "parameters": 9,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8512644313",
+          "source_url": "https://www.avito.ru/moskva/vakansii/velokurer_bez_opyta_dlya_sng_8512644313",
+          "observed_at": "2026-10-27T23:39:50.442Z",
+          "raw_sha256": "1023ea35dd9035eeb62ac4f63dd7cb259d030c4059b4cc9864956c0f45c0bd06",
+          "title": "Велокурьер, без опыта (для снг)",
+          "promoted": true,
+          "parameters": 15,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8514015359",
+          "source_url": "https://www.avito.ru/sankt-peterburg/vakansii/stazher_na_sborku_elektroschitkov_8514015359",
+          "observed_at": "2026-10-27T23:39:46.076Z",
+          "raw_sha256": "60776137f82d9a76149a711613b0b65a03ceb4a2cdec0947ed20f750b6b697ae",
+          "title": "Стажер на сборку электрощитков",
+          "promoted": true,
+          "parameters": 10,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8520996665",
+          "source_url": "https://www.avito.ru/ekaterinburg/vakansii/voditel_vai_bez_opyta_soprovozhdenie_gruzov_tyl_8520996665",
+          "observed_at": "2026-10-27T23:39:49.004Z",
+          "raw_sha256": "e94a90d1431265e9acfb4908da134552fc5ad8bd6c3516c230c17e5ed4dc6547",
+          "title": "Водитель ваи без опыта, сопровождение грузов тыл",
+          "promoted": true,
+          "parameters": 10,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8543273869",
+          "source_url": "https://www.avito.ru/arzamas/vakansii/velokurer_gibkiy_grafik_podrabotka_8543273869",
+          "observed_at": "2026-10-27T23:39:45.217Z",
+          "raw_sha256": "02bd053d52ecb2884123fbd5b559fe0d02d528f035bd5bcb32719b894612daa6",
+          "title": "Велокурьер (гибкий график, подработка)",
+          "promoted": true,
+          "parameters": 15,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        }
+      ]
+    },
+    {
+      "run_id": "remote10-20261028-demo4",
+      "local_source": "avito-remote-ten/TL Demo 4/Data/avito_runs/remote10-20261028-demo4/raw",
+      "code_git_commit": "6b83e17e530ce3aa9bee980049ed828d39822d3e",
+      "instruction_version": "1.7.12",
+      "items": [
+        {
+          "id": "4522687971",
+          "source_url": "https://www.avito.ru/saratov/vakansii/operator_vhodyaschey_linii_udalenno_4522687971",
+          "observed_at": "2026-10-28T00:19:29.834Z",
+          "raw_sha256": "55099e5092f86ea2a3c4313882b1443d1f37eba61f3eee0ac18158cffc3d1bc6",
+          "title": "Оператор входящей линии (удаленно)",
+          "promoted": true,
+          "parameters": 9,
+          "format_in_fields": true,
+          "format_in_saved_block": true,
+          "rendered_complete": true
+        },
+        {
+          "id": "4549198417",
+          "source_url": "https://www.avito.ru/volgograd/vakansii/operator_kontaktnogo_tsentra_bez_prodazh_4549198417",
+          "observed_at": "2026-10-28T00:19:26.580Z",
+          "raw_sha256": "cafeef0fa7fa548dd9a95050216bc1d303f991ad2a1c2c8968c8d441d9de439f",
+          "title": "Оператор контактного центра (без продаж)",
+          "promoted": true,
+          "parameters": 11,
+          "format_in_fields": true,
+          "format_in_saved_block": true,
+          "rendered_complete": true
+        },
+        {
+          "id": "8236416808",
+          "source_url": "https://www.avito.ru/moskva/vakansii/lid-menedzher_udalenno_8236416808",
+          "observed_at": "2026-10-28T00:19:36.265Z",
+          "raw_sha256": "f42a9a581b2f89f26415116de9cf4ded00583d5fa2bb94a88170fd7f0b5939bc",
+          "title": "Лид-менеджер (удаленно)",
+          "promoted": false,
+          "parameters": 8,
+          "format_in_fields": true,
+          "format_in_saved_block": true,
+          "rendered_complete": true
+        },
+        {
+          "id": "8328241576",
+          "source_url": "https://www.avito.ru/moskva/vakansii/avtoperegonschik_tylovaya_avtosluzhba_8328241576",
+          "observed_at": "2026-10-28T00:19:35.387Z",
+          "raw_sha256": "4bddca52a9cf04c32c2fd3ba9a855ad1fdf77ba7b009a5f053a97c0dcbc40271",
+          "title": "Автоперегонщик — тыловая автослужба",
+          "promoted": true,
+          "parameters": 13,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8340659199",
+          "source_url": "https://www.avito.ru/omsk/vakansii/sborschik_udarnyh_bpla_geran-2_v_tseh_donetsk_8340659199",
+          "observed_at": "2026-10-28T00:19:32.263Z",
+          "raw_sha256": "c4246831451abd0392c0e4c25f6225add9839c78e48e330b877ba3fc27253cd7",
+          "title": "Сборщик ударных бпла \"Герань-2\" в цех (Донецк)",
+          "promoted": true,
+          "parameters": 10,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8376809975",
+          "source_url": "https://www.avito.ru/sankt-peterburg/vakansii/frilanser-rekruter_massovyy_podbor_personala_8376809975",
+          "observed_at": "2026-10-28T00:19:34.547Z",
+          "raw_sha256": "1911c207ccf68521402324552b3d0281a1b1e702275ac7d5e12717391ad362c8",
+          "title": "Фрилансер-рекрутер (массовый подбор персонала)",
+          "promoted": false,
+          "parameters": 10,
+          "format_in_fields": true,
+          "format_in_saved_block": true,
+          "rendered_complete": true
+        },
+        {
+          "id": "8450042198",
+          "source_url": "https://www.avito.ru/pskov/vakansii/repetitor_po_matematike_russkomu_fizike_i_infe_8450042198",
+          "observed_at": "2026-10-28T00:19:37.163Z",
+          "raw_sha256": "56f30f73d8c9bf7b0b25bc4ccfc73d697ba15a6712601484ba28e88503040ff3",
+          "title": "Репетитор по математике, русскому, физике и инфе",
+          "promoted": false,
+          "parameters": 10,
+          "format_in_fields": true,
+          "format_in_saved_block": true,
+          "rendered_complete": true
+        },
+        {
+          "id": "8451151994",
+          "source_url": "https://www.avito.ru/lipetsk/vakansii/menedzher_kontaktnogo_tsentra_banka_8451151994",
+          "observed_at": "2026-10-28T00:19:27.549Z",
+          "raw_sha256": "8e8f7f2913ca53d05fd8f47f389d1757e7894268215589b2129304361136e297",
+          "title": "Менеджер контактного центра банка",
+          "promoted": false,
+          "parameters": 10,
+          "format_in_fields": true,
+          "format_in_saved_block": true,
+          "rendered_complete": true
+        },
+        {
+          "id": "8544769138",
+          "source_url": "https://www.avito.ru/ekaterinburg/vakansii/voennyytyldobrovoletsvyplatylnrdnr_8544769138",
+          "observed_at": "2026-10-28T00:19:31.479Z",
+          "raw_sha256": "c535ad753afaad5333f8fc35c9e7d3dc3ed79d21a39c562206ddfbd975d87b4e",
+          "title": "Военный/тыл/доброволец/выплаты/ЛНР/ДНР",
+          "promoted": true,
+          "parameters": 11,
+          "format_in_fields": false,
+          "format_in_saved_block": false,
+          "rendered_complete": true
+        },
+        {
+          "id": "8557711696",
+          "source_url": "https://www.avito.ru/krasnodar/vakansii/spetsialist_po_obrabotke_zakazov_i_konsultatsiyam_8557711696",
+          "observed_at": "2026-10-28T00:19:30.607Z",
+          "raw_sha256": "d7dc918ce7e80ecbf7fb2a6b61469f7825e84ec83ef15ef193e1a078d06ac87a",
+          "title": "Специалист по обработке заказов и консультациям",
+          "promoted": false,
+          "parameters": 12,
+          "format_in_fields": true,
+          "format_in_saved_block": true,
+          "rendered_complete": true
+        }
+      ]
+    }
+  ],
+  "geography_csv": {
+    "local_source": "/Users/ivan/.codex/worktrees/avito-hybrid-verified10/TL Demo 3/Data/avito_runs/hybrid_verified10_2026-10-28/exports/vacancies_flat.csv",
+    "sha256": "fa4a2ec4314af797584ebe5de71e20dc87d129414c220f7f5ca9a5a903b6b2db"
+  }
+}

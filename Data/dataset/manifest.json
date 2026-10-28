@@ -1,7 +1,13 @@
 {
   "schema_version": "1",
   "builder_version": "1",
-  "builder_sha256": "2bd4fb8026e6c3dbc13ff525255d659d2a69ffffffa5a479c93034eff0caa757",
+  "builder_sha256": "a5740ddc614a3f8b1da46fa5f2d73406e3f85563599b875e909f6a4ee22cfbf2",
+  "title_flags": {
+    "version": "military_title_v1",
+    "sha256": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
+    "source": "title",
+    "policy": "keyword_signal_not_exclusion"
+  },
   "rows": 387,
   "columns": [
     "source",
@@ -85,6 +91,9 @@
     "Образование",
     "Цех",
     "Кухня",
+    "military",
+    "military_keywords",
+    "military_rule_version",
     "first_seen_at",
     "last_seen_at",
     "run_id",
@@ -93,7 +102,7 @@
     "enriched_fields",
     "enrichment_version"
   ],
-  "sha256": "62415b5d8285ac9541f956e6428fb931db9ca2336053c9edfcd6ca1e901118f6",
+  "sha256": "125e563e1d5918c3e4f1909175e5b8ca1804fa14954d9e12cefdba2ce2a10b54",
   "inputs": [
     {
       "run_id": "all_professions_first5_2026-10-27",

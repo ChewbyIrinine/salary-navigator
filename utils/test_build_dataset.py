@@ -38,6 +38,27 @@ class DatasetTests(unittest.TestCase):
         data, _ = build(self.root, self.registry)
         return list(csv.DictReader(io.StringIO(data.decode("utf-8-sig"))))
 
+    def test_title_flags_recomputed_from_latest_title_without_modifying_sources(self):
+        row = self.row(); row.update(title='Водитель БПЛА', military='False',
+                                    military_keywords='', military_rule_version='older')
+        path = self.add('old', [row]); original = path.read_bytes()
+        first = self.result()[0]
+        self.assertEqual(first['military'], 'True')
+        self.assertEqual(first['military_keywords'], 'БПЛА')
+        self.assertEqual(path.read_bytes(), original)
+        row.update(observed_at='2026-10-22T10:00:00Z', title='Контракт-менеджер')
+        self.add('new', [row])
+        self.assertEqual(self.result()[0]['military'], 'False')
+
+    def test_same_observation_different_derived_flags_does_not_conflict(self):
+        row = self.row(); row['title'] = 'Военный водитель'
+        self.add('old', [row])
+        row.update(military='False', military_keywords='', military_rule_version='old')
+        self.add('new', [row])
+        result = self.result()
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]['military'], 'True')
+
     def test_one_export_keeps_flags_and_missing_values(self):
         row = self.row(**{"Медкнижка": ""})
         row["export_eligibility"] = "fit_review_required"
