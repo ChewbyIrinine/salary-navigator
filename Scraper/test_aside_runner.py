@@ -239,9 +239,28 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(row['Новый параметр'], 'Да')
         self.assertFalse(review['semantic_review_performed'])
         for change in [dict(location_raw=[]), dict(parameter_audit={}), dict(id='999'),
-                       dict(description=''), dict(fields=[{'name': 'id', 'value': 'oops'}])]:
+                       dict(fields=[{'name': 'id', 'value': 'oops'}])]:
             with self.assertRaises(ValueError):
                 runner.reviewed_row(dict(data, **change), item(), {'Москва': 'Москва'}, {})
+
+    def test_missing_optional_description_address_and_format_do_not_reject_card(self):
+        for missing in [dict(description=''), dict(description=None), dict(location_raw=[]),
+                        dict(description=None, location_raw=[])]:
+            data = dict(raw(), **missing)
+            row, review, region = runner.reviewed_row(data, item(),
+                {'Москва': 'Москва', 'Коммунарка': 'Москва'}, {'city_anomaly_policy':'blank'})
+            self.assertEqual(row['id'], '123')
+            self.assertEqual(row['Новый параметр'], 'Да')
+            self.assertNotIn('Формат работы', row)
+            if not data.get('description'):
+                self.assertEqual(row['description'], '')
+                self.assertEqual(row['read_status_description'], 'missing')
+            if not data.get('location_raw'):
+                self.assertEqual((row['city'], row['location_observed'], region), ('', '', ''))
+                self.assertEqual(row['read_status_location'], 'missing')
+        for invalid in [dict(id='999'), dict(title=''), dict(parameter_audit={}), dict(description=123)]:
+            with self.assertRaises(ValueError):
+                runner.reviewed_row(dict(raw(), **invalid), item(), {}, {'city_anomaly_policy':'blank'})
 
     def test_unknown_city_requires_evidence_and_does_not_trust_url_slug(self):
         data = dict(raw(), location_raw=['Москва, д. Сосенки'])

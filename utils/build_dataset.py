@@ -88,9 +88,18 @@ def build(root, registry):
             if city_source == 'missing' and cities:
                 raise ValueError(f'Missing city source has a value: {identity}')
             if not cities:
+                missing_location = (isinstance(unknown, dict)
+                    and unknown.get('location_missing') is True
+                    and row.get('city__source') == 'missing'
+                    and row.get('read_status_location') == 'missing'
+                    and row.get('location_observed') == ''
+                    and row.get('city__evidence') == ''
+                    and unknown.get('evidence') == '' and unknown.get('region') == ''
+                    and unknown.get('region_unknown') is True)
                 if (row["city"] or not isinstance(unknown, dict)
                         or (not unknown.get('region') and unknown.get('region_unknown') is not True)
-                        or not unknown.get("evidence") or unknown["evidence"] not in row.get("location_observed", "")):
+                        or (not missing_location and (not unknown.get("evidence")
+                            or unknown["evidence"] not in row.get("location_observed", "")))):
                     raise ValueError(f"Missing reviewed unknown-city placement: {identity}")
                 region = unknown["region"]
             else:

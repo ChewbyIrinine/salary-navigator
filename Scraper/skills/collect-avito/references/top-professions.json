@@ -1,0 +1,142 @@
+{
+  "version": "top20_2026-10-21_v1",
+  "observed_at": "2026-10-21T16:17:07.532Z",
+  "scope": "Working project shortlist; top among 350 known counters, not unconditional global top20",
+  "catalog_total": 397,
+  "known_counters": 350,
+  "counters_not_displayed": 47,
+  "source_artifact": {
+    "path": "Notes/Research/profession_types_top20_2026-10-21/top20-shortlist.json",
+    "sha256": "d3a8fafd8d7f04f39a137abd242895ccf08ddf3b7f5a4a6fd8c41e1597c94d33",
+    "frequency_research": "https://buildin.ai/e999d49b-facc-4e42-bdf0-39623633df6a",
+    "type_research": "https://buildin.ai/ca12a01d-789a-4e97-bc5e-9d19885e8714",
+    "type_report": "https://buildin.ai/5fb14b6a-755d-453c-8ce7-992d5eb787e6"
+  },
+  "historical_shortlist_exclusions": [
+    "Разнорабочий",
+    "Военный",
+    "Подсобный рабочий"
+  ],
+  "entries": [
+    {
+      "shortlist_rank": 1,
+      "profession": "Грузчик",
+      "site_value": "3201725",
+      "all_regions_count": 126785
+    },
+    {
+      "shortlist_rank": 2,
+      "profession": "Упаковщик",
+      "site_value": "3201880",
+      "all_regions_count": 113660
+    },
+    {
+      "shortlist_rank": 3,
+      "profession": "Курьер",
+      "site_value": "3201765",
+      "all_regions_count": 101446
+    },
+    {
+      "shortlist_rank": 4,
+      "profession": "Охранник",
+      "site_value": "3201810",
+      "all_regions_count": 96161
+    },
+    {
+      "shortlist_rank": 5,
+      "profession": "Сотрудник склада",
+      "site_value": "3201859",
+      "all_regions_count": 95573
+    },
+    {
+      "shortlist_rank": 6,
+      "profession": "Комплектовщик",
+      "site_value": "3201755",
+      "all_regions_count": 85757
+    },
+    {
+      "shortlist_rank": 7,
+      "profession": "Продавец",
+      "site_value": "3235382",
+      "all_regions_count": 83248
+    },
+    {
+      "shortlist_rank": 8,
+      "profession": "Водитель грузового транспорта",
+      "site_value": "22283175",
+      "all_regions_count": 72041
+    },
+    {
+      "shortlist_rank": 9,
+      "profession": "Фасовщик",
+      "site_value": "3201886",
+      "all_regions_count": 67901
+    },
+    {
+      "shortlist_rank": 10,
+      "profession": "Кладовщик",
+      "site_value": "3201753",
+      "all_regions_count": 63038
+    },
+    {
+      "shortlist_rank": 11,
+      "profession": "Монтажник",
+      "site_value": "3201792",
+      "all_regions_count": 62272
+    },
+    {
+      "shortlist_rank": 12,
+      "profession": "Дорожный рабочий",
+      "site_value": "3201736",
+      "all_regions_count": 57807
+    },
+    {
+      "shortlist_rank": 13,
+      "profession": "Слесарь",
+      "site_value": "3201857",
+      "all_regions_count": 57737
+    },
+    {
+      "shortlist_rank": 14,
+      "profession": "Уборщик",
+      "site_value": "3201879",
+      "all_regions_count": 57369
+    },
+    {
+      "shortlist_rank": 15,
+      "profession": "Повар",
+      "site_value": "3201819",
+      "all_regions_count": 55486
+    },
+    {
+      "shortlist_rank": 16,
+      "profession": "Сварщик",
+      "site_value": "3201854",
+      "all_regions_count": 55454
+    },
+    {
+      "shortlist_rank": 17,
+      "profession": "Оператор производственной линии",
+      "site_value": "22006160",
+      "all_regions_count": 48392
+    },
+    {
+      "shortlist_rank": 18,
+      "profession": "Сортировщик",
+      "site_value": "3235391",
+      "all_regions_count": 46402
+    },
+    {
+      "shortlist_rank": 19,
+      "profession": "Продавец-консультант",
+      "site_value": "3201831",
+      "all_regions_count": 41831
+    },
+    {
+      "shortlist_rank": 20,
+      "profession": "Электромонтажник",
+      "site_value": "3201906",
+      "all_regions_count": 38626
+    }
+  ]
+}

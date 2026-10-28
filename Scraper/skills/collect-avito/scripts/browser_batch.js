@@ -34,9 +34,13 @@ try {
       const data = await p.evaluate(extractor);
       // Preserve the observation before deciding whether it can enter the dataset.
       await save('raw/' + item.id + '.json', data);
+      const validFields = Array.isArray(data.fields) && data.fields.length > 0 &&
+        data.fields.every(f => f && typeof f.name === 'string' && f.name.trim() &&
+          typeof f.value === 'string' && f.value.trim());
+      const validDescription = data.description == null || typeof data.description === 'string';
       const ready = data.state === 'DETAIL' && data.id === item.id &&
-        data.parameter_audit?.rendered_complete && data.location_raw?.length &&
-        data.description?.trim() && data.title?.trim();
+        data.parameter_audit?.rendered_complete && typeof data.title === 'string' &&
+        data.title.trim() && validFields && validDescription;
       if (!ready) {
         await fs.writeFile('problem.snapshot.txt', snap.tree);
         console.log(snap.tree);
@@ -47,7 +51,7 @@ try {
       done.push(item.id);
       await checkpoint('CAPTURED', null);
       console.log('TL_CARD=' + JSON.stringify({id: item.id, rank: item.listing_rank,
-        fields: data.fields.length, description_characters: data.description.length}));
+        fields: data.fields.length, description_characters: (data.description || '').length}));
     }
   }
 } catch (error) {
