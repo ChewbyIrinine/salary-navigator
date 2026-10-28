@@ -27,12 +27,12 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.19'
-AUTOMATION_FILES = ['utils/title_flags.py', 'Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
+VERSION = '1.7.20'
+AUTOMATION_FILES = ['Scraper/skills/collect-avito/references/top-professions.json', 'utils/title_flags.py', 'Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
 
-class CollectionStopped(RuntimeError):
+class CollectionStopped(RuntimeError, ValueError):
     def __init__(self, message, state):
         super().__init__(message)
         self.immediate = state in ('NEEDS_HUMAN', 'REVIEW_REQUIRED')
@@ -86,6 +86,33 @@ def avito_url(url, identity=None):
     return url
 
 
+def same_observed_url(expected, actual):
+    """Only permit the observed removal of one literal default localPriority=0."""
+    avito_url(expected)
+    avito_url(actual)
+    if expected == actual:
+        return True
+    def strip_default(url):
+        base, separator, query = url.partition('?')
+        if not separator or '#' in query:
+            return None
+        parts = query.split('&')
+        if parts.count('localPriority=0') != 1 or any(p.startswith('localPriority=') and p != 'localPriority=0' for p in parts):
+            return None
+        rest = [p for p in parts if p != 'localPriority=0']
+        return base + ('?' + '&'.join(rest) if rest else '')
+    return strip_default(expected) == actual
+
+
+def selection_profession(listing, scope=None, requested=''):
+    if scope == 'top20':
+        entries = read(SCRIPTS.parent / 'references/top-professions.json')['entries']
+        return '; '.join(sorted((entry['profession'] for entry in entries), key=str.casefold))
+    if scope == 'all':
+        return ''
+    return profession_from_listing(listing, requested)
+
+
 def profession_from_listing(listing, requested=''):
     """Use checked profession controls, never a title/URL or another filter group."""
     controls = listing.get('selected_controls')
@@ -119,27 +146,52 @@ def validate_plan_profession(plan, listing_path):
         raise ValueError('Plan profession is missing')
     if plan.get('listing_sha256') and sha(listing_path) != plan['listing_sha256']:
         raise ValueError('Frozen listing changed after freeze; preserve the original observation')
-    observed = profession_from_listing(read(listing_path))
+    observed = selection_profession(read(listing_path), plan.get('profession_scope'))
     if norm(plan.get('profession') or '') != observed:
         raise ValueError('Plan profession differs from frozen listing filters; do not export inconsistent metadata')
+    for index, page in enumerate(plan.get('listing_pages', [])):
+        path = listing_path.parent / page['file']
+        if sha(path) != page['sha256']:
+            raise ValueError('Frozen listing page changed after freeze')
+        if index:
+            validate_page_filters(read(listing_path), read(path))
 
 
-def queue_from(listing, limit):
-    if listing.get('state') != 'LISTING' or limit < 1:
+
+def validate_page_filters(first, page):
+    # The Next link comes from the already filtered listing. Do not reopen UI
+    # filters or demand that collapsed controls render all selected professions.
+    if urlsplit(first['source_url']).path != urlsplit(page['source_url']).path:
+        raise ValueError('Listing region/category changed between pages')
+
+
+def queue_from_pages(pages, limit, require_full=True):
+    if not pages or (limit is not None and limit < 1) or any(p.get('state') != 'LISTING' for p in pages):
         raise ValueError('Expected a listing and positive limit')
     queue, seen = [], set()
-    for item in listing.get('items', []):
+    if any((page.get('listing_item_audit') or {}).get('malformed', 0) for page in pages):
+        raise CollectionStopped('Listing has a rendered card without ID, URL or title', 'REVIEW_REQUIRED')
+    for item in (item for page in pages for item in page.get('items', [])):
         identity = item.get('id', '')
         if not isinstance(identity, str) or not identity.isdigit():
-            raise ValueError('Invalid listing ID')
-        avito_url(item['url'], identity)
+            raise CollectionStopped('Invalid listing ID', 'REVIEW_REQUIRED')
+        try:
+            avito_url(item['url'], identity)
+        except (KeyError, ValueError) as error:
+            raise CollectionStopped(f'Invalid listing URL or ID: {error}', 'REVIEW_REQUIRED') from error
         if identity in seen:
             continue
         seen.add(identity)
         queue.append(dict(item, listing_rank=len(queue) + 1))
         if len(queue) == limit:
             return queue
-    raise ValueError(f'Only {len(queue)} unique rendered cards; requested {limit}; do not invent pagination')
+    if require_full and limit is not None:
+        raise ValueError(f'Only {len(queue)} unique rendered cards; requested {limit}; do not invent pagination')
+    return queue
+
+
+def queue_from(listing, limit):
+    return queue_from_pages([listing], limit)
 
 
 
@@ -352,7 +404,7 @@ def reselect(args):
     write(archive/'reason.json', {'reason': args.reason, 'at': datetime.now(timezone.utc).isoformat()})
     shutil.rmtree(out)
     (service/'plan.json').unlink()
-    for name in ('freeze_request.json', 'listing.json', 'checkpoint.json', 'sandbox.json', 'timing.json'):
+    for name in ('freeze_request.json', 'pending_listing.json', 'listing.json', 'checkpoint.json', 'sandbox.json', 'timing.json'):
         (diag/name).unlink(missing_ok=True)
     print('Original freeze archived; failure history and retry budget preserved. Freeze the corrected observed listing.')
 
@@ -366,38 +418,98 @@ def freeze(args):
     if (service / 'manifest.json').exists() or (service / 'plan.json').exists():
         raise ValueError('Queue already frozen; use capture, not freeze')
     avito_url(args.url)
+    candidate_limit = getattr(args, 'candidate_limit', None)
+    all_pages = getattr(args, 'all_pages', False)
+    if (all_pages and (args.limit is not None or candidate_limit is not None)) or (not all_pages and (args.limit is None or args.limit < 1)) or (candidate_limit is not None and candidate_limit < args.limit):
+        raise ValueError('Use a positive --limit or --all-pages; candidate limit requires a numeric target')
     preflight(getattr(args, 'config', None), diag)
     started = time.perf_counter()
     diag.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
     request = dict(url=args.url, limit=args.limit, candidate_limit=getattr(args, 'candidate_limit', None), geography=args.geography,
                    profession=args.profession, segments=args.segments, filter_evidence=args.filter_evidence)
+    request.update(all_pages=all_pages, profession_scope=getattr(args, 'profession_scope', None))
+    if (out/'listing_pages').exists() and not (diag/'freeze_request.json').exists():
+        raise ValueError('Frozen pages lack their original request; cannot safely resume')
     if existing and (diag/'freeze_request.json').exists() and read(diag / 'freeze_request.json') != request:
         raise ValueError('Resume must preserve the original filter request')
     write(diag / 'freeze_request.json', request)
-    if existing and (diag / 'sandbox.json').exists():
-        import_sandbox(Path(read(diag / 'sandbox.json')['path']), out, diag)
-    if (diag / 'checkpoint.json').exists() and read(diag/'checkpoint.json')['state'] == 'READY':
-        cp = read(diag/'checkpoint.json')
-    else:
-        cp, _ = browser(dict(mode='freeze', url=args.url, completed_ids=[]), out, diag)
-    if cp['state'] != 'READY':
-        raise CollectionStopped(f'Stopped: {cp["state"]}; inspect local diagnostics', cp['state'])
-    listing = read(diag / 'listing.json')
-    profession = profession_from_listing(listing, args.profession)
-    candidate_limit = getattr(args, 'candidate_limit', None)
+    page_dir = out / 'listing_pages'
+    page_paths = sorted(page_dir.glob('*.json'), key=lambda p: int(p.stem)) if page_dir.exists() else []
+    if [p.name for p in page_paths] != [f'{i:04d}.json' for i in range(1, len(page_paths)+1)]:
+        raise ValueError('Listing page sequence is incomplete')
+    pages = [read(path) for path in page_paths]
+    for index, page in enumerate(pages):
+        expected_url = args.url if index == 0 else pages[index-1].get('pagination', {}).get('next_url')
+        if not expected_url or not same_observed_url(expected_url, page.get('source_url', '')):
+            raise ValueError('Frozen listing page does not match the observed Next link')
+        if index:
+            validate_page_filters(pages[0], page)
+    pending = diag / 'pending_listing.json'
+    if pages and pending.exists() and read(pending) == {'url': pages[-1]['source_url']}:
+        pending.unlink()
+    cp = read(diag/'checkpoint.json') if (diag/'checkpoint.json').exists() else dict(state='READY', completed_ids=[])
+    target = candidate_limit or args.limit
+    while not pages or target is None or len(queue_from_pages(pages, target, False)) < target:
+        url = args.url if not pages else pages[-1].get('pagination', {}).get('next_url')
+        if not url:
+            pagination = pages[-1].get('pagination', {}) if pages else {}
+            if all_pages and pagination.get('end_confirmed'):
+                break
+            if all_pages:
+                raise ValueError('No Next link and end of listing is not confirmed; preserve saved pages')
+            raise ValueError('Not enough unique cards and no observed Next link; inspect pagination')
+        avito_url(url)
+        if any(same_observed_url(url, p['source_url']) for p in pages):
+            raise ValueError('Observed Next link repeats a listing page')
+        recovering = pending.exists() and read(pending) == {'url': url}
+        if pending.exists() and not recovering:
+            raise ValueError('Pending listing does not match the observed Next link')
+        if recovering and (diag / 'sandbox.json').exists():
+            import_sandbox(Path(read(diag / 'sandbox.json')['path']), out, diag)
+        if recovering and (diag/'checkpoint.json').exists() and read(diag/'checkpoint.json')['state'] == 'READY' and (diag/'listing.json').exists():
+            cp = read(diag/'checkpoint.json')
+        else:
+            for name in ('sandbox.json', 'listing.json', 'checkpoint.json'):
+                (diag/name).unlink(missing_ok=True)
+            write(pending, {'url': url})
+            cp, _ = browser(dict(mode='freeze', url=url, completed_ids=[]), out, diag)
+        if cp['state'] != 'READY':
+            raise CollectionStopped(f'Stopped: {cp["state"]}; inspect local diagnostics', cp['state'])
+        page = read(diag / 'listing.json')
+        if not same_observed_url(url, page.get('source_url', '')):
+            raise ValueError('Loaded listing URL differs from observed link')
+        if pages:
+            validate_page_filters(pages[0], page)
+        else:
+            selection_profession(page, getattr(args, 'profession_scope', None), args.profession)
+            if candidate_limit is not None and not any(c.get('label') == 'Удалённо' and 'params[172815]' in (c.get('marker') or '') for c in page.get('selected_controls', [])):
+                raise ValueError('Remote selection requires the observed Удалённо filter')
+        queue_from_pages([page], target, False)  # validate every observed card before persisting
+        if pages and page.get('items') and {i['id'] for i in page['items']} <= {i['id'] for p in pages for i in p.get('items', [])}:
+            raise ValueError('Next page adds no new vacancies; preserve progress and inspect the listing')
+        path = page_dir / f'{len(pages)+1:04d}.json'
+        write(path, page)
+        pages.append(page); page_paths.append(path)
+        pending.unlink(missing_ok=True)
+    listing = pages[0]
+    profession = selection_profession(listing, getattr(args, 'profession_scope', None), args.profession)
     if candidate_limit is not None and not any(c.get('label') == 'Удалённо' and 'params[172815]' in (c.get('marker') or '') for c in listing.get('selected_controls', [])):
         raise ValueError('Remote selection requires the observed Удалённо filter')
     if candidate_limit is not None and candidate_limit < args.limit:
         raise ValueError('Candidate limit must be at least the target limit')
-    queue = queue_from(listing, candidate_limit if candidate_limit is not None else args.limit)
+    queue = queue_from_pages(pages, candidate_limit if candidate_limit is not None else args.limit)
     write(out / 'listing.json', listing)
     write(out / 'queue.json', queue)
     write(service / 'plan.json', dict(run_id=args.run_id, geography=args.geography,
         profession=profession, segments=args.segments, filter_evidence=args.filter_evidence,
-        listing_url=listing['source_url'], selected_controls=listing.get('selected_controls', []),
+        listing_url=listing['source_url'], listing_request_url=args.url, selected_controls=listing.get('selected_controls', []),
         listing_sha256=sha(out / 'listing.json'),
-        selection_mode='first_N_remote_parameter_matches' if candidate_limit is not None else 'first_N_unique_on_frozen_listing', limit=args.limit,
+        profession_scope=getattr(args, 'profession_scope', None),
+        profession_source='selected_ui_context' if getattr(args, 'profession_scope', None) else 'observed_controls',
+        listing_pages=[dict(file=str(path.relative_to(out)), sha256=sha(path), source_url=page['source_url'])
+                       for path, page in zip(page_paths, pages)],
+        selection_mode='first_N_remote_parameter_matches' if candidate_limit is not None else 'first_N_unique_on_frozen_listing', limit=len(queue) if all_pages else args.limit, requested_all_pages=all_pages,
         candidate_limit=candidate_limit,
         created_at=datetime.now(timezone.utc).isoformat(), instruction_version=VERSION,
         extractor_sha256=sha(ROOT / 'Scraper/extract.js'), instruction_sha256=sha(SCRIPTS.parent / 'SKILL.md'),
@@ -785,10 +897,13 @@ def main():
             command.add_argument('--resume', action='store_true', help='Recover an interrupted freeze with identical inputs')
             command.add_argument('--agent-model', default=None, help='Actual browser agent model, not a model switch')
             command.add_argument('--url', required=True, help='Observed listing URL after filter confirmation')
-            command.add_argument('--limit', type=int, required=True)
+            size = command.add_mutually_exclusive_group(required=True)
+            size.add_argument('--limit', type=int, help='Total unique vacancies; no fixed page/card ceiling')
+            size.add_argument('--all-pages', action='store_true', help='Follow observed Next links until the listing ends')
             command.add_argument('--candidate-limit', type=int, help='Select first N exact remote parameter matches from this many observed candidates')
             command.add_argument('--geography', required=True)
             command.add_argument('--profession', default='', help='Optional assertion; profession is read from selected listing filters')
+            command.add_argument('--profession-scope', choices=['top20', 'all'], help='Selection already applied in the UI; do not recheck collapsed controls')
             command.add_argument('--segments', default='')
             command.add_argument('--filter-evidence', required=True, help='What was visibly confirmed in the listing')
         elif name == 'capture':

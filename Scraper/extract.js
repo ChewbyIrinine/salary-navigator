@@ -7,7 +7,7 @@
   const body = document.body?.innerText || '';
   const cards = [...document.querySelectorAll('[data-marker="item"]')];
   const title = get('item-view/title-info');
-  const blockingText = /Доступ ограничен|проблема с IP|подтвердите.{0,30}(человек|робот)|проверка безопасности/i;
+  const blockingText = /Доступ ограничен|проблема с IP|подтвердите.{0,30}(человек|робот)|проверка безопасности|Слишком много запросов|429 Too Many Requests/i;
   const blocked = body.includes('Доступ ограничен: проблема с IP') || headings.some(s => blockingText.test(s)) ||
     ((!cards.length && !title) && blockingText.test(body.slice(0, 5000))) ||
     [...document.querySelectorAll('[role="dialog"],iframe[src*="captcha"]')].some(e => visible(e) && (e.tagName === 'IFRAME' || /капч|captcha|Доступ ограничен/i.test(e.innerText)));
@@ -100,21 +100,25 @@
     selected_count: controls.filter(c => c.marker?.startsWith('params[144170]/') &&
       c.value !== 'all' && !c.marker.endsWith('/all')).length
   };
-  const items = cards.map(r => {
+  const renderedItems = cards.map(r => {
     const read = m => text(r.querySelector(`[data-marker="${m}"]`));
     const a = r.querySelector('[data-marker="item-title"]');
     return {id: a?.pathname.match(/_(\d+)$/)?.[1] || null, url: cleanURL(a), title: read('item-title'),
       salary_raw: read('item-price'), params_raw: read('item-specific-params'), location_raw: read('item-location'),
       promoted: /Продвинуто/.test(r.innerText)};
-  }).filter(x => x.id && x.url && x.title);
+  });
+  const items = renderedItems.filter(x => x.id && x.url && x.title);
+  const listing_item_audit = {rendered: renderedItems.length, malformed: renderedItems.length - items.length};
   const next = [...document.querySelectorAll('a,[role="link"],button')].filter(visible).find(e =>
     e.getAttribute('rel') === 'next' || e.getAttribute('aria-label') === 'Следующая страница' ||
     text(e) === 'Следующая страница');
   const disabled = next && (next.hasAttribute('disabled') || next.getAttribute('aria-disabled') === 'true');
   const nextHref = next?.getAttribute('href');
   const nextURL = nextHref ? new URL(nextHref, location.href).href : null;
+  // Missing Next alone may be a render delay. A truncated numeric pager
+  // (even current == max visible) is not positive evidence of the end.
   const pagination = {next_url: !disabled ? nextURL : null, end_confirmed: !!disabled,
     evidence: next ? {text: text(next), label: next.getAttribute('aria-label'), href: nextHref, disabled: !!disabled} : null,
-    limitation: 'No next control is not proof of end; infinite loading not verified'};
-  return {...base, heading: text(document.querySelector('h1')), selected_controls: controls, profession_filter, items, pagination};
+    limitation: 'End requires an explicitly disabled Next; missing Next alone is not proof; infinite loading and server-side result caps are not covered'};
+  return {...base, heading: text(document.querySelector('h1')), selected_controls: controls, profession_filter, items, listing_item_audit, pagination};
 })()

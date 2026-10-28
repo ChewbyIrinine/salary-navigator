@@ -101,7 +101,11 @@ def prepare(mode, config_path=DEFAULT_CONFIG, state_dir=None, xray_path=None,
     return {"status": "SETTINGS_PREPARED", "created": created,
             "config_path": str(config_path), "tunnel_mode": mode,
             "happ_import_required": mode == "happ", "live_route_verified": False,
-            "next": ("Импортируйте avito-routing-link.txt в Happ и выберите профиль у своей подписки. "
+            "import_kind": "routing_rules" if mode == "happ" else None,
+            "creates_connection": False,
+            "display_name": "Правила для Авито" if mode == "happ" else None,
+            "next": ("Это правила, новое подключение не появится. Скопируйте содержимое avito-routing-link.txt, "
+                     "импортируйте в Happ и в разделе маршрутизации выберите T&L Avito direct для своего подключения. "
                      "Остальной трафик этого нового профиля по умолчанию идёт в proxy; пользовательские "
                      "правила прежнего профиля не перенесены. Затем preflight.py --probe-aside --strict-routing "
                      "с тем же --config; успешность файла не доказывает импорт или действующий маршрут."
@@ -159,7 +163,8 @@ def prepare_local_happ(config_path=DEFAULT_CONFIG, state_dir=None, browse_skill=
                     next="Это кэш последнего подключения. Сверьте выбранный туннель и время; при отсутствии маршрута подготовьте --prepare-happ-local.")
     result = prepare_happ_config(original, config_path, state_dir, browse_skill)
     result.update(metadata)
-    result["next"] = ("Сверьте выбранное подключение Happ и актуальность кэша перед импортом avito-tunnel.json. "
+    result["next"] = ("Это полное подключение. Сверьте актуальность кэша, импортируйте файл avito-tunnel.json в список подключений Happ "
+                      "и выберите импортированное подключение (его название сохранено из исходника). "
                       "Импорт/выбор выполняет участник; затем preflight и проверка текущего маршрута по VPN_HAPP.md.")
     return result
 
@@ -254,8 +259,11 @@ def prepare_happ_config(original, config_path=DEFAULT_CONFIG, state_dir=None,
     return {"status": "SETTINGS_PREPARED", "created": created,
             "config_path": str(config_path), "tunnel_mode": "xray", "tunnel_client": "happ",
             "import_file": str(output), "happ_import_required": True,
+            "import_kind": "full_connection", "creates_connection": True,
+            "display_name": "Подключение для Авито",
             "live_route_verified": False,
-            "next": "Передайте avito-tunnel.json участнику для импорта полного JSON в Happ. "
+            "next": "Это полное подключение. Импортируйте файл avito-tunnel.json в список подключений Happ, "
+                    "затем выберите импортированное подключение. Его название сохранено из исходного JSON. "
                     "Импорт/активацию подтверждает участник; файл не доказывает действующий маршрут."}
 
 
