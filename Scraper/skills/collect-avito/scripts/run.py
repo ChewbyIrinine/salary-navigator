@@ -27,7 +27,7 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.23'
+VERSION = '1.7.24'
 AUTOMATION_FILES = ['Scraper/skills/collect-avito/references/top-professions.json', 'utils/title_flags.py', 'Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -615,7 +615,7 @@ def closed_raw_matches(data, identity, url, marker):
 
 def closed_policy(args):
     out, service, diag = paths(ROOT, args.run_id)
-    ledger = read(diag/'failures.json')
+    ledger = load_failures(diag)
     if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
         raise HumanRequired('Current browser authorization required')
     events = ledger['events']
@@ -635,7 +635,7 @@ def closed_policy(args):
 
 def review_policy(args):
     out, service, diag = paths(ROOT, args.run_id)
-    ledger = read(diag/'failures.json')
+    ledger = load_failures(diag)
     if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
         raise HumanRequired('Current browser authorization required')
     events = ledger['events']
@@ -655,7 +655,7 @@ def review_policy(args):
 
 def blocked_listing_policy(args):
     out, service, diag = paths(ROOT, args.run_id)
-    ledger = read(diag/'failures.json')
+    ledger = load_failures(diag)
     if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
         raise HumanRequired('Current browser authorization required')
     events = ledger['events']
@@ -694,7 +694,7 @@ def mark_unavailable(args):
     out, service, diag = paths(ROOT, args.run_id)
     if (service/'manifest.json').exists():
         raise ValueError('Completed run is immutable')
-    ledger = read(diag/'failures.json')
+    ledger = load_failures(diag)
     if ledger['state'] == 'NEEDS_HUMAN' or (ledger['state'] == 'RETRY_STARTED' and not getattr(args, 'automatic', False)):
         raise HumanRequired('Resume browser authorization is required after the stop')
     events = ledger['events']
@@ -794,7 +794,7 @@ def reviewed_capture(out, item):
 
 def salary_review_policy(args):
     out, service, diag = paths(ROOT, args.run_id)
-    ledger = read(diag/'failures.json'); events = ledger['events']
+    ledger = load_failures(diag); events = ledger['events']
     if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
         raise HumanRequired('Current browser authorization required')
     auth = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
@@ -826,7 +826,7 @@ def salary_review_policy(args):
 def review_salary_line(args):
     out, service, diag = paths(ROOT, args.run_id)
     if (service/'manifest.json').exists(): raise ValueError('Completed run is immutable')
-    ledger = read(diag/'failures.json'); events = ledger['events']
+    ledger = load_failures(diag); events = ledger['events']
     if ledger['state'] == 'NEEDS_HUMAN' or (ledger['state'] == 'RETRY_STARTED' and not getattr(args, 'automatic', False)): raise HumanRequired('Current human authorization required')
     auth = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
     latest = max((i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization'), default=-1)
@@ -1295,7 +1295,7 @@ def resume_offline(args):
 def preserve_stopped_observation(args):
     """Preserve a blocked observation before retrying exactly the checkpoint ID."""
     out, service, diag = paths(ROOT, args.run_id)
-    ledger = read(diag/'failures.json')
+    ledger = load_failures(diag)
     if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
         raise HumanRequired('Resolve the current stop or active retry before preserving an observation')
     events = ledger['events']
