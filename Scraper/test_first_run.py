@@ -72,6 +72,8 @@ class SetupTests(unittest.TestCase):
             self.assertEqual(preflight.check_xray(updated), [])
             self.assertEqual(json.loads((root/'local.json').read_text())['xray_config_path'], result['import_file'])
             self.assertFalse(result['live_route_verified'])
+            self.assertEqual(result['import_kind'], 'full_connection')
+            self.assertTrue(result['creates_connection'])
             self.assertNotIn('fixture-only', json.dumps(result))
             self.assertEqual(setup.prepare_happ_tunnel(source, root/'local.json', directory)['created'], [])
             if setup.os.name != 'nt':
@@ -262,6 +264,8 @@ class SetupTests(unittest.TestCase):
             self.assertEqual(decoded, json.loads((profile_dir / "avito-routing.json").read_text()))
             self.assertEqual(preflight.check_happ(decoded), [])
             self.assertTrue(first["happ_import_required"])
+            self.assertEqual(first["import_kind"], "routing_rules")
+            self.assertFalse(first["creates_connection"])
             self.assertFalse(first["live_route_verified"])
             before = settings.stat().st_mtime_ns
             self.assertEqual(setup.prepare("happ", settings, profile_dir)["created"], [])
