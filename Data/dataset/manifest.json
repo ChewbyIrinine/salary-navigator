@@ -2,7 +2,7 @@
   "schema_version": "1",
   "builder_version": "1",
   "builder_sha256": "2bd4fb8026e6c3dbc13ff525255d659d2a69ffffffa5a479c93034eff0caa757",
-  "rows": 377,
+  "rows": 387,
   "columns": [
     "source",
     "id",
@@ -80,6 +80,9 @@
     "Техника",
     "Ассортимент",
     "С чем надо работать",
+    "Уровень образования",
+    "С кем предстоит работать",
+    "Образование",
     "Цех",
     "Кухня",
     "first_seen_at",
@@ -90,7 +93,7 @@
     "enriched_fields",
     "enrichment_version"
   ],
-  "sha256": "c52529dce008ee08b7bf5bf458942f8df0b5c88b15b137a12593f7600def1c17",
+  "sha256": "62415b5d8285ac9541f956e6428fb931db9ca2336053c9edfcd6ca1e901118f6",
   "inputs": [
     {
       "run_id": "all_professions_first5_2026-10-27",
@@ -236,6 +239,59 @@
       },
       "enrichment_status": "not_run",
       "rows": 5
+    },
+    {
+      "run_id": "remote10-verified-20261028-demo4",
+      "source": "avito",
+      "path": "Data/avito_runs/remote10-verified-20261028-demo4/exports/vacancies_flat.csv",
+      "sha256": "a0f0a4447d6530994e22fb322bf46710b3014129508fdbce5b995a38067b7f16",
+      "placement_regions": {
+        "Москва": "Москва"
+      },
+      "enrichment_status": "not_run",
+      "unknown_city_placements": {
+        "4549198417": {
+          "region": "",
+          "evidence": "Волгоградская обл., г.о. Волгоград, Центральный район, пл. Павших Борцов р-н Центральный",
+          "region_unknown": true
+        },
+        "4522687971": {
+          "region": "",
+          "evidence": "Саратовская обл., Саратов р-н Волжский",
+          "region_unknown": true
+        },
+        "8450042198": {
+          "region": "",
+          "evidence": "Псковская обл., Псков, исторический район Завеличье р-н Завеличье",
+          "region_unknown": true
+        },
+        "8451151994": {
+          "region": "",
+          "evidence": "Липецкая обл., Липецк р-н Советский",
+          "region_unknown": true
+        },
+        "8557711696": {
+          "region": "",
+          "evidence": "Краснодарский край, Краснодар р-н Центральный",
+          "region_unknown": true
+        },
+        "8422014551": {
+          "region": "",
+          "evidence": "Республика Крым",
+          "region_unknown": true
+        },
+        "8294746022": {
+          "region": "",
+          "evidence": "Тюменская обл., Ханты-Мансийский АО — Югра, Сургут р-н Центральный",
+          "region_unknown": true
+        },
+        "8364634756": {
+          "region": "",
+          "evidence": "Красноярский край, Красноярск, ул. Красной Армии, 10с5 р-н Центральный",
+          "region_unknown": true
+        }
+      },
+      "rows": 10
     },
     {
       "run_id": "truck_driver_ekaterinburg_first40_2026-10-27",

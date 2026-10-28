@@ -1,0 +1,106 @@
+{
+  "criterion": {
+    "field": "Формат работы",
+    "value": "Удалённо"
+  },
+  "candidate_limit": 30,
+  "target": 10,
+  "decisions": [
+    {
+      "id": "4549198417",
+      "listing_rank": 1,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "4522687971",
+      "listing_rank": 2,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "8450042198",
+      "listing_rank": 3,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "8451151994",
+      "listing_rank": 4,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "8557711696",
+      "listing_rank": 5,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "8544769138",
+      "listing_rank": 6,
+      "accepted": false,
+      "parameter": "Формат работы",
+      "observed_value": null,
+      "reason": "parameter_missing_or_different"
+    },
+    {
+      "id": "8236416808",
+      "listing_rank": 7,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "8325088889",
+      "listing_rank": 8,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "8340659199",
+      "listing_rank": 9,
+      "accepted": false,
+      "parameter": "Формат работы",
+      "observed_value": null,
+      "reason": "parameter_missing_or_different"
+    },
+    {
+      "id": "8422014551",
+      "listing_rank": 10,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "8294746022",
+      "listing_rank": 11,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    },
+    {
+      "id": "8364634756",
+      "listing_rank": 12,
+      "accepted": true,
+      "parameter": "Формат работы",
+      "observed_value": "Удалённо",
+      "reason": "exact_parameter_match"
+    }
+  ]
+}
