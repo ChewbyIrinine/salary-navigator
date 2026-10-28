@@ -2183,11 +2183,21 @@
       "file": "Scraper/test_aside_runner.py",
       "reason": "Support separately authorized listing blocked after review while retaining other stop conditions and prior policies.",
       "validation": "PYTHONPATH=Scraper python3 -m unittest Scraper.test_aside_runner Scraper.test_avito: 42 OK"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Merge origin/main pagination behavior with the offline reviewed collection changes after capture; original capture hashes remain in plan.",
+      "validation": "PYTHONPATH=Scraper python3 -m unittest Scraper.test_aside_runner Scraper.test_avito Scraper.test_pagination: 50 OK"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Merge origin/main instructions with the reviewed collection workflow; original capture hash remains in plan.",
+      "validation": "PYTHONPATH=Scraper python3 -m unittest Scraper.test_aside_runner Scraper.test_avito Scraper.test_pagination: 50 OK"
     }
   ],
   "post_capture_automation_sha256": {
-    "Scraper/skills/collect-avito/SKILL.md": "7f88a6c963693b063573f98ac4af996b1b61155040e3cf4159f49181820694a4",
-    "Scraper/skills/collect-avito/scripts/run.py": "ae7fa3a27e85c2987342c4569bf3aec06f31fe285ee668befc7d61eb6f5a8cf5"
+    "Scraper/skills/collect-avito/SKILL.md": "3a6e6f6c4c52158a4e3bda50f17e6cfe2e79f8e37632e32073750d79e3719f61",
+    "Scraper/skills/collect-avito/scripts/run.py": "548f43c31de26eb4a2ce8dc3ab16fb314c1084039c13f3814a77c5a2a888ccf3"
   },
   "files": {
     "Data/avito_runs/moscow-all-10000-20261028/blocked_listing_policy.json": {
