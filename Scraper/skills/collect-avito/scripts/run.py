@@ -21,13 +21,14 @@ ROOT = SCRIPTS.parents[3]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(SCRIPTS))
 from utils.build_dataset import build
+from utils.title_flags import military_flags
 from check_capture import check
 from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired, authorize_offline, authorize_browser, operation_locked
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.15'
-AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
+VERSION = '1.7.16'
+AUTOMATION_FILES = ['utils/title_flags.py', 'Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
 
@@ -559,6 +560,7 @@ def reviewed_row(data, item, regions, plan, override=None):
         read_status_parameters='observed', read_status_description='observed', read_status_location='observed',
         read_limitations='rendered_DOM_only; contact_controls_not_opened; live_route_unverified',
         enrichment_status='not_run', enriched_fields='', enrichment_version='')
+    row.update(military_flags(data['title']))
     row.update(city__source=city_source,
                city__evidence=plan['listing_url'] if city_source == 'search_filter' else location,
                city_anomaly=anomaly)
