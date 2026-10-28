@@ -16,6 +16,112 @@ import run as runner
 
 
 class SetupTests(unittest.TestCase):
+    def test_config_discovery_reuses_shared_file_without_overriding_explicit_or_local(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); local = root/'checkout/local.json'; shared = root/'private/collector.local.json'
+            shared.parent.mkdir(); shared.write_text('{}')
+            with patch.dict(preflight.os.environ, {}, clear=True), \
+                    patch.object(preflight, 'DEFAULT_CONFIG', local), \
+                    patch.object(preflight, 'saved_config_path', return_value=shared):
+                self.assertEqual(preflight.default_config_path(), shared)
+                local.parent.mkdir(); local.write_text('{}')
+                self.assertEqual(preflight.default_config_path(), local)
+                with patch.dict(preflight.os.environ, {'TL_AVITO_CONFIG': str(root/'explicit.json')}):
+                    self.assertEqual(preflight.default_config_path(), root/'explicit.json')
+                local.unlink(); shared.unlink()
+                self.assertEqual(preflight.default_config_path(), local)
+
+    def test_supplied_happ_tunnel_preserves_settings_and_registers_private_copy(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); source = root/'supplied.json'; directory = root/'private'
+            original = {'dns': {'servers': ['localhost']}, 'custom': {'keep': True},
+                'outbounds': [{'tag': 'proxy', 'protocol': 'vless',
+                               'settings': {'example_secret': 'fixture-only'}},
+                              {'tag': 'tl-avito-direct', 'protocol': 'blackhole'}],
+                'routing': {'domainStrategy': 'AsIs', 'rules': [
+                    {'type': 'field', 'network': 'tcp,udp', 'outboundTag': 'proxy'}]}}
+            source.write_text(json.dumps(original)); before = source.read_bytes()
+            result = setup.prepare_happ_tunnel(source, root/'local.json', directory)
+            updated = json.loads((directory/'avito-tunnel.json').read_text())
+            self.assertEqual(source.read_bytes(), before)
+            self.assertEqual(json.loads((directory/'current-tunnel.original.json').read_text()), original)
+            self.assertEqual(updated['outbounds'][:-1], original['outbounds'])
+            self.assertEqual(updated['routing']['rules'][1:], original['routing']['rules'])
+            self.assertEqual(updated['dns'], original['dns'])
+            self.assertEqual(updated['custom'], original['custom'])
+            self.assertEqual(preflight.check_xray(updated), [])
+            self.assertEqual(json.loads((root/'local.json').read_text())['xray_config_path'], result['import_file'])
+            self.assertFalse(result['live_route_verified'])
+            self.assertNotIn('fixture-only', json.dumps(result))
+            self.assertEqual(setup.prepare_happ_tunnel(source, root/'local.json', directory)['created'], [])
+            if setup.os.name != 'nt':
+                self.assertEqual((directory/'avito-tunnel.json').stat().st_mode & 0o777, 0o600)
+
+    @unittest.skipIf(setup.os.name == 'nt', 'POSIX permissions')
+    def test_supplied_happ_tunnel_permissions_at_creation_and_reuse(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); source = root/'supplied.json'; directory = root/'private'
+            source.write_text(json.dumps({'outbounds': [{'tag': 'direct', 'protocol': 'freedom'}]}))
+            previous = setup.os.umask(0)
+            try:
+                setup.prepare_happ_tunnel(source, root/'local.json', directory)
+            finally:
+                setup.os.umask(previous)
+            self.assertEqual(directory.stat().st_mode & 0o777, 0o700)
+            for name in ['avito-tunnel.json', 'current-tunnel.original.json']:
+                self.assertEqual((directory/name).stat().st_mode & 0o777, 0o600)
+                (directory/name).chmod(0o644)
+            (root/'local.json').chmod(0o644)
+            setup.prepare_happ_tunnel(source, root/'local.json', directory)
+            for path in [directory/'avito-tunnel.json', directory/'current-tunnel.original.json', root/'local.json']:
+                self.assertEqual(path.stat().st_mode & 0o777, 0o600)
+            directory.chmod(0o755)
+            with self.assertRaisesRegex(setup.SetupError, '0700'):
+                setup.prepare_happ_tunnel(source, root/'local.json', directory)
+
+    @unittest.skipIf(setup.os.name == 'nt', 'POSIX symlinks')
+    def test_supplied_happ_tunnel_rejects_symlink_destinations_before_resolve(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); source = root/'supplied.json'; target = root/'target.json'
+            source.write_text(json.dumps({'outbounds': [{'tag': 'direct', 'protocol': 'freedom'}]}))
+            target.write_text('{}'); target.chmod(0o644)
+            link = root/'linked-config.json'; link.symlink_to(target)
+            with self.assertRaises(setup.SetupError):
+                setup.prepare_happ_tunnel(source, link, root/'private')
+            self.assertEqual(target.stat().st_mode & 0o777, 0o644)
+            self.assertFalse((root/'private').exists())
+            directory = root/'existing'; directory.mkdir()
+            linked_dir = root/'linked-dir'; linked_dir.symlink_to(directory, target_is_directory=True)
+            with self.assertRaises(setup.SetupError):
+                setup.prepare_happ_tunnel(source, root/'local.json', linked_dir)
+            self.assertEqual(list(directory.iterdir()), [])
+
+    def test_supplied_happ_tunnel_reuses_plain_direct_and_refuses_overwrite(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); source = root/'supplied.json'; directory = root/'private'
+            source.write_text(json.dumps({'outbounds': [{'tag': 'direct', 'protocol': 'freedom'}]}))
+            setup.prepare_happ_tunnel(source, root/'local.json', directory)
+            updated = json.loads((directory/'avito-tunnel.json').read_text())
+            self.assertEqual(len(updated['outbounds']), 1)
+            self.assertEqual(updated['routing']['rules'][0]['outboundTag'], 'direct')
+            (directory/'avito-tunnel.json').write_text('user modified')
+            before = (root/'local.json').read_bytes()
+            with self.assertRaises(setup.SetupError):
+                setup.prepare_happ_tunnel(source, root/'local.json', directory)
+            self.assertEqual((directory/'avito-tunnel.json').read_text(), 'user modified')
+            self.assertEqual((root/'local.json').read_bytes(), before)
+
+    def test_supplied_happ_tunnel_rejects_unrecognized_structure_without_writes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); source = root/'supplied.json'
+            for data in [{'Name': 'routing profile'}, {'outbounds': []},
+                         {'outbounds': [{'tag': 'p', 'protocol': 'vless'}], 'routing': {'rules': [None]}}]:
+                source.write_text(json.dumps(data))
+                with self.assertRaises(setup.SetupError):
+                    setup.prepare_happ_tunnel(source, root/'local.json', root/'private')
+                self.assertFalse((root/'private').exists())
+                self.assertFalse((root/'local.json').exists())
+
     def test_runner_and_preflight_use_same_aside_outside_path(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp);binary = root / '.local/bin/aside'
