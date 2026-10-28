@@ -4,6 +4,10 @@ const extractor = __EXTRACTOR__;
 console.log('TL_SANDBOX=' + pwd);
 await fs.mkdir('raw', {recursive: true});
 let p = globalThis.tlCollectorPage || null;
+let external = Boolean(job.tab_id);
+let targetId = job.tab_id || null;
+const safeUrl = value => { try { const u = new URL(value); return u.origin + u.pathname; } catch (_) { return null; } };
+const saveTab = async () => save('browser-tab.json', {target_id: targetId, ownership: external ? 'external' : 'collector', url: p ? safeUrl(p.url()) : safeUrl(job.url || job.queue?.[0]?.url)});
 const done = [...job.completed_ids];
 const save = async (name, data) => {
   await fs.writeFile(name + '.tmp', JSON.stringify(data));
@@ -13,8 +17,15 @@ const checkpoint = async (state, next, reason = null) => save('checkpoint.json',
   {state, completed_ids: done, next_id: next, stop_reason: reason});
 const started = Date.now();
 try {
+  if (!p && targetId) p = await attachBrowserTab(targetId);
   if (job.mode === 'freeze') {
-    p = await openTab(job.url);
+    if (!p) {
+      const before = new Set((await listBrowserTabs()).map(t => t.targetId));
+      p = await openTab(job.url);
+      const added = (await listBrowserTabs()).filter(t => !before.has(t.targetId) && t.url === p.url());
+      if (added.length === 1) targetId = added[0].targetId;
+    } else if (job.allow_navigation && p.url() !== job.url) await p.goto(job.url);
+    await saveTab();
     const snap = await snapshot(p, {interactive: true});
     const listing = await p.evaluate(extractor);
     await save('listing.json', listing);
@@ -29,7 +40,13 @@ try {
   } else {
     for (const item of job.queue) {
       await checkpoint('CAPTURING', item.id);
-      if (!p) p = await openTab(item.url); else await p.goto(item.url);
+      if (!p) {
+        const before = new Set((await listBrowserTabs()).map(t => t.targetId));
+        p = await openTab(item.url);
+        const added = (await listBrowserTabs()).filter(t => !before.has(t.targetId) && t.url === p.url());
+        if (added.length === 1) targetId = added[0].targetId;
+      } else await p.goto(item.url);
+      await saveTab();
       const snap = await snapshot(p, {interactive: true});
       const data = await p.evaluate(extractor);
       // Preserve the observation before deciding whether it can enter the dataset.
@@ -58,11 +75,13 @@ try {
   await checkpoint('BROWSER_ERROR', job.queue?.find(i => !done.includes(i.id))?.id || null, String(error));
   console.log('TL_ERROR=' + String(error));
 } finally {
+  await saveTab();
   await save('timing.json', {capture_seconds: (Date.now() - started) / 1000});
   const cp = JSON.parse(await fs.readFile('checkpoint.json', 'utf8'));
-  if (p && (job.close_tab || cp.state === 'NEEDS_HUMAN' || cp.state === 'REVIEW_REQUIRED' || cp.state === 'BROWSER_ERROR')) {
+  if (p && !external && job.close_tab && (cp.state === 'READY' || cp.state === 'CAPTURED')) {
     await closeTab(p); p = null;
   }
   globalThis.tlCollectorPage = p;
+  globalThis.tlCollectorExternal = external;
   console.log('TL_FINISHED');
 }
