@@ -1,0 +1,80 @@
+{
+  "run_id": "spb_all_first50_2026-10-28",
+  "geography": "Санкт-Петербург",
+  "profession": "",
+  "segments": "",
+  "filter_evidence": "Фактический URL /sankt-peterburg/vakansii; h1 «Работа и вакансии в Санкт-Петербурге»; кнопка географии «Санкт-Петербург»; поиск по объявлениям пустой; profession checkboxes не выбраны; дополнительных фильтров не задано; все профессии.",
+  "listing_url": "https://www.avito.ru/sankt-peterburg/vakansii",
+  "listing_request_url": "https://www.avito.ru/sankt-peterburg/vakansii",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "listing_sha256": "c7bef241a0168cf37e594529061536eac3f2e346117b472d9908bdb6b9d11219",
+  "profession_scope": "all",
+  "profession_source": "selected_ui_context",
+  "listing_pages": [
+    {
+      "file": "listing_pages/0001.json",
+      "sha256": "c7bef241a0168cf37e594529061536eac3f2e346117b472d9908bdb6b9d11219",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii"
+    }
+  ],
+  "selection_mode": "first_N_unique_on_frozen_listing",
+  "limit": 50,
+  "requested_all_pages": false,
+  "saved_selection_authorization": null,
+  "requested_limit": 50,
+  "available_unique": 50,
+  "listing_end_reason": null,
+  "available_listing_exhausted": false,
+  "candidate_limit": null,
+  "created_at": "2026-10-28T15:39:19.989699+00:00",
+  "instruction_version": "1.7.21",
+  "extractor_sha256": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+  "instruction_sha256": "3a6e6f6c4c52158a4e3bda50f17e6cfe2e79f8e37632e32073750d79e3719f61",
+  "code_git_commit": "82252cb4ed8295d03a2e1a8225fb613a30cc2144",
+  "setup_seconds": 3.1650842500384897,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/skills/collect-avito/references/top-professions.json": "e3e72638b17b48f825ec6f2fefb963662494f679ae4b0cef1bebedba889610dd",
+    "utils/title_flags.py": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
+    "Scraper/extract.js": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+    "Scraper/skills/collect-avito/SKILL.md": "3a6e6f6c4c52158a4e3bda50f17e6cfe2e79f8e37632e32073750d79e3719f61",
+    "Scraper/skills/collect-avito/scripts/run.py": "548f43c31de26eb4a2ce8dc3ab16fb314c1084039c13f3814a77c5a2a888ccf3",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "80d0fc43e421e99a61b991ffe4bf5627d12588d8942de0db1b21fea8c5a10cea",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "aa746849317f9768af5aae08b394b9379539f6e268c1fc69e4ed13bd06a4657f",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+    "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+  },
+  "uncommitted_automation_files": []
+}
