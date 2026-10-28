@@ -170,6 +170,20 @@ class DatasetTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'search-filter provenance'):
             self.result()
 
+    def test_missing_location_is_allowed_only_with_explicit_missing_status_and_registry(self):
+        row = self.row(); row.update(city='', description='', location_observed='',
+            read_status_location='missing', city__source='missing', city__evidence='',
+            city_anomaly='Missing visible location')
+        self.add('partial', [row])
+        entry = self.registry['exports'][0]
+        entry['unknown_city_placements'] = {'1': {'region':'', 'region_unknown':True,
+                                                 'evidence':'', 'location_missing':True}}
+        self.assertEqual(self.result()[0]['city'], '')
+        self.assertEqual(self.result()[0]['description'], '')
+        entry['unknown_city_placements']['1']['location_missing'] = False
+        with self.assertRaisesRegex(ValueError, 'unknown-city'):
+            self.result()
+
     def test_collection_without_profession_filter_preserves_empty_value(self):
         row = self.row()
         row["profession"] = ""

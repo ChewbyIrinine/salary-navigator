@@ -27,7 +27,7 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.16'
+VERSION = '1.7.17'
 AUTOMATION_FILES = ['utils/title_flags.py', 'Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -157,7 +157,7 @@ def remote_decisions(queue, out, target):
             raise ValueError('Saved candidates must be a contiguous prefix ending at the target')
         data = read(path)
         result = check(data, item['id'])
-        if not result['structural_check_passed'] or not data.get('parameter_audit', {}).get('rendered_complete') or not data.get('location_raw'):
+        if not result['structural_check_passed'] or not data.get('parameter_audit', {}).get('rendered_complete'):
             raise ValueError(f'Saved {item["id"]} needs review; never overwrite or silently skip it')
         fields = [(norm(f['name']), norm(f['value'])) for f in data['fields']]
         if any(not name or not value for name, value in fields) or len({name for name, _ in fields}) != len(fields):
@@ -457,7 +457,7 @@ def capture(args):
         path = out / 'raw' / (item['id'] + '.json')
         if path.exists():
             data = read(path)
-            if not check(data, item['id'])['structural_check_passed'] or not data.get('parameter_audit', {}).get('rendered_complete') or not data.get('location_raw'):
+            if not check(data, item['id'])['structural_check_passed'] or not data.get('parameter_audit', {}).get('rendered_complete'):
                 raise ValueError(f'Saved {item["id"]} needs review; never overwrite or silently skip it')
             done.append(item['id'])
         else:
@@ -552,14 +552,20 @@ def reviewed_row(data, item, regions, plan, override=None):
             city, region, city_source = search_city, regions[search_city], 'search_filter'
     row = dict(id=data['id'], city=city, profession=plan.get('profession') or '',
         segments=plan.get('segments') or '', title=data['title'], salary_raw=data.get('salary_raw') or '',
-        source_url=data['source_url'], observed_at=data['observed_at'], description=data['description'],
+        source_url=data['source_url'], observed_at=data['observed_at'], description=data.get('description') or '',
         location_observed=location, employer_name_observed='; '.join(dict.fromkeys(data.get('employer_raw', []))),
         date_raw=data.get('date_raw') or '', views_total=data.get('views_raw') or '', views_today=data.get('today_views_raw') or '',
         listing_rank=item['listing_rank'], listing_promoted=str(item['promoted']) if item.get('promoted') is not None else '',
         full_parameters_read='True', analysis_status='validated', export_eligibility='included',
-        read_status_parameters='observed', read_status_description='observed', read_status_location='observed',
+        read_status_parameters='observed',
+        read_status_description='observed' if data.get('description', '') and data['description'].strip() else 'missing',
+        read_status_location='observed' if location else 'missing',
         read_limitations='rendered_DOM_only; contact_controls_not_opened; live_route_unverified',
         enrichment_status='not_run', enriched_fields='', enrichment_version='')
+    if not row['description']:
+        row['read_limitations'] += '; missing_description'
+    if not location:
+        row['read_limitations'] += '; missing_location'
     row.update(military_flags(data['title']))
     row.update(city__source=city_source,
                city__evidence=plan['listing_url'] if city_source == 'search_filter' else location,
@@ -618,7 +624,8 @@ def finalize(args):
             mapping[row['city']] = region
         else:
             unknown_cities[item['id']] = {'region': region, 'evidence': row['location_observed'],
-                                        'region_unknown': not bool(region)}
+                                        'region_unknown': not bool(region),
+                                        **({'location_missing': True} if not row['location_observed'] else {})}
     columns = list(dict.fromkeys(k for row in rows for k in row))
     exports = out / 'exports'
     exports.mkdir(exist_ok=True)  # unfinished drafts may be retried; completed runs cannot

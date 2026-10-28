@@ -16,8 +16,10 @@ def check(raw, expected_id):
     host = urlsplit(source_url).hostname or ''
     if host != 'avito.ru' and not host.endswith('.avito.ru'):
         errors.append('source_url is not an Avito URL')
-    if not isinstance(raw.get('description'), str) or not raw['description'].strip():
-        errors.append('description is empty or missing')
+    if not isinstance(raw.get('title'), str) or not raw['title'].strip():
+        errors.append('observed title is empty or missing')
+    if raw.get('description') is not None and not isinstance(raw['description'], str):
+        errors.append('description has invalid type')
     if not isinstance(raw.get('fields'), list):
         errors.append('fields must be a list; empty is distinct from unread')
     elif any(not isinstance(field, dict) or
