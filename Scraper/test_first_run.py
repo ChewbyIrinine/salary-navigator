@@ -31,6 +31,25 @@ class SetupTests(unittest.TestCase):
                 local.unlink(); shared.unlink()
                 self.assertEqual(preflight.default_config_path(), local)
 
+    def test_existing_routing_profile_registers_shared_config_without_server_export(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); private = root/'private'; old = root/'old-checkout.json'
+            setup.prepare('happ', old, private)
+            old.unlink()  # A fresh checkout has no settings pointer, but routing files survived.
+            profile = (private/'avito-routing.json').read_bytes()
+            link = (private/'avito-routing-link.txt').read_bytes()
+            shared = private/'collector.local.json'
+            result = setup.prepare('happ', shared, private)
+            self.assertEqual(result['created'], [str(shared.resolve())])
+            settings = json.loads(shared.read_text())
+            self.assertEqual(settings['tunnel_mode'], 'happ')
+            self.assertIsNone(settings['xray_config_path'])
+            self.assertEqual(Path(settings['happ_routing_path']), (private/'avito-routing.json').resolve())
+            self.assertEqual((private/'avito-routing.json').read_bytes(), profile)
+            self.assertEqual((private/'avito-routing-link.txt').read_bytes(), link)
+            self.assertFalse(result['live_route_verified'])
+            self.assertFalse((private/'avito-tunnel.json').exists())
+
     def test_supplied_happ_tunnel_preserves_settings_and_registers_private_copy(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp); source = root/'supplied.json'; directory = root/'private'
