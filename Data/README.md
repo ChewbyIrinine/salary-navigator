@@ -127,3 +127,5 @@ avito_runs/<название_сбора>/
 - [spb_all_first50_2026-10-28](avito_runs/spb_all_first50_2026-10-28/exports/vacancies_flat.csv): 50 вакансий.
 
 - [spb_all_first1500_2026-10-28](avito_runs/spb_all_first1500_2026-10-28/exports/vacancies_flat.csv): 1459 вакансий.
+
+- [moscow_loader_20261028_batch_01](avito_runs/moscow_loader_20261028_batch_01/exports/vacancies_flat.csv): 295 вакансий.

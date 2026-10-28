@@ -1,0 +1,69 @@
+{
+  "planned": 300,
+  "accepted": 295,
+  "unique_ids": 295,
+  "unavailable": [
+    {
+      "id": "8407899157",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_s_ezhednevnoy_oplatoy_8407899157",
+      "status": "unavailable_closed",
+      "evidence": "Объявление закрыто.",
+      "snapshot_sha256": "45d1a781ae6a4c434f888ecb6e3c2b319f5c2cd87d1f5aa274be6aaf3acf7ee5",
+      "raw_sha256": "d5f1988edfcbad38203df98a3e40766ad0e9d46ef20ec05a0c39500fbe976f50",
+      "observed_at": "2026-10-28T18:57:40.183Z",
+      "authorization_id": "user-closed-policy-20261028",
+      "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+      "recorded_at": "2026-10-28T20:03:49.749471+00:00"
+    },
+    {
+      "id": "8414442207",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_v_magazin_8414442207",
+      "status": "unavailable_closed",
+      "evidence": "Объявление закрыто.",
+      "snapshot_sha256": "7e1f9569c6084cdf2824ee43cd54ee70b5344ca5b5171a842009365a4f376fb3",
+      "raw_sha256": "eca60d04285411e536c9167cdae12b484606980809bba1e8116e7a4e96fe01ef",
+      "observed_at": "2026-10-28T20:04:53.623Z",
+      "authorization_id": "user-closed-policy-20261028",
+      "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+      "recorded_at": "2026-10-28T20:04:53.686393+00:00"
+    },
+    {
+      "id": "8304252152",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_tekstilya_moskva_vahta_pitanie_legko_mzh_8304252152",
+      "status": "unavailable_closed",
+      "evidence": "Объявление закрыто.",
+      "snapshot_sha256": "3798c2a54bbb8994e1a816d23238ede13c5a090e5c9e9632c3a1efaecd5bfa93",
+      "raw_sha256": "7b70281e82d41229c7d94a32cc1f4cec0e5400631aa81c78fc3062b799ca5978",
+      "observed_at": "2026-10-28T20:07:01.562Z",
+      "authorization_id": "user-closed-policy-20261028",
+      "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+      "recorded_at": "2026-10-28T20:07:01.738842+00:00"
+    },
+    {
+      "id": "8410169313",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_postoyannuyu_rabotu_8410169313",
+      "status": "unavailable_closed",
+      "evidence": "Объявление закрыто.",
+      "snapshot_sha256": "a984c2c2157b22e03e484c7821988f02e16c39b52be3c78f5b4e7d76867ba605",
+      "raw_sha256": "ca76e9aa404d2c09f17cdcc0884ec5badde6de9d1dfcd5db61a37bb307d61666",
+      "observed_at": "2026-10-28T20:07:59.619Z",
+      "authorization_id": "user-closed-policy-20261028",
+      "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+      "recorded_at": "2026-10-28T20:07:59.714458+00:00"
+    },
+    {
+      "id": "8315472452",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_raznorabochiy_8315472452",
+      "status": "unavailable_closed",
+      "evidence": "Объявление закрыто.",
+      "snapshot_sha256": "f0c91a130531408f74cf7e17b53305c364f9b9814867ba5830948d497f48279c",
+      "raw_sha256": "3dc9933f8a9bc60de00a922b8d5694d6dffce7a03e9f96e0bc9acd7a5c500d3a",
+      "observed_at": "2026-10-28T20:09:20.560Z",
+      "authorization_id": "user-closed-policy-20261028",
+      "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+      "recorded_at": "2026-10-28T20:09:20.629452+00:00"
+    }
+  ],
+  "errors": [],
+  "review_method": "deterministic_rendered_template_v1"
+}
