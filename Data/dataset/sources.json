@@ -159,6 +159,58 @@
         "Москва": "Москва"
       },
       "enrichment_status": "not_run"
+    },
+    {
+      "run_id": "remote10-verified-20261028-demo4",
+      "source": "avito",
+      "path": "Data/avito_runs/remote10-verified-20261028-demo4/exports/vacancies_flat.csv",
+      "sha256": "a0f0a4447d6530994e22fb322bf46710b3014129508fdbce5b995a38067b7f16",
+      "placement_regions": {
+        "Москва": "Москва"
+      },
+      "enrichment_status": "not_run",
+      "unknown_city_placements": {
+        "4549198417": {
+          "region": "",
+          "evidence": "Волгоградская обл., г.о. Волгоград, Центральный район, пл. Павших Борцов р-н Центральный",
+          "region_unknown": true
+        },
+        "4522687971": {
+          "region": "",
+          "evidence": "Саратовская обл., Саратов р-н Волжский",
+          "region_unknown": true
+        },
+        "8450042198": {
+          "region": "",
+          "evidence": "Псковская обл., Псков, исторический район Завеличье р-н Завеличье",
+          "region_unknown": true
+        },
+        "8451151994": {
+          "region": "",
+          "evidence": "Липецкая обл., Липецк р-н Советский",
+          "region_unknown": true
+        },
+        "8557711696": {
+          "region": "",
+          "evidence": "Краснодарский край, Краснодар р-н Центральный",
+          "region_unknown": true
+        },
+        "8422014551": {
+          "region": "",
+          "evidence": "Республика Крым",
+          "region_unknown": true
+        },
+        "8294746022": {
+          "region": "",
+          "evidence": "Тюменская обл., Ханты-Мансийский АО — Югра, Сургут р-н Центральный",
+          "region_unknown": true
+        },
+        "8364634756": {
+          "region": "",
+          "evidence": "Красноярский край, Красноярск, ул. Красной Армии, 10с5 р-н Центральный",
+          "region_unknown": true
+        }
+      }
     }
   ]
 }

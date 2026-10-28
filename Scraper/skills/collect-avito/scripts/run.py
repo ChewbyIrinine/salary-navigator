@@ -26,7 +26,7 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.14'
+VERSION = '1.7.15'
 AUTOMATION_FILES = ['Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -140,6 +140,36 @@ def queue_from(listing, limit):
             return queue
     raise ValueError(f'Only {len(queue)} unique rendered cards; requested {limit}; do not invent pagination')
 
+
+
+def remote_decisions(queue, out, target):
+    """Validate a contiguous saved prefix; stop exactly at the target."""
+    decisions = []
+    accepted = 0
+    missing = False
+    for item in queue:
+        path = out / 'raw' / (item['id'] + '.json')
+        if not path.exists():
+            missing = True
+            continue
+        if missing or accepted >= target:
+            raise ValueError('Saved candidates must be a contiguous prefix ending at the target')
+        data = read(path)
+        result = check(data, item['id'])
+        if not result['structural_check_passed'] or not data.get('parameter_audit', {}).get('rendered_complete') or not data.get('location_raw'):
+            raise ValueError(f'Saved {item["id"]} needs review; never overwrite or silently skip it')
+        fields = [(norm(f['name']), norm(f['value'])) for f in data['fields']]
+        if any(not name or not value for name, value in fields) or len({name for name, _ in fields}) != len(fields):
+            raise ValueError('Empty or duplicate parameter requires review')
+        values = [value for name, value in fields if name == 'Формат работы']
+        if len(values) > 1:
+            raise ValueError('Duplicate format parameter requires review')
+        match = values == ['Удалённо']
+        decisions.append(dict(id=item['id'], listing_rank=item['listing_rank'],
+            accepted=match, parameter='Формат работы', observed_value=values[0] if values else None,
+            reason='exact_parameter_match' if match else 'parameter_missing_or_different'))
+        accepted += int(match)
+    return decisions
 
 def pin_aside_target(diag):
     """Keep browser identity stable across preflight, capture and resume locally."""
@@ -277,6 +307,16 @@ def browser(job, out, diag):
             done = cp['completed_ids']
             if cp['state'] not in ('READY', 'CAPTURED'):
                 break
+            if job.get('selection_queue') is not None:
+                decisions = remote_decisions(job['selection_queue'], out, job['selection_target'])
+                if sum(d['accepted'] for d in decisions) >= job['selection_target']:
+                    # The current RPC may not have been the final scheduled card.
+                    # Close only this session's tab before ending the REPL.
+                    offset = len(chunks)
+                    process.stdin.write(b'if (globalThis.tlCollectorPage) { await closeTab(globalThis.tlCollectorPage); globalThis.tlCollectorPage = null; } console.log("TL_CLOSED")\n')
+                    process.stdin.flush()
+                    until(r'TL_CLOSED\r?\n', 20, offset)
+                    break
     finally:
         if process.stdin:
             process.stdin.close()
@@ -329,7 +369,7 @@ def freeze(args):
     started = time.perf_counter()
     diag.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
-    request = dict(url=args.url, limit=args.limit, geography=args.geography,
+    request = dict(url=args.url, limit=args.limit, candidate_limit=getattr(args, 'candidate_limit', None), geography=args.geography,
                    profession=args.profession, segments=args.segments, filter_evidence=args.filter_evidence)
     if existing and (diag/'freeze_request.json').exists() and read(diag / 'freeze_request.json') != request:
         raise ValueError('Resume must preserve the original filter request')
@@ -344,14 +384,20 @@ def freeze(args):
         raise CollectionStopped(f'Stopped: {cp["state"]}; inspect local diagnostics', cp['state'])
     listing = read(diag / 'listing.json')
     profession = profession_from_listing(listing, args.profession)
-    queue = queue_from(listing, args.limit)
+    candidate_limit = getattr(args, 'candidate_limit', None)
+    if candidate_limit is not None and not any(c.get('label') == 'Удалённо' and 'params[172815]' in (c.get('marker') or '') for c in listing.get('selected_controls', [])):
+        raise ValueError('Remote selection requires the observed Удалённо filter')
+    if candidate_limit is not None and candidate_limit < args.limit:
+        raise ValueError('Candidate limit must be at least the target limit')
+    queue = queue_from(listing, candidate_limit if candidate_limit is not None else args.limit)
     write(out / 'listing.json', listing)
     write(out / 'queue.json', queue)
     write(service / 'plan.json', dict(run_id=args.run_id, geography=args.geography,
         profession=profession, segments=args.segments, filter_evidence=args.filter_evidence,
         listing_url=listing['source_url'], selected_controls=listing.get('selected_controls', []),
         listing_sha256=sha(out / 'listing.json'),
-        selection_mode='first_N_unique_on_frozen_listing', limit=args.limit,
+        selection_mode='first_N_remote_parameter_matches' if candidate_limit is not None else 'first_N_unique_on_frozen_listing', limit=args.limit,
+        candidate_limit=candidate_limit,
         created_at=datetime.now(timezone.utc).isoformat(), instruction_version=VERSION,
         extractor_sha256=sha(ROOT / 'Scraper/extract.js'), instruction_sha256=sha(SCRIPTS.parent / 'SKILL.md'),
         code_git_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
@@ -379,6 +425,31 @@ def capture(args):
     # Recover an interrupted transfer before considering another navigation.
     if (diag / 'sandbox.json').exists():
         import_sandbox(Path(read(diag / 'sandbox.json')['path']), out, diag)
+    if plan.get('selection_mode') == 'first_N_remote_parameter_matches':
+        decisions = remote_decisions(queue, out, plan['limit'])
+        accepted = sum(d['accepted'] for d in decisions)
+        if accepted == plan['limit']:
+            print(json.dumps(dict(state='CAPTURED', captured=len(decisions), accepted=accepted, remaining=0)))
+            return
+        if len(decisions) == len(queue):
+            raise CollectionStopped('Candidate limit exhausted before target; preserve run without export', 'REVIEW_REQUIRED')
+        pending = queue[len(decisions):len(decisions)+args.batch_size]
+        cp2, elapsed = browser(dict(mode='capture', queue=pending, completed_ids=[d['id'] for d in decisions],
+            selection_queue=queue, selection_target=plan['limit'],
+            previous_capture_seconds=cp.get('capture_seconds', 0)), out, diag)
+        cp2['capture_seconds'] = cp.get('capture_seconds', 0) + elapsed
+        write(diag / 'checkpoint.json', cp2)
+        if cp2['state'] != 'CAPTURED':
+            raise CollectionStopped('Stopped; inspect diagnostics', cp2['state'])
+        decisions = remote_decisions(queue, out, plan['limit'])
+        if cp2['completed_ids'] != [d['id'] for d in decisions]:
+            raise ValueError('Checkpoint does not match the saved candidate prefix')
+        accepted = sum(d['accepted'] for d in decisions)
+        if accepted < plan['limit'] and len(decisions) == len(queue):
+            raise CollectionStopped('Candidate limit exhausted before target; preserve run without export', 'REVIEW_REQUIRED')
+        print(json.dumps(dict(state='CAPTURED' if accepted == plan['limit'] else 'IN_PROGRESS',
+            captured=len(decisions), accepted=accepted, remaining=max(0, plan['limit']-accepted))))
+        return
     pending = []
     done = []
     for item in queue:
@@ -528,8 +599,16 @@ def finalize(args):
                 raise ValueError(f'Ambiguous city {city}; require disambiguated placement mapping')
             regions[city] = region
     overrides = read(args.placements) if args.placements else {}
+    decisions = None
+    selected_queue = queue
+    if plan.get('selection_mode') == 'first_N_remote_parameter_matches':
+        decisions = remote_decisions(queue, out, plan['limit'])
+        if sum(d['accepted'] for d in decisions) != plan['limit']:
+            raise ValueError('Target not reached; incomplete candidate selection cannot be exported')
+        selected_ids = {d['id'] for d in decisions if d['accepted']}
+        selected_queue = [item for item in queue if item['id'] in selected_ids]
     rows, reviews, mapping, unknown_cities = [], [], {}, {}
-    for item in queue:
+    for item in selected_queue:
         data = read(out / 'raw' / (item['id'] + '.json'))
         row, review, region = reviewed_row(data, item, regions, plan, overrides.get(item['id']))
         rows.append(row); reviews.append(review)
@@ -545,6 +624,9 @@ def finalize(args):
         writer = csv.DictWriter(stream, fieldnames=columns, lineterminator='\n')
         writer.writeheader(); writer.writerows(rows)
     write(exports / 'vacancies.json', rows)
+    if decisions is not None:
+        write(exports / 'selection.json', dict(criterion={'field': 'Формат работы', 'value': 'Удалённо'},
+            candidate_limit=len(queue), target=plan['limit'], decisions=decisions))
     for review in reviews:
         write(out / 'reviewed' / (review['id'] + '.json'), review)
     write(exports / 'validation.json', dict(planned=len(queue), accepted=len(rows),
@@ -695,6 +777,7 @@ def main():
             command.add_argument('--agent-model', default=None, help='Actual browser agent model, not a model switch')
             command.add_argument('--url', required=True, help='Observed listing URL after filter confirmation')
             command.add_argument('--limit', type=int, required=True)
+            command.add_argument('--candidate-limit', type=int, help='Select first N exact remote parameter matches from this many observed candidates')
             command.add_argument('--geography', required=True)
             command.add_argument('--profession', default='', help='Optional assertion; profession is read from selected listing filters')
             command.add_argument('--segments', default='')

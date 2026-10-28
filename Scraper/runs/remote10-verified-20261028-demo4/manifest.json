@@ -1,0 +1,301 @@
+{
+  "run_id": "remote10-verified-20261028-demo4",
+  "dataset_id": "remote10-verified-20261028-demo4",
+  "status": "complete",
+  "schema": {
+    "columns": [
+      "id",
+      "city",
+      "profession",
+      "segments",
+      "title",
+      "salary_raw",
+      "source_url",
+      "observed_at",
+      "description",
+      "location_observed",
+      "employer_name_observed",
+      "date_raw",
+      "views_total",
+      "views_today",
+      "listing_rank",
+      "listing_promoted",
+      "full_parameters_read",
+      "analysis_status",
+      "export_eligibility",
+      "read_status_parameters",
+      "read_status_description",
+      "read_status_location",
+      "read_limitations",
+      "enrichment_status",
+      "enriched_fields",
+      "enrichment_version",
+      "city__source",
+      "city__evidence",
+      "city_anomaly",
+      "Формат работы",
+      "График",
+      "Занятость",
+      "Способ оформления",
+      "Количество рабочих часов в день",
+      "Частота выплат",
+      "Сфера деятельности компании",
+      "Что получают работники",
+      "Смены",
+      "Опыт работы",
+      "Уровень образования",
+      "Форма собственности организации",
+      "С кем предстоит работать",
+      "Образование",
+      "Режим работы",
+      "Общение с клиентами",
+      "В том числе для кандидатов",
+      "Стажировка",
+      "Тип организации",
+      "Можно заканчивать в 17:00"
+    ],
+    "unknown_policy": "empty_not_zero"
+  },
+  "collection": {
+    "run_id": "remote10-verified-20261028-demo4",
+    "geography": "Все регионы",
+    "profession": "",
+    "segments": "",
+    "filter_evidence": "Owned Aside snapshot after observed UI selection: Формат работы Удалённо checked, geography По всей России checked, search empty, all visible profession checkboxes unchecked. Final observed URL and title Удаленная работа из дома во всех регионах. DOM shows 50 item cards in this single listing, so 30 candidates are available.",
+    "listing_url": "https://www.avito.ru/all/vakansii/format_raboty/udalenno-ASgBAgICAUSejBW~lZED?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6ImYxQ29MRnk2RFJMdmdNZGQiO33klublJgAAAA&f=ASgBAgICAkSUzQ_S6vQCnowVvpWRAw",
+    "selected_controls": [
+      {
+        "label": "По всей России",
+        "marker": "params[127818]/3054249",
+        "value": null
+      },
+      {
+        "label": "По всей России",
+        "marker": "params[127818]/toggle",
+        "value": "3054249"
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/all",
+        "value": null
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Удалённо",
+        "marker": "params[172815]/3286367",
+        "value": null
+      },
+      {
+        "label": "Удалённо",
+        "marker": "params[172815]/toggle",
+        "value": "3286367"
+      },
+      {
+        "label": "Неважно",
+        "marker": null,
+        "value": "all"
+      },
+      {
+        "label": "Все",
+        "marker": null,
+        "value": "all"
+      }
+    ],
+    "listing_sha256": "5029a70e9e0afcf29998716d014e6cc131b408c9c2ca2d8e9c5cbfcc4f8b9142",
+    "selection_mode": "first_N_remote_parameter_matches",
+    "limit": 10,
+    "candidate_limit": 30,
+    "created_at": "2026-10-28T00:25:26.077957+00:00",
+    "instruction_version": "1.7.14",
+    "extractor_sha256": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+    "instruction_sha256": "910517a49d738f5cab95d804dc758d9cb9677d9c2a6d98589df44dfc9cf893a9",
+    "code_git_commit": "6226d93e213ca5e8adb51b6eaf85fc37da8a60e0",
+    "setup_seconds": 2.7195157499518245,
+    "live_route_verified": false,
+    "execution_model": "gpt-6-luna",
+    "automation_sha256": {
+      "Scraper/extract.js": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+      "Scraper/skills/collect-avito/SKILL.md": "910517a49d738f5cab95d804dc758d9cb9677d9c2a6d98589df44dfc9cf893a9",
+      "Scraper/skills/collect-avito/scripts/run.py": "35c5d6c0d4adb197d5e68d7400160d26db7d8270ce213b3e85043a680ec154a1",
+      "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+      "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+      "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+      "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+    },
+    "uncommitted_automation_files": [
+      "Scraper/skills/collect-avito/SKILL.md",
+      "Scraper/skills/collect-avito/scripts/run.py"
+    ],
+    "city_anomaly_policy": "blank"
+  },
+  "coverage": {
+    "planned": 30,
+    "accepted": 10,
+    "unique_ids": [
+      "4549198417",
+      "4522687971",
+      "8450042198",
+      "8451151994",
+      "8557711696",
+      "8236416808",
+      "8325088889",
+      "8422014551",
+      "8294746022",
+      "8364634756"
+    ],
+    "errors": [],
+    "limitations": [
+      "Visible rendered parameters only; enrichment not run; placement on site; live route unverified"
+    ]
+  },
+  "timing": {
+    "setup_seconds": 2.7195157499518245,
+    "capture_seconds": 27.2664876668714,
+    "review_export_seconds": 0.034143750090152025,
+    "publication_seconds": null
+  },
+  "review_model": "gpt-6.1-terra",
+  "automation_changes": [
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Ограниченный отбор по видимому формату и синхронизация версии после обновления main",
+      "validation": "python3 -m unittest Scraper.test_aside_runner: 21 тест пройден"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Режим отбора, источник времени и синхронизация инструкции с main",
+      "validation": "python3 -m unittest Scraper.test_aside_runner: 21 тест пройден"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Регрессии точного отбора, исключений и возобновления",
+      "validation": "python3 -m unittest Scraper.test_aside_runner: 21 тест пройден"
+    }
+  ],
+  "post_capture_automation_sha256": {
+    "Scraper/skills/collect-avito/SKILL.md": "d1317d85ad8c31feea54056b9e55fa40cd07bce12ed9b6fb7d2c9731d7484c85",
+    "Scraper/skills/collect-avito/scripts/run.py": "76f3bafe6a8637288ee255d77d8dc126ecbf12b498684472c3f75db20df2a78b"
+  },
+  "files": {
+    "Data/avito_runs/remote10-verified-20261028-demo4/exports/selection.json": {
+      "bytes": 2796,
+      "sha256": "74870b1652cd71db6a1e8001169ff232da2f55aaffcdf9904ab8bd9bdd1ca563"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/exports/vacancies.json": {
+      "bytes": 49512,
+      "sha256": "7ee651d42242abfe85443de7788e02b027a3b3e51d08b64d2e57b3ad944413f3"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/exports/vacancies_flat.csv": {
+      "bytes": 39044,
+      "sha256": "a0f0a4447d6530994e22fb322bf46710b3014129508fdbce5b995a38067b7f16"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/exports/validation.json": {
+      "bytes": 131,
+      "sha256": "5dee039c7d1c2f9b3d0b0de015f4eebfd44199f41fb1b6d3bc4180d8236b5e65"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/listing.json": {
+      "bytes": 26886,
+      "sha256": "5029a70e9e0afcf29998716d014e6cc131b408c9c2ca2d8e9c5cbfcc4f8b9142"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/queue.json": {
+      "bytes": 15237,
+      "sha256": "ab9ff228a5ca0fc59d321c82530e07953cb8679e2b21a5f95918747472a4e6e3"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/4522687971.json": {
+      "bytes": 18740,
+      "sha256": "b27c0b2382cd21aa210526e81294db3d19d8ed2838095ab87500f8128f5b5e40"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/4549198417.json": {
+      "bytes": 18158,
+      "sha256": "d1036c4a708797c30f979e7c1f234516b120cc24e46aba0932c062d428015a10"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8236416808.json": {
+      "bytes": 12723,
+      "sha256": "3398a8a3358fb9382e19bf2063c47dc07d356e572f520935b8325a935964daae"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8294746022.json": {
+      "bytes": 7946,
+      "sha256": "0ad2e7bfd7c710e165df504b92d65bbc5944f8b8ec627a12e7fde305aaf1bb06"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8325088889.json": {
+      "bytes": 13131,
+      "sha256": "24c674328ee344ccc9ca5438ad92f567df8453916a6ae2ba081b5476b02b39e9"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8340659199.json": {
+      "bytes": 27307,
+      "sha256": "3eaebb727251d1a9a9f35138946e536f25afba311ccb9c813696378341833420"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8364634756.json": {
+      "bytes": 7635,
+      "sha256": "005494d2c2de6ed221b033dd18d15f14fcd75a4d57619ac10881112c89ba059f"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8422014551.json": {
+      "bytes": 13481,
+      "sha256": "1a989093acc9348a96a446701d426c3fd6baadcd5f0af22afc3a6be7f556fcb5"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8450042198.json": {
+      "bytes": 20738,
+      "sha256": "fa2a33cd3079e46091570ec9b1ad4213cdd21d142e21a9a918cab3b147693520"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8451151994.json": {
+      "bytes": 13752,
+      "sha256": "69e9eae454d4ff2d8ea99f7c49cd87793c8dfadfdac638f87dfc3e36fb163399"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8544769138.json": {
+      "bytes": 12110,
+      "sha256": "3a4f035ba78e5dcf83817607d1d40a1838190c3043883cdfa80a267038ab7cbd"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/raw/8557711696.json": {
+      "bytes": 16548,
+      "sha256": "c4720e2b1156cbe2b7a5b584be03a158ded61aafda36daf2dd3d2e840a74662d"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/4522687971.json": {
+      "bytes": 745,
+      "sha256": "3e9fff681529e05c10202d30db19ba3e34120e4109296ff73a407b9d63795988"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/4549198417.json": {
+      "bytes": 833,
+      "sha256": "3d809c6817a8c44e548e3f0e3fed0a4a125a9f9b4d44cf17d3f2f30a36a8f798"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/8236416808.json": {
+      "bytes": 757,
+      "sha256": "49ac3e73dd6881d7e1a920d1930af26ad8adcb0a8c8b1c73289ee96b4f52a56e"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/8294746022.json": {
+      "bytes": 831,
+      "sha256": "8a28d13b43e76da3673ff185fe9ff7180540a429a140f343b2a75ac6985c1e93"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/8325088889.json": {
+      "bytes": 780,
+      "sha256": "25ef10dbecd5fb8bfa90c1ee2983a7358dceb92a0fd4e61d98f9ef89170cb57d"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/8364634756.json": {
+      "bytes": 806,
+      "sha256": "2ae68ff705c21beb330708fe08986107030b2c8aa79654e1856196ae8a111424"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/8422014551.json": {
+      "bytes": 696,
+      "sha256": "3509f4a6188d4c8b34c7ca1534d3af43b7d543d25117da7a0333dbbba6ca7ed1"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/8450042198.json": {
+      "bytes": 791,
+      "sha256": "e42ff426072b4815dac83720314cead09aa44e769fc236d5a24798204a044712"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/8451151994.json": {
+      "bytes": 737,
+      "sha256": "56ccf33277ced10daa330b47572174ce017832e42fcac5a7f4f23b81795a2639"
+    },
+    "Data/avito_runs/remote10-verified-20261028-demo4/reviewed/8557711696.json": {
+      "bytes": 764,
+      "sha256": "0540b58ae75144f38287debecc5058f8f454e335d28c31d941ed4a5c289e75b3"
+    },
+    "Scraper/runs/remote10-verified-20261028-demo4/plan.json": {
+      "bytes": 3253,
+      "sha256": "fc70659f45b559895e9cfe69fcffc15bc2f7acd4080e4794332343c61552e957"
+    }
+  }
+}

@@ -113,3 +113,5 @@ avito_runs/<название_сбора>/
 - [general_first5_2026-10-28](avito_runs/general_first5_2026-10-28/exports/vacancies_flat.csv): 5 вакансий.
 
 - [flexible_first5_2026-10-28](avito_runs/flexible_first5_2026-10-28/exports/vacancies_flat.csv): 5 вакансий.
+
+- [remote10-verified-20261028-demo4](avito_runs/remote10-verified-20261028-demo4/exports/vacancies_flat.csv): 10 вакансий.

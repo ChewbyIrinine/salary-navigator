@@ -1,0 +1,517 @@
+{
+  "source_url": "https://www.avito.ru/all/vakansii/format_raboty/udalenno-ASgBAgICAUSejBW~lZED?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6ImYxQ29MRnk2RFJMdmdNZGQiO33klublJgAAAA&f=ASgBAgICAkSUzQ_S6vQCnowVvpWRAw",
+  "observed_at": "2026-10-28T00:25:25.998Z",
+  "channel": "gstack DOM",
+  "schema_version": 4,
+  "state": "LISTING",
+  "heading": "Удаленная работа из дома",
+  "selected_controls": [
+    {
+      "label": "По всей России",
+      "marker": "params[127818]/3054249",
+      "value": null
+    },
+    {
+      "label": "По всей России",
+      "marker": "params[127818]/toggle",
+      "value": "3054249"
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Удалённо",
+      "marker": "params[172815]/3286367",
+      "value": null
+    },
+    {
+      "label": "Удалённо",
+      "marker": "params[172815]/toggle",
+      "value": "3286367"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "profession_filter": {
+    "observed": true,
+    "selected_count": 0
+  },
+  "items": [
+    {
+      "id": "4549198417",
+      "url": "https://www.avito.ru/volgograd/vakansii/operator_kontaktnogo_tsentra_bez_prodazh_4549198417",
+      "title": "Оператор контактного центра (без продаж)",
+      "salary_raw": "от 56 000 ₽",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Волгоградская обл., г.о. Волгоград",
+      "promoted": true
+    },
+    {
+      "id": "4522687971",
+      "url": "https://www.avito.ru/saratov/vakansii/operator_vhodyaschey_linii_udalenno_4522687971",
+      "title": "Оператор входящей линии (удаленно)",
+      "salary_raw": "42 000 — 50 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Саратовская обл., Саратов",
+      "promoted": true
+    },
+    {
+      "id": "8450042198",
+      "url": "https://www.avito.ru/pskov/vakansii/repetitor_po_matematike_russkomu_fizike_i_infe_8450042198",
+      "title": "Репетитор по математике, русскому, физике и инфе",
+      "salary_raw": "30 000 — 130 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Псковская обл., Псков",
+      "promoted": false
+    },
+    {
+      "id": "8451151994",
+      "url": "https://www.avito.ru/lipetsk/vakansii/menedzher_kontaktnogo_tsentra_banka_8451151994",
+      "title": "Менеджер контактного центра банка",
+      "salary_raw": "от 60 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Липецкая обл., Липецк",
+      "promoted": false
+    },
+    {
+      "id": "8557711696",
+      "url": "https://www.avito.ru/krasnodar/vakansii/spetsialist_po_obrabotke_zakazov_i_konsultatsiyam_8557711696",
+      "title": "Специалист по обработке заказов и консультациям",
+      "salary_raw": "от 42 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Краснодарский край, Краснодар",
+      "promoted": false
+    },
+    {
+      "id": "8544769138",
+      "url": "https://www.avito.ru/ekaterinburg/vakansii/voennyytyldobrovoletsvyplatylnrdnr_8544769138",
+      "title": "Военный/тыл/доброволец/выплаты/ЛНР/ДНР",
+      "salary_raw": "250 000 — 400 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Свердловская обл., Екатеринбург",
+      "promoted": true
+    },
+    {
+      "id": "8236416808",
+      "url": "https://www.avito.ru/moskva/vakansii/lid-menedzher_udalenno_8236416808",
+      "title": "Лид-менеджер (удаленно)",
+      "salary_raw": "50 000 — 80 000 ₽",
+      "params_raw": "Фиксированный график · Без опыта",
+      "location_raw": "Москва",
+      "promoted": false
+    },
+    {
+      "id": "8325088889",
+      "url": "https://www.avito.ru/moskva/vakansii/operator_koll-tsentra_udalenno_podrabotka_ot_4_chasov_8325088889",
+      "title": "Оператор колл-центра удаленно, подработка от 4 часов",
+      "salary_raw": "35 000 — 45 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8340659199",
+      "url": "https://www.avito.ru/omsk/vakansii/sborschik_udarnyh_bpla_geran-2_v_tseh_donetsk_8340659199",
+      "title": "Сборщик ударных бпла \"Герань-2\" в цех (Донецк)",
+      "salary_raw": "от 200 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Омская обл., Омск",
+      "promoted": true
+    },
+    {
+      "id": "8422014551",
+      "url": "https://www.avito.ru/simonenko/vakansii/assistent_internet-magazina_8422014551",
+      "title": "Ассистент интернет-магазина",
+      "salary_raw": "от 3 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Республика Крым",
+      "promoted": true
+    },
+    {
+      "id": "8294746022",
+      "url": "https://www.avito.ru/surgut/vakansii/rekruter_udalenno_massovyy_podbor_8294746022",
+      "title": "Рекрутер удаленно массовый подбор",
+      "salary_raw": "от 100 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Тюменская обл., Сургут",
+      "promoted": false
+    },
+    {
+      "id": "8364634756",
+      "url": "https://www.avito.ru/krasnoyarsk/vakansii/obrabotchik_vhodyaschih_zayavok_8364634756",
+      "title": "Обработчик входящих заявок",
+      "salary_raw": "57 000 — 86 800 ₽ на руки",
+      "params_raw": "Гибкий график · Без опыта",
+      "location_raw": "Красноярский край, Красноярск",
+      "promoted": true
+    },
+    {
+      "id": "8557800491",
+      "url": "https://www.avito.ru/baykit/vakansii/model_dlya_videoobzorov_ugc-kreator_8557800491",
+      "title": "Модель для видеообзоров / UGC-креатор",
+      "salary_raw": "55 000 — 70 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Красноярский край, Байкит",
+      "promoted": true
+    },
+    {
+      "id": "7929292572",
+      "url": "https://www.avito.ru/pskov/vakansii/mobilnyy_bankir_7929292572",
+      "title": "Мобильный банкир",
+      "salary_raw": "90 000 — 130 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Псковская обл., Псков",
+      "promoted": true
+    },
+    {
+      "id": "8414998188",
+      "url": "https://www.avito.ru/surgut/vakansii/menedzher_po_prodazham_8414998188",
+      "title": "Менеджер по продажам",
+      "salary_raw": "до 40 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Тюменская обл., Сургут",
+      "promoted": false
+    },
+    {
+      "id": "8517676134",
+      "url": "https://www.avito.ru/himki/vakansii/operator_call_tsentra_na_domu_8517676134",
+      "title": "Оператор call центра на дому",
+      "salary_raw": "50 000 — 70 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Московская обл., Химки",
+      "promoted": true
+    },
+    {
+      "id": "8400556080",
+      "url": "https://www.avito.ru/rostov-na-donu/vakansii/spetsialist_otdela_zakupok_i_logistiki_-_udalenno_8400556080",
+      "title": "Специалист отдела закупок и логистики - удалённо",
+      "salary_raw": "60 000 — 80 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Ростовская обл., Ростов-на-Дону",
+      "promoted": true
+    },
+    {
+      "id": "8437531925",
+      "url": "https://www.avito.ru/vyborg/vakansii/menedzher_po_rabote_s_klientami_udalenno_8437531925",
+      "title": "Менеджер по работе с клиентами удаленно",
+      "salary_raw": "2 000 — 2 500 ₽ за смену",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Ленинградская обл., Выборгский р-н, Выборгское городское поселение, Выборг",
+      "promoted": true
+    },
+    {
+      "id": "8575717366",
+      "url": "https://www.avito.ru/velikiy_ustyug/vakansii/administrator_onlayn-vstrech_8575717366",
+      "title": "Администратор онлайн-встреч",
+      "salary_raw": "2 400 — 3 200 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Вологодская обл., Великоустюгский муниципальный округ, Великий Устюг",
+      "promoted": true
+    },
+    {
+      "id": "8414124724",
+      "url": "https://www.avito.ru/kurovskoe/vakansii/konsultant_v_internet-magazin_udalenno_8414124724",
+      "title": "Консультант в интернет-магазин Удалённо",
+      "salary_raw": "75 000 — 105 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Московская обл.",
+      "promoted": true
+    },
+    {
+      "id": "8328241576",
+      "url": "https://www.avito.ru/moskva/vakansii/avtoperegonschik_tylovaya_avtosluzhba_8328241576",
+      "title": "Автоперегонщик — тыловая автослужба",
+      "salary_raw": "210 000 — 4 500 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8462830564",
+      "url": "https://www.avito.ru/nizhniy_novgorod/vakansii/dizayner_kartochek_tovarov_dlya_marketpleysov_8462830564",
+      "title": "Дизайнер карточек товаров для маркетплейсов",
+      "salary_raw": "от 75 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Нижегородская обл., Нижний Новгород",
+      "promoted": false
+    },
+    {
+      "id": "7405261035",
+      "url": "https://www.avito.ru/omsk/vakansii/operator_na_zvonki_rabota_iz_doma_7405261035",
+      "title": "Оператор на звонки / Работа из дома",
+      "salary_raw": "35 000 — 40 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Омская обл., Омск",
+      "promoted": false
+    },
+    {
+      "id": "8328681543",
+      "url": "https://www.avito.ru/sverdlova/vakansii/pomoschnik_po_publikatsii_proektov_agentstva_8328681543",
+      "title": "Помощник по публикации проектов агентства",
+      "salary_raw": "2 400 — 3 700 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Ленинградская обл., Всеволожский р-н, Свердловское городское поселение, городской пос. имени Свердлова",
+      "promoted": true
+    },
+    {
+      "id": "8434919738",
+      "url": "https://www.avito.ru/moskva/vakansii/operator_bpla_otnoshenie_8434919738",
+      "title": "Оператор бпла отношение",
+      "salary_raw": "от 220 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8416883029",
+      "url": "https://www.avito.ru/rostov-na-donu/vakansii/menedzher_po_dostavke_bankovskih_kart_predstavitel_8416883029",
+      "title": "Менеджер по доставке банковских карт представитель",
+      "salary_raw": "от 160 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Три раза в месяц · Без опыта",
+      "location_raw": "Ростовская обл., Ростов-на-Дону",
+      "promoted": false
+    },
+    {
+      "id": "8577414003",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/retusherpodgotovka_fotografiy_k_pechati_8577414003",
+      "title": "«Ретушёр/подготовка фотографий к печати»",
+      "salary_raw": "50 000 — 100 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Опыт более года",
+      "location_raw": "Санкт-Петербург",
+      "promoted": false
+    },
+    {
+      "id": "4251834325",
+      "url": "https://www.avito.ru/orel/vakansii/operator_klientskogo_servisa_udalenno_4251834325",
+      "title": "Оператор клиентского сервиса (удаленно)",
+      "salary_raw": "от 50 500 ₽",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Орловская обл., Орёл",
+      "promoted": true
+    },
+    {
+      "id": "8430875475",
+      "url": "https://www.avito.ru/arhangelsk/vakansii/slesar_remontno-vosstanovitelnoy_gruppy_v_tyl_8430875475",
+      "title": "Слесарь ремонтно-восстановительной группы в тыл",
+      "salary_raw": "210 000 — 4 500 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Архангельская обл., Архангельск",
+      "promoted": true
+    },
+    {
+      "id": "7786931649",
+      "url": "https://www.avito.ru/moskva/vakansii/repetitor_po_matematike_7786931649",
+      "title": "Репетитор по математике",
+      "salary_raw": "40 000 — 100 000 ₽",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8364493145",
+      "url": "https://www.avito.ru/ekaterinburg/vakansii/menedzher_po_rabote_s_klientami_8364493145",
+      "title": "Менеджер по работе с клиентами",
+      "salary_raw": "60 000 — 90 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Свердловская обл., Екатеринбург",
+      "promoted": false
+    },
+    {
+      "id": "8440995126",
+      "url": "https://www.avito.ru/moskva/vakansii/operator_bpla._kontrakt._svo._mo_8440995126",
+      "title": "Оператор бпла. Контракт. сво. мо",
+      "salary_raw": "от 210 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "4258720643",
+      "url": "https://www.avito.ru/novorossiysk/vakansii/repetitor_dlya_nachalnyh_klassov_udalenno_4258720643",
+      "title": "Репетитор для начальных классов (удалённо)",
+      "salary_raw": "50 000 — 80 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в месяц · Опыт более года",
+      "location_raw": "Краснодарский край, Новороссийск",
+      "promoted": false
+    },
+    {
+      "id": "3968059479",
+      "url": "https://www.avito.ru/ekaterinburg/vakansii/repetitor_angliyskogo_yazyka_3968059479",
+      "title": "Репетитор английского языка",
+      "salary_raw": "до 70 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Свердловская обл., Екатеринбург",
+      "promoted": true
+    },
+    {
+      "id": "8437145215",
+      "url": "https://www.avito.ru/cherdakly/vakansii/spetsialist_fgis_merkuriy_ulyanovsk_8437145215",
+      "title": "Специалист фгис Меркурий (Ульяновск)",
+      "salary_raw": "от 50 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Опыт более 3 лет",
+      "location_raw": "Ульяновская обл., Чердаклинский р-н",
+      "promoted": false
+    },
+    {
+      "id": "8420456988",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrana_neba_moskvyspb._mog._bez_svo_8420456988",
+      "title": "Охрана неба Москвы/СПБ. мог. Без сво",
+      "salary_raw": "260 000 — 430 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8575788910",
+      "url": "https://www.avito.ru/kazan/vakansii/ischem_aktivnogo_smm_v_blog_8575788910",
+      "title": "Ищем активного смм в блог",
+      "salary_raw": "12 000 — 14 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Республика Татарстан (Татарстан), Казань",
+      "promoted": true
+    },
+    {
+      "id": "8389992189",
+      "url": "https://www.avito.ru/moskva/vakansii/avtomehanik_remontnoy_gruppy_v_tyl_8389992189",
+      "title": "Автомеханик ремонтной группы в тыл",
+      "salary_raw": "210 000 — 4 500 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8400283981",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrana_osvobozhdennyh_territoriy_8400283981",
+      "title": "Охрана освобожденных территорий",
+      "salary_raw": "290 000 — 490 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8408639231",
+      "url": "https://www.avito.ru/schelkovo/vakansii/menedzher_po_telefonnym_prodazham_8408639231",
+      "title": "Менеджер по телефонным продажам",
+      "salary_raw": "70 000 — 110 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Московская обл., Щёлково",
+      "promoted": true
+    },
+    {
+      "id": "8470632828",
+      "url": "https://www.avito.ru/krasnoyarsk/vakansii/perevodchik_pisem_i_nebolshih_tekstov_8470632828",
+      "title": "Переводчик писем и небольших текстов",
+      "salary_raw": "2 700 — 3 900 ₽",
+      "params_raw": "Гибкий график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Красноярский край, г.о. Красноярск",
+      "promoted": true
+    },
+    {
+      "id": "8359323160",
+      "url": "https://www.avito.ru/moskva/vakansii/operator_bpla_obuchenie_s_nulya_8359323160",
+      "title": "Оператор бпла, обучение с нуля",
+      "salary_raw": "от 3 400 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Москва",
+      "promoted": true
+    },
+    {
+      "id": "8390524445",
+      "url": "https://www.avito.ru/voronezh/vakansii/operator_koll-tsentra_udalenno_8390524445",
+      "title": "Оператор колл-центра удаленно",
+      "salary_raw": "35 200 — 40 300 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Воронежская обл., Воронеж",
+      "promoted": false
+    },
+    {
+      "id": "8328634905",
+      "url": "https://www.avito.ru/voronezh/vakansii/nochnoy_operator_kontaktnogo_tsentra_8328634905",
+      "title": "Ночной оператор контактного центра",
+      "salary_raw": "от 40 000 ₽ на руки",
+      "params_raw": "Сменный график · Опыт до 1 года",
+      "location_raw": "Воронежская обл., Воронеж",
+      "promoted": false
+    },
+    {
+      "id": "8575458405",
+      "url": "https://www.avito.ru/chelyabinsk/vakansii/operator_koll-tsentra_8575458405",
+      "title": "Оператор колл-центра",
+      "salary_raw": "от 15 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Челябинская обл., Челябинский г.о., Челябинск",
+      "promoted": false
+    },
+    {
+      "id": "8491088811",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/ohrana_neba_moskvyspb._mog._bez_svo_8491088811",
+      "title": "Охрана неба Москвы/СПБ. мог. Без сво",
+      "salary_raw": "220 000 — 410 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Санкт-Петербург",
+      "promoted": true
+    },
+    {
+      "id": "8325845502",
+      "url": "https://www.avito.ru/sevastopol/vakansii/frontend_razrabotchik_8325845502",
+      "title": "Frontend разработчик",
+      "salary_raw": "Зарплата не указана",
+      "params_raw": "Фиксированный график · Опыт более года",
+      "location_raw": "Севастополь",
+      "promoted": false
+    },
+    {
+      "id": "8376029021",
+      "url": "https://www.avito.ru/orenburg/vakansii/menedzher_po_prodazham_b2bb2c_8376029021",
+      "title": "Менеджер по продажам B2B/B2C",
+      "salary_raw": "50 000 — 120 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Опыт до 1 года",
+      "location_raw": "Оренбургская обл., Оренбург",
+      "promoted": true
+    },
+    {
+      "id": "8344800070",
+      "url": "https://www.avito.ru/tyumen/vakansii/operator_koll_tsentra_udalenno_na_domu_8344800070",
+      "title": "Оператор колл центра удаленно на дому",
+      "salary_raw": "60 000 — 130 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Опыт до 1 года",
+      "location_raw": "Тюменская обл., Тюмень",
+      "promoted": false
+    },
+    {
+      "id": "8448390999",
+      "url": "https://www.avito.ru/vladivostok/vakansii/kurer_yandekssvobodnyy_grafikvyplaty_regulyarno_8448390999",
+      "title": "Курьер Яндекс/Свободный график/Выплаты регулярно",
+      "salary_raw": "до 12 000 ₽ за смену",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Приморский край, Владивостокский г.о., Владивосток",
+      "promoted": true
+    }
+  ],
+  "pagination": {
+    "next_url": "https://www.avito.ru/all/vakansii/format_raboty/udalenno-ASgBAgICAUSejBW~lZED?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IkVORElVVlpsYk1QWXpWQ0MiO30aLHdEJgAAAA&f=ASgBAgICAkSUzQ_S6vQCnowVvpWRAw&p=2",
+    "end_confirmed": false,
+    "evidence": {
+      "text": null,
+      "label": "Следующая страница",
+      "href": "/all/vakansii/format_raboty/udalenno-ASgBAgICAUSejBW~lZED?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IkVORElVVlpsYk1QWXpWQ0MiO30aLHdEJgAAAA&f=ASgBAgICAkSUzQ_S6vQCnowVvpWRAw&p=2",
+      "disabled": false
+    },
+    "limitation": "No next control is not proof of end; infinite loading not verified"
+  }
+}

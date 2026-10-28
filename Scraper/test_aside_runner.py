@@ -36,6 +36,72 @@ def raw(identity='123'):
 
 
 class RunnerTests(unittest.TestCase):
+    def test_remote_selection_stops_at_exact_matches_and_keeps_exclusions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            out = Path(directory)
+            queue = [dict(item(str(i)), listing_rank=i) for i in range(1, 5)]
+            def save(i, fields):
+                data = raw(str(i)); data['fields'] = fields
+                runner.write(out / 'raw' / f'{i}.json', data)
+            with patch.object(runner, 'check', return_value={'structural_check_passed': True}):
+                save(1, [dict(name='Формат работы', value='Офис')])
+                save(2, [dict(name='Формат работы', value='Удалённо')])
+                save(3, [dict(name='Формат работы', value='Удалённо')])
+                decisions = runner.remote_decisions(queue, out, 2)
+                self.assertEqual([d['accepted'] for d in decisions], [False, True, True])
+                self.assertEqual(decisions[0]['observed_value'], 'Офис')
+                save(4, [dict(name='Формат работы', value='Удалённо')])
+                with self.assertRaisesRegex(ValueError, 'contiguous prefix'):
+                    runner.remote_decisions(queue, out, 2)
+                (out / 'raw/4.json').unlink()
+                (out / 'raw/2.json').unlink()
+                with self.assertRaisesRegex(ValueError, 'contiguous prefix'):
+                    runner.remote_decisions(queue, out, 2)
+
+    def test_remote_capture_reads_only_until_target_and_resumes_prefix(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'selection')
+            queue = [dict(item(str(i)), listing_rank=i) for i in range(1, 5)]
+            runner.write(out / 'queue.json', queue)
+            runner.write(service / 'plan.json', dict(selection_mode='first_N_remote_parameter_matches',
+                limit=2, automation_sha256={}))
+            runner.write(diag / 'checkpoint.json', {'capture_seconds': 0})
+            seen = []
+            def capture_one(job, out, diag):
+                done = list(job['completed_ids'])
+                for candidate in job['queue']:
+                    identity = candidate['id']; seen.append(identity)
+                    data = raw(identity)
+                    data['fields'] = [dict(name='Формат работы', value='Офис' if identity == '1' else 'Удалённо')]
+                    runner.write(out / 'raw' / (identity + '.json'), data)
+                    done.append(identity)
+                    if sum(d['accepted'] for d in runner.remote_decisions(job['selection_queue'], out, job['selection_target'])) == job['selection_target']:
+                        break
+                return {'state':'CAPTURED', 'completed_ids':done}, 0.01
+            args = argparse.Namespace(run_id='selection', batch_size=2, config=None, retry_reason=None)
+            with patch.object(runner, 'validate_plan_profession'), patch.object(runner, 'preflight'), \
+                    patch.object(runner, 'browser', side_effect=capture_one), \
+                    patch.object(runner, 'check', return_value={'structural_check_passed': True}):
+                runner.capture(args)
+                self.assertEqual(seen, ['1', '2'])
+                runner.capture(args)
+                self.assertEqual(seen, ['1', '2', '3'])
+                runner.capture(args)
+                self.assertEqual(seen, ['1', '2', '3'])
+                self.assertFalse((out / 'raw/4.json').exists())
+
+    def test_remote_selection_rejects_missing_and_invalid_card(self):
+        with tempfile.TemporaryDirectory() as directory:
+            out = Path(directory); queue = [item('123')]
+            runner.write(out / 'raw/123.json', raw())
+            with patch.object(runner, 'check', return_value={'structural_check_passed': True}):
+                result = runner.remote_decisions(queue, out, 1)
+                self.assertFalse(result[0]['accepted'])
+                self.assertIsNone(result[0]['observed_value'])
+            with patch.object(runner, 'check', return_value={'structural_check_passed': False}):
+                with self.assertRaisesRegex(ValueError, 'needs review'):
+                    runner.remote_decisions(queue, out, 1)
+
     def test_reselect_preserves_freeze_and_failure_budget_and_rejects_capture(self):
         with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
             out, service, diag = runner.paths(runner.ROOT, 'example')

@@ -1,0 +1,75 @@
+{
+  "run_id": "remote10-verified-20261028-demo4",
+  "geography": "Все регионы",
+  "profession": "",
+  "segments": "",
+  "filter_evidence": "Owned Aside snapshot after observed UI selection: Формат работы Удалённо checked, geography По всей России checked, search empty, all visible profession checkboxes unchecked. Final observed URL and title Удаленная работа из дома во всех регионах. DOM shows 50 item cards in this single listing, so 30 candidates are available.",
+  "listing_url": "https://www.avito.ru/all/vakansii/format_raboty/udalenno-ASgBAgICAUSejBW~lZED?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6ImYxQ29MRnk2RFJMdmdNZGQiO33klublJgAAAA&f=ASgBAgICAkSUzQ_S6vQCnowVvpWRAw",
+  "selected_controls": [
+    {
+      "label": "По всей России",
+      "marker": "params[127818]/3054249",
+      "value": null
+    },
+    {
+      "label": "По всей России",
+      "marker": "params[127818]/toggle",
+      "value": "3054249"
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Удалённо",
+      "marker": "params[172815]/3286367",
+      "value": null
+    },
+    {
+      "label": "Удалённо",
+      "marker": "params[172815]/toggle",
+      "value": "3286367"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "listing_sha256": "5029a70e9e0afcf29998716d014e6cc131b408c9c2ca2d8e9c5cbfcc4f8b9142",
+  "selection_mode": "first_N_remote_parameter_matches",
+  "limit": 10,
+  "candidate_limit": 30,
+  "created_at": "2026-10-28T00:25:26.077957+00:00",
+  "instruction_version": "1.7.14",
+  "extractor_sha256": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+  "instruction_sha256": "910517a49d738f5cab95d804dc758d9cb9677d9c2a6d98589df44dfc9cf893a9",
+  "code_git_commit": "6226d93e213ca5e8adb51b6eaf85fc37da8a60e0",
+  "setup_seconds": 2.7195157499518245,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/extract.js": "03902d124008196a4b52d74f3916670b975422041820cf787fe61f233069d959",
+    "Scraper/skills/collect-avito/SKILL.md": "910517a49d738f5cab95d804dc758d9cb9677d9c2a6d98589df44dfc9cf893a9",
+    "Scraper/skills/collect-avito/scripts/run.py": "35c5d6c0d4adb197d5e68d7400160d26db7d8270ce213b3e85043a680ec154a1",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "c66693941cf98b2c671c50f969ede1c6811156ea7420d9cd786ef5785e3c1f04",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "d9d481079b24a464f42c81e0743b2c42414d1aca4ec00d797a16ef5eebcfeebf",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+    "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+  },
+  "uncommitted_automation_files": [
+    "Scraper/skills/collect-avito/SKILL.md",
+    "Scraper/skills/collect-avito/scripts/run.py"
+  ]
+}

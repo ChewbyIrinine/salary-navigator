@@ -1,0 +1,7 @@
+{
+  "planned": 30,
+  "accepted": 10,
+  "unique_ids": 10,
+  "errors": [],
+  "review_method": "deterministic_rendered_template_v1"
+}
