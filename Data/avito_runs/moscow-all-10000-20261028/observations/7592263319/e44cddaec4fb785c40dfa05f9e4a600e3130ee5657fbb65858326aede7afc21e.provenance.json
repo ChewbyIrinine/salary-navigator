@@ -1,0 +1,8 @@
+{
+  "authorization_id": "user-20261028-captcha-passed-resume-1089",
+  "original_file": "raw/7592263319.json",
+  "sha256": "e44cddaec4fb785c40dfa05f9e4a600e3130ee5657fbb65858326aede7afc21e",
+  "observed_at": "2026-10-28T03:20:28.438Z",
+  "preserved_at": "2026-10-28T06:41:10.861946+00:00",
+  "reason": "access_restriction_or_captcha"
+}

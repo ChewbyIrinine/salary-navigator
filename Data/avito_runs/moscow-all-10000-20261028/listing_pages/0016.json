@@ -1,0 +1,511 @@
+{
+  "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=16",
+  "observed_at": "2026-10-28T03:05:21.280Z",
+  "channel": "gstack DOM",
+  "schema_version": 4,
+  "state": "LISTING",
+  "heading": "Работа и вакансии в Москве",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "profession_filter": {
+    "observed": true,
+    "selected_count": 0
+  },
+  "items": [
+    {
+      "id": "4438420022",
+      "url": "https://www.avito.ru/moskva/vakansii/voditel_samosvala_4438420022",
+      "title": "Водитель самосвала",
+      "salary_raw": "240 000 — 300 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в месяц · Опыт более года",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "3753773954",
+      "url": "https://www.avito.ru/moskva/vakansii/master_manikyura_3753773954",
+      "title": "Мастер маникюра",
+      "salary_raw": "150 000 — 320 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Аэропорт, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8372180195",
+      "url": "https://www.avito.ru/moskva/vakansii/sborschik_bpla_samoletnogo_tipasvomuzhchinytyl_8372180195",
+      "title": "Сборщик бпла самолётного типа/сво/Мужчины/Тыл",
+      "salary_raw": "от 290 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Лефортово, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "7686120013",
+      "url": "https://www.avito.ru/moskva/vakansii/ofitsiant_7686120013",
+      "title": "Официант",
+      "salary_raw": "от 5 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Пятницкое шоссе, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8228909986",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrannik_52_ili_13_8228909986",
+      "title": "Охранник 5/2 или 1/3",
+      "salary_raw": "5 000 — 6 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Цветной бульвар, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "7918934415",
+      "url": "https://www.avito.ru/moskva/vakansii/storozh_ohrannik_7918934415",
+      "title": "Сторож охранник",
+      "salary_raw": "3 045 — 3 480 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Сокольники, 16–20 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8557510240",
+      "url": "https://www.avito.ru/moskva/vakansii/sborka_i_upakovka_produktov.podrabotka_na_sklade_8557510240",
+      "title": "Сборка и упаковка продуктов.Подработка на складе",
+      "salary_raw": "до 11 000 ₽ за смену",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Пражская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8135517186",
+      "url": "https://www.avito.ru/moskva/vakansii/barista-kassir_v_kofeynyu_8135517186",
+      "title": "Бариста-кассир в кофейню",
+      "salary_raw": "3 500 — 5 500 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Молодёжная, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8102803308",
+      "url": "https://www.avito.ru/moskva/vakansii/gornichnaya_v_posutochnye_kvartiry_moskva_8102803308",
+      "title": "Горничная в посуточные квартиры москва",
+      "salary_raw": "60 000 — 80 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "ЦСКА, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "7645548678",
+      "url": "https://www.avito.ru/moskva/vakansii/barista_7645548678",
+      "title": "Бариста",
+      "salary_raw": "от 3 800 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Ботанический сад, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8128807658",
+      "url": "https://www.avito.ru/moskva/vakansii/operatora_punkta_vydachi_zakazov_ozon_8128807658",
+      "title": "Оператора пункта выдачи заказов ozon",
+      "salary_raw": "3 000 — 5 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Свиблово, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8370149277",
+      "url": "https://www.avito.ru/moskva/vakansii/sortirovka_tovarov_oplata_ezhenedelno_8370149277",
+      "title": "Сортировка товаров оплата еженедельно",
+      "salary_raw": "4 000 — 4 500 ₽ за смену",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Нижегородская, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8398294859",
+      "url": "https://www.avito.ru/moskva/vakansii/voditel_v_gospital_na_svo_muzhchinatyl_otnoshenie_8398294859",
+      "title": "Водитель в госпиталь на сво, мужчина/Тыл отношение",
+      "salary_raw": "260 000 — 870 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Текстильщики, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8142750969",
+      "url": "https://www.avito.ru/moskva/vakansii/sotrudnik_punkta_vydachi_pvz_ozon_8142750969",
+      "title": "Сотрудник пункта выдачи пвз озон",
+      "salary_raw": "45 000 — 65 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Некрасовка, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "7734454869",
+      "url": "https://www.avito.ru/moskva/vakansii/avtomoyschikdeteyler_7734454869",
+      "title": "Автомойщик/детейлер",
+      "salary_raw": "от 160 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Лианозово, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8370156775",
+      "url": "https://www.avito.ru/moskva/vakansii/menedzher_po_prodazhamrekurut_po_podboruofis_8370156775",
+      "title": "Менеджер по продажам\\Рекурут по подбору(офис)",
+      "salary_raw": "от 300 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Тульская, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "7988882359",
+      "url": "https://www.avito.ru/moskva/vakansii/enerdzhayzer_-_spetsialist_po_zaryadke_samokatov_7988882359",
+      "title": "Энерджайзер - специалист по зарядке самокатов",
+      "salary_raw": "90 000 — 150 000 ₽ на руки",
+      "params_raw": "Гибкий график · Без опыта",
+      "location_raw": "Братиславская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8400070094",
+      "url": "https://www.avito.ru/moskva/vakansii/sotrudniki_v_punkt_vydachi_ozon_8400070094",
+      "title": "Сотрудники в пункт выдачи Ozon",
+      "salary_raw": "2 800 — 4 000 ₽ за смену",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Электрозаводская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "4521719889",
+      "url": "https://www.avito.ru/moskva/vakansii/shveya_s_opytom_4521719889",
+      "title": "Швея с опытом",
+      "salary_raw": "70 000 — 140 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Лианозово, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8292849409",
+      "url": "https://www.avito.ru/moskva/vakansii/ukladchik_ezhednevnye_vyplaty_i_prozhivanie_8292849409",
+      "title": "Укладчик ежедневные выплаты и проживание",
+      "salary_raw": "4 800 — 5 200 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Нагатинская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8491586558",
+      "url": "https://www.avito.ru/moskva/vakansii/elektromontazhnik_8491586558",
+      "title": "Электромонтажник",
+      "salary_raw": "Зарплата не указана",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Опыт более 3 лет",
+      "location_raw": "Первомайская, 16–20 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8283575367",
+      "url": "https://www.avito.ru/moskva/vakansii/politseyskiy_8283575367",
+      "title": "Полицейский",
+      "salary_raw": "85 000 — 140 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Боровицкая, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "3764622512",
+      "url": "https://www.avito.ru/moskva/vakansii/uborka_posutochnyh_kvartir_3764622512",
+      "title": "Уборка посуточных квартир",
+      "salary_raw": "2 000 — 5 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Люблино, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8438147076",
+      "url": "https://www.avito.ru/moskva/vakansii/stilist-koloristzhenskiy_parikmahergarant_7_8438147076",
+      "title": "Стилист-колорист/женский парикмахер/гарант 7",
+      "salary_raw": "200 000 — 300 000 ₽",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Опыт более 3 лет",
+      "location_raw": "Шелепиха, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8451417776",
+      "url": "https://www.avito.ru/moskva/vakansii/menedzher_po_prodazhe_novostroek_8451417776",
+      "title": "Менеджер по продаже новостроек",
+      "salary_raw": "от 200 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Без опыта",
+      "location_raw": "Беляево, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8418944284",
+      "url": "https://www.avito.ru/moskva/vakansii/uborschik_v_bank_8418944284",
+      "title": "Уборщик в банк",
+      "salary_raw": "от 90 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Маяковская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8382445020",
+      "url": "https://www.avito.ru/moskva/vakansii/barista_v_kafe_bez_opyta_zp_ezhenedelno_8382445020",
+      "title": "Бариста в кафе без опыта зп Еженедельно",
+      "salary_raw": "4 200 — 4 600 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Курская, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8422534520",
+      "url": "https://www.avito.ru/moskva/vakansii/podrabotka_dennoch.obedy.pomoschnik_na_kuhne.16_8422534520",
+      "title": "Подработка день\\ночь.Обеды.Помощник на кухне.16+",
+      "salary_raw": "2 400 — 5 264 ₽ за смену",
+      "params_raw": "Гибкий график · Без опыта",
+      "location_raw": "Кузьминки, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8469914458",
+      "url": "https://www.avito.ru/moskva/vakansii/upakovschitsa_na_sklad_8469914458",
+      "title": "Упаковщица на склад",
+      "salary_raw": "от 5 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Отрадное, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8316770754",
+      "url": "https://www.avito.ru/moskva/vakansii/barmen_ofitsant_8316770754",
+      "title": "Бармен офицант",
+      "salary_raw": "4 000 — 7 000 ₽ за смену",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Братиславская, 16–20 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8418377976",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrannik_vahta_s_ulcho_8418377976",
+      "title": "Охранник вахта с улчо",
+      "salary_raw": "4 000 — 5 000 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "4097708251",
+      "url": "https://www.avito.ru/moskva/vakansii/kurer_peshiy_s_ezhednevnoy_oplatoy_za_zakazy_4097708251",
+      "title": "Курьер пеший с ежедневной оплатой за заказы",
+      "salary_raw": "от 6 000 ₽",
+      "params_raw": "Гибкий график · Без опыта",
+      "location_raw": "Красные ворота, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "2580129805",
+      "url": "https://www.avito.ru/moskva/vakansii/shinomontazhnik_s_ezhednevnoy_oplatoy_50_protsentov_2580129805",
+      "title": "Шиномонтажник с ежедневной оплатой 50 процентов",
+      "salary_raw": "Зарплата не указана",
+      "params_raw": "Сменный график · Выплаты Каждый день · Опыт более 5 лет",
+      "location_raw": "Орехово, от 31 мин.",
+      "promoted": true
+    },
+    {
+      "id": "3679243029",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrana_vahta_pryamoy_rabotodatel_3679243029",
+      "title": "Охрана вахта прямой работодатель",
+      "salary_raw": "4 000 — 6 000 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8491749908",
+      "url": "https://www.avito.ru/moskva/vakansii/raznorabochiy_na_zavod_bla._spishem_dolg._srazu_3mln_8491749908",
+      "title": "Разнорабочий на завод бла. Спишем долг. Сразу 3млн",
+      "salary_raw": "12 000 — 19 000 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Сухаревская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8296353287",
+      "url": "https://www.avito.ru/moskva/vakansii/administrator_salona_krasoty_vdnh_8296353287",
+      "title": "Администратор салона красоты, ВДНХ",
+      "salary_raw": "70 000 — 80 000 ₽ на руки",
+      "params_raw": "Сменный график · Опыт более года",
+      "location_raw": "ВДНХ, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8369392477",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_8369392477",
+      "title": "Грузчик",
+      "salary_raw": "от 100 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Воробьёвы горы, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8039356922",
+      "url": "https://www.avito.ru/moskva/vakansii/barista_8039356922",
+      "title": "Бариста",
+      "salary_raw": "60 000 — 85 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Балтийская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8440961447",
+      "url": "https://www.avito.ru/moskva/vakansii/operator_punkta_vydachi_zakazov_ozon_8440961447",
+      "title": "Оператор пункта выдачи заказов Озон",
+      "salary_raw": "63 000 — 92 400 ₽",
+      "params_raw": "Фиксированный график · Без опыта",
+      "location_raw": "Сходненская, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8391565471",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrannik_v_inkassatsiyu_8391565471",
+      "title": "Охранник в инкассацию",
+      "salary_raw": "до 150 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Бауманская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "7814442825",
+      "url": "https://www.avito.ru/moskva/vakansii/organizator_meropriyatiy_moskva_7814442825",
+      "title": "Организатор мероприятий москва",
+      "salary_raw": "от 100 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Опыт более 3 лет",
+      "location_raw": "Хорошёвская, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8310939440",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrannik_gbr_v_zhk_8310939440",
+      "title": "Охранник гбр в ЖК",
+      "salary_raw": "от 9 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Павелецкая, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8557531691",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrannik_v_polikliniku_8557531691",
+      "title": "Охранник в Поликлинику",
+      "salary_raw": "8 000 — 9 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8413256051",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrannik_na_sklad_8413256051",
+      "title": "Охранник на склад",
+      "salary_raw": "до 6 600 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Южная, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8184748827",
+      "url": "https://www.avito.ru/moskva/vakansii/syrnaya_vahta_203360_pitanie_8184748827",
+      "title": "Сырная вахта 20/33/60 + питание",
+      "salary_raw": "до 216 000 ₽",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8458168517",
+      "url": "https://www.avito.ru/moskva/vakansii/montazhniki_sendvich_paneley_8458168517",
+      "title": "Монтажники сендвич панелей",
+      "salary_raw": "200 000 — 370 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в неделю · Опыт до 1 года",
+      "location_raw": "Бабушкинская, 21–30 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8489615521",
+      "url": "https://www.avito.ru/moskva/vakansii/dvornik_na_azs_8489615521",
+      "title": "Дворник на АЗС",
+      "salary_raw": "от 7 200 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Лианозово, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "4244785934",
+      "url": "https://www.avito.ru/moskva/vakansii/administrator_studii_tantsev_4244785934",
+      "title": "Администратор студии танцев",
+      "salary_raw": "до 50 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Таганская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "4172610199",
+      "url": "https://www.avito.ru/moskva/vakansii/ohrannik_4172610199",
+      "title": "Охранник",
+      "salary_raw": "от 5 500 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Киевская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "3378353933",
+      "url": "https://www.avito.ru/moskva/vakansii/politseyskiy_3378353933",
+      "title": "Полицейский",
+      "salary_raw": "140 000 — 170 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Цветной бульвар, 6–10 мин.",
+      "promoted": true
+    }
+  ],
+  "listing_item_audit": {
+    "rendered": 50,
+    "malformed": 0
+  },
+  "pagination": {
+    "next_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=17",
+    "end_confirmed": false,
+    "evidence": {
+      "text": null,
+      "label": "Следующая страница",
+      "href": "/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=17",
+      "disabled": false
+    },
+    "limitation": "End requires an explicitly disabled Next; missing Next alone is not proof; infinite loading and server-side result caps are not covered"
+  }
+}

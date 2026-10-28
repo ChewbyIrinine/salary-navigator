@@ -121,3 +121,5 @@ avito_runs/<название_сбора>/
 - [ekaterinburg_all_100_2026-10-28](avito_runs/ekaterinburg_all_100_2026-10-28/exports/vacancies_flat.csv): 100 вакансий.
 
 - [20261028-spb-50-all](avito_runs/20261028-spb-50-all/exports/vacancies_flat.csv): 50 вакансий.
+
+- [moscow-all-10000-20261028](avito_runs/moscow-all-10000-20261028/exports/vacancies_flat.csv): 1397 вакансий.

@@ -390,6 +390,170 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Frozen listing changed'):
                 runner.validate_plan_profession(plan, listing)
 
+    def test_offline_salary_review_preserves_raw_and_rejects_other_lines(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'salary')
+            data = raw(); data.update(params_blocks=['Условия\nГрафик: Сменный\nОклад105\u00a0000\u00a0₽', 'Требования\nОпыт: Без опыта'], fields=[{'name':'График','value':'Сменный'}, {'name':'Опыт','value':'Без опыта'}], parameter_audit={'rendered_complete':False,'expansion_controls':[]})
+            runner.write(out/'raw/123.json', data); before = (out/'raw/123.json').read_bytes()
+            runner.write(out/'queue.json', [item('123'), item('456')]); runner.write(diag/'checkpoint.json', dict(state='REVIEW_REQUIRED', stop_reason='identity_or_template_review', next_id='123', completed_ids=[]))
+            runner.record_failure(diag, 'capture', 'review', 'capture', immediate=True)
+            runner.authorize_browser(diag, 'Исправь ошибку вакансии 123 и продолжай', 'auth')
+            args = argparse.Namespace(run_id='salary', id='123', authorization_id='auth')
+            runner.review_salary_line(args)
+            runner.salary_review_policy(args)
+            runner.salary_review_policy(args)
+            reviewed = runner.reviewed_capture(out, item())
+            self.assertEqual(reviewed['fields'][-1]['name'], 'Оклад')
+            self.assertEqual(reviewed['fields'][-1]['evidence_raw'], 'Оклад105\u00a0000\u00a0₽')
+            self.assertTrue(reviewed['parameter_audit']['rendered_complete'])
+            self.assertEqual((out/'raw/123.json').read_bytes(), before)
+            self.assertEqual(runner.read(diag/'checkpoint.json')['completed_ids'], ['123'])
+            next_data = dict(data, id='456', source_url=item('456')['url'])
+            runner.write(out/'raw/456.json', next_data)
+            runner.write(diag/'checkpoint.json', dict(state='REVIEW_REQUIRED', stop_reason='identity_or_template_review', next_id='456', completed_ids=['123']))
+            runner.review_salary_line(argparse.Namespace(run_id='salary', id='456', authorization_id='auth', automatic=True))
+            self.assertEqual(runner.reviewed_capture(out, item('456'))['fields'][-1]['name'], 'Оклад')
+            with self.assertRaisesRegex(ValueError, 'Unrecognised'):
+                runner.salary_line_review(dict(data, params_blocks=['Условия\nГрафик: Сменный\nОклад105 000 ₽\nНеизвестный элемент', data['params_blocks'][1]]), '123', item()['url'])
+
+    def test_blocked_listing_policy_requires_exact_listing_evidence(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'blocked_listing')
+            url = item()['url']; data = dict(state='UNKNOWN_PAGE', heading='Объявление не посмотреть', source_url=url)
+            runner.write(out/'raw/123.json', data); before = (out/'raw/123.json').read_bytes()
+            runner.write(out/'queue.json', [item('123'), item('456')]); runner.write(service/'plan.json', dict(selection_mode='saved_incomplete_listing'))
+            runner.write(diag/'checkpoint.json', dict(state='REVIEW_REQUIRED', stop_reason='identity_or_template_review', next_id='123', completed_ids=[]))
+            snapshot = diag/'problem.snapshot.txt'; snapshot.write_text(f'- title: "404" [url={url}]\n- text: "Доступ ограничен."\n')
+            runner.record_failure(diag, 'capture', 'review', 'capture', immediate=True)
+            runner.authorize_browser(diag, 'Отмечай последующие вакансии заблокировано после проверки', 'auth')
+            runner.blocked_listing_policy(argparse.Namespace(run_id='blocked_listing', authorization_id='auth'))
+            args = argparse.Namespace(run_id='blocked_listing', id='123', authorization_id='auth')
+            with self.assertRaisesRegex(ValueError, 'evidence'): runner.mark_unavailable(args)
+            snapshot.write_text(f'- title: "404" [url={url}]\n- text: "Оно заблокировано после проверки."\n')
+            runner.mark_unavailable(args)
+            record = runner.unavailable_records(out, runner.read(out/'queue.json'))[0]
+            self.assertEqual(record['status'], 'unavailable_blocked_after_review')
+            self.assertEqual((out/'raw/123.json').read_bytes(), before)
+            self.assertFalse(runner.closed_raw_matches(dict(data, state='NEEDS_HUMAN'), '123', url, runner.BLOCKED_LISTING_MARKER))
+            self.assertFalse(runner.closed_raw_matches(dict(data, source_url=item('456')['url']), '123', url, runner.BLOCKED_LISTING_MARKER))
+
+    def test_review_policy_matches_nbsp_and_preserves_closed_policy(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'review')
+            url = item()['url']; data = dict(state='UNKNOWN_PAGE', heading='Объявление не\u00a0посмотреть', source_url=url)
+            runner.write(out/'raw/123.json', data); before = (out/'raw/123.json').read_bytes()
+            runner.write(out/'queue.json', [item('123'), item('456')]); runner.write(service/'plan.json', dict(selection_mode='saved_incomplete_listing'))
+            runner.write(diag/'checkpoint.json', dict(state='REVIEW_REQUIRED', stop_reason='identity_or_template_review', next_id='123', completed_ids=[]))
+            (diag/'problem.snapshot.txt').write_text(f'- title: "404" [url={url}]\n- text: "Оно ещё на\u00a0проверке."\n')
+            runner.record_failure(diag, 'capture', 'closed', 'capture', immediate=True)
+            runner.authorize_browser(diag, 'Отмечай все последующие явно закрытые вакансии', 'closed-auth')
+            runner.closed_policy(argparse.Namespace(run_id='review', authorization_id='closed-auth'))
+            runner.record_failure(diag, 'capture', 'review', 'capture', immediate=True)
+            runner.authorize_browser(diag, 'Отмечай последующие карточки на проверке', 'review-auth')
+            runner.review_policy(argparse.Namespace(run_id='review', authorization_id='review-auth'))
+            with self.assertRaisesRegex(ValueError, 'outside'):
+                runner.mark_unavailable(argparse.Namespace(run_id='review', id='123', authorization_id='closed-auth'))
+            runner.mark_unavailable(argparse.Namespace(run_id='review', id='123', authorization_id='review-auth'))
+            record = runner.unavailable_records(out, runner.read(out/'queue.json'))[0]
+            self.assertEqual(record['status'], 'unavailable_under_review')
+            self.assertEqual(record['evidence'], runner.REVIEW_MARKER)
+            self.assertEqual((out/'raw/123.json').read_bytes(), before)
+            self.assertTrue((out/'closed_policy.json').exists())
+            self.assertFalse(runner.closed_raw_matches(dict(data, state='NEEDS_HUMAN'), '123', url, runner.REVIEW_MARKER))
+
+    def test_policy_accepts_explicit_unpublished_detail_only_with_matching_id(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'policy')
+            url = item()['url']; data = dict(state='DETAIL', id='123', title='Работа', source_url=url)
+            runner.write(out/'raw/123.json', data); runner.write(out/'queue.json', [item('123'), item('456')])
+            runner.write(service/'plan.json', dict(selection_mode='saved_incomplete_listing'))
+            runner.write(diag/'checkpoint.json', dict(state='REVIEW_REQUIRED', stop_reason='identity_or_template_review', next_id='123', completed_ids=[]))
+            (diag/'problem.snapshot.txt').write_text(f'- title: "Вакансия" [url={url}]\n- text: "Объявление снято с публикации."\n')
+            runner.record_failure(diag, 'capture', 'review', 'capture', immediate=True)
+            runner.authorize_browser(diag, 'Отмечай все последующие явно закрытые вакансии', 'policy-auth')
+            runner.closed_policy(argparse.Namespace(run_id='policy', authorization_id='policy-auth'))
+            args = argparse.Namespace(run_id='policy', id='123', authorization_id='policy-auth')
+            runner.write(out/'raw/123.json', dict(data, id='999'))
+            with self.assertRaisesRegex(ValueError, 'evidence'): runner.mark_unavailable(args)
+            runner.write(out/'raw/123.json', data)
+            runner.mark_unavailable(args)
+            self.assertEqual(runner.unavailable_records(out, runner.read(out/'queue.json'))[0]['evidence'], 'Объявление снято с публикации.')
+            self.assertFalse(runner.closed_raw_matches(dict(data, state='NEEDS_HUMAN'), '123', url, 'Объявление снято с публикации.'))
+
+    def test_authorized_closed_item_is_recorded_without_replacing_raw(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'closed')
+            url = item()['url']
+            data = dict(state='UNKNOWN_PAGE', heading='Объявление не посмотреть', source_url=url, observed_at='2026-10-28T00:00:00Z')
+            runner.write(out/'raw/123.json', data); before = (out/'raw/123.json').read_bytes()
+            runner.write(out/'queue.json', [item('123'), item('456')])
+            runner.write(service/'plan.json', dict(selection_mode='saved_incomplete_listing'))
+            runner.write(diag/'checkpoint.json', dict(state='REVIEW_REQUIRED', stop_reason='identity_or_template_review', next_id='123', completed_ids=[]))
+            (diag/'problem.snapshot.txt').write_text(f'- title: "Ошибка 404" [url={url}]\n- text: "Объявление закрыто."\n')
+            runner.record_failure(diag, 'capture', 'review', 'capture', immediate=True)
+            args = argparse.Namespace(run_id='closed', id='123', authorization_id='auth')
+            with self.assertRaises(runner.HumanRequired): runner.mark_unavailable(args)
+            runner.authorize_browser(diag, 'Продолжить, исключив закрытое объявление 123', 'auth')
+            runner.mark_unavailable(args)
+            self.assertEqual((out/'raw/123.json').read_bytes(), before)
+            records = runner.unavailable_records(out, runner.read(out/'queue.json'))
+            self.assertEqual(records[0]['id'], '123')
+            self.assertEqual(runner.read(diag/'checkpoint.json')['next_id'], '456')
+            self.assertEqual(runner.read(diag/'checkpoint.json')['completed_ids'], [])
+            self.assertEqual(runner.read(diag/'failures.json')['retries_started'], 0)
+            runner.write(out/'raw/123.json', dict(data, heading='Changed'))
+            with self.assertRaisesRegex(ValueError, 'raw'): runner.unavailable_records(out, runner.read(out/'queue.json'))
+
+    def test_preserve_captcha_observation_requires_authorization_and_retains_raw(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'captcha')
+            blocked = dict(state='NEEDS_HUMAN', reason='access_restriction_or_captcha', source_url=item()['url'], observed_at='2026-10-28T03:00:00Z')
+            runner.write(out/'raw/123.json', blocked); original = (out/'raw/123.json').read_bytes()
+            runner.write(out/'queue.json', [item()])
+            runner.write(diag/'checkpoint.json', dict(state='NEEDS_HUMAN', next_id='123', completed_ids=[], stop_reason='access_restriction_or_captcha'))
+            runner.record_failure(diag, 'capture', 'captcha', 'capture', immediate=True)
+            args = argparse.Namespace(run_id='captcha', authorization_id='human-1')
+            with self.assertRaises(runner.HumanRequired): runner.preserve_stopped_observation(args)
+            runner.authorize_browser(diag, 'Captcha passed, continue', 'human-1')
+            runner.preserve_stopped_observation(args)
+            self.assertFalse((out/'raw/123.json').exists())
+            archived = list((out/'observations/123').glob('*.json'))
+            raw_archive = next(p for p in archived if not p.name.endswith('.provenance.json'))
+            self.assertEqual(raw_archive.read_bytes(), original)
+            provenance = runner.read(next(p for p in archived if p.name.endswith('.provenance.json')))
+            self.assertEqual(provenance['authorization_id'], 'human-1')
+            self.assertEqual(runner.read(diag/'checkpoint.json')['next_id'], '123')
+            self.assertEqual(runner.read(diag/'failures.json')['retries_started'], 0)
+
+    def test_accept_saved_pages_preserves_request_and_failure_history_offline(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); out, service, diag = runner.paths(root, 'saved')
+            for file in runner.AUTOMATION_FILES:
+                path = root/file; path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes((runner.ROOT/file).read_bytes())
+            url = 'https://www.avito.ru/moskva/vakansii'
+            next_url = url + '?p=2'
+            first = dict(state='LISTING', source_url=url, selected_controls=[], items=[item('123'), item('456')], pagination={'next_url': next_url})
+            second = dict(state='LISTING', source_url=next_url, selected_controls=[], items=[item('456'), item('789')], pagination={'next_url': None})
+            runner.write(out/'listing_pages/0001.json', first); runner.write(out/'listing_pages/0002.json', second)
+            request = dict(url=url, limit=10, candidate_limit=None, geography='Москва', profession='', segments='', filter_evidence='Москва', all_pages=False, profession_scope='all')
+            runner.write(diag/'freeze_request.json', request)
+            original = (diag/'freeze_request.json').read_bytes()
+            runner.record_failure(diag, 'freeze', 'no Next', 'freeze')
+            args = argparse.Namespace(run_id='saved', resume=True, url=url, limit=10, geography='Москва', profession='', segments='', filter_evidence='Москва', profession_scope='all', agent_model='gpt-6-luna', retry_reason='Human accepted saved pages', accept_saved=True, human_instruction='Собери эту очередь')
+            with patch.object(runner, 'ROOT', root), patch.object(runner, 'preflight') as preflight, patch.object(runner, 'browser') as browser, patch.object(runner, 'dirty_automation', return_value=[]), patch.object(runner.subprocess, 'check_output', return_value='abc'):
+                runner.freeze(args)
+                preflight.assert_not_called(); browser.assert_not_called()
+            self.assertEqual([x['id'] for x in runner.read(out/'queue.json')], ['123', '456', '789'])
+            plan = runner.read(service/'plan.json')
+            self.assertEqual(plan['limit'], 3)
+            self.assertEqual(plan['saved_selection_authorization']['original_request'], request)
+            self.assertEqual(plan['saved_selection_authorization']['instruction'], 'Собери эту очередь')
+            self.assertEqual((diag/'freeze_request.json').read_bytes(), original)
+            self.assertEqual(runner.read(diag/'failures.json')['failures'], 1)
+            self.assertEqual(runner.read(diag/'failures.json')['retries_started'], 1)
+            self.assertEqual(runner.read(out/'listing_pages/0002.json'), second)
+
     def test_freeze_resumes_even_if_interrupted_before_request_was_saved(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

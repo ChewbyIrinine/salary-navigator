@@ -422,7 +422,12 @@ def freeze(args):
     all_pages = getattr(args, 'all_pages', False)
     if (all_pages and (args.limit is not None or candidate_limit is not None)) or (not all_pages and (args.limit is None or args.limit < 1)) or (candidate_limit is not None and candidate_limit < args.limit):
         raise ValueError('Use a positive --limit or --all-pages; candidate limit requires a numeric target')
-    preflight(getattr(args, 'config', None), diag)
+    accept_saved = getattr(args, 'accept_saved', False)
+    instruction = getattr(args, 'human_instruction', None)
+    if accept_saved and (not args.resume or not instruction or not instruction.strip()):
+        raise ValueError('Accepting saved pages requires --resume and a human instruction')
+    if not accept_saved:
+        preflight(getattr(args, 'config', None), diag)
     started = time.perf_counter()
     diag.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
@@ -433,7 +438,8 @@ def freeze(args):
         raise ValueError('Frozen pages lack their original request; cannot safely resume')
     if existing and (diag/'freeze_request.json').exists() and read(diag / 'freeze_request.json') != request:
         raise ValueError('Resume must preserve the original filter request')
-    write(diag / 'freeze_request.json', request)
+    if not (diag / 'freeze_request.json').exists():
+        write(diag / 'freeze_request.json', request)
     page_dir = out / 'listing_pages'
     page_paths = sorted(page_dir.glob('*.json'), key=lambda p: int(p.stem)) if page_dir.exists() else []
     if [p.name for p in page_paths] != [f'{i:04d}.json' for i in range(1, len(page_paths)+1)]:
@@ -451,6 +457,12 @@ def freeze(args):
     cp = read(diag/'checkpoint.json') if (diag/'checkpoint.json').exists() else dict(state='READY', completed_ids=[])
     target = candidate_limit or args.limit
     listing_end_reason = None
+    if accept_saved:
+        if candidate_limit is not None or all_pages or not pages or (diag/'pending_listing.json').exists() or any((out/'raw').glob('*')):
+            raise ValueError('Saved-page acceptance requires complete saved pages and a numeric ordinary request')
+        target = len(queue_from_pages(pages, None))
+        if not target or target >= args.limit:
+            raise ValueError('Saved pages must contain a nonempty incomplete selection')
     while not pages or target is None or len(queue_from_pages(pages, target, False)) < target:
         if len(pages) > 1 and pages[-1].get('items') and {i['id'] for i in pages[-1]['items']} <= {i['id'] for p in pages[:-1] for i in p.get('items', [])}:
             listing_end_reason = 'no_new_ids'
@@ -510,7 +522,8 @@ def freeze(args):
         profession_source='selected_ui_context' if getattr(args, 'profession_scope', None) else 'observed_controls',
         listing_pages=[dict(file=str(path.relative_to(out)), sha256=sha(path), source_url=page['source_url'])
                        for path, page in zip(page_paths, pages)],
-        selection_mode='first_N_remote_parameter_matches' if candidate_limit is not None else 'first_N_unique_on_frozen_listing', limit=args.limit if candidate_limit is not None else len(queue), requested_all_pages=all_pages,
+        selection_mode='saved_incomplete_listing' if accept_saved else ('first_N_remote_parameter_matches' if candidate_limit is not None else 'first_N_unique_on_frozen_listing'), limit=args.limit if candidate_limit is not None else len(queue), requested_all_pages=all_pages,
+        saved_selection_authorization={'instruction': instruction, 'at': datetime.now(timezone.utc).isoformat(), 'original_request': request} if accept_saved else None,
         requested_limit=args.limit, available_unique=len(queue),
         listing_end_reason=listing_end_reason, available_listing_exhausted=listing_end_reason is not None,
         candidate_limit=candidate_limit,
@@ -529,6 +542,268 @@ def freeze(args):
                       'message': 'Все доступные вакансии выдачи включены в очередь' if listing_end_reason else 'Запрошенная очередь готова'}, ensure_ascii=False))
 
 
+CLOSED_MARKERS = ('Объявление закрыто.', 'Объявление снято с публикации.')
+REVIEW_MARKER = 'Оно ещё на проверке.'
+BLOCKED_LISTING_MARKER = 'Оно заблокировано после проверки.'
+ALL_UNAVAILABLE_MARKERS = (*CLOSED_MARKERS, REVIEW_MARKER, BLOCKED_LISTING_MARKER)
+
+def closed_raw_matches(data, identity, url, marker):
+    if marker not in ALL_UNAVAILABLE_MARKERS or data.get('source_url') != url:
+        return False
+    if data.get('state') == 'UNKNOWN_PAGE':
+        return marker in (CLOSED_MARKERS[0], REVIEW_MARKER, BLOCKED_LISTING_MARKER) and norm(data.get('heading') or '') == 'Объявление не посмотреть'
+    return data.get('state') == 'DETAIL' and data.get('id') == identity and bool(data.get('title')) and marker == CLOSED_MARKERS[1]
+
+
+def closed_policy(args):
+    out, service, diag = paths(ROOT, args.run_id)
+    ledger = read(diag/'failures.json')
+    if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
+        raise HumanRequired('Current browser authorization required')
+    events = ledger['events']
+    indexes = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
+    if not indexes or any(event.get('state') == 'NEEDS_HUMAN' for event in events[indexes[-1]+1:]):
+        raise HumanRequired('Current browser authorization required')
+    instruction = events[indexes[-1]]['instruction']
+    if 'закрыт' not in instruction.lower() or 'последующ' not in instruction.lower():
+        raise ValueError('Authorization must explicitly cover subsequent closed vacancies')
+    path = out/'closed_policy.json'
+    policy = dict(authorization_id=args.authorization_id, human_instruction=instruction, markers=list(CLOSED_MARKERS))
+    if path.exists() and read(path) != policy:
+        raise ValueError('Existing closed policy differs; preserve history')
+    if not path.exists(): write(path, policy)
+    print('Closed-listing policy recorded for this run')
+
+
+def review_policy(args):
+    out, service, diag = paths(ROOT, args.run_id)
+    ledger = read(diag/'failures.json')
+    if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
+        raise HumanRequired('Current browser authorization required')
+    events = ledger['events']
+    indexes = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
+    if not indexes or any(event.get('state') == 'NEEDS_HUMAN' for event in events[indexes[-1]+1:]):
+        raise HumanRequired('Current browser authorization required')
+    instruction = events[indexes[-1]]['instruction']
+    if 'проверке' not in instruction.lower() or 'последующ' not in instruction.lower():
+        raise ValueError('Authorization must explicitly cover subsequent listings under review')
+    path = out/'review_policy.json'
+    policy = dict(authorization_id=args.authorization_id, human_instruction=instruction, markers=[REVIEW_MARKER])
+    if path.exists() and read(path) != policy:
+        raise ValueError('Existing review policy differs; preserve history')
+    if not path.exists(): write(path, policy)
+    print('Under-review policy recorded for this run')
+
+
+def blocked_listing_policy(args):
+    out, service, diag = paths(ROOT, args.run_id)
+    ledger = read(diag/'failures.json')
+    if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
+        raise HumanRequired('Current browser authorization required')
+    events = ledger['events']
+    indexes = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
+    if not indexes or any(event.get('state') == 'NEEDS_HUMAN' for event in events[indexes[-1]+1:]):
+        raise HumanRequired('Current browser authorization required')
+    instruction = events[indexes[-1]]['instruction']
+    if 'заблокировано после проверки' not in instruction.lower() or 'последующ' not in instruction.lower():
+        raise ValueError('Authorization must explicitly cover subsequent listings blocked after review')
+    path = out/'blocked_listing_policy.json'
+    policy = dict(authorization_id=args.authorization_id, human_instruction=instruction, markers=[BLOCKED_LISTING_MARKER])
+    if path.exists() and read(path) != policy:
+        raise ValueError('Existing blocked-listing policy differs; preserve history')
+    if not path.exists(): write(path, policy)
+    print('Blocked-listing policy recorded for this run')
+
+
+def unavailable_records(out, queue):
+    path = out/'unavailable.json'
+    records = read(path) if path.exists() else []
+    ids = set()
+    for record in records:
+        identity = record['id']
+        matches = [item for item in queue if item['id'] == identity]
+        raw = out/'raw'/f'{identity}.json'
+        if identity in ids or len(matches) != 1 or record.get('url') != matches[0]['url'] or not raw.is_file() or sha(raw) != record.get('raw_sha256'):
+            raise ValueError('Unavailable record does not match frozen queue or raw')
+        data = read(raw)
+        if not closed_raw_matches(data, identity, record['url'], record.get('evidence')) or not record.get('authorization_id'):
+            raise ValueError('Invalid unavailable observation')
+        ids.add(identity)
+    return records
+
+
+def mark_unavailable(args):
+    out, service, diag = paths(ROOT, args.run_id)
+    if (service/'manifest.json').exists():
+        raise ValueError('Completed run is immutable')
+    ledger = read(diag/'failures.json')
+    if ledger['state'] == 'NEEDS_HUMAN' or (ledger['state'] == 'RETRY_STARTED' and not getattr(args, 'automatic', False)):
+        raise HumanRequired('Resume browser authorization is required after the stop')
+    events = ledger['events']
+    auth = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
+    latest_auth = max((i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization'), default=-1)
+    if not auth or latest_auth < 0 or any(event.get('state') == 'NEEDS_HUMAN' for event in events[latest_auth+1:]):
+        raise HumanRequired('Current human authorization required')
+    instruction = events[auth[-1]]['instruction']
+    policies = [read(path) for path in (out/'closed_policy.json', out/'review_policy.json', out/'blocked_listing_policy.json') if path.exists()]
+    policy = next((p for p in policies if p.get('authorization_id') == args.authorization_id and p.get('human_instruction') == instruction and p.get('markers') in (list(CLOSED_MARKERS), [REVIEW_MARKER], [BLOCKED_LISTING_MARKER])), None)
+    if args.id not in instruction and not policy:
+        raise ValueError('Human authorization must identify the unavailable ID or authorize its policy')
+    cp = read(diag/'checkpoint.json')
+    queue = read(out/'queue.json')
+    if cp.get('state') != 'REVIEW_REQUIRED' or cp.get('stop_reason') != 'identity_or_template_review' or cp.get('next_id') != args.id or args.id in cp.get('completed_ids', []):
+        raise ValueError('Expected the reviewed pending checkpoint ID')
+    if read(service/'plan.json').get('selection_mode') == 'first_N_remote_parameter_matches':
+        raise ValueError('Unavailable handling is not supported for remote candidate selection')
+    matches = [item for item in queue if item['id'] == args.id]
+    prior_excluded = {record['id'] for record in unavailable_records(out, queue)}
+    pending_index = next((i for i, item in enumerate(queue) if item['id'] == args.id), None)
+    if pending_index is None or cp.get('completed_ids') != [item['id'] for item in queue[:pending_index] if item['id'] not in prior_excluded]:
+        raise ValueError('Checkpoint completed IDs must match the reviewed queue prefix')
+    if len(matches) != 1:
+        raise ValueError('Expected one frozen queue item')
+    raw = out/'raw'/f'{args.id}.json'; data = read(raw)
+    snap = diag/'problem.snapshot.txt'; snapshot = snap.read_text(encoding='utf-8')
+    url = matches[0]['url']
+    markers = [marker for marker in ALL_UNAVAILABLE_MARKERS if any(norm(line) == f'- text: "{marker}"' for line in snapshot.splitlines())]
+    if len(markers) != 1 or f'[url={url}]' not in snapshot or not closed_raw_matches(data, args.id, url, markers[0]):
+        raise ValueError('Missing exact closed-page evidence for the pending URL')
+    if policy and markers[0] not in policy['markers']:
+        raise ValueError('Observed marker is outside this authorization')
+    records = unavailable_records(out, queue)
+    if any(record['id'] == args.id for record in records):
+        raise ValueError('Unavailable ID already recorded')
+    pointer = diag/'sandbox.json'
+    if pointer.exists():
+        sandbox = Path(read(pointer)['path'])
+        if (sandbox/'raw'/raw.name).read_bytes() != raw.read_bytes() or read(sandbox/'checkpoint.json').get('next_id') != args.id:
+            raise ValueError('Sandbox differs from stopped observation')
+    records.append(dict(id=args.id, url=url, status=('unavailable_under_review' if markers[0] == REVIEW_MARKER else 'unavailable_blocked_after_review' if markers[0] == BLOCKED_LISTING_MARKER else 'unavailable_closed'), evidence=markers[0],
+        snapshot_sha256=sha(snap), raw_sha256=sha(raw), observed_at=data.get('observed_at'),
+        authorization_id=args.authorization_id, human_instruction=instruction,
+        recorded_at=datetime.now(timezone.utc).isoformat()))
+    write(out/'unavailable.json', records)
+    index = next(i for i, item in enumerate(queue) if item['id'] == args.id)
+    cp.update(state='READY', next_id=queue[index+1]['id'] if index+1 < len(queue) else None, stop_reason=None)
+    write(diag/'checkpoint.json', cp)
+    pointer.unlink(missing_ok=True)
+    print(json.dumps({'unavailable': args.id, 'next_id': cp['next_id']}))
+
+
+def salary_line_review(data, identity, url):
+    """Validate a saved complete parameter block with a joined salary label/value."""
+    if not check(data, identity)['structural_check_passed'] or data.get('source_url') != url:
+        raise ValueError('Saved identity or URL mismatch')
+    audit = data.get('parameter_audit', {})
+    if audit.get('rendered_complete') is not False or audit.get('expansion_controls') != []:
+        raise ValueError('Saved parameter audit is not the supported case')
+    blocks = data.get('params_blocks')
+    if not isinstance(blocks, list) or len(blocks) != 2 or not blocks[0].startswith('Условия\n') or not blocks[1].startswith('Требования\n'):
+        raise ValueError('Expected complete conditions and requirements blocks')
+    lines = [line.strip() for block in blocks for line in block.splitlines() if line.strip()]
+    salary_lines = [line for line in lines if re.fullmatch(r'Оклад\s*[0-9\s]+\s*₽', line)]
+    if len(salary_lines) != 1:
+        raise ValueError('Expected exactly one joined salary line')
+    salary_line = salary_lines[0]
+    parsed = []
+    for line in lines:
+        if line in ('Условия', 'Требования') or line == salary_line: continue
+        match = re.fullmatch(r'([^:]+):\s+(.+)', line)
+        if not match: raise ValueError('Unrecognised parameter line')
+        parsed.append((norm(match.group(1)), norm(match.group(2))))
+    fields = data.get('fields') or []
+    saved = [(norm(f['name']), norm(f['value'])) for f in fields]
+    if parsed != saved or len({name for name, value in saved}) != len(saved) or any(name == 'Оклад' for name, value in saved):
+        raise ValueError('Saved parameters do not match all visible lines')
+    value = salary_line[len('Оклад'):].strip()
+    result = dict(data)
+    result['fields'] = fields + [dict(name='Оклад', value=value, values=[value], values_parse='one_visible_value', evidence_raw=salary_line)]
+    result['parameter_audit'] = dict(audit, rendered_complete=True, offline_review='joined_salary_line_v1')
+    return result
+
+
+def reviewed_capture(out, item):
+    path = out/'raw'/f"{item['id']}.json"
+    data = read(path)
+    review_path = out/'offline_reviews'/f"{item['id']}.json"
+    if review_path.exists():
+        review = read(review_path)
+        if review.get('raw_sha256') != sha(path) or review.get('method') != 'joined_salary_line_v1' or not review.get('authorization_id'):
+            raise ValueError('Offline review provenance mismatch')
+        data = salary_line_review(data, item['id'], item['url'])
+    return data
+
+
+def salary_review_policy(args):
+    out, service, diag = paths(ROOT, args.run_id)
+    ledger = read(diag/'failures.json'); events = ledger['events']
+    if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
+        raise HumanRequired('Current browser authorization required')
+    auth = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
+    if not auth or any(event.get('state') == 'NEEDS_HUMAN' for event in events[auth[-1]+1:]):
+        raise HumanRequired('Current browser authorization required')
+    instruction = events[auth[-1]]['instruction']
+    if args.id not in instruction or 'исправ' not in instruction.lower() or 'продолж' not in instruction.lower():
+        raise ValueError('Authorization must request fixing this case and continuing')
+    cp = read(diag/'checkpoint.json'); queue = read(out/'queue.json')
+    matches = [item for item in queue if item['id'] == args.id]
+    if len(matches) != 1: raise ValueError('Expected one queue ID')
+    if cp.get('next_id') != args.id:
+        review_path = out/'offline_reviews'/f'{args.id}.json'
+        if args.id not in cp.get('completed_ids', []) or not review_path.exists():
+            raise ValueError('Expected pending or already reviewed completed ID')
+        review = read(review_path)
+        if review.get('authorization_id') != args.authorization_id or review.get('human_instruction') != instruction:
+            raise ValueError('Existing review authorization differs')
+        reviewed_capture(out, matches[0])
+    else:
+        salary_line_review(read(out/'raw'/f'{args.id}.json'), args.id, matches[0]['url'])
+    path = out/'salary_review_policy.json'
+    policy = dict(authorization_id=args.authorization_id, human_instruction=instruction, method='joined_salary_line_v1', initial_id=args.id)
+    if path.exists() and read(path) != policy: raise ValueError('Existing salary review policy differs')
+    if not path.exists(): write(path, policy)
+    print('Salary-line review policy recorded for this run')
+
+
+def review_salary_line(args):
+    out, service, diag = paths(ROOT, args.run_id)
+    if (service/'manifest.json').exists(): raise ValueError('Completed run is immutable')
+    ledger = read(diag/'failures.json'); events = ledger['events']
+    if ledger['state'] == 'NEEDS_HUMAN' or (ledger['state'] == 'RETRY_STARTED' and not getattr(args, 'automatic', False)): raise HumanRequired('Current human authorization required')
+    auth = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
+    latest = max((i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization'), default=-1)
+    if not auth or latest < 0 or any(event.get('state') == 'NEEDS_HUMAN' for event in events[latest+1:]):
+        raise HumanRequired('Current browser authorization required')
+    policy_path = out/'salary_review_policy.json'
+    policy = read(policy_path) if policy_path.exists() else {}
+    policy_valid = policy.get('authorization_id') == args.authorization_id and policy.get('human_instruction') == events[auth[-1]]['instruction'] and policy.get('method') == 'joined_salary_line_v1'
+    if args.id not in events[auth[-1]]['instruction'] and not policy_valid:
+        raise HumanRequired('Authorization must identify this ID or cover this salary review')
+    cp = read(diag/'checkpoint.json'); queue = read(out/'queue.json')
+    if cp.get('state') != 'REVIEW_REQUIRED' or cp.get('stop_reason') != 'identity_or_template_review' or cp.get('next_id') != args.id:
+        raise ValueError('Expected the pending review checkpoint')
+    matches = [item for item in queue if item['id'] == args.id]
+    if len(matches) != 1: raise ValueError('Expected one queue item')
+    excluded = {record['id'] for record in unavailable_records(out, queue)}
+    index = next(i for i, item in enumerate(queue) if item['id'] == args.id)
+    if cp.get('completed_ids') != [item['id'] for item in queue[:index] if item['id'] not in excluded]:
+        raise ValueError('Checkpoint prefix mismatch')
+    raw = out/'raw'/f'{args.id}.json'; salary_line_review(read(raw), args.id, matches[0]['url'])
+    pointer = diag/'sandbox.json'
+    if pointer.exists():
+        sandbox = Path(read(pointer)['path'])
+        if (sandbox/'raw'/raw.name).read_bytes() != raw.read_bytes() or read(sandbox/'checkpoint.json').get('next_id') != args.id:
+            raise ValueError('Sandbox differs from stopped observation')
+    dest = out/'offline_reviews'/f'{args.id}.json'
+    if dest.exists(): raise ValueError('Offline review already exists')
+    write(dest, dict(id=args.id, raw_sha256=sha(raw), method='joined_salary_line_v1', authorization_id=args.authorization_id,
+        human_instruction=events[auth[-1]]['instruction'], reviewed_at=datetime.now(timezone.utc).isoformat()))
+    cp['completed_ids'].append(args.id)
+    cp.update(state='READY', next_id=queue[index+1]['id'] if index+1 < len(queue) else None, stop_reason=None)
+    write(diag/'checkpoint.json', cp); pointer.unlink(missing_ok=True)
+    print(json.dumps({'reviewed': args.id, 'next_id': cp['next_id']}))
+
+
 def capture(args):
     out, service, diag = paths(ROOT, args.run_id)
     ensure_allowed(diag, 'capture', getattr(args, 'retry_reason', None), action=True)
@@ -537,8 +812,11 @@ def capture(args):
     plan = read(service / 'plan.json')
     validate_plan_profession(plan, out / 'listing.json')
     preflight(getattr(args, 'config', None), diag)
-    if any(sha(ROOT/file) != value for file,value in plan['automation_sha256'].items()):
-        raise ValueError('Collector changed; preserve old run and start a new observation')
+    changed = {file for file, value in plan['automation_sha256'].items() if sha(ROOT/file) != value}
+    changes = read(diag/'automation_changes.json') if (diag/'automation_changes.json').exists() else []
+    if changed - {'Scraper/skills/collect-avito/scripts/run.py', 'Scraper/skills/collect-avito/SKILL.md'}:
+        raise ValueError('Unapproved collector source changed; preserve old run')
+    validate_automation_changes(changes, changed)
     cp, queue = read(diag / 'checkpoint.json'), read(out / 'queue.json')
     # Recover an interrupted transfer before considering another navigation.
     if (diag / 'sandbox.json').exists():
@@ -568,12 +846,15 @@ def capture(args):
         print(json.dumps(dict(state='CAPTURED' if accepted == plan['limit'] else 'IN_PROGRESS',
             captured=len(decisions), accepted=accepted, remaining=max(0, plan['limit']-accepted))))
         return
+    unavailable = {record['id'] for record in unavailable_records(out, queue)}
     pending = []
     done = []
     for item in queue:
+        if item['id'] in unavailable:
+            continue
         path = out / 'raw' / (item['id'] + '.json')
         if path.exists():
-            data = read(path)
+            data = reviewed_capture(out, item)
             if not check(data, item['id'])['structural_check_passed'] or not data.get('parameter_audit', {}).get('rendered_complete'):
                 raise ValueError(f'Saved {item["id"]} needs review; never overwrite or silently skip it')
             done.append(item['id'])
@@ -586,8 +867,28 @@ def capture(args):
                                previous_capture_seconds=cp.get('capture_seconds', 0)), out, diag)
     cp2['capture_seconds'] = cp.get('capture_seconds', 0) + elapsed
     write(diag / 'checkpoint.json', cp2)
-    print(json.dumps(dict(cp2, captured=len(cp2['completed_ids']), remaining=len(queue)-len(cp2['completed_ids']))))
+    print(json.dumps(dict(cp2, captured=len(cp2['completed_ids']), remaining=len(queue)-len(unavailable)-len(cp2['completed_ids']))))
     if cp2['state'] != 'CAPTURED':
+        if cp2['state'] == 'REVIEW_REQUIRED':
+            for policy_path in (out/'closed_policy.json', out/'review_policy.json', out/'blocked_listing_policy.json'):
+                if not policy_path.exists(): continue
+                policy = read(policy_path)
+                try:
+                    mark_unavailable(argparse.Namespace(run_id=args.run_id, id=cp2['next_id'], authorization_id=policy['authorization_id'], automatic=True))
+                except (ValueError, HumanRequired, OSError, KeyError):
+                    continue
+                print(json.dumps({'state': 'IN_PROGRESS', 'unavailable': cp2['next_id']}))
+                return
+            salary_policy = out/'salary_review_policy.json'
+            if salary_policy.exists():
+                policy = read(salary_policy)
+                try:
+                    review_salary_line(argparse.Namespace(run_id=args.run_id, id=cp2['next_id'], authorization_id=policy['authorization_id'], automatic=True))
+                except (ValueError, HumanRequired, OSError, KeyError):
+                    pass
+                else:
+                    print(json.dumps({'state': 'IN_PROGRESS', 'reviewed': cp2['next_id']}))
+                    return
         raise CollectionStopped('Stopped; inspect diagnostics and repair the shared collector before resuming', cp2['state'])
 
 
@@ -732,10 +1033,18 @@ def finalize(args):
             raise ValueError('Target not reached; incomplete candidate selection cannot be exported')
         selected_ids = {d['id'] for d in decisions if d['accepted']}
         selected_queue = [item for item in queue if item['id'] in selected_ids]
+    unavailable = unavailable_records(out, queue)
+    if unavailable and decisions is not None:
+        raise ValueError('Unavailable handling is not supported for remote candidate selection')
+    excluded = {record['id'] for record in unavailable}
     rows, reviews, mapping, unknown_cities = [], [], {}, {}
     for item in selected_queue:
-        data = read(out / 'raw' / (item['id'] + '.json'))
+        if item['id'] in excluded:
+            continue
+        data = reviewed_capture(out, item)
         row, review, region = reviewed_row(data, item, regions, plan, overrides.get(item['id']))
+        offline_path = out/'offline_reviews'/f"{item['id']}.json"
+        if offline_path.exists(): review['offline_review'] = read(offline_path)
         rows.append(row); reviews.append(review)
         if row['city']:
             mapping[row['city']] = region
@@ -756,7 +1065,7 @@ def finalize(args):
     for review in reviews:
         write(out / 'reviewed' / (review['id'] + '.json'), review)
     write(exports / 'validation.json', dict(planned=len(queue), accepted=len(rows),
-        unique_ids=len({r['id'] for r in rows}), errors=[], review_method='deterministic_rendered_template_v1'))
+        unique_ids=len({r['id'] for r in rows}), unavailable=unavailable, errors=[], review_method='deterministic_rendered_template_v1'))
     entry = dict(run_id=args.run_id, source='avito',
         path=str((exports / 'vacancies_flat.csv').relative_to(ROOT)), sha256=sha(exports / 'vacancies_flat.csv'),
         placement_regions=mapping, enrichment_status='not_run')
@@ -774,7 +1083,7 @@ def finalize(args):
     (ROOT / 'Data/dataset/manifest.json').write_bytes(manifest_bytes)
     manifest = dict(run_id=args.run_id, dataset_id=args.run_id, status='complete',
         schema=dict(columns=columns, unknown_policy='empty_not_zero'), collection=plan,
-        coverage=dict(planned=len(queue), accepted=len(rows), unique_ids=[r['id'] for r in rows], errors=[],
+        coverage=dict(planned=len(queue), accepted=len(rows), unavailable=unavailable, unique_ids=[r['id'] for r in rows], errors=[],
             limitations=['Visible rendered parameters only; enrichment not run; placement on site; live route unverified']),
         timing=dict(setup_seconds=plan['setup_seconds'], capture_seconds=read(diag/'checkpoint.json').get('capture_seconds'),
             review_export_seconds=time.perf_counter()-started, publication_seconds=None),
@@ -830,6 +1139,53 @@ def resume_offline(args):
     _, _, diag = paths(ROOT, args.run_id)
     authorize_offline(diag, args.human_instruction)
     print('Human instruction recorded: finalize/publish allowed; browser remains stopped')
+
+
+def preserve_stopped_observation(args):
+    """Preserve a blocked observation before retrying exactly the checkpoint ID."""
+    out, service, diag = paths(ROOT, args.run_id)
+    ledger = read(diag/'failures.json')
+    if ledger['state'] in ('NEEDS_HUMAN', 'RETRY_STARTED'):
+        raise HumanRequired('Resolve the current stop or active retry before preserving an observation')
+    events = ledger['events']
+    authorizations = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
+    if not authorizations or any(event.get('state') == 'NEEDS_HUMAN' for event in events[authorizations[-1]+1:]):
+        raise HumanRequired('Current browser authorization required after the stop')
+    cp = read(diag/'checkpoint.json')
+    identity = cp.get('next_id')
+    if cp.get('state') != 'NEEDS_HUMAN' or cp.get('stop_reason') != 'access_restriction_or_captcha' or not identity or identity in cp.get('completed_ids', []):
+        raise ValueError('Expected a stopped CAPTCHA observation at the pending checkpoint ID')
+    queue = read(out/'queue.json')
+    if len([item for item in queue if item['id'] == identity]) != 1:
+        raise ValueError('Checkpoint ID must occur once in the frozen queue')
+    source = out/'raw'/f'{identity}.json'
+    data = read(source)
+    if data.get('state') != 'NEEDS_HUMAN' or data.get('reason') != 'access_restriction_or_captcha' or data.get('source_url') != next(item['url'] for item in queue if item['id'] == identity):
+        raise ValueError('Raw observation does not match the stopped queue item')
+    sandbox_pointer = diag/'sandbox.json'
+    if sandbox_pointer.exists():
+        sandbox = Path(read(sandbox_pointer)['path'])
+        other = sandbox/'raw'/source.name
+        if not other.exists() or other.read_bytes() != source.read_bytes():
+            raise ValueError('Sandbox raw differs; inspect interrupted transfer')
+        sandbox_cp = read(sandbox/'checkpoint.json')
+        if sandbox_cp.get('next_id') != identity or sandbox_cp.get('state') != 'NEEDS_HUMAN':
+            raise ValueError('Sandbox checkpoint differs; inspect interrupted transfer')
+    archive = out/'observations'/identity
+    archive.mkdir(parents=True, exist_ok=True)
+    destination = archive/(sha(source) + '.json')
+    if destination.exists() and destination.read_bytes() != source.read_bytes():
+        raise ValueError('Observation archive collision')
+    if not destination.exists():
+        shutil.copy2(source, destination)
+    write(archive/(sha(source) + '.provenance.json'), dict(authorization_id=args.authorization_id,
+        original_file=str(source.relative_to(out)), sha256=sha(source), observed_at=data.get('observed_at'),
+        preserved_at=datetime.now(timezone.utc).isoformat(), reason=data['reason']))
+    # The old sandbox remains on disk; removing only its pointer prevents reimport of
+    # the already archived stopped observation into the pending raw slot.
+    sandbox_pointer.unlink(missing_ok=True)
+    source.unlink()
+    print(json.dumps({'pending_id': identity, 'preserved': str(destination.relative_to(out))}))
 
 
 def resume_browser(args):
@@ -892,7 +1248,7 @@ def publish(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ['freeze', 'capture', 'finalize', 'publish', 'reselect', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
+    for name in ['freeze', 'capture', 'finalize', 'publish', 'reselect', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
         command = commands.add_parser(name)
         command.add_argument('--run-id', required=True)
         if name in ('freeze', 'capture'):
@@ -900,6 +1256,8 @@ def main():
         if name == 'freeze':
             command.add_argument('--retry-reason')
             command.add_argument('--resume', action='store_true', help='Recover an interrupted freeze with identical inputs')
+            command.add_argument('--accept-saved', action='store_true', help='Offline: accept the incomplete saved listing with explicit human instruction')
+            command.add_argument('--human-instruction', help='Explicit instruction to accept exactly the saved listing')
             command.add_argument('--agent-model', default=None, help='Actual browser agent model, not a model switch')
             command.add_argument('--url', required=True, help='Observed listing URL after filter confirmation')
             size = command.add_mutually_exclusive_group(required=True)
@@ -924,6 +1282,23 @@ def main():
             command.add_argument('--summary', required=True)
             command.add_argument('--title', required=True)
             command.add_argument('--prepare-only', action='store_true')
+        elif name == 'salary-review-policy':
+            command.add_argument('--id', required=True)
+            command.add_argument('--authorization-id', required=True)
+        elif name == 'review-salary-line':
+            command.add_argument('--id', required=True)
+            command.add_argument('--authorization-id', required=True)
+        elif name == 'blocked-listing-policy':
+            command.add_argument('--authorization-id', required=True)
+        elif name == 'review-policy':
+            command.add_argument('--authorization-id', required=True)
+        elif name == 'closed-policy':
+            command.add_argument('--authorization-id', required=True)
+        elif name == 'mark-unavailable':
+            command.add_argument('--id', required=True)
+            command.add_argument('--authorization-id', required=True)
+        elif name == 'preserve-stopped-observation':
+            command.add_argument('--authorization-id', required=True)
         elif name == 'reselect':
             command.add_argument('--reason', required=True)
         elif name == 'record-error':
@@ -947,7 +1322,7 @@ def main():
         parser.error('batch-size must be positive')
     with ExitStack() as stack:
         try:
-            if args.command in ('freeze', 'capture', 'finalize', 'publish', 'reselect', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
+            if args.command in ('freeze', 'capture', 'finalize', 'publish', 'reselect', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
                 stack.enter_context(operation_locked(paths(ROOT, args.run_id)[2]))
             globals()[args.command.replace('-', '_')](args)
             if args.command in ('freeze', 'capture', 'finalize', 'publish'):
