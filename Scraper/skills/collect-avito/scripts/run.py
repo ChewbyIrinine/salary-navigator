@@ -27,7 +27,7 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.20'
+VERSION = '1.7.21'
 AUTOMATION_FILES = ['Scraper/skills/collect-avito/references/top-professions.json', 'utils/title_flags.py', 'Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -450,18 +450,19 @@ def freeze(args):
         pending.unlink()
     cp = read(diag/'checkpoint.json') if (diag/'checkpoint.json').exists() else dict(state='READY', completed_ids=[])
     target = candidate_limit or args.limit
+    listing_end_reason = None
     while not pages or target is None or len(queue_from_pages(pages, target, False)) < target:
+        if len(pages) > 1 and pages[-1].get('items') and {i['id'] for i in pages[-1]['items']} <= {i['id'] for p in pages[:-1] for i in p.get('items', [])}:
+            listing_end_reason = 'no_new_ids'
+            break
         url = args.url if not pages else pages[-1].get('pagination', {}).get('next_url')
         if not url:
-            pagination = pages[-1].get('pagination', {}) if pages else {}
-            if all_pages and pagination.get('end_confirmed'):
-                break
-            if all_pages:
-                raise ValueError('No Next link and end of listing is not confirmed; preserve saved pages')
-            raise ValueError('Not enough unique cards and no observed Next link; inspect pagination')
+            listing_end_reason = 'no_next_link'
+            break
         avito_url(url)
         if any(same_observed_url(url, p['source_url']) for p in pages):
-            raise ValueError('Observed Next link repeats a listing page')
+            listing_end_reason = 'repeated_next_link'
+            break
         recovering = pending.exists() and read(pending) == {'url': url}
         if pending.exists() and not recovering:
             raise ValueError('Pending listing does not match the observed Next link')
@@ -486,8 +487,6 @@ def freeze(args):
             if candidate_limit is not None and not any(c.get('label') == 'Удалённо' and 'params[172815]' in (c.get('marker') or '') for c in page.get('selected_controls', [])):
                 raise ValueError('Remote selection requires the observed Удалённо filter')
         queue_from_pages([page], target, False)  # validate every observed card before persisting
-        if pages and page.get('items') and {i['id'] for i in page['items']} <= {i['id'] for p in pages for i in p.get('items', [])}:
-            raise ValueError('Next page adds no new vacancies; preserve progress and inspect the listing')
         path = page_dir / f'{len(pages)+1:04d}.json'
         write(path, page)
         pages.append(page); page_paths.append(path)
@@ -498,7 +497,9 @@ def freeze(args):
         raise ValueError('Remote selection requires the observed Удалённо filter')
     if candidate_limit is not None and candidate_limit < args.limit:
         raise ValueError('Candidate limit must be at least the target limit')
-    queue = queue_from_pages(pages, candidate_limit if candidate_limit is not None else args.limit)
+    queue = queue_from_pages(pages, target, require_full=False)
+    if not queue:
+        raise ValueError('No vacancies were observed; cannot create an empty capture queue')
     write(out / 'listing.json', listing)
     write(out / 'queue.json', queue)
     write(service / 'plan.json', dict(run_id=args.run_id, geography=args.geography,
@@ -509,7 +510,9 @@ def freeze(args):
         profession_source='selected_ui_context' if getattr(args, 'profession_scope', None) else 'observed_controls',
         listing_pages=[dict(file=str(path.relative_to(out)), sha256=sha(path), source_url=page['source_url'])
                        for path, page in zip(page_paths, pages)],
-        selection_mode='first_N_remote_parameter_matches' if candidate_limit is not None else 'first_N_unique_on_frozen_listing', limit=len(queue) if all_pages else args.limit, requested_all_pages=all_pages,
+        selection_mode='first_N_remote_parameter_matches' if candidate_limit is not None else 'first_N_unique_on_frozen_listing', limit=args.limit if candidate_limit is not None else len(queue), requested_all_pages=all_pages,
+        requested_limit=args.limit, available_unique=len(queue),
+        listing_end_reason=listing_end_reason, available_listing_exhausted=listing_end_reason is not None,
         candidate_limit=candidate_limit,
         created_at=datetime.now(timezone.utc).isoformat(), instruction_version=VERSION,
         extractor_sha256=sha(ROOT / 'Scraper/extract.js'), instruction_sha256=sha(SCRIPTS.parent / 'SKILL.md'),
@@ -521,7 +524,9 @@ def freeze(args):
     cp.update(next_id=queue[0]['id'], capture_seconds=0)
     write(diag / 'checkpoint.json', cp)
     print(json.dumps({'state': 'READY', 'queued': len(queue), 'heading': listing.get('heading'),
-                      'selected_controls': listing.get('selected_controls')}, ensure_ascii=False))
+                      'selected_controls': listing.get('selected_controls'),
+                      'requested_limit': args.limit, 'listing_end_reason': listing_end_reason,
+                      'message': 'Все доступные вакансии выдачи включены в очередь' if listing_end_reason else 'Запрошенная очередь готова'}, ensure_ascii=False))
 
 
 def capture(args):
