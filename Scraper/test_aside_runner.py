@@ -65,6 +65,33 @@ class RunnerTests(unittest.TestCase):
             self.assertEqual(runner.load_failures(diag)['retry_limit'], 1)
             with self.assertRaises(runner.HumanRequired): runner.ensure_allowed(first, 'capture')
 
+    def test_partition_closed_policy_uses_parent_authorization_and_keeps_raw(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            _, _, parent = runner.paths(runner.ROOT, 'parent')
+            children = [runner.paths(runner.ROOT, f'child{i}') for i in (1, 2)]
+            for _, _, diag in children:
+                runner.write(diag/'shared-ledger.json', {'parent_run_id':'parent'})
+            runner.record_failure(parent, 'capture', 'closed', 'read', immediate=True)
+            args = lambda run: argparse.Namespace(run_id=run, authorization_id='human-closed')
+            with self.assertRaises(runner.HumanRequired): runner.closed_policy(args('child1'))
+            runner.authorize_browser(parent, 'Исключай закрытые и все последующие закрытые вакансии', 'human-closed')
+            ledger_before = (parent/'failures.json').read_bytes()
+            for run in ('child1','child2'): runner.closed_policy(args(run))
+            out, service, diag = children[0]
+            candidate = item('123'); runner.write(out/'queue.json', [candidate])
+            runner.write(service/'plan.json', {'selection_mode':'first_N_unique_on_frozen_listing'})
+            runner.write(diag/'checkpoint.json', {'state':'REVIEW_REQUIRED','stop_reason':'identity_or_template_review','next_id':'123','completed_ids':[]})
+            data = {'source_url':candidate['url'],'state':'UNKNOWN_PAGE','heading':'Объявление не посмотреть','observed_at':'2026-10-28T00:00:00Z'}
+            runner.write(out/'raw/123.json',data); before = (out/'raw/123.json').read_bytes()
+            (diag/'problem.snapshot.txt').write_text(f'# title [url={candidate["url"]}]\n- text: "Объявление закрыто."\n')
+            runner.mark_unavailable(argparse.Namespace(run_id='child1',id='123',authorization_id='human-closed'))
+            self.assertEqual((out/'raw/123.json').read_bytes(),before)
+            self.assertEqual((parent/'failures.json').read_bytes(),ledger_before)
+            self.assertFalse(any((d/'failures.json').exists() for _,_,d in children))
+            self.assertEqual(runner.read(children[1][0]/'closed_policy.json')['authorization_id'],'human-closed')
+            runner.record_failure(children[1][2], 'capture', 'another stop', 'read', immediate=True)
+            with self.assertRaises(runner.HumanRequired): runner.closed_policy(args('child2'))
+
     def test_archive_rejected_partial_listing_preserves_failure_history(self):
         with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
             out, service, diag = runner.paths(runner.ROOT, 'parent')
