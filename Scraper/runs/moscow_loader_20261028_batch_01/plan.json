@@ -1,0 +1,249 @@
+{
+  "run_id": "moscow_loader_20261028_batch_01",
+  "geography": "Москва",
+  "profession": "Грузчик",
+  "segments": "",
+  "filter_evidence": "Fresh form snapshot showed profession Грузчик checkbox value=3201725, then exact observed Москва profession listing link was followed. Final evaluate: H1 Вакансии по профессии Грузчик в Москве; checkbox checked=true aria_checked=true; no other checked checkboxes; global and description searches empty; defaults Any/Неважно/Все.",
+  "listing_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD",
+  "listing_request_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD",
+  "selected_controls": [
+    {
+      "label": "Грузчик",
+      "marker": "params[144170]/checkbox/3201725",
+      "value": null
+    },
+    {
+      "label": "Грузчик",
+      "marker": "params[144170]/checkbox/toggle",
+      "value": "3201725"
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "listing_sha256": "da88cfe9608a2a9c36616933b8128fbbb812da36a9b7bf4b6d5ef8d833219954",
+  "profession_scope": null,
+  "profession_source": "observed_controls",
+  "listing_pages": [
+    {
+      "file": "listing_pages/0001.json",
+      "sha256": "da88cfe9608a2a9c36616933b8128fbbb812da36a9b7bf4b6d5ef8d833219954",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD"
+    },
+    {
+      "file": "listing_pages/0002.json",
+      "sha256": "abdcba61fdb7cd5d60122e3df527b24ca1ad71277a3c309425e7fd41fc815fa6",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=2"
+    },
+    {
+      "file": "listing_pages/0003.json",
+      "sha256": "f80a1df44635ef926176062fb3b5c9a8f2f69f341103e70d4188c1b0d0971ed0",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=3"
+    },
+    {
+      "file": "listing_pages/0004.json",
+      "sha256": "12584753635ed188b457bf69daf8ba3127c56e2050168fb1d943a7c92a621f04",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=4"
+    },
+    {
+      "file": "listing_pages/0005.json",
+      "sha256": "5461c5bba3be38ba92076d40305aab10df71918a36d4578cadad21de53807dbb",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=5"
+    },
+    {
+      "file": "listing_pages/0006.json",
+      "sha256": "8dbed2b450aa20bba2e1cc7f0c0344cccb015d5811fb707983352fd62b292cdd",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=6"
+    },
+    {
+      "file": "listing_pages/0007.json",
+      "sha256": "e058e30b46b378a9f7344bc11355de58290dde8a49bf8e52252580930273f19f",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=7"
+    },
+    {
+      "file": "listing_pages/0008.json",
+      "sha256": "4c9dcc507188f56c732ffb4d81ef1f879624e824fbd067e8d6163f6e7f072efe",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=8"
+    },
+    {
+      "file": "listing_pages/0009.json",
+      "sha256": "8eb87a929ca91bbfbef395ea0aea6b21755d603e8a49bdf9952cc8d88d470433",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=9"
+    },
+    {
+      "file": "listing_pages/0010.json",
+      "sha256": "906925fce21e0af630385998449c63148c373525af488b76fda9a32b3df3c10b",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=10"
+    },
+    {
+      "file": "listing_pages/0011.json",
+      "sha256": "58c7a1ca64583035456fe9ed8e68cf561d1da26ab6121fa9d13ab253718bf859",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=11"
+    },
+    {
+      "file": "listing_pages/0012.json",
+      "sha256": "a22bf3629ec8b35b699797b0f1daa4061e0748228881387c05d52d85ccc08e0d",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=12"
+    },
+    {
+      "file": "listing_pages/0013.json",
+      "sha256": "d0c55c2c9b1103e27590211c61f3ae36599a1ea33446de11a063357c8dfd55d2",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=13"
+    },
+    {
+      "file": "listing_pages/0014.json",
+      "sha256": "582e7f3b7dbe3dcaff207b02bc747ccdbea3a691788f1709626feb82197b6947",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=14"
+    },
+    {
+      "file": "listing_pages/0015.json",
+      "sha256": "fdd07be5d436221b3130e063d8721802e7ba6a57c5c514065c0199f97e7d51f4",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=15"
+    },
+    {
+      "file": "listing_pages/0016.json",
+      "sha256": "47f49640e72dcb2ea27e986988e8246d0e82415aeeb76a6cc32e1380b2de956e",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=16"
+    },
+    {
+      "file": "listing_pages/0017.json",
+      "sha256": "9fded8963f4715dfbc2e86506f22182a1125b13974feed897c52bf9d972cf43d",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=17"
+    },
+    {
+      "file": "listing_pages/0018.json",
+      "sha256": "c0930cc49b8fa40b059d338cda829c38f3cd6457849e54df86242c556ca00c89",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=18"
+    },
+    {
+      "file": "listing_pages/0019.json",
+      "sha256": "20f6891a6c30f65982b6fdb2ca1333fcaf5fadad8442f8c766856271cc968cfa",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=19"
+    },
+    {
+      "file": "listing_pages/0020.json",
+      "sha256": "4196e5487d7735c1d74e0861a4d0ca47871171898e2a6c6706677b39e1e51527",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=20"
+    },
+    {
+      "file": "listing_pages/0021.json",
+      "sha256": "13548ca7024b123b46b3af3f92e573acf04a8e7f565691b59cd5f88dd42da73e",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=21"
+    },
+    {
+      "file": "listing_pages/0022.json",
+      "sha256": "a502078a706fd7d83217e01663b326bd8330cb64a06a3af58028db51d88b36b3",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=22"
+    },
+    {
+      "file": "listing_pages/0023.json",
+      "sha256": "8493404cd3f4406f03c78bcb5bac26d9dfbdaadb19ab783ca485b792582bcd83",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=23"
+    },
+    {
+      "file": "listing_pages/0024.json",
+      "sha256": "e5a8320cc96a56c31a9a8c2deafa5f7bce51d66ef52beb28d3aa6b344715617e",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=24"
+    },
+    {
+      "file": "listing_pages/0025.json",
+      "sha256": "d2fa35097437d3b2efdfc4864630b6624c5897efce6297f3d8eb281032e41aee",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=25"
+    },
+    {
+      "file": "listing_pages/0026.json",
+      "sha256": "7ec61a34a3df9057b62eec2b54772cb7b703e5dbb02dd036ee8b381defbb648c",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=26"
+    },
+    {
+      "file": "listing_pages/0027.json",
+      "sha256": "b574890e1cecc12ecf90b614e881d4a6cbda6a9c1e218591c821c6efbf49e0b8",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=27"
+    },
+    {
+      "file": "listing_pages/0028.json",
+      "sha256": "ebd2d794549858d7df57646f11d91a236862601feb07e0f13403d4322b811a48",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=28"
+    },
+    {
+      "file": "listing_pages/0029.json",
+      "sha256": "f752d9e02678cd31d7835f63d721749aed4dafaf960ec668c9b3a11cd3993537",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=29"
+    },
+    {
+      "file": "listing_pages/0030.json",
+      "sha256": "2bbd67e7b621bd3e6160d953d6717997e4189a5fde9f28bf4eb2fb1ffcc1b626",
+      "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=30"
+    }
+  ],
+  "selection_mode": "first_N_unique_on_frozen_listing",
+  "limit": 300,
+  "requested_all_pages": true,
+  "saved_selection_authorization": null,
+  "requested_limit": 300,
+  "available_unique": 300,
+  "listing_end_reason": "no_next_link",
+  "available_listing_exhausted": true,
+  "candidate_limit": null,
+  "created_at": "2026-10-28T18:34:17.411187+00:00",
+  "instruction_version": "1.7.23",
+  "extractor_sha256": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+  "instruction_sha256": "ce10cca15063b2b5b078efa79f2ab8fc5b44ac85dcc4405ccf1a39ee5f2b390d",
+  "code_git_commit": "2ce7e7edf63d0744fe21b97f844ae4f327af02c0",
+  "setup_seconds": 120.77929916698486,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/skills/collect-avito/references/top-professions.json": "e3e72638b17b48f825ec6f2fefb963662494f679ae4b0cef1bebedba889610dd",
+    "utils/title_flags.py": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
+    "Scraper/extract.js": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+    "Scraper/skills/collect-avito/SKILL.md": "ce10cca15063b2b5b078efa79f2ab8fc5b44ac85dcc4405ccf1a39ee5f2b390d",
+    "Scraper/skills/collect-avito/scripts/run.py": "f29ff4f5b676f81040ed96b8facd69f93e5ba8656c868e3bc6a33920c9a8c48f",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "3b1bc1cf576671b35dabf3f96418d29e36d38cfc057a089524604f358f253cf1",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "aa746849317f9768af5aae08b394b9379539f6e268c1fc69e4ed13bd06a4657f",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "5a28324829d546ce87b662b9e6e4b48cc4ba5aa5d13114483975d2c407b293e6",
+    "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+  },
+  "uncommitted_automation_files": [],
+  "partition": {
+    "parent_run_id": "moscow_loader_20261028_b01",
+    "parent_plan_sha256": "88f4de339c002427906e312d5da87b04ad3b6ac0546bf4d969948ecb2dca97a7",
+    "parent_queue_sha256": "b6c74644eb41c71f37b2e220099cddd3d7a34631ba4795cb496216f79a424256",
+    "index": 1,
+    "batch_size": 300,
+    "start": 0,
+    "end": 300,
+    "total": 588,
+    "siblings": [
+      "moscow_loader_20261028_batch_01",
+      "moscow_loader_20261028_batch_02"
+    ]
+  }
+}

@@ -1,0 +1,3376 @@
+{
+  "run_id": "moscow_loader_20261028_batch_01",
+  "dataset_id": "moscow_loader_20261028_batch_01",
+  "status": "complete",
+  "schema": {
+    "columns": [
+      "id",
+      "city",
+      "profession",
+      "segments",
+      "title",
+      "salary_raw",
+      "source_url",
+      "observed_at",
+      "description",
+      "location_observed",
+      "employer_name_observed",
+      "date_raw",
+      "views_total",
+      "views_today",
+      "listing_rank",
+      "listing_promoted",
+      "full_parameters_read",
+      "analysis_status",
+      "export_eligibility",
+      "read_status_parameters",
+      "read_status_description",
+      "read_status_location",
+      "read_limitations",
+      "enrichment_status",
+      "enriched_fields",
+      "enrichment_version",
+      "military",
+      "military_keywords",
+      "military_rule_version",
+      "city__source",
+      "city__evidence",
+      "city_anomaly",
+      "График",
+      "Занятость",
+      "Способ оформления",
+      "Длительность вахты",
+      "Количество рабочих часов в день",
+      "Частота выплат",
+      "Сфера деятельности компании",
+      "Что получают работники",
+      "Тип предприятия",
+      "Опыт работы",
+      "Разряд",
+      "Медкнижка",
+      "Режим работы",
+      "В том числе для кандидатов",
+      "Смены",
+      "Количество рабочих дней в неделю",
+      "Стажировка",
+      "Где предстоит работать",
+      "Можно заканчивать в 17:00"
+    ],
+    "unknown_policy": "empty_not_zero"
+  },
+  "collection": {
+    "run_id": "moscow_loader_20261028_batch_01",
+    "geography": "Москва",
+    "profession": "Грузчик",
+    "segments": "",
+    "filter_evidence": "Fresh form snapshot showed profession Грузчик checkbox value=3201725, then exact observed Москва profession listing link was followed. Final evaluate: H1 Вакансии по профессии Грузчик в Москве; checkbox checked=true aria_checked=true; no other checked checkboxes; global and description searches empty; defaults Any/Неважно/Все.",
+    "listing_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD",
+    "listing_request_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD",
+    "selected_controls": [
+      {
+        "label": "Грузчик",
+        "marker": "params[144170]/checkbox/3201725",
+        "value": null
+      },
+      {
+        "label": "Грузчик",
+        "marker": "params[144170]/checkbox/toggle",
+        "value": "3201725"
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/all",
+        "value": null
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/all",
+        "value": null
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": null,
+        "value": "all"
+      },
+      {
+        "label": "Все",
+        "marker": null,
+        "value": "all"
+      }
+    ],
+    "listing_sha256": "da88cfe9608a2a9c36616933b8128fbbb812da36a9b7bf4b6d5ef8d833219954",
+    "profession_scope": null,
+    "profession_source": "observed_controls",
+    "listing_pages": [
+      {
+        "file": "listing_pages/0001.json",
+        "sha256": "da88cfe9608a2a9c36616933b8128fbbb812da36a9b7bf4b6d5ef8d833219954",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD"
+      },
+      {
+        "file": "listing_pages/0002.json",
+        "sha256": "abdcba61fdb7cd5d60122e3df527b24ca1ad71277a3c309425e7fd41fc815fa6",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=2"
+      },
+      {
+        "file": "listing_pages/0003.json",
+        "sha256": "f80a1df44635ef926176062fb3b5c9a8f2f69f341103e70d4188c1b0d0971ed0",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=3"
+      },
+      {
+        "file": "listing_pages/0004.json",
+        "sha256": "12584753635ed188b457bf69daf8ba3127c56e2050168fb1d943a7c92a621f04",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=4"
+      },
+      {
+        "file": "listing_pages/0005.json",
+        "sha256": "5461c5bba3be38ba92076d40305aab10df71918a36d4578cadad21de53807dbb",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=5"
+      },
+      {
+        "file": "listing_pages/0006.json",
+        "sha256": "8dbed2b450aa20bba2e1cc7f0c0344cccb015d5811fb707983352fd62b292cdd",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=6"
+      },
+      {
+        "file": "listing_pages/0007.json",
+        "sha256": "e058e30b46b378a9f7344bc11355de58290dde8a49bf8e52252580930273f19f",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=7"
+      },
+      {
+        "file": "listing_pages/0008.json",
+        "sha256": "4c9dcc507188f56c732ffb4d81ef1f879624e824fbd067e8d6163f6e7f072efe",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=8"
+      },
+      {
+        "file": "listing_pages/0009.json",
+        "sha256": "8eb87a929ca91bbfbef395ea0aea6b21755d603e8a49bdf9952cc8d88d470433",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=9"
+      },
+      {
+        "file": "listing_pages/0010.json",
+        "sha256": "906925fce21e0af630385998449c63148c373525af488b76fda9a32b3df3c10b",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=10"
+      },
+      {
+        "file": "listing_pages/0011.json",
+        "sha256": "58c7a1ca64583035456fe9ed8e68cf561d1da26ab6121fa9d13ab253718bf859",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=11"
+      },
+      {
+        "file": "listing_pages/0012.json",
+        "sha256": "a22bf3629ec8b35b699797b0f1daa4061e0748228881387c05d52d85ccc08e0d",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=12"
+      },
+      {
+        "file": "listing_pages/0013.json",
+        "sha256": "d0c55c2c9b1103e27590211c61f3ae36599a1ea33446de11a063357c8dfd55d2",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=13"
+      },
+      {
+        "file": "listing_pages/0014.json",
+        "sha256": "582e7f3b7dbe3dcaff207b02bc747ccdbea3a691788f1709626feb82197b6947",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=14"
+      },
+      {
+        "file": "listing_pages/0015.json",
+        "sha256": "fdd07be5d436221b3130e063d8721802e7ba6a57c5c514065c0199f97e7d51f4",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=15"
+      },
+      {
+        "file": "listing_pages/0016.json",
+        "sha256": "47f49640e72dcb2ea27e986988e8246d0e82415aeeb76a6cc32e1380b2de956e",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=16"
+      },
+      {
+        "file": "listing_pages/0017.json",
+        "sha256": "9fded8963f4715dfbc2e86506f22182a1125b13974feed897c52bf9d972cf43d",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=17"
+      },
+      {
+        "file": "listing_pages/0018.json",
+        "sha256": "c0930cc49b8fa40b059d338cda829c38f3cd6457849e54df86242c556ca00c89",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=18"
+      },
+      {
+        "file": "listing_pages/0019.json",
+        "sha256": "20f6891a6c30f65982b6fdb2ca1333fcaf5fadad8442f8c766856271cc968cfa",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=19"
+      },
+      {
+        "file": "listing_pages/0020.json",
+        "sha256": "4196e5487d7735c1d74e0861a4d0ca47871171898e2a6c6706677b39e1e51527",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=20"
+      },
+      {
+        "file": "listing_pages/0021.json",
+        "sha256": "13548ca7024b123b46b3af3f92e573acf04a8e7f565691b59cd5f88dd42da73e",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=21"
+      },
+      {
+        "file": "listing_pages/0022.json",
+        "sha256": "a502078a706fd7d83217e01663b326bd8330cb64a06a3af58028db51d88b36b3",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=22"
+      },
+      {
+        "file": "listing_pages/0023.json",
+        "sha256": "8493404cd3f4406f03c78bcb5bac26d9dfbdaadb19ab783ca485b792582bcd83",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=23"
+      },
+      {
+        "file": "listing_pages/0024.json",
+        "sha256": "e5a8320cc96a56c31a9a8c2deafa5f7bce51d66ef52beb28d3aa6b344715617e",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=24"
+      },
+      {
+        "file": "listing_pages/0025.json",
+        "sha256": "d2fa35097437d3b2efdfc4864630b6624c5897efce6297f3d8eb281032e41aee",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=25"
+      },
+      {
+        "file": "listing_pages/0026.json",
+        "sha256": "7ec61a34a3df9057b62eec2b54772cb7b703e5dbb02dd036ee8b381defbb648c",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=26"
+      },
+      {
+        "file": "listing_pages/0027.json",
+        "sha256": "b574890e1cecc12ecf90b614e881d4a6cbda6a9c1e218591c821c6efbf49e0b8",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=27"
+      },
+      {
+        "file": "listing_pages/0028.json",
+        "sha256": "ebd2d794549858d7df57646f11d91a236862601feb07e0f13403d4322b811a48",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=28"
+      },
+      {
+        "file": "listing_pages/0029.json",
+        "sha256": "f752d9e02678cd31d7835f63d721749aed4dafaf960ec668c9b3a11cd3993537",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=29"
+      },
+      {
+        "file": "listing_pages/0030.json",
+        "sha256": "2bbd67e7b621bd3e6160d953d6717997e4189a5fde9f28bf4eb2fb1ffcc1b626",
+        "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=30"
+      }
+    ],
+    "selection_mode": "first_N_unique_on_frozen_listing",
+    "limit": 300,
+    "requested_all_pages": true,
+    "saved_selection_authorization": null,
+    "requested_limit": 300,
+    "available_unique": 300,
+    "listing_end_reason": "no_next_link",
+    "available_listing_exhausted": true,
+    "candidate_limit": null,
+    "created_at": "2026-10-28T18:34:17.411187+00:00",
+    "instruction_version": "1.7.23",
+    "extractor_sha256": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+    "instruction_sha256": "ce10cca15063b2b5b078efa79f2ab8fc5b44ac85dcc4405ccf1a39ee5f2b390d",
+    "code_git_commit": "2ce7e7edf63d0744fe21b97f844ae4f327af02c0",
+    "setup_seconds": 120.77929916698486,
+    "live_route_verified": false,
+    "execution_model": "gpt-6-luna",
+    "automation_sha256": {
+      "Scraper/skills/collect-avito/references/top-professions.json": "e3e72638b17b48f825ec6f2fefb963662494f679ae4b0cef1bebedba889610dd",
+      "utils/title_flags.py": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
+      "Scraper/extract.js": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+      "Scraper/skills/collect-avito/SKILL.md": "ce10cca15063b2b5b078efa79f2ab8fc5b44ac85dcc4405ccf1a39ee5f2b390d",
+      "Scraper/skills/collect-avito/scripts/run.py": "f29ff4f5b676f81040ed96b8facd69f93e5ba8656c868e3bc6a33920c9a8c48f",
+      "Scraper/skills/collect-avito/scripts/browser_batch.js": "3b1bc1cf576671b35dabf3f96418d29e36d38cfc057a089524604f358f253cf1",
+      "Scraper/skills/collect-avito/scripts/check_capture.py": "aa746849317f9768af5aae08b394b9379539f6e268c1fc69e4ed13bd06a4657f",
+      "Scraper/skills/collect-avito/scripts/failure_log.py": "5a28324829d546ce87b662b9e6e4b48cc4ba5aa5d13114483975d2c407b293e6",
+      "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+    },
+    "uncommitted_automation_files": [],
+    "partition": {
+      "parent_run_id": "moscow_loader_20261028_b01",
+      "parent_plan_sha256": "88f4de339c002427906e312d5da87b04ad3b6ac0546bf4d969948ecb2dca97a7",
+      "parent_queue_sha256": "b6c74644eb41c71f37b2e220099cddd3d7a34631ba4795cb496216f79a424256",
+      "index": 1,
+      "batch_size": 300,
+      "start": 0,
+      "end": 300,
+      "total": 588,
+      "siblings": [
+        "moscow_loader_20261028_batch_01",
+        "moscow_loader_20261028_batch_02"
+      ]
+    },
+    "city_anomaly_policy": "blank"
+  },
+  "coverage": {
+    "planned": 300,
+    "accepted": 295,
+    "unavailable": [
+      {
+        "id": "8407899157",
+        "url": "https://www.avito.ru/moskva/vakansii/gruzchik_s_ezhednevnoy_oplatoy_8407899157",
+        "status": "unavailable_closed",
+        "evidence": "Объявление закрыто.",
+        "snapshot_sha256": "45d1a781ae6a4c434f888ecb6e3c2b319f5c2cd87d1f5aa274be6aaf3acf7ee5",
+        "raw_sha256": "d5f1988edfcbad38203df98a3e40766ad0e9d46ef20ec05a0c39500fbe976f50",
+        "observed_at": "2026-10-28T18:57:40.183Z",
+        "authorization_id": "user-closed-policy-20261028",
+        "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+        "recorded_at": "2026-10-28T20:03:49.749471+00:00"
+      },
+      {
+        "id": "8414442207",
+        "url": "https://www.avito.ru/moskva/vakansii/gruzchik_v_magazin_8414442207",
+        "status": "unavailable_closed",
+        "evidence": "Объявление закрыто.",
+        "snapshot_sha256": "7e1f9569c6084cdf2824ee43cd54ee70b5344ca5b5171a842009365a4f376fb3",
+        "raw_sha256": "eca60d04285411e536c9167cdae12b484606980809bba1e8116e7a4e96fe01ef",
+        "observed_at": "2026-10-28T20:04:53.623Z",
+        "authorization_id": "user-closed-policy-20261028",
+        "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+        "recorded_at": "2026-10-28T20:04:53.686393+00:00"
+      },
+      {
+        "id": "8304252152",
+        "url": "https://www.avito.ru/moskva/vakansii/gruzchik_tekstilya_moskva_vahta_pitanie_legko_mzh_8304252152",
+        "status": "unavailable_closed",
+        "evidence": "Объявление закрыто.",
+        "snapshot_sha256": "3798c2a54bbb8994e1a816d23238ede13c5a090e5c9e9632c3a1efaecd5bfa93",
+        "raw_sha256": "7b70281e82d41229c7d94a32cc1f4cec0e5400631aa81c78fc3062b799ca5978",
+        "observed_at": "2026-10-28T20:07:01.562Z",
+        "authorization_id": "user-closed-policy-20261028",
+        "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+        "recorded_at": "2026-10-28T20:07:01.738842+00:00"
+      },
+      {
+        "id": "8410169313",
+        "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_postoyannuyu_rabotu_8410169313",
+        "status": "unavailable_closed",
+        "evidence": "Объявление закрыто.",
+        "snapshot_sha256": "a984c2c2157b22e03e484c7821988f02e16c39b52be3c78f5b4e7d76867ba605",
+        "raw_sha256": "ca76e9aa404d2c09f17cdcc0884ec5badde6de9d1dfcd5db61a37bb307d61666",
+        "observed_at": "2026-10-28T20:07:59.619Z",
+        "authorization_id": "user-closed-policy-20261028",
+        "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+        "recorded_at": "2026-10-28T20:07:59.714458+00:00"
+      },
+      {
+        "id": "8315472452",
+        "url": "https://www.avito.ru/moskva/vakansii/gruzchik_raznorabochiy_8315472452",
+        "status": "unavailable_closed",
+        "evidence": "Объявление закрыто.",
+        "snapshot_sha256": "f0c91a130531408f74cf7e17b53305c364f9b9814867ba5830948d497f48279c",
+        "raw_sha256": "3dc9933f8a9bc60de00a922b8d5694d6dffce7a03e9f96e0bc9acd7a5c500d3a",
+        "observed_at": "2026-10-28T20:09:20.560Z",
+        "authorization_id": "user-closed-policy-20261028",
+        "human_instruction": "Продолжить, исключать эту и все последующие явно закрытые карточки. Эта карточка: 8407899157; политика для обеих частей текущей очереди Москва — Грузчик.",
+        "recorded_at": "2026-10-28T20:09:20.629452+00:00"
+      }
+    ],
+    "unique_ids": [
+      "7522972776",
+      "8479967644",
+      "8421608501",
+      "2537094336",
+      "8490481988",
+      "8336808756",
+      "8254469818",
+      "7978523249",
+      "8413919632",
+      "8405556800",
+      "8210498410",
+      "8439170097",
+      "3762534663",
+      "8453463272",
+      "7842456603",
+      "8405064835",
+      "8288945643",
+      "8368771577",
+      "8398747503",
+      "8359070474",
+      "7769809492",
+      "8215463940",
+      "8397508633",
+      "8400203109",
+      "8362131326",
+      "7490265393",
+      "3485584023",
+      "8467502199",
+      "8382361348",
+      "8445141275",
+      "8344196388",
+      "4288354022",
+      "8332816202",
+      "8470864104",
+      "3614952730",
+      "8224756617",
+      "8352893671",
+      "8459446475",
+      "8328279725",
+      "8372555581",
+      "8344052588",
+      "8491204504",
+      "7316783274",
+      "2715195850",
+      "8485626776",
+      "7661976762",
+      "8382443779",
+      "7555341775",
+      "7915422546",
+      "1817482143",
+      "8027245246",
+      "8300298782",
+      "8409205644",
+      "8413924867",
+      "4827037204",
+      "8360425879",
+      "8375988851",
+      "3238582102",
+      "8346024824",
+      "8175111406",
+      "8410184249",
+      "7429050501",
+      "8434936137",
+      "2915139801",
+      "8310740105",
+      "8268926785",
+      "8426064155",
+      "8331891487",
+      "8482671436",
+      "8470686679",
+      "8480235752",
+      "8410624077",
+      "8369392477",
+      "8338311097",
+      "7695671309",
+      "7877729832",
+      "8282726504",
+      "8435521177",
+      "8491794506",
+      "8092228582",
+      "7448822836",
+      "2964966448",
+      "8365811841",
+      "8482663788",
+      "3466405292",
+      "8444951938",
+      "7659124986",
+      "8378733722",
+      "8400179212",
+      "8267734821",
+      "8040772302",
+      "7565694217",
+      "8347360739",
+      "2497125789",
+      "8013992690",
+      "8419908591",
+      "8463780809",
+      "8420243520",
+      "8420107736",
+      "8471491842",
+      "8340618708",
+      "8207909573",
+      "8190821826",
+      "7853420888",
+      "3383066291",
+      "8400807344",
+      "8575373560",
+      "8545061508",
+      "8364372753",
+      "4152838652",
+      "8247976442",
+      "8243560048",
+      "8340349109",
+      "8372400711",
+      "8346922908",
+      "8410188604",
+      "8441703827",
+      "7670327195",
+      "7369279248",
+      "8308919419",
+      "8405042555",
+      "8422776504",
+      "8378175554",
+      "8390099682",
+      "8130623851",
+      "8466976993",
+      "8219707199",
+      "3557868133",
+      "8390226002",
+      "8273634014",
+      "8334733000",
+      "8448420102",
+      "8245976887",
+      "8466887536",
+      "4139932709",
+      "4038956569",
+      "8358955070",
+      "8331275269",
+      "8485103480",
+      "3189809110",
+      "4655592245",
+      "4324813937",
+      "8499383789",
+      "8471749226",
+      "8490682652",
+      "8406110936",
+      "8445402624",
+      "8435222791",
+      "8368789687",
+      "8370326867",
+      "8470052021",
+      "8154889955",
+      "7871075097",
+      "8481974576",
+      "4247270985",
+      "8499659457",
+      "4505671768",
+      "8165294950",
+      "8348303774",
+      "8425652126",
+      "8441390564",
+      "8412921076",
+      "8445087982",
+      "8277649219",
+      "8141391179",
+      "7726584920",
+      "8229483810",
+      "8498972692",
+      "8445097690",
+      "8260735345",
+      "8362790220",
+      "8285041449",
+      "8348307243",
+      "8441493551",
+      "8369208802",
+      "3663258446",
+      "8340657111",
+      "8207794171",
+      "8410062921",
+      "8316835569",
+      "8470032970",
+      "8305220120",
+      "7731805253",
+      "8292763064",
+      "8499130944",
+      "8302683150",
+      "4763314353",
+      "8483510381",
+      "8314408857",
+      "8423088792",
+      "8451420905",
+      "8459034460",
+      "4574233531",
+      "8422230549",
+      "8363376726",
+      "8292621176",
+      "4200893603",
+      "8328663012",
+      "8156187644",
+      "8340165776",
+      "8410093501",
+      "8514697082",
+      "2646100537",
+      "7591651226",
+      "8422024184",
+      "7814039429",
+      "4279294604",
+      "8512556390",
+      "8516890337",
+      "8240235930",
+      "8344867799",
+      "7551090258",
+      "8355293113",
+      "8198542583",
+      "8409757392",
+      "8232624181",
+      "8348429248",
+      "8327994779",
+      "7341317927",
+      "8157022154",
+      "8409847770",
+      "8510830020",
+      "8491213508",
+      "8221921133",
+      "8286432170",
+      "8426946797",
+      "8282418214",
+      "8400644039",
+      "1848546463",
+      "8466948626",
+      "8348287780",
+      "8314961675",
+      "8275803290",
+      "8328137065",
+      "8483180252",
+      "8390352759",
+      "8544167077",
+      "8296808867",
+      "8498935696",
+      "7957952441",
+      "8230920255",
+      "8577212424",
+      "8292395385",
+      "4439225292",
+      "8543435263",
+      "7720304526",
+      "8239459587",
+      "8577481577",
+      "8254077571",
+      "8459429614",
+      "8327814694",
+      "7968531766",
+      "8574875997",
+      "7502816469",
+      "8377651285",
+      "8207689688",
+      "8014685692",
+      "8430937727",
+      "8456865099",
+      "8435375669",
+      "8073495790",
+      "8439050344",
+      "8105259238",
+      "8382493318",
+      "8545760639",
+      "8240471078",
+      "8483424960",
+      "8337871385",
+      "8369066026",
+      "8223752859",
+      "8049151043",
+      "1794708656",
+      "8263408435",
+      "8491784209",
+      "8446991871",
+      "7335118174",
+      "8459376474",
+      "8370330127",
+      "8414301636",
+      "8545259782",
+      "8407774620",
+      "8311987727",
+      "8375140474",
+      "8342728089",
+      "8348115425",
+      "8376212579",
+      "8439364901",
+      "7818690702",
+      "8429410303",
+      "8435620705",
+      "8250233309",
+      "7735880434",
+      "8372896059",
+      "8436984920",
+      "8136713162"
+    ],
+    "errors": [],
+    "limitations": [
+      "Visible rendered parameters only; enrichment not run; placement on site; live route unverified"
+    ]
+  },
+  "timing": {
+    "setup_seconds": 120.77929916698486,
+    "capture_seconds": 1163.6820245429408,
+    "review_export_seconds": 0.6936045419424772,
+    "publication_seconds": null
+  },
+  "review_model": "gpt-6.1-terra",
+  "automation_changes": [
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Сохранение REPL при остановке и подключение пользовательской вкладки",
+      "validation": "python3 -m unittest Scraper.test_aside_runner -q: 31 tests passed; live lifecycle pending"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/browser_batch.js",
+      "reason": "Сохранение проблемной вкладки и защита пользовательской вкладки",
+      "validation": "python3 -m unittest Scraper.test_aside_runner -q: 31 tests passed; live lifecycle pending"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Регрессии жизненного цикла вкладок и REPL",
+      "validation": "python3 -m unittest Scraper.test_aside_runner -q: 31 tests passed"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Документирование выбора вкладки и диагностики остановки",
+      "validation": "python3 -m unittest Scraper.test_aside_runner -q: 31 tests passed; live lifecycle pending"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/failure_log.py",
+      "reason": "Единый журнал и лимит ошибок для частей одного сбора",
+      "validation": "python3 -m unittest Scraper.test_aside_runner -q: 33 tests passed"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Сохранение вкладки и разделение замороженной очереди с общим бюджетом",
+      "validation": "33 офлайн-теста, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/browser_batch.js",
+      "reason": "Сохранение вкладки и разделение замороженной очереди с общим бюджетом",
+      "validation": "33 офлайн-теста, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/failure_log.py",
+      "reason": "Сохранение вкладки и разделение замороженной очереди с общим бюджетом",
+      "validation": "33 офлайн-теста, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Сохранение вкладки и разделение замороженной очереди с общим бюджетом",
+      "validation": "33 офлайн-теста, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Сохранение вкладки и разделение замороженной очереди с общим бюджетом",
+      "validation": "33 офлайн-теста, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/failure_log.py",
+      "reason": "Правильная фиксация лимита одной коррекции в событии разрешения группы",
+      "validation": "34 офлайн-теста прошли; история сохранена"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Проверка авторизации и лимита группы во временном каталоге",
+      "validation": "34 офлайн-теста прошли"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Сохранение вкладки при остановке, архивирование отклонённой выдачи, разбиение очереди и общий бюджет",
+      "validation": "35 офлайн-тестов, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/browser_batch.js",
+      "reason": "Сохранение вкладки при остановке, архивирование отклонённой выдачи, разбиение очереди и общий бюджет",
+      "validation": "35 офлайн-тестов, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/failure_log.py",
+      "reason": "Сохранение вкладки при остановке, архивирование отклонённой выдачи, разбиение очереди и общий бюджет",
+      "validation": "35 офлайн-тестов, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Сохранение вкладки при остановке, архивирование отклонённой выдачи, разбиение очереди и общий бюджет",
+      "validation": "35 офлайн-тестов, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Сохранение вкладки при остановке, архивирование отклонённой выдачи, разбиение очереди и общий бюджет",
+      "validation": "35 офлайн-тестов, build_dataset --check и git diff --check прошли; lifecycle Aside проверен"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Сообщение участника о 30 доступных страницах",
+      "validation": "Проверены 30 сохранённых страниц и отсутствие Next на последней; подтверждение участника сохранено в completeness-review.json"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Дочерние policy используют общий родительский журнал разрешений без копирования",
+      "validation": "36 офлайн-тестов; включая две дочерние очереди, авторизацию и неизменность raw; build_dataset --check"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Дочерние policy используют общий родительский журнал разрешений без копирования",
+      "validation": "36 офлайн-тестов; включая две дочерние очереди, авторизацию и неизменность raw; build_dataset --check"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Дочерние policy используют общий родительский журнал разрешений без копирования",
+      "validation": "36 офлайн-тестов; включая две дочерние очереди, авторизацию и неизменность raw; build_dataset --check"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Постоянная проектная политика подтверждённых недоступных карточек с общим журналом",
+      "validation": "38 офлайн-тестов, включая shared audit, статусы и отрицательные CAPTCHA/URL; build_dataset --check"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Постоянная проектная политика подтверждённых недоступных карточек с общим журналом",
+      "validation": "38 офлайн-тестов, включая shared audit, статусы и отрицательные CAPTCHA/URL; build_dataset --check"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Постоянная проектная политика подтверждённых недоступных карточек с общим журналом",
+      "validation": "38 офлайн-тестов, включая shared audit, статусы и отрицательные CAPTCHA/URL; build_dataset --check"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/scripts/run.py",
+      "reason": "Согласование с актуальным main и постоянной политикой недоступных карточек",
+      "validation": "40 офлайн-тестов и build_dataset --check на синхронизированном main"
+    },
+    {
+      "file": "Scraper/test_aside_runner.py",
+      "reason": "Согласование с актуальным main и постоянной политикой недоступных карточек",
+      "validation": "40 офлайн-тестов и build_dataset --check на синхронизированном main"
+    },
+    {
+      "file": "Scraper/skills/collect-avito/SKILL.md",
+      "reason": "Согласование с актуальным main и постоянной политикой недоступных карточек",
+      "validation": "40 офлайн-тестов и build_dataset --check на синхронизированном main"
+    }
+  ],
+  "post_capture_automation_sha256": {
+    "Scraper/skills/collect-avito/SKILL.md": "af6c2f96afa848d28a3328ce5c9a0ae14bbe14ae33608ef73152bf28d0922422",
+    "Scraper/skills/collect-avito/scripts/run.py": "1e192c5612a1f3aac0b7b46c9d106d6cf4940793171356928e48355c7cde5222"
+  },
+  "files": {
+    "Data/avito_runs/moscow_loader_20261028_batch_01/closed_policy.json": {
+      "bytes": 482,
+      "sha256": "7e6c31c0371cc5aef551d563881ed5edf95a69be96fa494a16bb8b44322b43f7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/completeness-review.json": {
+      "bytes": 912,
+      "sha256": "938332734843f0bd603428b2f59f1b81bd47a2e9d337982690a4abd1e48569f6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/exports/vacancies.json": {
+      "bytes": 1195107,
+      "sha256": "03cad319a09e87112a40e8de07f7bb1f7aed49e5a835abf4438ed8f74f5d60b8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/exports/vacancies_flat.csv": {
+      "bytes": 830203,
+      "sha256": "d5d295166b137220c8d10208dd2103535e5dbe5075df34dd34e2fb7b720907c1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/exports/validation.json": {
+      "bytes": 4537,
+      "sha256": "bd691f3b2bb9b84911eb04edbd94eeba73f9c1e9a725e9b03b5aec11e0e6e1fe"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing.json": {
+      "bytes": 26115,
+      "sha256": "da88cfe9608a2a9c36616933b8128fbbb812da36a9b7bf4b6d5ef8d833219954"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0001.json": {
+      "bytes": 26115,
+      "sha256": "da88cfe9608a2a9c36616933b8128fbbb812da36a9b7bf4b6d5ef8d833219954"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0002.json": {
+      "bytes": 25472,
+      "sha256": "abdcba61fdb7cd5d60122e3df527b24ca1ad71277a3c309425e7fd41fc815fa6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0003.json": {
+      "bytes": 25849,
+      "sha256": "f80a1df44635ef926176062fb3b5c9a8f2f69f341103e70d4188c1b0d0971ed0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0004.json": {
+      "bytes": 25676,
+      "sha256": "12584753635ed188b457bf69daf8ba3127c56e2050168fb1d943a7c92a621f04"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0005.json": {
+      "bytes": 25950,
+      "sha256": "5461c5bba3be38ba92076d40305aab10df71918a36d4578cadad21de53807dbb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0006.json": {
+      "bytes": 26000,
+      "sha256": "8dbed2b450aa20bba2e1cc7f0c0344cccb015d5811fb707983352fd62b292cdd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0007.json": {
+      "bytes": 25803,
+      "sha256": "e058e30b46b378a9f7344bc11355de58290dde8a49bf8e52252580930273f19f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0008.json": {
+      "bytes": 26234,
+      "sha256": "4c9dcc507188f56c732ffb4d81ef1f879624e824fbd067e8d6163f6e7f072efe"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0009.json": {
+      "bytes": 26101,
+      "sha256": "8eb87a929ca91bbfbef395ea0aea6b21755d603e8a49bdf9952cc8d88d470433"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0010.json": {
+      "bytes": 26254,
+      "sha256": "906925fce21e0af630385998449c63148c373525af488b76fda9a32b3df3c10b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0011.json": {
+      "bytes": 26009,
+      "sha256": "58c7a1ca64583035456fe9ed8e68cf561d1da26ab6121fa9d13ab253718bf859"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0012.json": {
+      "bytes": 25963,
+      "sha256": "a22bf3629ec8b35b699797b0f1daa4061e0748228881387c05d52d85ccc08e0d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0013.json": {
+      "bytes": 25792,
+      "sha256": "d0c55c2c9b1103e27590211c61f3ae36599a1ea33446de11a063357c8dfd55d2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0014.json": {
+      "bytes": 25727,
+      "sha256": "582e7f3b7dbe3dcaff207b02bc747ccdbea3a691788f1709626feb82197b6947"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0015.json": {
+      "bytes": 25965,
+      "sha256": "fdd07be5d436221b3130e063d8721802e7ba6a57c5c514065c0199f97e7d51f4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0016.json": {
+      "bytes": 26074,
+      "sha256": "47f49640e72dcb2ea27e986988e8246d0e82415aeeb76a6cc32e1380b2de956e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0017.json": {
+      "bytes": 26249,
+      "sha256": "9fded8963f4715dfbc2e86506f22182a1125b13974feed897c52bf9d972cf43d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0018.json": {
+      "bytes": 26297,
+      "sha256": "c0930cc49b8fa40b059d338cda829c38f3cd6457849e54df86242c556ca00c89"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0019.json": {
+      "bytes": 26150,
+      "sha256": "20f6891a6c30f65982b6fdb2ca1333fcaf5fadad8442f8c766856271cc968cfa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0020.json": {
+      "bytes": 26623,
+      "sha256": "4196e5487d7735c1d74e0861a4d0ca47871171898e2a6c6706677b39e1e51527"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0021.json": {
+      "bytes": 26867,
+      "sha256": "13548ca7024b123b46b3af3f92e573acf04a8e7f565691b59cd5f88dd42da73e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0022.json": {
+      "bytes": 26839,
+      "sha256": "a502078a706fd7d83217e01663b326bd8330cb64a06a3af58028db51d88b36b3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0023.json": {
+      "bytes": 26929,
+      "sha256": "8493404cd3f4406f03c78bcb5bac26d9dfbdaadb19ab783ca485b792582bcd83"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0024.json": {
+      "bytes": 26805,
+      "sha256": "e5a8320cc96a56c31a9a8c2deafa5f7bce51d66ef52beb28d3aa6b344715617e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0025.json": {
+      "bytes": 26950,
+      "sha256": "d2fa35097437d3b2efdfc4864630b6624c5897efce6297f3d8eb281032e41aee"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0026.json": {
+      "bytes": 26985,
+      "sha256": "7ec61a34a3df9057b62eec2b54772cb7b703e5dbb02dd036ee8b381defbb648c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0027.json": {
+      "bytes": 26976,
+      "sha256": "b574890e1cecc12ecf90b614e881d4a6cbda6a9c1e218591c821c6efbf49e0b8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0028.json": {
+      "bytes": 26906,
+      "sha256": "ebd2d794549858d7df57646f11d91a236862601feb07e0f13403d4322b811a48"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0029.json": {
+      "bytes": 26949,
+      "sha256": "f752d9e02678cd31d7835f63d721749aed4dafaf960ec668c9b3a11cd3993537"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/listing_pages/0030.json": {
+      "bytes": 26456,
+      "sha256": "2bbd67e7b621bd3e6160d953d6717997e4189a5fde9f28bf4eb2fb1ffcc1b626"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/provenance/parent-plan.json": {
+      "bytes": 13190,
+      "sha256": "88f4de339c002427906e312d5da87b04ad3b6ac0546bf4d969948ecb2dca97a7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/provenance/parent-queue.json": {
+      "bytes": 285894,
+      "sha256": "b6c74644eb41c71f37b2e220099cddd3d7a34631ba4795cb496216f79a424256"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/queue.json": {
+      "bytes": 144833,
+      "sha256": "691512ec85ef663d84a7b02086683da572ad901bf888e10dad34aa571b72661b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/1794708656.json": {
+      "bytes": 11550,
+      "sha256": "3fc0edb989713363909d807f692e51e590896067f332af1b134077274fb95ac7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/1817482143.json": {
+      "bytes": 8734,
+      "sha256": "578fd6f0d285cd081305a43e45d16a853906aeeff9b7c3bc83a6f867e3da49ec"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/1848546463.json": {
+      "bytes": 6146,
+      "sha256": "ac744cd9b3db3a95701e9b69f7f38439f0d71fb642ac1a6dc4b6a889d7241c78"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/2497125789.json": {
+      "bytes": 6662,
+      "sha256": "6648667485eb9f4d87ce7126c4c664913b834264a0f317b9af346ddfeac23d5e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/2537094336.json": {
+      "bytes": 11098,
+      "sha256": "0784a6ef0b3783d7b52a5cc8986503f0652f75091cd96fa42b80c14726aa360f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/2646100537.json": {
+      "bytes": 10197,
+      "sha256": "0fb2785bb7f0ee2322caceb084be21a34caab69ec344c1c69401e31a550cb1dd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/2715195850.json": {
+      "bytes": 12654,
+      "sha256": "bd31ebd4f617c752401b2dfc8d3bcf728c59adcff22f44ea47a1ee983a5adac4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/2915139801.json": {
+      "bytes": 13946,
+      "sha256": "4576a0370571cc8844edb22e0e7d51f01304142761b070a3df831da9b96583ba"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/2964966448.json": {
+      "bytes": 8950,
+      "sha256": "6f740d72985a7bdbf421cb3a016ff4ead656be2ca2b10e953ad4e851e2cf5cd9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3189809110.json": {
+      "bytes": 8671,
+      "sha256": "2b4ab381c0bbec9d9e3603a00fa6f6c0a07ecf4f23901e745703de794e08c036"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3238582102.json": {
+      "bytes": 5881,
+      "sha256": "1177e005b3819bb01a799eac2c44ec3fbca6b083d79bd24dd3e20ef430fbf42a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3383066291.json": {
+      "bytes": 10870,
+      "sha256": "80d26638449f1f490b8c9383dfa40ab2751eee980fd8769dc08589037706a893"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3466405292.json": {
+      "bytes": 7976,
+      "sha256": "8d45c21b850197ff0a5dab38784e83d20dae241e017ae37c6fc4e6eef9e7448a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3485584023.json": {
+      "bytes": 13505,
+      "sha256": "a7fc6ca1ba1cb8b921fd448409db185b725acb00094f7a0309c8259413ee6733"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3557868133.json": {
+      "bytes": 10706,
+      "sha256": "6e716b1aa45b481636d801d53af5035df675fd2035cc7b38cee5e94e162bb453"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3614952730.json": {
+      "bytes": 7615,
+      "sha256": "74dda7b707dbde464f59fc67fd2e5e5b5cd5356f36e3659cf893fe0e2ce97631"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3663258446.json": {
+      "bytes": 10320,
+      "sha256": "275d2ca7346a3354409af357b475be6c4abb98743d19194a1f7f7f956d61bef7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/3762534663.json": {
+      "bytes": 9790,
+      "sha256": "d93ae8655a11b350059a8b48051a79fa8ba718acb9a38919d6c8c88db1b0f857"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4038956569.json": {
+      "bytes": 17282,
+      "sha256": "b642ad30a896dbc029fad2434c500592e77253b5feb0eaa7dfccc4112b76d592"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4139932709.json": {
+      "bytes": 9831,
+      "sha256": "d9821c9e21598f8bc605582f7dd503f6c0f328d197484c00894d00dba00307b1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4152838652.json": {
+      "bytes": 10573,
+      "sha256": "c0706dbcde026507335d0d6b121610c6cadcb781cae042e12a77e7d1d0c627b1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4200893603.json": {
+      "bytes": 10578,
+      "sha256": "9ed7863c77c9867c8a255e3eb839cb02ac08a2083c23c7d70d9b8634766d26b9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4247270985.json": {
+      "bytes": 7333,
+      "sha256": "722ef61bd1ff96e8b8cef26424d8dc6a5210274bff4ecca6b12b18b3c1870a07"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4279294604.json": {
+      "bytes": 10525,
+      "sha256": "9d6454942d6ad78ece4e7fc4072a5d9903779c7789b49ed543d108780c3e7f2d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4288354022.json": {
+      "bytes": 5974,
+      "sha256": "3a5c19a92d1c29dfee3fc4c5dfc9ac88cb0da06160c478881ac59bf54dfefe7d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4324813937.json": {
+      "bytes": 7414,
+      "sha256": "71dc9db50d47c613c211710fd2eb0206f797f3616a0200aa7856bbe3ba5e1276"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4439225292.json": {
+      "bytes": 5617,
+      "sha256": "11619c32bfb9fd0d5c3cbd049f3d3d8e93041456cb833158edd7f61382e0cf45"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4505671768.json": {
+      "bytes": 15637,
+      "sha256": "da2f17b246a2c14cf053dca319381c06954f246fd48cb491c3e1df6eef1f71aa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4574233531.json": {
+      "bytes": 11975,
+      "sha256": "3be303f1e588d329b02c64e018d2e22a83543dd8707b4c86679526e8214f2305"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4655592245.json": {
+      "bytes": 13465,
+      "sha256": "e5e839de6dfdf8fe0379a55e1aeee00c7de78576e8993784e132005ad0ebc73f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4763314353.json": {
+      "bytes": 14243,
+      "sha256": "7c2c9c9ff8d236f6cba19baa30cbaba9f05d8ede5ce4ab6d599992cc80f00d0a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/4827037204.json": {
+      "bytes": 11517,
+      "sha256": "1106fcc3b1b1144fc6ac900f8bfeed1ebcfca5bd17dc1fcebc5d1d6cc7d60c2d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7316783274.json": {
+      "bytes": 6762,
+      "sha256": "707c4e8cbeace0f235116a0e2cbd992405007e32465fe2f4d8e44433775610ba"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7335118174.json": {
+      "bytes": 9316,
+      "sha256": "c93fd7792d278ad4b8513da91925fdc1741b1c1f854000a3f83d63183a29f873"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7341317927.json": {
+      "bytes": 11327,
+      "sha256": "5f5f5eea91c86cf0e5cde80dc0704c3b75a4abd9c21778ee78d0a4ce6893ee63"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7369279248.json": {
+      "bytes": 10871,
+      "sha256": "ff834d5c35eea654b52652752d968d07636f2182ab404f27404fb59dcfaa28d6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7429050501.json": {
+      "bytes": 7493,
+      "sha256": "c07d92988a6f5af005f53328dbb7235e7b16e2d400bbf09fd91b14d33495426e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7448822836.json": {
+      "bytes": 8222,
+      "sha256": "8e10caba21736574962bcf62366f026e960da284a132aa92f55ccf5e295bb41e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7490265393.json": {
+      "bytes": 9203,
+      "sha256": "8ea087be1825cb8477bc933c5db100ac134943a9c2cb6153c87d6081e42b13ce"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7502816469.json": {
+      "bytes": 13925,
+      "sha256": "91bf4cb32b7bc09e9395e90cbd07879af7d4d688a24d3bb3363c30f66f3dfb1f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7522972776.json": {
+      "bytes": 15569,
+      "sha256": "a50aaebe925933d26e6497f48aef58969234e01f8aabea2890ad83d0b803ba29"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7551090258.json": {
+      "bytes": 13392,
+      "sha256": "c487b6e18293bfef4210491679d6789ee3b74e502cc1a24a749c34824a72b4e6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7555341775.json": {
+      "bytes": 12622,
+      "sha256": "91be9de1c66e7c9cc5e2dd7a90e5dfea05489fe170a87f9db4b24d8b15f3a63b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7565694217.json": {
+      "bytes": 6870,
+      "sha256": "59be357039bc17c7307d7619a2bf93fc8480dc9348b98b23bcaffd265d8cade2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7591651226.json": {
+      "bytes": 19890,
+      "sha256": "2e731ae624323308112bec27f3706f36e0d511a85283b1feab2f9f8aa510b646"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7659124986.json": {
+      "bytes": 12135,
+      "sha256": "33c5f4a631ba49389ef52610da88b26bbc6f1e01ec1195f500b408f354770a36"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7661976762.json": {
+      "bytes": 19169,
+      "sha256": "0b671082187fe8c208302a8717c24e62f13c82413d07469b74364e1b8723e72f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7670327195.json": {
+      "bytes": 13536,
+      "sha256": "509cc42b98ecd7e7352ed25f048f42924cf08ecf0db1435b387e6e1564670638"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7695671309.json": {
+      "bytes": 12404,
+      "sha256": "9c08dd4d9728283e243c175001e648d1a28b8e7bfb31308eab7f3ddb4da354b5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7720304526.json": {
+      "bytes": 11455,
+      "sha256": "eee4c317acd0a3585071802dffa5320d8c6b374c18644b674bfcbb089c8f656a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7726584920.json": {
+      "bytes": 12923,
+      "sha256": "db16064536d2f28a213feff6f6ee2eecd46a972166a2ec7bb8d70ea4f8f93ac0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7731805253.json": {
+      "bytes": 12928,
+      "sha256": "2323668265ee106ff24e64c22187ef79dfd848f4f7b2d3286ca6b1f799090c67"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7735880434.json": {
+      "bytes": 11607,
+      "sha256": "e5df7762c1869037baaff1de9dc1e664597b06c688e30b14606cc20954a2d011"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7769809492.json": {
+      "bytes": 14522,
+      "sha256": "92e57fe35252c787c35df9242fc6cb332c28ca067cd7b042d3d0f9e3c6dcf539"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7814039429.json": {
+      "bytes": 7550,
+      "sha256": "977a5872252b5ec2d43cd846a8e6fc1fd42a7c1fceef04034fdebc9fe91a9b28"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7818690702.json": {
+      "bytes": 7808,
+      "sha256": "3df7c58a50f1df59484a3015452532febba35f669ad89dbaf8efb2b891f8e527"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7842456603.json": {
+      "bytes": 13006,
+      "sha256": "1d5d3a700242565586bb83797d36aff90d2472a22a4c21988912d46ce091179f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7853420888.json": {
+      "bytes": 7797,
+      "sha256": "96dc839e829ba0404456d0b9290aa18d39d138f8a7affdc38dd3ed489f5107b3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7871075097.json": {
+      "bytes": 9676,
+      "sha256": "4226a908a1894b41c9cc163adafd942f3d3d55af193d4edc9f1e1b97630e9f9e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7877729832.json": {
+      "bytes": 12745,
+      "sha256": "77b6b85248c5032d7ca29c5f517bf743fd542ec1fb936591bb3b216f9049c309"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7915422546.json": {
+      "bytes": 14165,
+      "sha256": "440e334b87810631d1426c944c0adf6ddabfabd8eb53410b2b87d769f0e60784"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7957952441.json": {
+      "bytes": 22951,
+      "sha256": "4723c4a7d8db0aac464307f314757877fa87af32995dabb7c54543e6c5a0edd1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7968531766.json": {
+      "bytes": 9377,
+      "sha256": "91d490c52c44e47d215b90fa5e0568caa2c7e0b16cb04ff25dd66854d34a249f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/7978523249.json": {
+      "bytes": 10994,
+      "sha256": "d92c07751f572724e2272ec4b5f8902a4a65cee003cff4cd9511501318fc56fe"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8013992690.json": {
+      "bytes": 10139,
+      "sha256": "e3183a680d41f1f9d8f09117856e273c131a5446b037ce829d8ed16a05e7cebd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8014685692.json": {
+      "bytes": 10865,
+      "sha256": "f9d795368112bfd24b5664e44eb2a851bf2b3e3698a5f7c50e1c2da6611d1183"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8027245246.json": {
+      "bytes": 10842,
+      "sha256": "fdc2b28043fd54f793bc74a7349f0d43152dde8e57d119eaeeaffa4ac1cdaa4f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8040772302.json": {
+      "bytes": 9368,
+      "sha256": "8b7a0e40d548d9d94793a472fcadf8afe97eb87663bc48c21f4ea27a4d497315"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8049151043.json": {
+      "bytes": 11673,
+      "sha256": "fe3881c5d794f0eea3f68e347dd6e87b2b707cc2e2326edb99d0da51e17fa655"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8073495790.json": {
+      "bytes": 13406,
+      "sha256": "b9d1d6e84d209210e0bbd73af715f06f9a67512dec51b44da0d53a9438181ba5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8092228582.json": {
+      "bytes": 8941,
+      "sha256": "8ddd5aa58de7845d4c909d2aa557b73bd317fa66a80762ec40ebe53ca52cc9c2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8105259238.json": {
+      "bytes": 8112,
+      "sha256": "182d8c4695097b6d73e00835845c7607f1ea928cd27d442f544636fc9c3df86b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8130623851.json": {
+      "bytes": 8589,
+      "sha256": "f9dee162392a655dcc1364df49071dad283b8039eedd0ffaf7c74f5195d80dea"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8136713162.json": {
+      "bytes": 9542,
+      "sha256": "077fab9cebd165b534101623e5429a02cace7c7d647593b68c8b1844d0664e3d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8141391179.json": {
+      "bytes": 8549,
+      "sha256": "fa4b73592758471c179165f2bee8b5d638e1e951e46e8655952982b0638ef910"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8154889955.json": {
+      "bytes": 6334,
+      "sha256": "7feb5575b6a9cf7ef1293c44c467e15c88d43fce07923e04d0086891c8350d4e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8156187644.json": {
+      "bytes": 6068,
+      "sha256": "20ad057c2253c140b58c123fdb8776baf7ab164f97afe7cc450adb8122f01ab0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8157022154.json": {
+      "bytes": 9342,
+      "sha256": "2a0c07bc6c8a6b48f37e1a363c6e5c5b261f2f973dc3d059124fd261b18e67cc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8165294950.json": {
+      "bytes": 11368,
+      "sha256": "e54d7db9faeae9fb768cf9d108673d1c7dcd48a5f3f31d8aab52b4cfafabae32"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8175111406.json": {
+      "bytes": 17726,
+      "sha256": "2a2765bc9fc22e2e821879c039e981d9de2391a039c80889265b5a0bc4f9f20f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8190821826.json": {
+      "bytes": 12585,
+      "sha256": "543ce8b717aad75ff4bd0781c1bf88c10eaf000237b620bdd016267b8dae8ac5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8198542583.json": {
+      "bytes": 18957,
+      "sha256": "d99e210cda123d1c80fe19e087c6858be416ff486cafa2500694433ea2f06837"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8207689688.json": {
+      "bytes": 14685,
+      "sha256": "7f1acd4809349894ef1301134a83e859f7e9d4e71d29ead3fe691532319de684"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8207794171.json": {
+      "bytes": 12927,
+      "sha256": "7e1f4d9dbc6f1051ea6b2973f786a0413014ef5576e00a99cfeaf9c2893025a5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8207909573.json": {
+      "bytes": 12761,
+      "sha256": "fea41a89d9153d0a7605f99ff18a536ab109e9bc73842c8da8a66de1f0f1aa37"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8210498410.json": {
+      "bytes": 8700,
+      "sha256": "a857c42fb0e703f6f8d40bf91a404f34503d100de547e55f44b0d92ea6e56c58"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8215463940.json": {
+      "bytes": 15025,
+      "sha256": "ca9dc7f08bd68449aee6226301732c1d2bd047ecb9c98afa2fb99ebd5867d630"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8219707199.json": {
+      "bytes": 10420,
+      "sha256": "afb9b3c85685a359c62e8ae3a818c76a299b3a35d4d0833ee723ca235f31dc5b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8221921133.json": {
+      "bytes": 11552,
+      "sha256": "48d886653ff9c68744855b1407af310573db9757c146b334e225386bb44fe195"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8223752859.json": {
+      "bytes": 10763,
+      "sha256": "8a366a522612ce486776950463c5707377381b3f6e5e7e5fbf56a123c0a0a6e8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8224756617.json": {
+      "bytes": 14583,
+      "sha256": "88400c55a6db39dbebef94da33d427507c846387f5a10ca69ed0cef06968654f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8229483810.json": {
+      "bytes": 11885,
+      "sha256": "9daad03ec436478a8a40fc8852fdc731d3d1f390027a05aad19b103e955f7c40"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8230920255.json": {
+      "bytes": 10282,
+      "sha256": "607e3251a70307c3939c008ac3aba981c40b1194249e7eaf38d02e646b067df9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8232624181.json": {
+      "bytes": 12252,
+      "sha256": "8d86b866bd742cf4bac4ded3d21283d14463e35458ecea25d1c8e98961de5c53"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8239459587.json": {
+      "bytes": 9603,
+      "sha256": "d4ac581a9f6fab1ea3495583473e2a017a8e8b7a9f4b12ab740e738f091a275c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8240235930.json": {
+      "bytes": 10283,
+      "sha256": "8706928a1677af74f2d29b8b15fb1c0590bdc3535f047f6377ca566555df91b8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8240471078.json": {
+      "bytes": 10779,
+      "sha256": "596c9f2c41d0a854d5d451ba270b4fe06054f0a7a0ca7764461ca1347277764b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8243560048.json": {
+      "bytes": 11193,
+      "sha256": "65f8b905af53af05f927e8d50e02beb015291e1688463454ff00ccdc11844c31"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8245976887.json": {
+      "bytes": 9215,
+      "sha256": "c488f47261f62142a9e4f558b25cb9f385f12581490548c3a5d79adf68ff7814"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8247976442.json": {
+      "bytes": 11253,
+      "sha256": "c7f22d3e6236149cd8a1dcfcacb00fd2586b8cb134e397e031c7288eed5a27da"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8250233309.json": {
+      "bytes": 10971,
+      "sha256": "0cf67f4e5412c60f232705e36bdf1fb09cda32192257c61cd3fcf1deb0976fea"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8254077571.json": {
+      "bytes": 11145,
+      "sha256": "afb9e750d88ca92f87be9c926a31a60084e4093e75dfc49058013e9d5786116c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8254469818.json": {
+      "bytes": 11710,
+      "sha256": "9462695cd8d7096fd079aa22f04ed4ec2ccb6758cfd3801a09206f308e92a32a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8260735345.json": {
+      "bytes": 8017,
+      "sha256": "c8ad40d341c981f9d72893c25130ce22304eab9ae7293df46f1f1ab07995c1b5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8263408435.json": {
+      "bytes": 12016,
+      "sha256": "a4cb185b9552873efb51e2f882c6044488718e4cf0ecb9de92df6172f7a9df6a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8267734821.json": {
+      "bytes": 7694,
+      "sha256": "0c3e6c2fa2da115727e74804a1eeb5edb86b5ec503940af0988046905aab0728"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8268926785.json": {
+      "bytes": 11621,
+      "sha256": "9452dc5f2125cda7eac1fec8c2994a6b8bda43be97ad176333668212a442ed7b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8273634014.json": {
+      "bytes": 14151,
+      "sha256": "1c434100facb9a4c5b99b4333c32549b1245b12fb84f33cbb4c231026ec28543"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8275803290.json": {
+      "bytes": 7503,
+      "sha256": "c155e146ee1372e00596e6aa1f11365479af7203dd17e31a891c11ce4cedd68e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8277649219.json": {
+      "bytes": 8922,
+      "sha256": "4947ad11bbd3be39e5efcf200c5b976742487ec075f4e765b0d82721b744aa66"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8282418214.json": {
+      "bytes": 13753,
+      "sha256": "526446150d9bafb96e2148ef51d4ab900c0965591c4b2b42c45acca68897a54e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8282726504.json": {
+      "bytes": 5802,
+      "sha256": "77ab111b2012c444c5ed87dba6d15e4e2223b4018a41af4e78dc2074f2a52686"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8285041449.json": {
+      "bytes": 9215,
+      "sha256": "b837de310864d21a91b59e54a3ce4ec3ba8db69c973cf5b3131fb271b33aebfe"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8286432170.json": {
+      "bytes": 7487,
+      "sha256": "b0a6bfd4596126592470a663a71cb1d7d12a06665edc6e017e166aa143a1a806"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8288945643.json": {
+      "bytes": 9171,
+      "sha256": "73c8f80e6eaeffb0ffdb79659b3d24025baa1c67c95eaf92acae04020c6cb8e2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8292395385.json": {
+      "bytes": 19083,
+      "sha256": "06727cecf58ff155df63d2ccb9a3fadc6e506115781d34c2bca41a358ec66e8d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8292621176.json": {
+      "bytes": 9168,
+      "sha256": "5c45794873981270bf776a16e595e74b8706b17c4c77e4f449f798dce9394076"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8292763064.json": {
+      "bytes": 8383,
+      "sha256": "7ffe93a99a8f1e499c994c1d91c803cc554315a9cd54b6f5a027054cabbd65c3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8296808867.json": {
+      "bytes": 11588,
+      "sha256": "de34e8535353df16a5c567d6469218b593c804ec21599ee3cdbbf9c2db0ce461"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8300298782.json": {
+      "bytes": 16609,
+      "sha256": "1e8d61a5f35f83acf2053016ff0497c217ae0eb00bc82be3f33fae89b523721d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8302683150.json": {
+      "bytes": 8799,
+      "sha256": "f155aa8c04dbc49592940952f66cb17e13480f0a91f3b643ced90b3121bb0d64"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8304252152.json": {
+      "bytes": 313,
+      "sha256": "7b70281e82d41229c7d94a32cc1f4cec0e5400631aa81c78fc3062b799ca5978"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8305220120.json": {
+      "bytes": 16511,
+      "sha256": "cd62750fe5e05d47f13fbf689e4fc6d584453f69279ec5ff7736a50a57b03900"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8308919419.json": {
+      "bytes": 10932,
+      "sha256": "f8fc890283844fb466fbb6cf304796479901741c800a4ef6524dd95bc453d8d7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8310740105.json": {
+      "bytes": 12997,
+      "sha256": "01e1e2798b904e0274a8d7c4d8749c6d378cb1b332097cf5dbfb3814319e02f7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8311987727.json": {
+      "bytes": 13200,
+      "sha256": "6fef58e7fb073bee61ebf6a9337576f37a4d289c95926c8a94e4fd6df66f5542"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8314408857.json": {
+      "bytes": 7254,
+      "sha256": "3ea3d0f66ccbf1256647a2e8cb3f61a7a25ea95861ba26e2753f222748c8fdd8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8314961675.json": {
+      "bytes": 7879,
+      "sha256": "909ac39071aa6aaecce744bfc94a63682737ec6229438c671a7feb1e5deaddd1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8315472452.json": {
+      "bytes": 286,
+      "sha256": "3dc9933f8a9bc60de00a922b8d5694d6dffce7a03e9f96e0bc9acd7a5c500d3a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8316835569.json": {
+      "bytes": 10675,
+      "sha256": "0baa2b4d96f8d6c1a94ae2952f81eb5d89dc159c90fdf318fb22916a19167d57"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8327814694.json": {
+      "bytes": 8682,
+      "sha256": "220f91c37ce96ae95c24d0af319380940501a148d95f0184e58737e54d6ba504"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8327994779.json": {
+      "bytes": 10889,
+      "sha256": "0759c0c4981717e1b5588385dbbef192e073a2ac2d05a7a3ba381193cb469175"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8328137065.json": {
+      "bytes": 15284,
+      "sha256": "103306471991d3ff8cebe964aa1a983d54383ca02acc61a4cb9f37b2f01aabb3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8328279725.json": {
+      "bytes": 12527,
+      "sha256": "4e354bef05cc5ed0c52b48fa24613493bc6e152699e7075978634712c6161cb7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8328663012.json": {
+      "bytes": 7439,
+      "sha256": "788260fab9bf03318ddc665f94599823399ad3c00f335be3049a7c146c746f44"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8331275269.json": {
+      "bytes": 9281,
+      "sha256": "dea3656c0a6e91238b4e1e2fb4a37b2398951615b32fdc5ab3455d82d300ec2e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8331891487.json": {
+      "bytes": 12564,
+      "sha256": "554a106cc86f694defc80724e4b89c85ea29d3944e3bfd0d8fd466825f3993ec"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8332816202.json": {
+      "bytes": 13404,
+      "sha256": "8036a144eaecb806e116330dc3405c51247ea5ff93c5c33bc0fdc23e5528a7b2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8334733000.json": {
+      "bytes": 11185,
+      "sha256": "be41ed62d2c28904191070554b2813db2f8d5da8c9c2d692f356a77718b20b0e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8336808756.json": {
+      "bytes": 14812,
+      "sha256": "2b6fe3a1fb71a43951117d37927abcf04ac23cffd1e703783bb17cec1b0b64ea"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8337871385.json": {
+      "bytes": 9471,
+      "sha256": "dd11c897dc83776c306f707b05f99b18fb4862fe169b60ad5ab81c5d8958b18b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8338311097.json": {
+      "bytes": 9677,
+      "sha256": "77396baa3b129841b16c3fcde5c2f47e1c35e3869a13b3388b9330421fa4cd18"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8340165776.json": {
+      "bytes": 19592,
+      "sha256": "1fb8b6ff16066c139930ae902dccaeedd866a492af2bb59239a8a267a2618399"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8340349109.json": {
+      "bytes": 5891,
+      "sha256": "4e60f0052b5ca920ba58cdc98ee6ef48855e4085755724805315b7a6045bbdc4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8340618708.json": {
+      "bytes": 12887,
+      "sha256": "84f91dd4810700feb5ab2f9ee7f331520311a6767b1ae64ea12ebb5df4ac0e9e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8340657111.json": {
+      "bytes": 11275,
+      "sha256": "3ff1e05fcdd1ce314f12745adb59853baa72f605521387861e3559d52f5b7856"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8342728089.json": {
+      "bytes": 9365,
+      "sha256": "dee845274b11463c483784466ae2c1592b788efc00d223e2cb99deec4d2ac3b7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8344052588.json": {
+      "bytes": 8961,
+      "sha256": "c5631b35658b824f15e843646ed6c75564316805a216029e4cb2d5114bb219e9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8344196388.json": {
+      "bytes": 9654,
+      "sha256": "4d572ff92fc1d62996e097bd197d666ac67f7cd6231577c06142746e14ddf2c6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8344867799.json": {
+      "bytes": 10448,
+      "sha256": "d23d09f1b4b04f97884ffd6ca5162867702b37d777cdcf69906888c223654916"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8346024824.json": {
+      "bytes": 5851,
+      "sha256": "fe5f2e70bd73f72797dfae798386008d65bfe4d34af8d00c4598b4dc8315503a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8346922908.json": {
+      "bytes": 10545,
+      "sha256": "42652dbb8a32d7bbead85bbe51868f300c0a7194b5a1c36fbc7e2870b5ed054d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8347360739.json": {
+      "bytes": 10008,
+      "sha256": "edc2525023f220343236e0d46c445d992642ac456dd416bed2d34871ff8899fe"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8348115425.json": {
+      "bytes": 8561,
+      "sha256": "578f9815e137b9aeefd07d5380dc755caf2e5290552673d30bcda613e37fd2c7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8348287780.json": {
+      "bytes": 11518,
+      "sha256": "56a204dafcdfa527b737d93bdd99f5f8ecb192941510e83f5eb49b69f97285e5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8348303774.json": {
+      "bytes": 8171,
+      "sha256": "1bfec928dec09f265174e238035dfff64d2af2e5846e136aec49dc00ae8559b9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8348307243.json": {
+      "bytes": 21302,
+      "sha256": "9f73d1020c2c7dcec23bde7f2ca7ded7c33b76a8eb309324a2b270cbc2083456"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8348429248.json": {
+      "bytes": 12584,
+      "sha256": "44c2f76bd49408631b75365e29fd710743f02ee754d19e0f8350c852316d480e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8352893671.json": {
+      "bytes": 10600,
+      "sha256": "5c8a7141aa6369021e997b9a585688f30fc5780e2073a29b340209cfc509a486"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8355293113.json": {
+      "bytes": 9885,
+      "sha256": "80d2d65354a48d8d2d80be2c59e2f059265274a18c503ea9bb9c5caef97d9db5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8358955070.json": {
+      "bytes": 10262,
+      "sha256": "a6dfd55866076adcb2bce159476bc5c583e9429759be7a8f4da7455104d2729c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8359070474.json": {
+      "bytes": 10233,
+      "sha256": "1fe45cd3281806beaaa689bbec67368218647c5a03a62900557e5ee9f5e174fb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8360425879.json": {
+      "bytes": 9507,
+      "sha256": "cc6801a8810e2a34d994821b4468aebd818705505ed2289ee5748679fc185788"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8362131326.json": {
+      "bytes": 9890,
+      "sha256": "ed67351ddb888c6708c6c2a47773dac3e7d4d02b009ecbfcd2cb3b5fdb5d3477"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8362790220.json": {
+      "bytes": 9311,
+      "sha256": "092d3aedf253e52afba02dec2b4661a1673cb8ce4872eb12b76b59469ff10eb6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8363376726.json": {
+      "bytes": 10271,
+      "sha256": "936f94943c0fa68f11b96a58c5418386142bbebbb331a53d177fe9f17a6b23e1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8364372753.json": {
+      "bytes": 11842,
+      "sha256": "d40a4ac32d82d23df28dd61c46d902a5cdd235dae2035d387e41e77ca0f137b8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8365811841.json": {
+      "bytes": 22532,
+      "sha256": "85a2b0ae20bc1acb025971867546980a0e686d594376e31570809b7f07f5aa96"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8368771577.json": {
+      "bytes": 15651,
+      "sha256": "06bec8137ce7ac96b04ff55d4de46a425dd2f074497fdb0b87787cb58e76a60c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8368789687.json": {
+      "bytes": 12201,
+      "sha256": "1cd74a21ff57b6ca1c9823c461a766319c707166c3e9628586924f728691a98a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8369066026.json": {
+      "bytes": 12644,
+      "sha256": "b514b54df229dfc853db9bd9282c3422e2257fc69d781cf13871dfadfb8a3d9d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8369208802.json": {
+      "bytes": 16400,
+      "sha256": "f3f1bef88f97747a30efab7bb51491c3205f55638f14c5217074223808e84848"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8369392477.json": {
+      "bytes": 6947,
+      "sha256": "cfcba11d540d96caecef37e46bd503159f8071b125f692e49d227723f6afce28"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8370326867.json": {
+      "bytes": 13395,
+      "sha256": "f46bc7d2ca93643a35d1ca41acaea6b8d7949efbc9cb8cfb97327c2a491288aa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8370330127.json": {
+      "bytes": 17390,
+      "sha256": "b9791da1e84cf61e6e26f304322a4943e25e4c68dd807a0ae4149623984aa57a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8372400711.json": {
+      "bytes": 12090,
+      "sha256": "27c5543c9e0038f1de935f1d7f7aa26f47056c24ba343d83bdbce040b54afc2e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8372555581.json": {
+      "bytes": 20624,
+      "sha256": "79d9830c1ded12ea6702e3d05184736f4a5be07af02cd2aee8a9eed29f308b33"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8372896059.json": {
+      "bytes": 7467,
+      "sha256": "dcbcb7e9202efdc1f3c71f36f6059318754c896591de732acb4ebcc666c5ea7c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8375140474.json": {
+      "bytes": 7054,
+      "sha256": "9d6509a71d1e7e9d82d0fc5884370a7c3f399cb2a0e753cf6cb96f941f4a65b7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8375988851.json": {
+      "bytes": 13961,
+      "sha256": "1ec0550bf3fbcd032f08757c679a9d06e566003ddd88a48e22927639df38d4ae"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8376212579.json": {
+      "bytes": 17459,
+      "sha256": "4617e046b754953fa13d384bac7a688c1d4007073e72d53a456e9687ac5280c9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8377651285.json": {
+      "bytes": 9993,
+      "sha256": "526ff429208aafcd35c92d79f400683369b6d02d87563c83bc3aecdb0351ddc8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8378175554.json": {
+      "bytes": 9556,
+      "sha256": "593bf51784bfd9289d00dc6eaf7ad7a288cc2cf7c15fd486646c7ec2f9f55b6b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8378733722.json": {
+      "bytes": 9906,
+      "sha256": "9fb13035bcae917f0af6d4d934a6de6126bee7439b6c680de9bed3428a0186e7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8382361348.json": {
+      "bytes": 6868,
+      "sha256": "2f1acb4748acf24f9b1989b625c76e14861d738352910cdb3ca1db62a2e88668"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8382443779.json": {
+      "bytes": 13320,
+      "sha256": "98574baf97bfde2ce37f49f46749155607d3e4e029fa96afce67451edc45d01d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8382493318.json": {
+      "bytes": 15275,
+      "sha256": "77d586348d63f02b82f1d12f157c95a9f8b1deb783c3c9ae2e139a436a306a06"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8390099682.json": {
+      "bytes": 9223,
+      "sha256": "a847da20a2cfe902f708908b7ece63e34653ff53f321c3d5d10ab0a6a8400ab7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8390226002.json": {
+      "bytes": 9040,
+      "sha256": "e3a2b5017ec89387a15d6b2844f77db5e8f5649354a85d9ebf43493537e0eec0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8390352759.json": {
+      "bytes": 10220,
+      "sha256": "f18e6b6d128dfaf4d24fc2ac977179edaf1c4b10a40e2e0676c939d46ce47a89"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8397508633.json": {
+      "bytes": 11633,
+      "sha256": "3cb40631551819409a0fef672ba6924f8ed37b97a07d18358961369eb1b5dece"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8398747503.json": {
+      "bytes": 13301,
+      "sha256": "cf6e0da11f24e03c9351c099d8950a7385dbdd7ee70845c187277a3f9b15c08c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8400179212.json": {
+      "bytes": 12010,
+      "sha256": "8d5cc533025037b47cdc489933e3413c4fdc1c47154b9a7bb42b11c277f834f8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8400203109.json": {
+      "bytes": 4384,
+      "sha256": "e05e7078b2cee68c360a419dff85626f8b4443f7eb454920f1c46eaacc30da88"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8400644039.json": {
+      "bytes": 16974,
+      "sha256": "c28cb7c5da7ac80705712aac24887590da11c5d48de67535249dc58873b032ee"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8400807344.json": {
+      "bytes": 13724,
+      "sha256": "e9c372dc4cff2ca8f7a7924e06eb064ca9e4321818ddc53d867f1b11d8bc0627"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8405042555.json": {
+      "bytes": 12245,
+      "sha256": "e0dc0e509bcc469aa036e4068d78f379e02ea40895334388cacd54658a73e053"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8405064835.json": {
+      "bytes": 8214,
+      "sha256": "c8eb90947ff598dfd30a588ab5d598ae2dd94c06eee25b1fe010fa55d71ce9ad"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8405556800.json": {
+      "bytes": 11917,
+      "sha256": "c32170603585f98828c397db3294755190f9000153afe6c28c14e59ed04e12ac"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8406110936.json": {
+      "bytes": 8783,
+      "sha256": "adeea5fa4b2e73759f1d5f6168fa704e22a9b2061553a854b14f9d9987587ef8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8407774620.json": {
+      "bytes": 10499,
+      "sha256": "b17c02fa9d4ea2dddce269ff5a9c52c3ec26bd317056159a0adb7b4e2e3d0b0e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8407899157.json": {
+      "bytes": 294,
+      "sha256": "d5f1988edfcbad38203df98a3e40766ad0e9d46ef20ec05a0c39500fbe976f50"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8409205644.json": {
+      "bytes": 14789,
+      "sha256": "a0d67b9e75d47981f55366d8cee5373f94c80e07780d832b3982c05225fcc5e0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8409757392.json": {
+      "bytes": 11757,
+      "sha256": "7f0c31e2bb42c1803a9e2505fde28f0b59ff8e2f92d5219ffd6815a11a97a632"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8409847770.json": {
+      "bytes": 15059,
+      "sha256": "10809c12a7e022b4a453d9e4b7f18eb770f1bda6af58ad556147a5e00d30108f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8410062921.json": {
+      "bytes": 11819,
+      "sha256": "7d2307f09bb3f2a67c1470397d48d2336ffdd0091fe2b8570b542c02116a8a61"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8410093501.json": {
+      "bytes": 10432,
+      "sha256": "ffb2c0905b0cf2d760cd3585dd26f1ac5d9478c4946e5c4560efd34bb62416e1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8410169313.json": {
+      "bytes": 295,
+      "sha256": "ca76e9aa404d2c09f17cdcc0884ec5badde6de9d1dfcd5db61a37bb307d61666"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8410184249.json": {
+      "bytes": 5348,
+      "sha256": "93675fee0e71d61eaa3a3d5536166c791eb354c4f0b46a0302c3e4fd58d2c42b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8410188604.json": {
+      "bytes": 10229,
+      "sha256": "0c2dcb7c5c8314f14a83422c24f6cb6c569eb9f3b34617e250730dedae502fba"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8410624077.json": {
+      "bytes": 12645,
+      "sha256": "997e9611b2bfed2192159a06fd686dd2e55dfab59c902675eced0dd8c5638284"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8412921076.json": {
+      "bytes": 9538,
+      "sha256": "f1983467ea8dc3138e729eac8065e198c6271c80aaf9b24390e2dcd568e64230"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8413919632.json": {
+      "bytes": 8757,
+      "sha256": "ec87927ab7f8ca3d6fab8325bfa393688f5305b1009f58249d3d88f2b5ffe15c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8413924867.json": {
+      "bytes": 14544,
+      "sha256": "ed12b3d10a2c0c2b840fb8eac74f0a4bcd5f0dc604e1cd8b5baaccaf4abc73ea"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8414301636.json": {
+      "bytes": 8856,
+      "sha256": "cbec33042d813f5305c83c662bcebc0731985fb9cd86cb30a5452794aae8615a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8414442207.json": {
+      "bytes": 282,
+      "sha256": "eca60d04285411e536c9167cdae12b484606980809bba1e8116e7a4e96fe01ef"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8419908591.json": {
+      "bytes": 8665,
+      "sha256": "b6152fca143abd60634259575d48e63eb5645e6aa335ba7ba5696e919dd6ecc8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8420107736.json": {
+      "bytes": 7972,
+      "sha256": "0b2f4a53e8b275181ceae72ce6ea1d7477b2cd894a1b4f6d70f703b17b4d03cc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8420243520.json": {
+      "bytes": 8109,
+      "sha256": "74404d753efa269031787ff336f9100f788af58aeac55a77c4e49d2970e44fbf"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8421608501.json": {
+      "bytes": 8157,
+      "sha256": "320e89c20418b5d2ee1e2877c9cd83ebb459e730f27cbf1a118ed60498852d5f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8422024184.json": {
+      "bytes": 11932,
+      "sha256": "04749386414108d920ce290ab1343740aa67586504962362588f3ec7844e996e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8422230549.json": {
+      "bytes": 20360,
+      "sha256": "088a480d57106d9d46c00a15fdbae6a1ca485e534ef5e83d540c36b90676eb1a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8422776504.json": {
+      "bytes": 9289,
+      "sha256": "6febb0d763445eec64938f66847e8808268a46e4a7a4c0c04c13a3f150a98620"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8423088792.json": {
+      "bytes": 9525,
+      "sha256": "0c3dc4928a8778fd96333149e6399d57300ad92f309d982491acc53e906cea0c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8425652126.json": {
+      "bytes": 6636,
+      "sha256": "90725116e0971206d8eb4daf278ef0ca58e540da9c0a571f499896b1b5c53ad1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8426064155.json": {
+      "bytes": 8041,
+      "sha256": "31d4964028f29f0e85aa794c21f0d2f4bf572966dfe4407246778dbd1bcb913d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8426946797.json": {
+      "bytes": 19243,
+      "sha256": "eedcd13a13eded9652dd611c6cdb31c9d589279b47ee5f51ac3b8aa7c5a16aad"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8429410303.json": {
+      "bytes": 8226,
+      "sha256": "a3a74d86b79e25b9cdc88f363b78266156b43fb605304a17d3521720d5780555"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8430937727.json": {
+      "bytes": 22818,
+      "sha256": "6743f087b69175a89b1bb0c91041a3a07006b433b06a4b9c78aa96e74698f194"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8434936137.json": {
+      "bytes": 6156,
+      "sha256": "7fb117b09fdd4649198fd90e1d7817db97458b7cae89c8d498881c704cacadfd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8435222791.json": {
+      "bytes": 9468,
+      "sha256": "2309171c9e6d04a6c2a13dfac78c52afc762c618e7837b91c20428c20d2b262c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8435375669.json": {
+      "bytes": 12251,
+      "sha256": "0aa90c35b185dd6b725f191606002c3ed2f574587b26bd2d2b50029e5d7633bc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8435521177.json": {
+      "bytes": 13821,
+      "sha256": "b315fb537c4bf0923f92cae5025623665b36a9defbbb38cd62ecbf58ce2be039"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8435620705.json": {
+      "bytes": 11233,
+      "sha256": "9ef942cd4b16d55346bff0d392fa214d765a452e00bb06b9421172604f874846"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8436984920.json": {
+      "bytes": 10190,
+      "sha256": "62bd4b3f2c286ef1a318c54195a1a82f873ecfff7ffbff26dce09ee7d91b9af3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8439050344.json": {
+      "bytes": 9016,
+      "sha256": "49598b023993492e3da4fef0d3816d75012f0f028582c935d00d93cb0217837a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8439170097.json": {
+      "bytes": 9910,
+      "sha256": "6eb5a7ff26c9e93d965aa0b90a3ea141520fabb93c39c9f7a625ee09fadb94f7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8439364901.json": {
+      "bytes": 15358,
+      "sha256": "c8f0ffc504c4fa266505eeac8def3d1ef380bd690d851279eec3e8d3198455a7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8441390564.json": {
+      "bytes": 13038,
+      "sha256": "746260a0f90226445171ebf149ee89143ef9c342fd440bc463605a3379f3530e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8441493551.json": {
+      "bytes": 11815,
+      "sha256": "e900bc4e8b3368b41fd2b5255b15343fbd8893b4847edc0a9b22a8c50d59d48c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8441703827.json": {
+      "bytes": 5727,
+      "sha256": "4da64f27e08bf0d661e84ae718f64d2a700d557260d1c4ba02daf81b3e3d4631"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8444951938.json": {
+      "bytes": 9809,
+      "sha256": "939027ac71f242b5bbdb8278df1898f8ca1887512b7ffdc3bedb7b8a3d25661a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8445087982.json": {
+      "bytes": 12130,
+      "sha256": "1c07c007ca54e08873b947814f3d3982972464599613fe162ff90224734dec01"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8445097690.json": {
+      "bytes": 11687,
+      "sha256": "c7d608769ef10360816ab3505b81567c6d0278df9ed8dbeaad3c16a3d4ec0292"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8445141275.json": {
+      "bytes": 10381,
+      "sha256": "f7e8af5178572949b4313796facd4e83ef01d7d1485f5f63b1652c9a8cd351ba"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8445402624.json": {
+      "bytes": 12950,
+      "sha256": "c49db6194c42e5cc64b0cafa203133e77755485c4ec38c125545acda25ea7f8f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8446991871.json": {
+      "bytes": 10163,
+      "sha256": "2f46c9e1f0b435617932a56b81ef7c467cf124e968bcd68abb8446d66a670ce6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8448420102.json": {
+      "bytes": 7620,
+      "sha256": "6b209b22e5ae4c6320a11a5a146e230ced08b0c85c171b8862dc9b14d78c1ad2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8451420905.json": {
+      "bytes": 8380,
+      "sha256": "37232a1406bd1d16ce2a1ada5150db7fb9eec041466f6c7bb2eb62c4e0f23619"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8453463272.json": {
+      "bytes": 9683,
+      "sha256": "c208eaa40d94cfce802f5fcc2c883a12ba3ef7d8d6db59dfe5ecd6a01354858a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8456865099.json": {
+      "bytes": 18040,
+      "sha256": "8aff25c39d96efb6a1344df3f1735d5fbf2d6dd596978a29a6cf8c9915aa0468"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8459034460.json": {
+      "bytes": 10189,
+      "sha256": "44c72141289938622fd055a5318c2933137656fa1b5510a970aeb16631876b07"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8459376474.json": {
+      "bytes": 9863,
+      "sha256": "e7dbe154d7407f5cfcf8af9828d8f7d1b3769c24c65797de82fe2ff6ca04da55"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8459429614.json": {
+      "bytes": 17101,
+      "sha256": "13cee5a97c7e377e3880d455bc3ad0a7ed3685848b4a7e7c2ef803873f9688dc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8459446475.json": {
+      "bytes": 9454,
+      "sha256": "f111e1460ed929c889c4bc85de7c82964728f88e5d6efafa7635e801278413a8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8463780809.json": {
+      "bytes": 11689,
+      "sha256": "b920b3f5f96eff5fcf4ec6685e515f88a8d8ad57f435717c64fa69c192567cbb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8466887536.json": {
+      "bytes": 9463,
+      "sha256": "16c10dbbfe047269c347fd44111a99428373fdd7f611fa8cce995b41478757d7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8466948626.json": {
+      "bytes": 11790,
+      "sha256": "d9d510bd1b94b5fe1923092b2c8c1aa70055151e6d9d35592c3f32ed16716658"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8466976993.json": {
+      "bytes": 11416,
+      "sha256": "7280d21f6c11ae5f63f870bafe01dc051735655bde63d18108321f4739d25fef"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8467502199.json": {
+      "bytes": 9305,
+      "sha256": "8b0826ad4f19e42280dcba489286ccbdc07f4e260fb2e93d9bf9d6fa8c97e3e0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8470032970.json": {
+      "bytes": 7790,
+      "sha256": "b152309ed5906c67b1025c7615b9e915f63535895c7bde89a820c299f9b8e3f3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8470052021.json": {
+      "bytes": 11075,
+      "sha256": "fa40363c24c52889e88a00b69286329989d59cdceb6eef4500c7e1e0c98cbc06"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8470686679.json": {
+      "bytes": 8174,
+      "sha256": "3b6b7c1c07db869cd00050ced80cc9564a9214fbdcc7a07b3f9fbdb1c0f675d3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8470864104.json": {
+      "bytes": 13498,
+      "sha256": "4717bb00d30a8bcb41636af4154f0d1fcac76a6041518671d9d7e7fb7b70fd70"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8471491842.json": {
+      "bytes": 10730,
+      "sha256": "b3b2f6049ee388625a5f45fe0848b925906b3b1faafc0797140850272a0f4377"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8471749226.json": {
+      "bytes": 9948,
+      "sha256": "001b0fecccc32ea199ee01180d038370b5be3525e9770f67c4e7d4962474a112"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8479967644.json": {
+      "bytes": 11240,
+      "sha256": "3e5e84d0927844d11e0a11ebd4c2e34a97fa357cac6a4e792cd60fa5807596d1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8480235752.json": {
+      "bytes": 12917,
+      "sha256": "d5e06aba63cb379fee6ed808f014b86b9d485ab79eab1fdac576e55b001a101e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8481974576.json": {
+      "bytes": 8724,
+      "sha256": "cf34a1e4afe07444ed8c37cd62f6fcd45cc7e396470421688abf0abb04b862e8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8482663788.json": {
+      "bytes": 9816,
+      "sha256": "be9b6a5098a090be04410cededd304d9ca684b16ff880876721b5905db73a3f6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8482671436.json": {
+      "bytes": 7697,
+      "sha256": "59d6fcf9ef5d04b202cd565275aede37b245198810a65ce963f0a79eca823d69"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8483180252.json": {
+      "bytes": 16388,
+      "sha256": "b37200658b176504f217ea605df7528cf868fe0c4576509afcc927cceb33de34"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8483424960.json": {
+      "bytes": 12130,
+      "sha256": "894d0220bf32666035fee0e2e1941638d25f034d4362f6e1c6841ccb18c06ffc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8483510381.json": {
+      "bytes": 14968,
+      "sha256": "6cc8033a349cc1793f45dfbd438c27e81728f882cbd81949b24fb461a0356800"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8485103480.json": {
+      "bytes": 10384,
+      "sha256": "f3c82183642ba7d2bfd56ac14e029e1455e26dc98c209be35b76a3c02fd4a529"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8485626776.json": {
+      "bytes": 25672,
+      "sha256": "fb87773b86562f3bccd46bd2f935fce10a0e9738c99fd1f4b7688add6bd9244b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8490481988.json": {
+      "bytes": 12313,
+      "sha256": "e663cdbaf9ac8c22ebd8350d9aad885c9c9fdc924537089746de4c5fcb88a945"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8490682652.json": {
+      "bytes": 6744,
+      "sha256": "11b429d60460365c43c90d80320e82933e9c29bf095ad47f6aa831938fde40ee"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8491204504.json": {
+      "bytes": 9275,
+      "sha256": "f53ff6caf42116c06b7ca95de251b12347d5a89327049dd4c6a413feee730660"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8491213508.json": {
+      "bytes": 10260,
+      "sha256": "8a14e3a2d35a481af4893dcebf78cc41257ae5c5fcba3cae92b031831ce47a47"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8491784209.json": {
+      "bytes": 11773,
+      "sha256": "0cd2b422d8d76b9aaf1691216e3731f79c73b881690b7c80b50ed80a740ce8c4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8491794506.json": {
+      "bytes": 5415,
+      "sha256": "19f7ea8a56e1ea0583a6c1d849b973555beaf9c285176ad78e4b0c46ce3f3be1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8498935696.json": {
+      "bytes": 10788,
+      "sha256": "4c1eae58ad4152468613a3e9b3e80263f43b2892f34c2e98ca812b4e7753a3f5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8498972692.json": {
+      "bytes": 8790,
+      "sha256": "c3fc3e71c443580172f0f14a738d6385163ab3e63af13cbf9111cb0c3ba23dd5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8499130944.json": {
+      "bytes": 11656,
+      "sha256": "5f840b4f0c8d6584265be2ecd00d7cf55df32c9c777a8af23dc7b20865350727"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8499383789.json": {
+      "bytes": 8596,
+      "sha256": "2fdb13846d4ad545d059a7b0e4b8dbaab1cee86adfbbbcdbc742b04ddbe60ff3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8499659457.json": {
+      "bytes": 17066,
+      "sha256": "c7f8d9e763789a4f81a907a2b6158d57a3062bb441d538623b56361199281e51"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8510830020.json": {
+      "bytes": 8278,
+      "sha256": "3b49bb622da6abfbffb65c97cdc5c5a5d63c2bbe3ac58872d2380578c025244e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8512556390.json": {
+      "bytes": 12422,
+      "sha256": "566d4899cc5414bd5eb628e1fb3909fe2aabdfdec055f50c9a36fff1428b6143"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8514697082.json": {
+      "bytes": 11725,
+      "sha256": "9e127a766f21c2b6393a7695661e21914acd6bf68c1fbbb7383b5c2f68fe0bd7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8516890337.json": {
+      "bytes": 8544,
+      "sha256": "ddf15824b92715625cfda7c04b85faa75db2c1890af3f4f2078b77295b79f4d0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8543435263.json": {
+      "bytes": 11576,
+      "sha256": "8a4c89f2ac4a5d9752fde3177728c14c14cb062e11420514fb4b11421ec3f238"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8544167077.json": {
+      "bytes": 11308,
+      "sha256": "f8c185ee98276db334be2916616dfe59d25b2d4486426075cff8bb59d4b0eefa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8545061508.json": {
+      "bytes": 9033,
+      "sha256": "29bc207391c841403d67524249a7c09639de4dbd8c3acd46abf3944b16945b56"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8545259782.json": {
+      "bytes": 17297,
+      "sha256": "8273ee72019528037287bb20f1aa1f342ee7121cd92dd50bd911a9204fbc1aa5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8545760639.json": {
+      "bytes": 11499,
+      "sha256": "9f1ba64f89bff2d4d05cf917da720a384e0eb37d281d3081fad375113f7fd826"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8574875997.json": {
+      "bytes": 12710,
+      "sha256": "9608f2e83a06c0b1a7636a4cb7e51f7b1c3b8d0f281570fe08414694564d7d2c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8575373560.json": {
+      "bytes": 14756,
+      "sha256": "7f40236e81bafd74003c61142a4896f727eaea3e84bbf355f830b7f8698c5848"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8577212424.json": {
+      "bytes": 9508,
+      "sha256": "2103c7ae541fa2150b43757a171013bc06529f36e9b90d58c3ea4b550bcc034b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/raw/8577481577.json": {
+      "bytes": 12701,
+      "sha256": "e09101ea1e0367de4b8f6ec9626134327dfe4410caa5b1d763ac9fa5fdd7d5ae"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/1794708656.json": {
+      "bytes": 801,
+      "sha256": "d7d1e039d55de5b048be839be82e420c40a522b05413537697d500a3e4a4acdd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/1817482143.json": {
+      "bytes": 772,
+      "sha256": "aa8a1f86439a20026e3b2b5b112fbfa57e2f1adddb0e21e123679639d8bcc0a7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/1848546463.json": {
+      "bytes": 868,
+      "sha256": "28d98d9c7256837502193f45c6a7beb853020f9ab8019e0c40d25739c838d3a8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/2497125789.json": {
+      "bytes": 892,
+      "sha256": "baf4f6ed74fce96449dd740c9fba6e98c5657d89aeece8d3bdbcbede514ca7c1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/2537094336.json": {
+      "bytes": 715,
+      "sha256": "0099cd2cfe76b332c990152a07034a354e4340ca1168b687c712c24e2d84d7b6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/2646100537.json": {
+      "bytes": 1004,
+      "sha256": "acf7b52bb20eb33233d9b14217d907198dbb5c1dd42be80408df2fa4c3260cbe"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/2715195850.json": {
+      "bytes": 808,
+      "sha256": "f612f7fa7d3a847a91009877fe1dc17493b0ab6a78ac0a2f3671bf8a449000f8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/2915139801.json": {
+      "bytes": 774,
+      "sha256": "050bf83b1bcc8755efd76bbfbf2dd56181b340a67f25525cf10e26b4dd267ccb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/2964966448.json": {
+      "bytes": 797,
+      "sha256": "e511706c6bc7cd862402ad9adfad2b21a250f391f91b892f5625d7a89a4890d9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3189809110.json": {
+      "bytes": 1072,
+      "sha256": "aa2477d724268ec62343cf7b66af114b63ad7016313ea50cfba0b0271050a4e3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3238582102.json": {
+      "bytes": 780,
+      "sha256": "7dfbec6f3ce9d54ec6d08cfc2da91906bc3706f4d30caf6b466e551c54d6e770"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3383066291.json": {
+      "bytes": 780,
+      "sha256": "f0507caea89b0ae7d382de3940d75c22e49b98dd13650dcb203d83b4b9062dd4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3466405292.json": {
+      "bytes": 866,
+      "sha256": "45b81772531d5effdbf41955450876a1215dacbe9bb2173827ccad35f91b0a27"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3485584023.json": {
+      "bytes": 796,
+      "sha256": "3ef0ae288c48cbc438dc237634988a4b0b378c8d2fc47bb6ed09e82bd6d212cc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3557868133.json": {
+      "bytes": 784,
+      "sha256": "251a33092c16f04cafd496b5d4a8ea2a6b6331ca0f673b5143dceaa7f82f024a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3614952730.json": {
+      "bytes": 877,
+      "sha256": "3a94891647f56210729e622286bcbc420e64bf2c4eea30174dc40c961781cda3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3663258446.json": {
+      "bytes": 762,
+      "sha256": "244098490dc8e56fab68e3da14454e971ea66a7305e760fe46ced5261d6c6915"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/3762534663.json": {
+      "bytes": 840,
+      "sha256": "9eda483c2273c82bd0d4a742faba821ea0413a4028a3c2fa9554a1ee46cca832"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4038956569.json": {
+      "bytes": 833,
+      "sha256": "f308304c950e74296f0f175f96440a3734c5503e812b12900db72df9ca2c576a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4139932709.json": {
+      "bytes": 773,
+      "sha256": "60c6c53e1552da82a4f4b63c380df491864c4338198f2505c91e9f72020bccfd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4152838652.json": {
+      "bytes": 791,
+      "sha256": "9c95d692de58e1e48091731669061c390d76a0649f2ecb851b457420ca4707c4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4200893603.json": {
+      "bytes": 778,
+      "sha256": "f2d9bb808257e60772f8863396c62485ed7c9ca61cefc388eeb914ab3a1fe219"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4247270985.json": {
+      "bytes": 902,
+      "sha256": "2e7c794d45848f582ced8cd5475856c887f7f66eaf9143a359ae6430c97c054d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4279294604.json": {
+      "bytes": 780,
+      "sha256": "35e5299d55d34935776baffbafb3c8ae518fe91ab5c9977985e3a65b0bca277f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4288354022.json": {
+      "bytes": 793,
+      "sha256": "86e41ab644b47f348328374c79ce8ff9c8b101471b31cfb25fd3c12e57db2f18"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4324813937.json": {
+      "bytes": 865,
+      "sha256": "cf63f7f5f57b265d0ef7f4267ad5873ca882e2dc45e7ba1c274b3086f170c2b1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4439225292.json": {
+      "bytes": 796,
+      "sha256": "c4cffea1785190a52fdc378fff3a75440439c0b4b9fdfabe024802ef26ed8fb9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4505671768.json": {
+      "bytes": 715,
+      "sha256": "a856b4deb8dd66481e08bad2ed90aa9a4d0358a93f0cc9f09fc9f517d971398e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4574233531.json": {
+      "bytes": 779,
+      "sha256": "1fe0dc27d8b0ddee6d0268be996a408612696c41ac219da0be09234f014f03de"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4655592245.json": {
+      "bytes": 757,
+      "sha256": "cdf5b39c8ed545c6b8ae46bcf3b25e51bc2a50809062021c10e53a3ee21ee560"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4763314353.json": {
+      "bytes": 734,
+      "sha256": "1ffde7e06be8742eb8f4cd4a1e00043be9eb9c892d5d86cba2641a33aba72db3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/4827037204.json": {
+      "bytes": 766,
+      "sha256": "d7a59123481758a65fdc9e399d3546fff224c1704177190273b2c3c9fa9619ab"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7316783274.json": {
+      "bytes": 793,
+      "sha256": "98aadea8bf30644e4a2470d3156882c168a2fa00890a6d25d9baf4b86dbe7f7c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7335118174.json": {
+      "bytes": 898,
+      "sha256": "5d4f6fda65376c46a8d5dda5097b44c3188df6b001af2c1ca8c5a43c0dfb43f9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7341317927.json": {
+      "bytes": 785,
+      "sha256": "ae6c33fcd9b6b9267eb7b2ea50b7edae182ef969c3040674272a2728021c3122"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7369279248.json": {
+      "bytes": 782,
+      "sha256": "311f678c9a800451d4035a132b2f881fe7c615e0a4a8ca186a7e717f091d7eab"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7429050501.json": {
+      "bytes": 811,
+      "sha256": "76021b395c7d58dc45a399ea7ee366019443219eb2a38e8c431e5a6c20fe5107"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7448822836.json": {
+      "bytes": 850,
+      "sha256": "cd6b2f5b0051b2e2404eeb0b1ee1c201a6a2f523637829414297f9c684bccf9c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7490265393.json": {
+      "bytes": 794,
+      "sha256": "1453eccdf86a3164eebc7644d34e8c7b6fcc347e94ca8889d5085a57dfba0c64"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7502816469.json": {
+      "bytes": 757,
+      "sha256": "cb0adf579c688fd6da89b6bd0b14eaea7c3205c8cc6992e9cbcbe0d91d5417fb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7522972776.json": {
+      "bytes": 757,
+      "sha256": "6df0ad13c8e7142f3f4b6050fb76122c527dcfec9555a6bf245d07f24711d749"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7551090258.json": {
+      "bytes": 933,
+      "sha256": "9824470ec83800ea3f3c20d6312238dd406b851609a6d1e0c0e2735fdf3e1996"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7555341775.json": {
+      "bytes": 763,
+      "sha256": "bd6a0dcc70607c072dd2f8a66e936cb22ab126a05fa06297e29ec519f575e544"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7565694217.json": {
+      "bytes": 793,
+      "sha256": "8d2cdc95c0822ac5b4f1de3ad1f417c45aa14fbfd690e16c2e1027cd1305ab92"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7591651226.json": {
+      "bytes": 757,
+      "sha256": "b48892c96b4da24cccf4050fd9802b02e13e31d040b1ca88a93f762bdfaca326"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7659124986.json": {
+      "bytes": 902,
+      "sha256": "8ec89ef04466086001e681eb4e148b31126de9a2040fc48332c9ee2cb8af1a64"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7661976762.json": {
+      "bytes": 757,
+      "sha256": "3ea1bf6a88ca3da3fd5794c9cf222d80d51cf66413ea9b38e0c0c8144636106a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7670327195.json": {
+      "bytes": 757,
+      "sha256": "817d5ff08682e2e0bba08003e3c5106614a5d9edf58006233971b4b3e621ce2d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7695671309.json": {
+      "bytes": 793,
+      "sha256": "83d2aa4db256fc94c627bf8de6272d8826d356d35c305e4a714bac671bc15bd6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7720304526.json": {
+      "bytes": 793,
+      "sha256": "163b6bd53d6b15b74f973e3cd64780ecf4d0c9d28f4a29ab823a329bb41ba72c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7726584920.json": {
+      "bytes": 868,
+      "sha256": "069c9bc764a1eb892eca67bcf365a319cb44c3d0ba56381cfc6b6cc3b040e549"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7731805253.json": {
+      "bytes": 757,
+      "sha256": "db258ad5b1be73531d05eee719814dcbfcb2749f324e1c86d331f30e7b569e85"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7735880434.json": {
+      "bytes": 787,
+      "sha256": "70cc4493094861b882f0dabb542834a6f663a1a0d8e6f3847d1edd8ff63d8b50"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7769809492.json": {
+      "bytes": 789,
+      "sha256": "3e69693bd0c3cbd6c2d90cb6e0f440bf92ef323bc5e715d9d6befcc7409376da"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7814039429.json": {
+      "bytes": 793,
+      "sha256": "07984c3c4dc3eb7f87518c5b80df6b60b28481f15d59d8392c24f7ab308f0c5d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7818690702.json": {
+      "bytes": 806,
+      "sha256": "90fda40c9cc55102315deddb47db6eb3ef77a4997f8d2e748b9945dc12abf50f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7842456603.json": {
+      "bytes": 837,
+      "sha256": "49d91719e92333108155d8b01b503bf329ff3a45463f50ad7f0c2f9cc83642e6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7853420888.json": {
+      "bytes": 788,
+      "sha256": "f4e40b1192efa8292f06a95aedb5f8134e52307ac6d5bc13261423aee4361585"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7871075097.json": {
+      "bytes": 891,
+      "sha256": "c1d80b90d03a47a1c6b8ee582453f09d3c6041cadf0b63bd97361c72a950aac7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7877729832.json": {
+      "bytes": 810,
+      "sha256": "ba00b011b9996a0ef3705be276a3b7d7aeaa7e0b4a53aeee9fd8e1189f9860d1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7915422546.json": {
+      "bytes": 803,
+      "sha256": "3ea2707dc5add664f0feba78e971dbe04dbf7edc736a17c6829b08074e4fa7f3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7957952441.json": {
+      "bytes": 798,
+      "sha256": "806ad48f1ea5a50e01d5470e9f355d914fdee8f20a7214ebfe67d82ec8d77964"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7968531766.json": {
+      "bytes": 783,
+      "sha256": "c4da8b32925fbb53fc6c7a2e3ad7ac7407e49842502a35c4ad9ef9d8b8365341"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/7978523249.json": {
+      "bytes": 971,
+      "sha256": "dcdb5e60c9ddca560b868266c1caf4e4e2b5dcdbfd69c4c0db89599e6661069e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8013992690.json": {
+      "bytes": 826,
+      "sha256": "f495f30f329fb43fb95f191fdd7ab346730bd06b984ade904a6488742563caae"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8014685692.json": {
+      "bytes": 757,
+      "sha256": "e10e7928d89073ef43b9e16b4e5e01c61271176e902c9d78f4be16f22848d4f1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8027245246.json": {
+      "bytes": 757,
+      "sha256": "aa55b6a11a17c93f27ebb2d1a092fabb6c0e7bfa47388051b16650252961a64a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8040772302.json": {
+      "bytes": 844,
+      "sha256": "4001295aae30ad73906e983e00cb8e141b7a340f4a4c6126d68902bd4c0d7b00"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8049151043.json": {
+      "bytes": 781,
+      "sha256": "9b5cc3c18d64730cf7337ff3427d1b78006585d7337177c0c045766431115b62"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8073495790.json": {
+      "bytes": 757,
+      "sha256": "8ab015e867253cb1bef73df36292d26da0f39ebfc9fbf7b3e7fc11f4a22001f0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8092228582.json": {
+      "bytes": 866,
+      "sha256": "c5ec2bd9868ece6290fb4d9f53d53dcbc9f003be6125790da631646fb97c0ff2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8105259238.json": {
+      "bytes": 816,
+      "sha256": "94c94588774dbb3eff624cff3e5effe5b57c49c4259c1f15eb0718ff8447a6d3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8130623851.json": {
+      "bytes": 784,
+      "sha256": "20d84bb6a465d19ae70c15387a64c7b974bd67a387369f7cc50e9b9283cdff43"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8136713162.json": {
+      "bytes": 799,
+      "sha256": "4a661aa55563914751f4b974e5dda341e2edc1346239541d3e0fc4d7e5958775"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8141391179.json": {
+      "bytes": 883,
+      "sha256": "4e04c485046af3848a4354eaf438fc9c97b81478895b937667c2041ec35c2f6c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8154889955.json": {
+      "bytes": 892,
+      "sha256": "6ae73fdadf4c017b387ced785829c979a5d52129abf8dff3c9b4eb868e1d45be"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8156187644.json": {
+      "bytes": 757,
+      "sha256": "3a23cf3dab7b86954e4e57ffa5908f890ad5fce250d239c04fb5f18551752197"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8157022154.json": {
+      "bytes": 757,
+      "sha256": "d87bba0c82b475f79dd94fd296a1985fe3268a536a35f26b21c0ad25b7831dad"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8165294950.json": {
+      "bytes": 868,
+      "sha256": "6457db6a71390f3b54134e05639d48d04d9d2a9cc984d4afd1bdbbdbbd8f32be"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8175111406.json": {
+      "bytes": 868,
+      "sha256": "24dd88421184ecc2024c7335767ac669a751f35c2b505ad411d3d5d62efb2207"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8190821826.json": {
+      "bytes": 757,
+      "sha256": "5d83961bee535420e9b32564df92d4abb8ce18077a2afc176f6f50a52e10a910"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8198542583.json": {
+      "bytes": 757,
+      "sha256": "4817603d22d9b6575e32cfd8077905f3a85642caf330b8315486db6561ae6da5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8207689688.json": {
+      "bytes": 817,
+      "sha256": "6f865bc0877039748bbf29eafcb6644cdde6ad7b2bac5cb984c71c8f4f70ea46"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8207794171.json": {
+      "bytes": 757,
+      "sha256": "7cc3fe9d3dbebae48d411f477f73013a48e6b7db8e58be47e3a5b9561f53c90e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8207909573.json": {
+      "bytes": 775,
+      "sha256": "9e173804bf1157dec779c81e8722ae847238b84a92b9f8463f0b1558a87c3ffb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8210498410.json": {
+      "bytes": 775,
+      "sha256": "81be95fbbd703bd8ddf8218cd56fe4d67cd19b707193e3fc59adaa5d7dfcfef8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8215463940.json": {
+      "bytes": 757,
+      "sha256": "83b044c767bea848836215dfddc92c38f3585fd3bada68ebc80905e282442c7c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8219707199.json": {
+      "bytes": 876,
+      "sha256": "4fb659382382b632f5efea254a5373edf5be4c07d0a423fbd59384ce670c541c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8221921133.json": {
+      "bytes": 792,
+      "sha256": "8a12a79878ca778f79223dc9cb52e62a279b840a34cb3bd680431f67e8bd8a49"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8223752859.json": {
+      "bytes": 782,
+      "sha256": "96f2ce9b222b352e3af4d9b9ced81b0e87817a4386206a2afe1201ad2a293d2d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8224756617.json": {
+      "bytes": 757,
+      "sha256": "3aeef8550511e3949cccef92eea8c73d347461d800ff3828be2aaf57c77de038"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8229483810.json": {
+      "bytes": 876,
+      "sha256": "73264432a1ab55fb229a7b4ec8bcf284bc65438ac54db381a9dc8512429b9a00"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8230920255.json": {
+      "bytes": 945,
+      "sha256": "442edc2e2fbf4db96d772d089f78f075ae9270458cb332458bb8bec0b7079e8a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8232624181.json": {
+      "bytes": 860,
+      "sha256": "5a35a5017658a16772a5dbef015cf5f9bfdf97ac237d5601fcb64a92992ba750"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8239459587.json": {
+      "bytes": 807,
+      "sha256": "d907398391b55f11155af0ab59b21ffaf3323a3815ae15d24ebaf24f14034ffb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8240235930.json": {
+      "bytes": 875,
+      "sha256": "73e21f10938d6e5ac58920e8bf519226c58288a42b90da4bfbb9df3e860d90a4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8240471078.json": {
+      "bytes": 837,
+      "sha256": "62e6761eab35b29beb7883c61afd8290b201a2316d585de945de1b2a9283926b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8243560048.json": {
+      "bytes": 782,
+      "sha256": "b0c50e53bfd850a18dcfb30187b93fd05ffa957a790e9a3f533903804f5076a6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8245976887.json": {
+      "bytes": 775,
+      "sha256": "51c0d92b00310832371c343aafa5c8720c1f236dc050814813d43d297f539db8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8247976442.json": {
+      "bytes": 872,
+      "sha256": "9dc83b371202f4376892cfd807aa324c6b391fe3a52dc44b5ecc9736c54dc885"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8250233309.json": {
+      "bytes": 782,
+      "sha256": "8d3155ebd7825bd990475f4fd1ea910f272609c6b8a67e91251f43b4700befdc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8254077571.json": {
+      "bytes": 804,
+      "sha256": "95358d001b25c98eaa585de0055e0f2f4a8a97b624b5b7882eff88c4f64a4ab8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8254469818.json": {
+      "bytes": 778,
+      "sha256": "93f20b97cfb89b3a76549f40aa064670beebb726565b4e291367a1c28c45bff1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8260735345.json": {
+      "bytes": 939,
+      "sha256": "8c07d7715fa779c2b1241c365ee6c741d204f1b3d02d43677372449c23544a29"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8263408435.json": {
+      "bytes": 715,
+      "sha256": "24fce8832e7cbded4cea13ef42349e95aa25ea67a1f64f537f7fd7ba5c5e1361"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8267734821.json": {
+      "bytes": 769,
+      "sha256": "2a95c0d15d9cf2c59e84939f4cbe7327a7058f5b7b9bdafd9925aabefab8c39d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8268926785.json": {
+      "bytes": 796,
+      "sha256": "0cb7e5047488cfd918cabbc67952c35db22d74f14ae5e7d0ed3d516784a66a74"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8273634014.json": {
+      "bytes": 769,
+      "sha256": "1b9c7f2519287d73b4aaa26b9251243da7d30e71751c6512d163490d65b7619c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8275803290.json": {
+      "bytes": 782,
+      "sha256": "09b4da610539d6318d0eea4bcd30bf69b4f1b5f3fc13b82f06672e2f9b258005"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8277649219.json": {
+      "bytes": 757,
+      "sha256": "facd1aabfe0792b4a826bea7faa9a3345db443b093c7c39944e06732cfe90667"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8282418214.json": {
+      "bytes": 757,
+      "sha256": "9fbdad81faa1c6e2e8b919da9221558411d89a8209cd178ba4bf3a40e399fc58"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8282726504.json": {
+      "bytes": 850,
+      "sha256": "2e9c2217fc84dd1cad935207b9fa31e5851ac40a6bf37994941033cc67526553"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8285041449.json": {
+      "bytes": 763,
+      "sha256": "a5e57db6ca41818022cb5bfbd686bbf962a65e5cd7c56f76bc92239e8d863a19"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8286432170.json": {
+      "bytes": 870,
+      "sha256": "0690649dc5d2cb53bca3df3190410797a3c7dbae24d8fb890835b10bea3b74c7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8288945643.json": {
+      "bytes": 772,
+      "sha256": "bd7932fa1f62f996e03935652a34dd3becb65f45a3e9738876ba4851b860dbf8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8292395385.json": {
+      "bytes": 749,
+      "sha256": "ae15a97cfff6535e013572bd8a3c20d8f348027c930fb6fbc2a9f549f7c2cfc6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8292621176.json": {
+      "bytes": 877,
+      "sha256": "af93f858194c0ff39977a844f4ade64537e601c97ee286e5b19a87d9a8920833"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8292763064.json": {
+      "bytes": 791,
+      "sha256": "66b0ffeca202d30d88aa7cd387879f1bdccb7d06ebd326bd2934af0d37567fd4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8296808867.json": {
+      "bytes": 784,
+      "sha256": "b37ac0da460e7f44c535efbd96e9279fd0a8e1918b1f53044c8d25437e2ad01e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8300298782.json": {
+      "bytes": 856,
+      "sha256": "9e343cffbabbaa558146bd29ecab0ac191c546df4124d7029b5591ddcd809921"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8302683150.json": {
+      "bytes": 801,
+      "sha256": "21b97069d431f0f87445c231fc7a0c2031f470c674e6e6742ad4c0cd615d8e9e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8305220120.json": {
+      "bytes": 757,
+      "sha256": "c0b6cd28c835608e91ecff0c7fdc6e03bfc77f19d98e8c7bb3d7848b8ca3ee93"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8308919419.json": {
+      "bytes": 906,
+      "sha256": "f089ed4647ee91e64a700405cb086c0d5c2905d7c6866d48f70570b3079924e9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8310740105.json": {
+      "bytes": 757,
+      "sha256": "dead35a9fd13b1919c06c3ab8d6764afa2872ac57ad98487391d9df6375d3a92"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8311987727.json": {
+      "bytes": 904,
+      "sha256": "e25727c281c878ad8cfb3df7009fb5fa4bcfe515468b269c6686a19c93a6a985"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8314408857.json": {
+      "bytes": 868,
+      "sha256": "d1704c37778d9ae464715d24786555c529dc58e1134a278f3e187d8a36d6b0aa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8314961675.json": {
+      "bytes": 795,
+      "sha256": "acaa2039e032b2d6fd43797a121c6dcb2a0a0329db57524085c329d20043d5b7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8316835569.json": {
+      "bytes": 772,
+      "sha256": "83f82eb6d80e57e5bbaeafc169d4af4c0538eff68ab8f62b13e997f16d8929ec"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8327814694.json": {
+      "bytes": 814,
+      "sha256": "e86a046afdae7e97f7aa2c9e2ac68eb8db39bb1f4610fe296e9482d8972a5e12"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8327994779.json": {
+      "bytes": 801,
+      "sha256": "13a56b9924648a6cc498d1d250229f713459e353912c13467b60e1ee8362219a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8328137065.json": {
+      "bytes": 757,
+      "sha256": "aa6326719eb4be82306b97b77c6488320d7f6f5f948c19c83372827786662b6d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8328279725.json": {
+      "bytes": 757,
+      "sha256": "2186d45cfb762ccc0f48ed297e25b76ba53c5b8285ead843979fe2c7a8ee71aa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8328663012.json": {
+      "bytes": 754,
+      "sha256": "53f769f04d1473a52c0b3670b479df9fcfac559c1bab89c1fd34dc373565de60"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8331275269.json": {
+      "bytes": 801,
+      "sha256": "146313bfb1a669f3d880c6f32ed13a1683575c836cda40f7324e58db4d44b9ed"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8331891487.json": {
+      "bytes": 807,
+      "sha256": "9f90ef5b35abc62c58982eacaeb8e9035c84a79610f575018a70a98978714d69"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8332816202.json": {
+      "bytes": 766,
+      "sha256": "e83d1d21d4bf82905c74770d7b08431e0889c2b5d296b4337c1a0fbbcc467628"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8334733000.json": {
+      "bytes": 757,
+      "sha256": "145e0ba13e1b68c31d4e348e69bd3b93a16623496cf8413ca0efb504f1210341"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8336808756.json": {
+      "bytes": 764,
+      "sha256": "9873cf232d0a1dae05f65ee5acb6bf2c175b6965f2e94fb953684a12a24489f3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8337871385.json": {
+      "bytes": 888,
+      "sha256": "ff9649bf4c8316a41f6ecaaa0eb12205f896fe12a731126370c0f98e0fcca3e1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8338311097.json": {
+      "bytes": 866,
+      "sha256": "9a526ad50c15425b5a3bff0b2c8f25cf365238f2a1ce1996bac9d1a454cd3063"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8340165776.json": {
+      "bytes": 902,
+      "sha256": "a47904bb99e133482da6073f9df910dbc3ef834a2bfe88babb8a33aa0e5e1bb8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8340349109.json": {
+      "bytes": 780,
+      "sha256": "8505ffdd72e73b78f4e48fe693535c4920b1b54d6f097eb6b989db8c5110dcbe"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8340618708.json": {
+      "bytes": 873,
+      "sha256": "e502e7002b14bb5980421f454c7c41715b74add96d3b7ebcef32e78547d6bde4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8340657111.json": {
+      "bytes": 791,
+      "sha256": "99ca967c2cc8abfd244e08f711e952d8eb970ffa727f9fdb4a9762eaa91f709c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8342728089.json": {
+      "bytes": 757,
+      "sha256": "1e637e929f4130d17b7f12a7289b6e5fce00d9991d6c1388066a1907245103c6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8344052588.json": {
+      "bytes": 757,
+      "sha256": "dff25d71dcda944cace827083ffea1d4e31cbfd41c4e610965875413692153cf"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8344196388.json": {
+      "bytes": 757,
+      "sha256": "ef01ecf1f49d0cb984511c6bf994d3f8503dddd931c7ca5ece6fcd50f3c2366c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8344867799.json": {
+      "bytes": 794,
+      "sha256": "13a793459dca01d5408ce43aef0bc06f5a59fb02d8f54407ff15e96d5df96941"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8346024824.json": {
+      "bytes": 859,
+      "sha256": "87832707f8de2be496163e28787c0154225426d5c2386d96bc4ea8824f4a16fa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8346922908.json": {
+      "bytes": 865,
+      "sha256": "f5fb4b8e88167f99c45cf620a1a7aaba71a4f35574828d4d458bd8577e1797a5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8347360739.json": {
+      "bytes": 757,
+      "sha256": "62da127d60af5321f95ba477e495e760c4d1b2aef19bd1cf74c74430529b72e7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8348115425.json": {
+      "bytes": 819,
+      "sha256": "c187b59ef44f6cd5ad56afd36286ffed4bc6e10b34f5a66638e8c87fbbd35455"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8348287780.json": {
+      "bytes": 818,
+      "sha256": "8fe4de3df30b197dce725b8ad663b750ed8ca6074cd506067d4cacee6ff03845"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8348303774.json": {
+      "bytes": 805,
+      "sha256": "6eac9af3b28d2fbc02d2d37240d180b15da1d21661657496c809ea1e66eea968"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8348307243.json": {
+      "bytes": 791,
+      "sha256": "7f43e57d1f6a0b6e43156b332706724bd9da21b34f8b0fb87cde5ccd7b3b0099"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8348429248.json": {
+      "bytes": 747,
+      "sha256": "8f6d87813f20e52be5e295db43c58020aa5a14b1b44207a3fb257ece446dcc8b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8352893671.json": {
+      "bytes": 771,
+      "sha256": "18f44fbb37f07ba98e1072b4ecb32989baabe66be276fb0c1bf1a6eab2e7d58a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8355293113.json": {
+      "bytes": 814,
+      "sha256": "e00eb137c160a22927f30bfb3a6697b35bbcc91ad886ed10fcdf00d6ead3c5fe"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8358955070.json": {
+      "bytes": 774,
+      "sha256": "53f02ff2d9ce0fcb998d4855a99798715e505f341b6c89e42cbdc6bd2dc16224"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8359070474.json": {
+      "bytes": 757,
+      "sha256": "ff4e8b7b322e0ad09f094edfd2d0e59724a5a77f97d942ef170ac47e321df022"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8360425879.json": {
+      "bytes": 886,
+      "sha256": "ef8ba4b0b34a5558afce7053c4f6e6e6b02878d9b2cb4e196f84be14727843ad"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8362131326.json": {
+      "bytes": 760,
+      "sha256": "fe0d102e54338debcb9993afad254d1f339e56bcc8ac1a792eb7a34a73ec2306"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8362790220.json": {
+      "bytes": 955,
+      "sha256": "872197714914741052c7902b864f5a048e369dacd6fe425ceba1a43eaad7ee0c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8363376726.json": {
+      "bytes": 782,
+      "sha256": "af3cc8d4f596f52f4ee70fa9406b42d99d36f41223414c3d635596cb58475746"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8364372753.json": {
+      "bytes": 782,
+      "sha256": "36390e494d924d625e6f88f5fb9a58eeb38077d80485861470864ff877dbeeca"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8365811841.json": {
+      "bytes": 757,
+      "sha256": "c26eb3b3ae68315e5d9cf16e058443f4e4be66c156a0ba6ea52e68cadd7f7aeb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8368771577.json": {
+      "bytes": 757,
+      "sha256": "3391792589206b93f36297550f910c401d90536cf763f3f4ef6bf156844115dd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8368789687.json": {
+      "bytes": 807,
+      "sha256": "594ca7889727b41bc45df8dd3d7dc9f16f8d44d6c32a0e0da8244f0d8718192a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8369066026.json": {
+      "bytes": 757,
+      "sha256": "719c7d712df3bd8b5e4ef6ebd7b4a7d53a3934589d5fa5ab41ee29a070172671"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8369208802.json": {
+      "bytes": 780,
+      "sha256": "038665a3042e9ec2a5c4bab5c2b18941e72a26dbe1ca9fc1bdb1d932988b67d5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8369392477.json": {
+      "bytes": 809,
+      "sha256": "70983373e2db54a7063c38e42be6271253a3725ce06a629a101584765ac99e95"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8370326867.json": {
+      "bytes": 776,
+      "sha256": "df8f2a10fe6a320037b297760b045e126d84558288c15731ed3bdd7b6ab4e01b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8370330127.json": {
+      "bytes": 781,
+      "sha256": "a273d3d41a48b0e76c6991a21a1ac81a83d6149bc06dac3af55f50e907e3635f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8372400711.json": {
+      "bytes": 879,
+      "sha256": "246b4e291fd14e9b87715f713bdab4b423efd4e08a2162bb1231358a9a0acae6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8372555581.json": {
+      "bytes": 757,
+      "sha256": "10633270dc2843ff49b90f99f1d1f038ca3d34ecbd98c34d9746a044758a3a6b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8372896059.json": {
+      "bytes": 865,
+      "sha256": "578a269dccbf7376b8b1217a920c6e75a91ec627ea7cffed75e2f0b70eae0466"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8375140474.json": {
+      "bytes": 766,
+      "sha256": "53cdd375d17f0413d0a4df2e7c8703d0ca983ee4dd9ca284448a9424dcdcfd1e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8375988851.json": {
+      "bytes": 777,
+      "sha256": "5fcb82902bcb5dd1985bd00dd9acc67bba3c3442d8839955d14b07495a7b891f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8376212579.json": {
+      "bytes": 924,
+      "sha256": "66f0e75f438509fc4f525580a3cfdf36700f7c83d72a93b9debf6a230df8be93"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8377651285.json": {
+      "bytes": 715,
+      "sha256": "11f8f5565fb8ae56891fa4505c188be2acc0736554e20094b3a14aeb9ae6d27a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8378175554.json": {
+      "bytes": 737,
+      "sha256": "bb90df83cea40c0703e66c10b22570261cc8d130959fcb53021acf3aae8a2c56"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8378733722.json": {
+      "bytes": 787,
+      "sha256": "2a6d2f656316bec5735b1b1fb503c1c6623a8186119233a552920817b724b283"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8382361348.json": {
+      "bytes": 766,
+      "sha256": "4bc51a1b64e97a7f031ceae6e31f3fd1276fd7275acb70d4e955e34c60b62bde"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8382443779.json": {
+      "bytes": 774,
+      "sha256": "462fefa256a4f5f378b528025a16fadeaa60742574ba57c03b542bc32b51f7bd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8382493318.json": {
+      "bytes": 772,
+      "sha256": "381e54e757e9d20bfc98fad8150aa01d3ac359777b01639ff0e3fc2178636e28"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8390099682.json": {
+      "bytes": 783,
+      "sha256": "edba9d1332179bbc97877d0859d9da5f2d80a1de709b53794dbb045717aaf237"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8390226002.json": {
+      "bytes": 804,
+      "sha256": "bb6b32370d3e659d6b9d161b2ec898ffe52124e3c0abfc843b94eee780f267b7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8390352759.json": {
+      "bytes": 796,
+      "sha256": "7ea5707e775bbd0d4ebe0b61e7b928458b779d1eec8c7c23eed94e7c505ea852"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8397508633.json": {
+      "bytes": 757,
+      "sha256": "1af9388ef5db8b416a69ee69bc4aae0675ebd1dd79c4ec3c158a178e223f1139"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8398747503.json": {
+      "bytes": 784,
+      "sha256": "e9534d42502bab840e8d101b0740a11ce0d32a774780ac7ebc200aa36e6a6059"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8400179212.json": {
+      "bytes": 790,
+      "sha256": "13903b6ae11cb29bd94e3296dcf7acac3a8a8687bbce8c4adf337b7020e115d0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8400203109.json": {
+      "bytes": 792,
+      "sha256": "d39d0fd3555528027e495cb63de86252df621c4b47c2a5b2b6502fbabfbdc256"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8400644039.json": {
+      "bytes": 783,
+      "sha256": "63d2db542c020347970971917714cedd128cf7156ae5ea52b5476aa96a95cd95"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8400807344.json": {
+      "bytes": 757,
+      "sha256": "82064bd78978484b12ee12eab054dde2bb4d4d49615daf5932710d66d08ad6a9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8405042555.json": {
+      "bytes": 865,
+      "sha256": "ca8aba0e93a88dd150fef7d27b967e41dc0f880a166b8a07b200a1a5b0f6f317"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8405064835.json": {
+      "bytes": 853,
+      "sha256": "aa97c255a61150c3cc840a9cbeea35ddb750855b83dc2b6bfaafff7d37b53bf9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8405556800.json": {
+      "bytes": 757,
+      "sha256": "bf81775e056ecfcaa900f472c4e4ce79ac89d4d34c219e1973189a82201acba9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8406110936.json": {
+      "bytes": 774,
+      "sha256": "f8c2beca9f8d161e844e8077f2d111db212c1de3708ad6797873b808af68198e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8407774620.json": {
+      "bytes": 906,
+      "sha256": "2711a25fb8a1dcad6498b0375a1ed0575e9be16097c7b89e7e09b133e3930351"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8409205644.json": {
+      "bytes": 757,
+      "sha256": "8a16bb850d8b02743d42c5cc1f59858acd4124089c8208b68aac5809061a3b50"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8409757392.json": {
+      "bytes": 887,
+      "sha256": "2d304a8ce031d042e45fcc37593e9aba34a76ace73728d1e7baad0c51556f808"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8409847770.json": {
+      "bytes": 830,
+      "sha256": "f9a8b03c6d67903ca33e065a9a483ef5e7cc78492d65d1ad296318d01b46a3ba"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8410062921.json": {
+      "bytes": 795,
+      "sha256": "5ac76ec397b10ffeeae67d0d50e2a7a5fa97bedc752b00887d54fbf4eedfccd9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8410093501.json": {
+      "bytes": 786,
+      "sha256": "96f26cb8608de557c78615553df210d3b46b2816dbf3f6bfbf72d91ddd12bf9a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8410184249.json": {
+      "bytes": 889,
+      "sha256": "f2432a2fa5266133b155a1d7fb0b7a26bfa3977349ea06a0681a61bc984797ac"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8410188604.json": {
+      "bytes": 841,
+      "sha256": "838b15bea3d25cc2be3f0bdad32161d4315fdee6258ffd52f802c063960bdc49"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8410624077.json": {
+      "bytes": 845,
+      "sha256": "fc6d21c6446d36cb04b457eb9748b9ae9d47dc286b859a50df43d374e30be857"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8412921076.json": {
+      "bytes": 806,
+      "sha256": "2033abe2e2a82b1dec417e1696b0aa9f7c4b038d8ae112a1ced4633d0e106985"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8413919632.json": {
+      "bytes": 783,
+      "sha256": "e28eab86e5332c1a612699ba72c9bf23e83f6a994fa9d7c3409853c85d703906"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8413924867.json": {
+      "bytes": 757,
+      "sha256": "afd2394530cc63fd21f851fff250468c1b2caeae60744e3050e9b02cc9fc46b1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8414301636.json": {
+      "bytes": 858,
+      "sha256": "0bb25aac9d73293e1dc3a3be74ec049d18d9d1558ed07fe3f9254a624eaea6dd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8419908591.json": {
+      "bytes": 796,
+      "sha256": "a8ab4ede3a735aed5d58dee51587d6846ac6e83bb6c71cf69823d05dfddf936e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8420107736.json": {
+      "bytes": 764,
+      "sha256": "cccb2ba9cbba78587650be14512f20c8778aeceeca8d3c708781161e4ffebf3b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8420243520.json": {
+      "bytes": 775,
+      "sha256": "3c94ba9baf724e7f3b0a7c2321ed73b971a0d75cbad561cabdd1d4b185e12971"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8421608501.json": {
+      "bytes": 852,
+      "sha256": "fc2c4cc046f1a300d2e71ed556b5a758d21a794c999171d85cfd8719218e3cfb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8422024184.json": {
+      "bytes": 873,
+      "sha256": "d3393664daca0a4886a18065ce6b380c4347eef515ce9c3b90ab4adffd08bd03"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8422230549.json": {
+      "bytes": 787,
+      "sha256": "fed8d2bf7f5e552d53b302c8577d248ecdc744a6b2ffe77af015b0819a8ffd21"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8422776504.json": {
+      "bytes": 897,
+      "sha256": "c1a63c6199735655b1b6add50b26393a1b772dbd46189f28e28aff9a71333ac7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8423088792.json": {
+      "bytes": 756,
+      "sha256": "d32961f1f2b857f38a4137ee487f41ed32218f62e5cfc6f961f321ceffdd998d"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8425652126.json": {
+      "bytes": 861,
+      "sha256": "6d1623a01a5242587d47afe59968a505f813a0d704fa4cd3c2f7b07379c3e2e5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8426064155.json": {
+      "bytes": 818,
+      "sha256": "649b0cda3889287b3e805e10e0ba17a7964154dc542b98509c06d95b2e9f1abc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8426946797.json": {
+      "bytes": 786,
+      "sha256": "f8c8f6cfecb8bddfc14f5025f5a7dd4825d06667e6811689cc56587d60ec1183"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8429410303.json": {
+      "bytes": 765,
+      "sha256": "68bbf392f49987b5fe9ae90290d8e408143775b9d44943e3594a01eeff893f85"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8430937727.json": {
+      "bytes": 804,
+      "sha256": "ce38a132f7fe5f670ad0b756ccad33e50e31fc7a02bf714caf2f1f179622225b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8434936137.json": {
+      "bytes": 902,
+      "sha256": "b140ae4ec8214f7ae5aca3432dc97d7945f66ee964e04f5d08f45534cd3845f2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8435222791.json": {
+      "bytes": 757,
+      "sha256": "ea85723f8d3a9acc1378d6213eeecad3a99cd810e447becc943d7b08dac7191f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8435375669.json": {
+      "bytes": 757,
+      "sha256": "a64d31fc7b6bca494e90276047a7f1c961c5966450a911e495b5d9d14d4293d3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8435521177.json": {
+      "bytes": 757,
+      "sha256": "6ab83a35a9071a9220fca14de6234f22b708e7dd9f276fc26781eb2b6af42dc6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8435620705.json": {
+      "bytes": 764,
+      "sha256": "d1fff158a41cdbd7e13ec94238ab7a35fcd88c471690abe381f3230af89e6e71"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8436984920.json": {
+      "bytes": 774,
+      "sha256": "4d2755f248e77914807c42accb244470988982744a33698a21169295f2b47895"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8439050344.json": {
+      "bytes": 781,
+      "sha256": "f8ffa0963cb2cb704b497b9598860dd06c6fe6f63c49032747b12774fa8ea333"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8439170097.json": {
+      "bytes": 757,
+      "sha256": "c1a20f006eff7003507c6b146f083c48862a91000cf81c3b3a6519544e7ebc2b"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8439364901.json": {
+      "bytes": 851,
+      "sha256": "0991b00c51002e6073952e7c5d9bd62afe5cc82e0c5a520e1fcc845c288a5b09"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8441390564.json": {
+      "bytes": 793,
+      "sha256": "39ba86ce9f00ffce3a561da709cfdb251bfc25e5b2df80d2e18f4caba44252ea"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8441493551.json": {
+      "bytes": 772,
+      "sha256": "790435f68fd52f547d044f3e9a75e20fcfea291a1f2dfc1212c440ca16297ec1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8441703827.json": {
+      "bytes": 784,
+      "sha256": "5d41c75c81d30ab5d23f38b72789f667978eccefd1d5728b04b85f0f18c3f9ee"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8444951938.json": {
+      "bytes": 816,
+      "sha256": "b1e0734cff2f5db62b11d4de24415a38ecea281be2252b84a45285335a9b823f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8445087982.json": {
+      "bytes": 757,
+      "sha256": "857f7d64d22a49f7f611bc54f3bca6a1a6490854ff9fc7336693308bba6feed9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8445097690.json": {
+      "bytes": 871,
+      "sha256": "7233126c3bcaa4f966be251e7de795bfe90047923a0e310b6f9281d0f04633b2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8445141275.json": {
+      "bytes": 831,
+      "sha256": "78ae70829a26ed0d818466555012ae6bfebfe03d8f69b108ca7e3f25c5dd70aa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8445402624.json": {
+      "bytes": 841,
+      "sha256": "3b4c3a78fd8f04652926daf5ec2647287f60aa8b53429d82c6ede76e27eb4d2a"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8446991871.json": {
+      "bytes": 786,
+      "sha256": "5da17b8b37bac797a679bfaf80485603f65928c23dabe4c8de392fbb761d8c47"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8448420102.json": {
+      "bytes": 866,
+      "sha256": "9d964430985189d80b645948803795838208c4e6008392680f828ca84dc377ee"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8451420905.json": {
+      "bytes": 877,
+      "sha256": "0a940d16641b9e72be2a0d90f5495961d3b7e44b26c1fc22364195185ce6dc03"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8453463272.json": {
+      "bytes": 787,
+      "sha256": "8961e4659fe35e724c9724d3f64de723e3852ea24bec84dd2d33fc5880a1fed8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8456865099.json": {
+      "bytes": 814,
+      "sha256": "ced6134db9d58bb67824e6152b8185d5cb78549006c0c6aa0003eb8aae18231f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8459034460.json": {
+      "bytes": 767,
+      "sha256": "1c8df4b55098e4126904c53d97e23cbbf9f06184624900d6c2285c7456ed75cb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8459376474.json": {
+      "bytes": 745,
+      "sha256": "2a58ad18f4f3e469a861bdf6f69b13ab214678365a01d4dc19296095801721e3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8459429614.json": {
+      "bytes": 766,
+      "sha256": "43d43c4c1b2d285ef0ed1d4c3bab8e27d0e5dc37c79abc73be704f9762af90d2"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8459446475.json": {
+      "bytes": 806,
+      "sha256": "f43220ec79ec2d8712704e5798d4a24a8f0eef7cfbd1d4243388151b2334e9c4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8463780809.json": {
+      "bytes": 768,
+      "sha256": "e4a646c1b89ea4fbc95d505788e6ac43befef4f30d21fff8b9d03f6f9fc07df1"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8466887536.json": {
+      "bytes": 786,
+      "sha256": "2ce33a2fa38ce63518836a5a8e68b384458f80cd30ce10e16c08f6e475026ef5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8466948626.json": {
+      "bytes": 786,
+      "sha256": "ed1b42c73933ead7883660d6d409280bc52ca55169293540943ba584add8b517"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8466976993.json": {
+      "bytes": 860,
+      "sha256": "2e320dc78600b221d55a22a7ffb03a4b4a017e6235491546d0465c9463fa91fc"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8467502199.json": {
+      "bytes": 813,
+      "sha256": "3198b60abb915847d523844ed8cb3b0cee96deaf60cc0a1af9ba6d83be2974c7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8470032970.json": {
+      "bytes": 867,
+      "sha256": "177304b83ca0613cc007a01000161a25721dbf61baabce1733fa499f7f8b03b4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8470052021.json": {
+      "bytes": 879,
+      "sha256": "9454fcf6d5a06c494a9703cabd68c5cb93ee5de78a933bc65fdd06e46270ca0c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8470686679.json": {
+      "bytes": 763,
+      "sha256": "afdad03bf615fce7eeccb7d95ae59167990d1bb88294cc37bf01dd2405a3dac6"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8470864104.json": {
+      "bytes": 757,
+      "sha256": "26006a3a2f7e6405d02087dd74052a20ff79446de2ada7fd044c1ebfd65364af"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8471491842.json": {
+      "bytes": 766,
+      "sha256": "1ea4bd43a39b06ff731e13e38182dfb73cbe82f8b644de6009d18644038a73ff"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8471749226.json": {
+      "bytes": 757,
+      "sha256": "cb0dfe66eb443c6e12a0daad6d728a9d904a3a0cbd5a7c2242460fe39de746a7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8479967644.json": {
+      "bytes": 790,
+      "sha256": "8eceb522c8c7bfdacad352cd0388d7917097b19743b7a24d127df3565c446528"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8480235752.json": {
+      "bytes": 766,
+      "sha256": "8e7eafbb68a320934b3302d3b1df00a51d77809826f8767deb9458b0e23a46a3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8481974576.json": {
+      "bytes": 806,
+      "sha256": "1d06cf24eca69355102b01e9a3702453bba33a77070503ccb31f6893200e5473"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8482663788.json": {
+      "bytes": 865,
+      "sha256": "3d363247364d392c1accf51e54b15512e5a9e1c0ff8849e3f852dc953af52daf"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8482671436.json": {
+      "bytes": 767,
+      "sha256": "0bd53b228340fa7c659ee8708df8e78e824ca33419694071e8398c7c3d210750"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8483180252.json": {
+      "bytes": 791,
+      "sha256": "1af7ae85e53da8bb3fbf66b8920401b70facdab388c1e053efcf5221bfbbc6c7"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8483424960.json": {
+      "bytes": 815,
+      "sha256": "d565e028b9be7c694f72892e3553c14e74255de0a0a8309886e48ad6c630a9bd"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8483510381.json": {
+      "bytes": 805,
+      "sha256": "b0fb4b27f36f48963de31f78745e42cc888fd0009d6a70399786f6dd01c7c0d3"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8485103480.json": {
+      "bytes": 771,
+      "sha256": "987587256d24c18eadf1052a95dd987e17a4f0b4d138465177ccc634af9108cb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8485626776.json": {
+      "bytes": 757,
+      "sha256": "5f983851479b9325f6ca064109267f5371eb54341fe4801527bb5146292e3074"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8490481988.json": {
+      "bytes": 795,
+      "sha256": "babd57d6167c71addef2ccd0461f838dbde9591fb1dcb00e0832adbbfbdaf520"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8490682652.json": {
+      "bytes": 767,
+      "sha256": "c1bede0857097a0e7018ca5ad45ce797d450c26732cda58791cc5358d591d462"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8491204504.json": {
+      "bytes": 856,
+      "sha256": "8735cc7c01ac9132253d902b06185b9a4edad2d03f2aa6b517effbe68d0e3ed4"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8491213508.json": {
+      "bytes": 747,
+      "sha256": "cc70f9664ee87e47c9701214e572090e5c8927d064f938da66e9a58151d7b1be"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8491784209.json": {
+      "bytes": 806,
+      "sha256": "604ee8513823799e7c691e40e339948b1371a88ebf1470a11f4cfa39d3b533ff"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8491794506.json": {
+      "bytes": 782,
+      "sha256": "aeaf4c1645be449936eaec4b3fbac2e4df363b6259fff25fd54352ac5b5794cf"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8498935696.json": {
+      "bytes": 783,
+      "sha256": "e193e50871ed9dacef8dda1090ad8b387bbaea93bf592f4c4e05a7c69116e9da"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8498972692.json": {
+      "bytes": 757,
+      "sha256": "f3fc3428412459f5a8500e8ee62e03abcfdb4003c8f4f4dc9a0c05ae48cb7f85"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8499130944.json": {
+      "bytes": 771,
+      "sha256": "68db043a42b82d2751f21e8fa1ff6631f8311607e993857e416831221483d56f"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8499383789.json": {
+      "bytes": 862,
+      "sha256": "a768bcebd083ce6ddbef1b58f270b8973d37f6e4f6e12d599cd679b3c067efa9"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8499659457.json": {
+      "bytes": 778,
+      "sha256": "509e3b1963eed5e1c4c2e72508d712b1c052d24a154838e1fdc4e13fa7b35e9e"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8510830020.json": {
+      "bytes": 822,
+      "sha256": "938512afb431904eb09d7a90faac7fb83bdb12e82c35ac4ab5e541809c9d5286"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8512556390.json": {
+      "bytes": 802,
+      "sha256": "79d5edc28d0c5bd23d31b03dc30f390e01c80c795b2c0e243f9accd028559035"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8514697082.json": {
+      "bytes": 778,
+      "sha256": "6420e5e8db22e61609fb278cab522967632690967de1355ce9b2b5827f1de335"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8516890337.json": {
+      "bytes": 777,
+      "sha256": "93190ed2d47229685b02a425b310027830b5a303471c6133797a6167b0f504f5"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8543435263.json": {
+      "bytes": 732,
+      "sha256": "3098127e5317995818c6fffe0d5a02d81e00970525a195ccfad369ccb22a4231"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8544167077.json": {
+      "bytes": 774,
+      "sha256": "e4f318b7d59c2c8854c55a74a18782d9d4b2f5d8add46b07f140e54d9054e2fa"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8545061508.json": {
+      "bytes": 766,
+      "sha256": "0ae27d1a564c51b54313f36bd4e7f65c68c2b2338451e6038944a7bcf0b353cb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8545259782.json": {
+      "bytes": 789,
+      "sha256": "9acb449f721c08b5d28d7dcbaaca6785071169054c404eb8a5db114250478f0c"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8545760639.json": {
+      "bytes": 757,
+      "sha256": "ff97a7a6ae9206a6e8ac5b678a8ad0468db05748eda20918853b3664ad591a23"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8574875997.json": {
+      "bytes": 804,
+      "sha256": "aeec1db7ebbfa140f8e47b732cd2a7ae416e7ce0b20e38d5d516c2aa04e32cd0"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8575373560.json": {
+      "bytes": 793,
+      "sha256": "568ea5717c395e9394835c03165997b27e7f1602a1c90c0d4910716b90949dea"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8577212424.json": {
+      "bytes": 862,
+      "sha256": "bdacc2985550a641484215818b8c7f374a98ad994c377aa0e96c624e8b3918d8"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/reviewed/8577481577.json": {
+      "bytes": 765,
+      "sha256": "c7982d7882def76221a2694efce330ca801151d3c914afeecf5c020f261734bb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/standing_unavailable_policy.json": {
+      "bytes": 840,
+      "sha256": "af9d9881bd9e5b06e30535be314df0d7516873d62947e9491f8f5b1138a32dcb"
+    },
+    "Data/avito_runs/moscow_loader_20261028_batch_01/unavailable.json": {
+      "bytes": 4263,
+      "sha256": "695a8c5effa36a323cc1ce1d10bc9ff435c6093ec6af761fc73acbfec4eaeae8"
+    },
+    "Scraper/runs/moscow_loader_20261028_batch_01/plan.json": {
+      "bytes": 13650,
+      "sha256": "52aecace3ce7e6e287a2459c886aee2975dfff9b28455cb0828320c209488d6e"
+    }
+  }
+}

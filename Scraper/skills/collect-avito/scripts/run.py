@@ -27,7 +27,7 @@ from failure_log import ensure_allowed, record as record_failure, succeeded, Hum
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.24'
+VERSION = '1.7.25'
 AUTOMATION_FILES = ['Scraper/skills/collect-avito/references/top-professions.json', 'utils/title_flags.py', 'Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -603,14 +603,48 @@ def freeze(args):
 CLOSED_MARKERS = ('Объявление закрыто.', 'Объявление снято с публикации.')
 REVIEW_MARKER = 'Оно ещё на проверке.'
 BLOCKED_LISTING_MARKER = 'Оно заблокировано после проверки.'
-ALL_UNAVAILABLE_MARKERS = (*CLOSED_MARKERS, REVIEW_MARKER, BLOCKED_LISTING_MARKER)
+DELETED_MARKER = 'Объявление удалено.'
+NO_LONGER_AVAILABLE_MARKER = 'Объявление больше недоступно.'
+UNAVAILABLE_TO_VIEW_MARKER = 'Объявление недоступно для просмотра.'
+OTHER_UNAVAILABLE_MARKERS = (DELETED_MARKER, NO_LONGER_AVAILABLE_MARKER, UNAVAILABLE_TO_VIEW_MARKER)
+ALL_UNAVAILABLE_MARKERS = (*CLOSED_MARKERS, REVIEW_MARKER, BLOCKED_LISTING_MARKER, *OTHER_UNAVAILABLE_MARKERS)
+STANDING_UNAVAILABLE_ID = 'verified-unavailable-v1'
+STANDING_UNAVAILABLE_SOURCE = 'project_skill'
+STANDING_UNAVAILABLE_INSTRUCTION = ('Исключать отдельные карточки только по подтверждённому статусу недоступности, '
+    'сохраняя raw, локальное доказательство, ID и причину; CAPTCHA, 429 и общие ограничения сайта останавливают сбор.')
+
 
 def closed_raw_matches(data, identity, url, marker):
     if marker not in ALL_UNAVAILABLE_MARKERS or data.get('source_url') != url:
         return False
     if data.get('state') == 'UNKNOWN_PAGE':
-        return marker in (CLOSED_MARKERS[0], REVIEW_MARKER, BLOCKED_LISTING_MARKER) and norm(data.get('heading') or '') == 'Объявление не посмотреть'
+        return marker in (CLOSED_MARKERS[0], REVIEW_MARKER, BLOCKED_LISTING_MARKER, *OTHER_UNAVAILABLE_MARKERS) and norm(data.get('heading') or '') == 'Объявление не посмотреть'
     return data.get('state') == 'DETAIL' and data.get('id') == identity and bool(data.get('title')) and marker == CLOSED_MARKERS[1]
+
+
+def standing_unavailable_policy(args):
+    """Register the human instruction once in the shared ledger and bind this child."""
+    out, service, diag = paths(ROOT, args.run_id)
+    if args.authorization_id != STANDING_UNAVAILABLE_ID or args.human_instruction != STANDING_UNAVAILABLE_INSTRUCTION:
+        raise ValueError('Standing authorization must match the project policy')
+    with locked(diag):
+        ledger = load_failures(diag)
+        if ledger['state'] == 'NEEDS_HUMAN':
+            raise HumanRequired('Resolve the current stop before enabling this policy')
+        existing = [event for event in ledger['events'] if event.get('event') == 'project_unavailable_policy' and event.get('authorization_id') == args.authorization_id]
+        if existing and existing[-1]['instruction'] != args.human_instruction:
+            raise ValueError('Authorization ID already identifies a different instruction')
+        if not existing:
+            ledger['events'].append(dict(event='project_unavailable_policy', at=datetime.now(timezone.utc).isoformat(),
+                authorization_id=args.authorization_id, instruction=args.human_instruction, source=STANDING_UNAVAILABLE_SOURCE))
+            save_failures(diag, ledger)
+    policy = dict(authorization_id=args.authorization_id, human_instruction=args.human_instruction,
+                  markers=list(ALL_UNAVAILABLE_MARKERS))
+    path = out/'standing_unavailable_policy.json'
+    if path.exists() and read(path) != policy:
+        raise ValueError('Existing standing policy differs; preserve history')
+    if not path.exists(): write(path, policy)
+    print('Standing unavailable policy recorded for this run')
 
 
 def closed_policy(args):
@@ -708,13 +742,13 @@ def mark_unavailable(args):
     if ledger['state'] == 'NEEDS_HUMAN' or (ledger['state'] == 'RETRY_STARTED' and not getattr(args, 'automatic', False)):
         raise HumanRequired('Resume browser authorization is required after the stop')
     events = ledger['events']
-    auth = [i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization' and event.get('authorization_id') == args.authorization_id]
-    latest_auth = max((i for i, event in enumerate(events) if event.get('event') == 'human_browser_authorization'), default=-1)
+    auth = [i for i, event in enumerate(events) if event.get('event') in ('human_browser_authorization', 'project_unavailable_policy') and event.get('authorization_id') == args.authorization_id]
+    latest_auth = max((i for i, event in enumerate(events) if event.get('event') in ('human_browser_authorization', 'project_unavailable_policy')), default=-1)
     if not auth or latest_auth < 0 or any(event.get('state') == 'NEEDS_HUMAN' for event in events[latest_auth+1:]):
         raise HumanRequired('Current human authorization required')
     instruction = events[auth[-1]]['instruction']
-    policies = [read(path) for path in (out/'closed_policy.json', out/'review_policy.json', out/'blocked_listing_policy.json') if path.exists()]
-    policy = next((p for p in policies if p.get('authorization_id') == args.authorization_id and p.get('human_instruction') == instruction and p.get('markers') in (list(CLOSED_MARKERS), [REVIEW_MARKER], [BLOCKED_LISTING_MARKER])), None)
+    policies = [read(path) for path in (out/'closed_policy.json', out/'review_policy.json', out/'blocked_listing_policy.json', out/'standing_unavailable_policy.json') if path.exists()]
+    policy = next((p for p in policies if p.get('authorization_id') == args.authorization_id and p.get('human_instruction') == instruction and p.get('markers') in (list(CLOSED_MARKERS), [REVIEW_MARKER], [BLOCKED_LISTING_MARKER], list(ALL_UNAVAILABLE_MARKERS))), None)
     if args.id not in instruction and not policy:
         raise ValueError('Human authorization must identify the unavailable ID or authorize its policy')
     cp = read(diag/'checkpoint.json')
@@ -746,7 +780,7 @@ def mark_unavailable(args):
         sandbox = Path(read(pointer)['path'])
         if (sandbox/'raw'/raw.name).read_bytes() != raw.read_bytes() or read(sandbox/'checkpoint.json').get('next_id') != args.id:
             raise ValueError('Sandbox differs from stopped observation')
-    records.append(dict(id=args.id, url=url, status=('unavailable_under_review' if markers[0] == REVIEW_MARKER else 'unavailable_blocked_after_review' if markers[0] == BLOCKED_LISTING_MARKER else 'unavailable_closed'), evidence=markers[0],
+    records.append(dict(id=args.id, url=url, status=('unavailable_under_review' if markers[0] == REVIEW_MARKER else 'unavailable_blocked_after_review' if markers[0] == BLOCKED_LISTING_MARKER else 'unavailable_deleted' if markers[0] == DELETED_MARKER else 'unavailable_other' if markers[0] in OTHER_UNAVAILABLE_MARKERS else 'unavailable_closed'), evidence=markers[0],
         snapshot_sha256=sha(snap), raw_sha256=sha(raw), observed_at=data.get('observed_at'),
         authorization_id=args.authorization_id, human_instruction=instruction,
         recorded_at=datetime.now(timezone.utc).isoformat()))
@@ -985,6 +1019,8 @@ def capture(args):
     if changed - {'Scraper/skills/collect-avito/scripts/run.py', 'Scraper/skills/collect-avito/SKILL.md'}:
         raise ValueError('Unapproved collector source changed; preserve old run')
     validate_automation_changes(changes, changed)
+    standing_unavailable_policy(argparse.Namespace(run_id=args.run_id, authorization_id=STANDING_UNAVAILABLE_ID,
+        human_instruction=STANDING_UNAVAILABLE_INSTRUCTION))
     cp, queue = read(diag / 'checkpoint.json'), read(out / 'queue.json')
     # Recover an interrupted transfer before considering another navigation.
     if (diag / 'sandbox.json').exists():
@@ -1039,7 +1075,7 @@ def capture(args):
     print(json.dumps(dict(cp2, captured=len(cp2['completed_ids']), remaining=len(queue)-len(unavailable)-len(cp2['completed_ids']))))
     if cp2['state'] != 'CAPTURED':
         if cp2['state'] == 'REVIEW_REQUIRED':
-            for policy_path in (out/'closed_policy.json', out/'review_policy.json', out/'blocked_listing_policy.json'):
+            for policy_path in (out/'closed_policy.json', out/'review_policy.json', out/'blocked_listing_policy.json', out/'standing_unavailable_policy.json'):
                 if not policy_path.exists(): continue
                 policy = read(policy_path)
                 try:
@@ -1420,7 +1456,7 @@ def publish(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ['archive-partial-listing', 'partition', 'freeze', 'capture', 'finalize', 'publish', 'reselect', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
+    for name in ['archive-partial-listing', 'partition', 'freeze', 'capture', 'finalize', 'publish', 'reselect', 'standing-unavailable-policy', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
         command = commands.add_parser(name)
         command.add_argument('--run-id', required=True)
         if name in ('freeze', 'capture'):
@@ -1466,6 +1502,9 @@ def main():
         elif name == 'review-salary-line':
             command.add_argument('--id', required=True)
             command.add_argument('--authorization-id', required=True)
+        elif name == 'standing-unavailable-policy':
+            command.add_argument('--authorization-id', default=STANDING_UNAVAILABLE_ID)
+            command.add_argument('--human-instruction', default=STANDING_UNAVAILABLE_INSTRUCTION)
         elif name == 'blocked-listing-policy':
             command.add_argument('--authorization-id', required=True)
         elif name == 'review-policy':
@@ -1501,7 +1540,7 @@ def main():
         parser.error('batch-size must be positive')
     with ExitStack() as stack:
         try:
-            if args.command in ('archive-partial-listing', 'partition', 'freeze', 'capture', 'finalize', 'publish', 'reselect', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
+            if args.command in ('archive-partial-listing', 'partition', 'freeze', 'capture', 'finalize', 'publish', 'reselect', 'standing-unavailable-policy', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
                 stack.enter_context(operation_locked(paths(ROOT, args.run_id)[2]))
             globals()[args.command.replace('-', '_')](args)
             if args.command in ('freeze', 'capture', 'finalize', 'publish'):

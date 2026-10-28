@@ -87,6 +87,57 @@ class RunnerTests(unittest.TestCase):
             self.assertEqual(runner.load_failures(diag)['retry_limit'], 1)
             with self.assertRaises(runner.HumanRequired): runner.ensure_allowed(first, 'capture')
 
+    def test_standing_policy_shares_audit_and_skips_only_proven_unavailable(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            _, _, parent = runner.paths(runner.ROOT, 'parent')
+            runner.record_failure(parent,'capture','earlier error','test',immediate=True)
+            runner.authorize_browser(parent,'Continue','prior-auth')
+            before = runner.load_failures(parent)
+            children = [runner.paths(runner.ROOT, f'child{i}') for i in range(1,7)]
+            for out, service, diag in children:
+                runner.write(diag/'shared-ledger.json', {'parent_run_id':'parent'})
+                runner.standing_unavailable_policy(argparse.Namespace(run_id=service.name,authorization_id=runner.STANDING_UNAVAILABLE_ID,human_instruction=runner.STANDING_UNAVAILABLE_INSTRUCTION))
+            ledger = runner.load_failures(parent)
+            events = [e for e in ledger['events'] if e.get('event') == 'project_unavailable_policy']
+            self.assertEqual(len(events),1)
+            self.assertEqual(events[0]['source'],runner.STANDING_UNAVAILABLE_SOURCE)
+            self.assertEqual((ledger['failures'],ledger['retries_started']),(before['failures'],before['retries_started']))
+            for (out,service,diag), marker in zip(children,(runner.CLOSED_MARKERS[0],runner.REVIEW_MARKER,runner.BLOCKED_LISTING_MARKER,*runner.OTHER_UNAVAILABLE_MARKERS)):
+                candidate=item('123'); runner.write(out/'queue.json',[candidate]); runner.write(service/'plan.json',{})
+                runner.write(diag/'checkpoint.json',{'state':'REVIEW_REQUIRED','stop_reason':'identity_or_template_review','next_id':'123','completed_ids':[]})
+                data={'source_url':candidate['url'],'state':'UNKNOWN_PAGE','heading':'Объявление не посмотреть','observed_at':'2026-10-28T00:00:00Z'}
+                runner.write(out/'raw/123.json',data); raw_before=(out/'raw/123.json').read_bytes()
+                (diag/'problem.snapshot.txt').write_text(f'# title [url={candidate["url"]}]\n- text: "{marker}"\n')
+                runner.mark_unavailable(argparse.Namespace(run_id=service.name,id='123',authorization_id=runner.STANDING_UNAVAILABLE_ID,automatic=True))
+                self.assertEqual((out/'raw/123.json').read_bytes(),raw_before)
+                self.assertEqual(runner.read(out/'unavailable.json')[0]['evidence'],marker)
+                self.assertFalse((diag/'failures.json').exists())
+            self.assertFalse(runner.closed_raw_matches({'state':'NEEDS_HUMAN','source_url':item()['url']},'123',item()['url'],runner.CLOSED_MARKERS[0]))
+            self.assertFalse(runner.closed_raw_matches({'state':'UNKNOWN_PAGE','heading':'Объявление не посмотреть','source_url':'https://wrong.example'},'123',item()['url'],runner.CLOSED_MARKERS[0]))
+            self.assertFalse(runner.closed_raw_matches({'state':'UNKNOWN_PAGE','heading':'Объявление не посмотреть','source_url':item()['url']},'123',item()['url'],'CAPTCHA'))
+
+    def test_capture_auto_registers_standing_policy_and_skips_proven_review(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            _,_,parent=runner.paths(runner.ROOT,'parent')
+            runner.record_failure(parent,'filters','prior stop','test',immediate=True)
+            runner.authorize_browser(parent,'Continue','prior')
+            out,service,diag=runner.paths(runner.ROOT,'child')
+            runner.write(diag/'shared-ledger.json',{'parent_run_id':'parent'})
+            candidate=item('123');runner.write(out/'queue.json',[candidate]);runner.write(service/'plan.json',{'automation_sha256':{},'selection_mode':'first_N_unique_on_frozen_listing'})
+            runner.write(diag/'checkpoint.json',{'state':'READY','completed_ids':[],'next_id':'123'})
+            def fake_browser(job,out,diag):
+                runner.write(out/'raw/123.json',{'source_url':candidate['url'],'state':'UNKNOWN_PAGE','heading':'Объявление не посмотреть'})
+                (diag/'problem.snapshot.txt').write_text(f'# title [url={candidate["url"]}]\n- text: "{runner.REVIEW_MARKER}"\n')
+                return {'state':'REVIEW_REQUIRED','completed_ids':[],'next_id':'123','stop_reason':'identity_or_template_review'},1
+            args=argparse.Namespace(run_id='child',batch_size=1,config=None,retry_reason=None)
+            before=runner.load_failures(parent)
+            with patch.object(runner,'validate_partition'),patch.object(runner,'validate_plan_profession'),patch.object(runner,'preflight'),patch.object(runner,'browser',side_effect=fake_browser):
+                runner.capture(args)
+            after=runner.load_failures(parent)
+            self.assertEqual((after['failures'],after['retries_started']),(before['failures'],before['retries_started']))
+            self.assertEqual(runner.read(out/'unavailable.json')[0]['status'],'unavailable_under_review')
+            self.assertEqual(runner.read(diag/'checkpoint.json')['state'],'READY')
+
     def test_partition_closed_policy_uses_parent_authorization_and_keeps_raw(self):
         with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
             _, _, parent = runner.paths(runner.ROOT, 'parent')

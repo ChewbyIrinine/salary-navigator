@@ -1,0 +1,12 @@
+{
+  "source": "user_instruction",
+  "instruction": "в выдаче всегда 30 страниц - сожеь это зафиксировать и обновить скилл. Параллельно продолжай сбор по очереди, ничего не меняй",
+  "authorization_id": "user-continue-queue-20261028",
+  "parent_run_id": "moscow_loader_20261028_b01",
+  "observed_pages": 30,
+  "last_page_file": "listing_pages/0030.json",
+  "last_page_sha256": "2bbd67e7b621bd3e6160d953d6717997e4189a5fde9f28bf4eb2fb1ffcc1b626",
+  "last_next_url_present": false,
+  "parent_queue_sha256": "b6c74644eb41c71f37b2e220099cddd3d7a34631ba4795cb496216f79a424256",
+  "scope": "Граница доступной выдачи этого сбора подтверждена участником; общее число вакансий и серверное ограничение не проверены."
+}
