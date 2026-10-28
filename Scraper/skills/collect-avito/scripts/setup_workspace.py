@@ -1,6 +1,7 @@
 """Prepare local collector settings and an importable Happ routing profile.
 
-No network requests, installers, tunnel changes or credentials. Existing files
+No network requests, installers or tunnel changes. Full connection secrets stay
+in private local files; only safe metadata is printed. Existing files
 are preserved; a different configuration needs a new --config/--state-dir.
 """
 from __future__ import annotations
@@ -10,6 +11,9 @@ import base64
 import copy
 import json
 import os
+import plistlib
+import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 from preflight import ROOT, DEFAULT_CONFIG, check_xray, run_checks, default_config_path
@@ -108,15 +112,68 @@ def prepare_happ_tunnel(source_path, config_path=DEFAULT_CONFIG, state_dir=None,
                         browse_skill=None):
     """Preserve a supplied full Xray tunnel and derive a private Avito variant."""
     source = Path(source_path).expanduser().resolve()
+    original = json.loads(source.read_text(encoding="utf-8"))
+    return prepare_happ_config(original, config_path, state_dir, browse_skill, source)
+
+
+def local_happ_snapshot(preferences=None):
+    """Read only the two known macOS app preferences, never search the disk."""
+    if preferences is None:
+        if sys.platform != "darwin":
+            raise SetupError("Локальное чтение Happ поддержано только на macOS. Используйте доступный полный экспорт или routing-профиль.")
+        base = Path.home() / "Library/Group Containers"
+        candidates = [base / name / "Library/Preferences" / (name + ".plist")
+                      for name in ("group.su.ffg.happ.ruplus", "group.su.ffg.happ.plus")]
+        candidates = [p for p in candidates if p.is_file()]
+        if not candidates:
+            raise SetupError("Сохранённое подключение Happ не найдено. Подключите нужный туннель в Happ и повторите проверку один раз. Не нужен доступ к серверу.")
+        if len(candidates) > 1:
+            raise SetupError("Найдены preferences двух экземпляров Happ. Укажите --happ-preferences активного приложения; источник автоматически не выбран.")
+        source = candidates[0]
+    else:
+        source = Path(preferences).expanduser()
+    if source.resolve().is_relative_to(ROOT.resolve()):
+        raise SetupError("Preferences Happ должны находиться вне checkout проекта.")
+    try:
+        data = plistlib.loads(source.read_bytes())
+        original = data.get("connectedConfigJson") if isinstance(data, dict) else None
+        if isinstance(original, str):
+            original = json.loads(original)
+        if (not isinstance(original, dict) or not original.get("inbounds")
+                or not original.get("outbounds")):
+            raise ValueError()
+    except (OSError, ValueError, TypeError, plistlib.InvalidFileException):
+        raise SetupError("В preferences нет читаемого полного connectedConfigJson. Подключите нужный туннель в Happ и повторите проверку один раз; иначе используйте доступный экспорт или routing-профиль.") from None
+    metadata = {"source_kind": "cached_connectedConfigJson", "preferences_path": str(source),
+                "preferences_modified_at": datetime.fromtimestamp(source.stat().st_mtime, timezone.utc).isoformat(),
+                "routing_present": not bool(check_xray(original)), "routing_scope": "tcp", "live_route_verified": False,
+                "freshness_confirmed": False}
+    return original, metadata
+
+
+def prepare_local_happ(config_path=DEFAULT_CONFIG, state_dir=None, browse_skill=None,
+                       preferences=None, inspect_only=False):
+    original, metadata = local_happ_snapshot(preferences)
+    if inspect_only:
+        return dict(metadata, status="ROUTING_PRESENT" if metadata["routing_present"] else "ROUTING_MISSING",
+                    next="Это кэш последнего подключения. Сверьте выбранный туннель и время; при отсутствии маршрута подготовьте --prepare-happ-local.")
+    result = prepare_happ_config(original, config_path, state_dir, browse_skill)
+    result.update(metadata)
+    result["next"] = ("Сверьте выбранное подключение Happ и актуальность кэша перед импортом avito-tunnel.json. "
+                      "Импорт/выбор выполняет участник; затем preflight и проверка текущего маршрута по VPN_HAPP.md.")
+    return result
+
+
+def prepare_happ_config(original, config_path=DEFAULT_CONFIG, state_dir=None,
+                        browse_skill=None, source=None):
     raw_directory = Path(state_dir or state_directory()).expanduser()
     raw_config = Path(config_path).expanduser()
     if raw_directory.is_symlink() or raw_config.is_symlink():
         raise SetupError("Каталог назначения и локальный конфиг не должны быть символическими ссылками.")
     directory = raw_directory.resolve()
     config_path = raw_config.resolve()
-    if source.is_relative_to(ROOT.resolve()) or directory.is_relative_to(ROOT.resolve()):
+    if (source is not None and source.is_relative_to(ROOT.resolve())) or directory.is_relative_to(ROOT.resolve()):
         raise SetupError("Полный JSON туннеля и результат храните вне checkout проекта.")
-    original = json.loads(source.read_text(encoding="utf-8"))
     if (not isinstance(original, dict) or not isinstance(original.get("outbounds"), list)
             or not original["outbounds"] or not all(isinstance(o, dict) for o in original["outbounds"])):
         raise SetupError("Нужен полный Xray JSON текущего туннеля Happ с outbounds; формат не распознан.")
@@ -131,20 +188,26 @@ def prepare_happ_tunnel(source_path, config_path=DEFAULT_CONFIG, state_dir=None,
     rules = routing.setdefault("rules", [])
     if not all(isinstance(rule, dict) for rule in rules):
         raise SetupError("Неизвестная структура routing.rules; исходник сохранён.")
-    # Reuse only an unrestricted freedom outbound; custom direct settings stay intact.
-    direct = next((o["tag"] for o in outbounds if o.get("protocol") == "freedom"
-                   and set(o) <= {"tag", "protocol", "settings"}
-                   and o.get("settings", {}) == {}), None)
-    if direct is None:
-        direct = "tl-avito-direct"
-        while direct in tags:
-            direct += "-1"
-        # Append: the first/default outbound must retain its previous meaning.
-        outbounds.append({"tag": direct, "protocol": "freedom", "settings": {}})
-    rule = {"type": "field", "domain": ["domain:avito.ru", "domain:avito.st"],
-            "outboundTag": direct}
-    if not rules or rules[0] != rule:
-        rules.insert(0, rule)
+    if check_xray(original):
+        # Reuse only an unrestricted freedom outbound; custom direct settings stay intact.
+        direct = next((o["tag"] for o in outbounds if o.get("protocol") == "freedom"
+                       and set(o) <= {"tag", "protocol", "settings"}
+                       and o.get("settings", {}) in ({}, {"domainStrategy": "UseIPv4"})), None)
+        if direct is None:
+            direct = "tl-avito-direct"
+            while direct in tags:
+                direct += "-1"
+            # Append: the first/default outbound must retain its previous meaning.
+            outbounds.append({"tag": direct, "protocol": "freedom", "settings": {}})
+        rule = {"type": "field", "domain": ["domain:avito.ru", "domain:avito.st"],
+                "outboundTag": direct}
+        # Preserve the conventional global QUIC block and its UDP semantics.
+        first = rules[0] if rules else {}
+        quic_block = (first.get("network") == "udp" and first.get("port") == "443"
+                      and set(first) <= {"type", "network", "port", "outboundTag"}
+                      and any(o.get("tag") == first.get("outboundTag") and o.get("protocol") == "blackhole"
+                              for o in outbounds))
+        rules.insert(1 if quic_block else 0, rule)
     if check_xray(result):
         raise SetupError("Не удалось подтвердить новые правила Авито; исходник сохранён.")
     output = directory / "avito-tunnel.json"
@@ -206,9 +269,20 @@ def main():
     parser.add_argument("--happ-tunnel-json", type=Path,
                         help="Private full Xray JSON exported from Happ; derive an importable copy")
     parser.add_argument("--browse-skill", type=Path)
+    local = parser.add_mutually_exclusive_group()
+    local.add_argument("--inspect-happ-local", action="store_true", help="Read cached Happ connection and report routing; no writes")
+    local.add_argument("--prepare-happ-local", action="store_true", help="Derive private importable JSON from cached Happ connection")
+    parser.add_argument("--happ-preferences", type=Path, help="Explicit preferences plist of the selected macOS Happ app")
     args = parser.parse_args()
     try:
-        if args.happ_tunnel_json:
+        if args.inspect_happ_local or args.prepare_happ_local:
+            if args.mode or args.happ_tunnel_json or args.xray_config:
+                raise SetupError("Локальная проверка/подготовка Happ используется без --mode и других источников JSON.")
+            result = prepare_local_happ(args.config, args.state_dir, args.browse_skill,
+                                        args.happ_preferences, args.inspect_happ_local)
+        elif args.happ_preferences:
+            raise SetupError("Для --happ-preferences нужен --inspect-happ-local или --prepare-happ-local.")
+        elif args.happ_tunnel_json:
             if args.mode not in (None, "xray") or args.xray_config:
                 raise SetupError("Для --happ-tunnel-json используйте --mode xray без --xray-config.")
             result = prepare_happ_tunnel(args.happ_tunnel_json, args.config, args.state_dir, args.browse_skill)
