@@ -1,0 +1,238 @@
+{
+  "run_id": "moscow-all-10000-20261028",
+  "geography": "Москва",
+  "profession": "",
+  "segments": "",
+  "filter_evidence": "Собственная Aside-вкладка: h1 «Работа и вакансии в Москве», геоконтроль «Москва, район, метро», URL https://www.avito.ru/moskva/vakansii; профессия не выбрана, фильтры не применялись.",
+  "listing_url": "https://www.avito.ru/moskva/vakansii",
+  "listing_request_url": "https://www.avito.ru/moskva/vakansii",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "listing_sha256": "95e440c436350b0784d7c6d3776260bd6d460d6e05890723c7b24c6a6968c510",
+  "profession_scope": "all",
+  "profession_source": "selected_ui_context",
+  "listing_pages": [
+    {
+      "file": "listing_pages/0001.json",
+      "sha256": "95e440c436350b0784d7c6d3776260bd6d460d6e05890723c7b24c6a6968c510",
+      "source_url": "https://www.avito.ru/moskva/vakansii"
+    },
+    {
+      "file": "listing_pages/0002.json",
+      "sha256": "7e7cc90d69a1c4449a28ec393e1bfcfd474db5aa2f2c578b62e91028decd3eab",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=2"
+    },
+    {
+      "file": "listing_pages/0003.json",
+      "sha256": "78bba21a7d8ea00cf703dcc0de59c8b8b55972092d92bc0fd8d6bb3d41ff1607",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=3"
+    },
+    {
+      "file": "listing_pages/0004.json",
+      "sha256": "6257188d8274b356019f7c77c83477739cb4ece0c6d2f64e0648460149b8c89d",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=4"
+    },
+    {
+      "file": "listing_pages/0005.json",
+      "sha256": "53a68f308dc8689728950918158dcd92d44cd386245d1a86918cbf6ee14ca8ad",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=5"
+    },
+    {
+      "file": "listing_pages/0006.json",
+      "sha256": "b64331dac94142640eefdff5fdbbf8741bbd9fa236bed038f9ae6b7af5df1be8",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=6"
+    },
+    {
+      "file": "listing_pages/0007.json",
+      "sha256": "e8bb4fe418901646b39c767afe2696a1ffbb28a6915f3fb7d3a1a74732a7fb1a",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=7"
+    },
+    {
+      "file": "listing_pages/0008.json",
+      "sha256": "683cf4e9d009797369e47e32eaba348e03a56cf14285bc3af35898060173a8b5",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=8"
+    },
+    {
+      "file": "listing_pages/0009.json",
+      "sha256": "cc252eee5e57b44339934f7718a4100c35df3d7d88dd5204aad7d05e6611b795",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=9"
+    },
+    {
+      "file": "listing_pages/0010.json",
+      "sha256": "c91d9ec6068b3699e7aac86d568d4c878e2e56f3623863229529be83ecfc829e",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=10"
+    },
+    {
+      "file": "listing_pages/0011.json",
+      "sha256": "ca67ee1b8baf3a23c1907d7855dd1126eac8888217a70004e1dd6abc43d0d799",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=11"
+    },
+    {
+      "file": "listing_pages/0012.json",
+      "sha256": "ac92f742b1f9df8003e2d4b56d118855c3416a812bca875f17a852ce9c230557",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=12"
+    },
+    {
+      "file": "listing_pages/0013.json",
+      "sha256": "21098ec6205a4d8228d7565833361f1c7439204f8333926879885bfbf76b7292",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=13"
+    },
+    {
+      "file": "listing_pages/0014.json",
+      "sha256": "4d8fdca41acca2cf7d35391e3a10fab70c225302acb644e96a51f351d0efe595",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=14"
+    },
+    {
+      "file": "listing_pages/0015.json",
+      "sha256": "191ab08bdfe6f5ab8337b82330c2be343bcb588b8f8f3f4e51d2e1805dbcb646",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=15"
+    },
+    {
+      "file": "listing_pages/0016.json",
+      "sha256": "19e58884f43e419816946599f9e5e291e8558362865d4cc7cd3711bfea8bcb09",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=16"
+    },
+    {
+      "file": "listing_pages/0017.json",
+      "sha256": "1a7fec7655975c4805696b3c7619b3d933eaf7ec608760d8b674c3c06328e2ab",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=17"
+    },
+    {
+      "file": "listing_pages/0018.json",
+      "sha256": "741c8e73a1c993220ce13d1cfae98eed918fd0577220d5d5b65ab9ac3444343d",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=18"
+    },
+    {
+      "file": "listing_pages/0019.json",
+      "sha256": "6599769760c5ce01ee0f5d11cb2940ebe696180e5e278efb8412093bfac65571",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=19"
+    },
+    {
+      "file": "listing_pages/0020.json",
+      "sha256": "fd4005e94ee345e5248fee473ef0ea155d2cbc845c16627055236a42d14c7254",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=20"
+    },
+    {
+      "file": "listing_pages/0021.json",
+      "sha256": "7d7f4cbff0ce1808f3a5aa8f27901d5c20a35267fc7a5554364fb21830865686",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=21"
+    },
+    {
+      "file": "listing_pages/0022.json",
+      "sha256": "91563b783067f985332691f742b817593da8a35153f3e6a2f7dbac2a488f2bd7",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=22"
+    },
+    {
+      "file": "listing_pages/0023.json",
+      "sha256": "b12e4ddef64c799c11af959e38a4e07f013a8c26c005d97e8ef1b3a884849c12",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=23"
+    },
+    {
+      "file": "listing_pages/0024.json",
+      "sha256": "4e7475592c24cb983dc28081112a9ad48f00cbd9b3699fdd47fc1c1510fbe16b",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=24"
+    },
+    {
+      "file": "listing_pages/0025.json",
+      "sha256": "5e5722de8ab42f32a33bb0320c8b65e7d4a2f4c0276e9fcf2f442de3735a0ba7",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=25"
+    },
+    {
+      "file": "listing_pages/0026.json",
+      "sha256": "49d3dae70ec11f3fcdf5977e87ae93bacad363707dc5d5bd4da5810f2f9c37ec",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=26"
+    },
+    {
+      "file": "listing_pages/0027.json",
+      "sha256": "9a16c07fdd70b13453afa77c33519d10d3300f6b9234ebf091b892754fdc90a4",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=27"
+    },
+    {
+      "file": "listing_pages/0028.json",
+      "sha256": "242c83789b7571ed9900fa31f3af210d75687b8e4f9a3883051059851a797044",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=28"
+    },
+    {
+      "file": "listing_pages/0029.json",
+      "sha256": "45555c6418b31b6d6b64bb65d87e244063ce55a8fdeb603c22c8e32033d334fd",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=29"
+    },
+    {
+      "file": "listing_pages/0030.json",
+      "sha256": "3882daeadcdcb177486bd9f728396d471184dd6a8a5cae169f3b67a8f5c65079",
+      "source_url": "https://www.avito.ru/moskva/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IjdoUHFYUGw5RGtLNE14d0QiO32CS-gqJgAAAA&p=30"
+    }
+  ],
+  "selection_mode": "saved_incomplete_listing",
+  "limit": 1420,
+  "requested_all_pages": false,
+  "saved_selection_authorization": {
+    "instruction": "собери эту очередь",
+    "at": "2026-10-28T03:10:51.010364+00:00",
+    "original_request": {
+      "url": "https://www.avito.ru/moskva/vakansii",
+      "limit": 10000,
+      "candidate_limit": null,
+      "geography": "Москва",
+      "profession": "",
+      "segments": "",
+      "filter_evidence": "Собственная Aside-вкладка: h1 «Работа и вакансии в Москве», геоконтроль «Москва, район, метро», URL https://www.avito.ru/moskva/vakansii; профессия не выбрана, фильтры не применялись.",
+      "all_pages": false,
+      "profession_scope": "all"
+    }
+  },
+  "candidate_limit": null,
+  "created_at": "2026-10-28T03:10:51.010377+00:00",
+  "instruction_version": "1.7.21",
+  "extractor_sha256": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+  "instruction_sha256": "d6e6f810c7b8d0ff473c3165a6e1619ebf1dff664d6d0c25b7963ad86e268034",
+  "code_git_commit": "2dc499e1ad6acdd0b86c1f1980d97fa46c727b53",
+  "setup_seconds": 0.03652183315716684,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/skills/collect-avito/references/top-professions.json": "e3e72638b17b48f825ec6f2fefb963662494f679ae4b0cef1bebedba889610dd",
+    "utils/title_flags.py": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
+    "Scraper/extract.js": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+    "Scraper/skills/collect-avito/SKILL.md": "d6e6f810c7b8d0ff473c3165a6e1619ebf1dff664d6d0c25b7963ad86e268034",
+    "Scraper/skills/collect-avito/scripts/run.py": "ecd4e6fbb7b41bd0dbda7cae94843161e26f2f8fef4c423ab9151ec1a13a83fe",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "80d0fc43e421e99a61b991ffe4bf5627d12588d8942de0db1b21fea8c5a10cea",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "aa746849317f9768af5aae08b394b9379539f6e268c1fc69e4ed13bd06a4657f",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+    "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+  },
+  "uncommitted_automation_files": [
+    "Scraper/skills/collect-avito/SKILL.md",
+    "Scraper/skills/collect-avito/scripts/run.py"
+  ]
+}

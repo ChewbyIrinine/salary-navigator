@@ -1,0 +1,6 @@
+{
+  "authorization_id": "user-20261028-fix-active-8441437912-resume",
+  "human_instruction": "Разберись, почему сборщик остановился на активной вакансии 8441437912, исправь ошибку и продолжай оставшуюся очередь.",
+  "method": "joined_salary_line_v1",
+  "initial_id": "8441437912"
+}

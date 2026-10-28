@@ -1,0 +1,32 @@
+{
+  "id": "8441437912",
+  "structural_check": {
+    "id": "8441437912",
+    "structural_check_passed": true,
+    "errors": [],
+    "full_parameters_read": false,
+    "semantic_review_performed": false
+  },
+  "parameter_audit": {
+    "rendered_complete": true,
+    "expansion_controls": [],
+    "scope": "visible_Условия_and_Требования_only",
+    "offline_review": "joined_salary_line_v1"
+  },
+  "review_method": "deterministic_rendered_template_v1",
+  "semantic_review_performed": false,
+  "city": "Москва",
+  "region": "Москва",
+  "location_evidence": "Москва, Киевская ул., 5Ас3 Киевская 6–10 мин. Студенческая 6–10 мин. Деловой центр 21–30 мин.",
+  "city_source": "card",
+  "city_anomaly": "",
+  "analysis_status": "validated",
+  "offline_review": {
+    "id": "8441437912",
+    "raw_sha256": "82ac9b711d16ff79dc2a00daa10cb6eda673c6b43e7dcbf3795676d14936a61a",
+    "method": "joined_salary_line_v1",
+    "authorization_id": "user-20261028-fix-active-8441437912-resume",
+    "human_instruction": "Разберись, почему сборщик остановился на активной вакансии 8441437912, исправь ошибку и продолжай оставшуюся очередь.",
+    "reviewed_at": "2026-10-28T07:18:52.863936+00:00"
+  }
+}
