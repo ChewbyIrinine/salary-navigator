@@ -32,6 +32,9 @@
   avito-capture (Haiku), затем avito-review (Sonnet). Карта файлов/моделей —
   Scraper/skills/collect-avito/references/HOSTS.md. Ведущий явно делегирует
   с коротким контекстом; не заменяйте этапы своей моделью молча.
+  Один браузерный агент собирает все технические пакеты. Terra/avito-review
+  подключается один раз в конце для проверки и публикации; по ходу сбора —
+  только для разбора ошибок, не после каждого успешного пакета.
   Обычный сбор запускайте готовым `scripts/run.py` (freeze/capture/finalize/publish);
   freeze/capture сами выполняют `preflight.py --probe-aside`, отдельно не дублируйте.
   До ручного REPL проверьте `aside host profiles --host local --json` и используйте
