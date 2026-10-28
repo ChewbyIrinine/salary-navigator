@@ -1,0 +1,1126 @@
+{
+  "run_id": "ekaterinburg_all_100_2026-10-28",
+  "dataset_id": "ekaterinburg_all_100_2026-10-28",
+  "status": "complete",
+  "schema": {
+    "columns": [
+      "id",
+      "city",
+      "profession",
+      "segments",
+      "title",
+      "salary_raw",
+      "source_url",
+      "observed_at",
+      "description",
+      "location_observed",
+      "employer_name_observed",
+      "date_raw",
+      "views_total",
+      "views_today",
+      "listing_rank",
+      "listing_promoted",
+      "full_parameters_read",
+      "analysis_status",
+      "export_eligibility",
+      "read_status_parameters",
+      "read_status_description",
+      "read_status_location",
+      "read_limitations",
+      "enrichment_status",
+      "enriched_fields",
+      "enrichment_version",
+      "military",
+      "military_keywords",
+      "military_rule_version",
+      "city__source",
+      "city__evidence",
+      "city_anomaly",
+      "График",
+      "Занятость",
+      "Способ оформления",
+      "Частота выплат",
+      "Сфера деятельности компании",
+      "Техника",
+      "Что получают работники",
+      "Опыт работы",
+      "В том числе для кандидатов",
+      "Категория водительских прав",
+      "Навык мелкого ремонта автомобиля",
+      "Количество рабочих дней в неделю",
+      "Количество рабочих часов в день",
+      "Навык ремонта техники",
+      "Стажировка",
+      "Смены",
+      "Специализация",
+      "Объект",
+      "Тип предприятия",
+      "Длительность вахты",
+      "Инструменты",
+      "Тип работ",
+      "Вид сварки",
+      "Способ доставки",
+      "Ассортимент",
+      "Медкнижка",
+      "Вид доставки",
+      "Статус самозанятости",
+      "Уровень образования",
+      "С чем надо работать",
+      "Можно заканчивать в 17:00",
+      "Разряд",
+      "Опыт военной службы",
+      "Формат работы",
+      "Тип хозяйства",
+      "Формат заведения",
+      "Цех",
+      "Кухня",
+      "Стаж вождения",
+      "Режим работы",
+      "Пациенты",
+      "Тип организации",
+      "Форма собственности организации",
+      "Медицинское образование",
+      "Знание английского языка",
+      "Где предстоит работать",
+      "Бренд автомобиля",
+      "Рабочее место",
+      "Общение с клиентами",
+      "Навыки обращения с оружием"
+    ],
+    "unknown_policy": "empty_not_zero"
+  },
+  "collection": {
+    "run_id": "ekaterinburg_all_100_2026-10-28",
+    "geography": "Екатеринбург",
+    "profession": "",
+    "segments": "",
+    "filter_evidence": "Own-tab snapshot confirmed heading Работа и вакансии в Екатеринбурге, geo control Екатеринбург район метро, empty job search, no profession checkboxes selected; profession scope explicitly all.",
+    "listing_url": "https://www.avito.ru/ekaterinburg/vakansii",
+    "listing_request_url": "https://www.avito.ru/ekaterinburg/vakansii",
+    "selected_controls": [
+      {
+        "label": "Любой",
+        "marker": "params[196929]/all",
+        "value": null
+      },
+      {
+        "label": "Любой",
+        "marker": "params[196929]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/all",
+        "value": null
+      },
+      {
+        "label": "Неважно",
+        "marker": "params[172815]/toggle",
+        "value": "all"
+      },
+      {
+        "label": "Неважно",
+        "marker": null,
+        "value": "all"
+      },
+      {
+        "label": "Все",
+        "marker": null,
+        "value": "all"
+      }
+    ],
+    "listing_sha256": "e409779e7b160dd1e6692a39e7b68b83d67e54480717bb51eacde0a0ffae6d9d",
+    "profession_scope": "all",
+    "profession_source": "selected_ui_context",
+    "listing_pages": [
+      {
+        "file": "listing_pages/0001.json",
+        "sha256": "e409779e7b160dd1e6692a39e7b68b83d67e54480717bb51eacde0a0ffae6d9d",
+        "source_url": "https://www.avito.ru/ekaterinburg/vakansii"
+      },
+      {
+        "file": "listing_pages/0002.json",
+        "sha256": "e2093980bf432866f261dbe9beafc34a12ba39d9712376817cdc22d7d53053e1",
+        "source_url": "https://www.avito.ru/ekaterinburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IkxqMWJHUU1tTXp5cXF1WEwiO33R_jqdJgAAAA&p=2"
+      }
+    ],
+    "selection_mode": "first_N_unique_on_frozen_listing",
+    "limit": 100,
+    "requested_all_pages": false,
+    "candidate_limit": null,
+    "created_at": "2026-10-28T02:20:45.691872+00:00",
+    "instruction_version": "1.7.20",
+    "extractor_sha256": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+    "instruction_sha256": "f81f16e0a0cc05a3ded9d8c6ce650ebc71c8f35b3e8cc4ad7e3f847437ef9c2f",
+    "code_git_commit": "84a86f160ce50fcc2c1f179ebc69db662c40c968",
+    "setup_seconds": 5.216389374807477,
+    "live_route_verified": false,
+    "execution_model": "gpt-6-luna",
+    "automation_sha256": {
+      "Scraper/skills/collect-avito/references/top-professions.json": "e3e72638b17b48f825ec6f2fefb963662494f679ae4b0cef1bebedba889610dd",
+      "utils/title_flags.py": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
+      "Scraper/extract.js": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+      "Scraper/skills/collect-avito/SKILL.md": "f81f16e0a0cc05a3ded9d8c6ce650ebc71c8f35b3e8cc4ad7e3f847437ef9c2f",
+      "Scraper/skills/collect-avito/scripts/run.py": "f203f8e962579ea306ae8f0d692b93405112bb38e54adc2d24a34056797a94a9",
+      "Scraper/skills/collect-avito/scripts/browser_batch.js": "80d0fc43e421e99a61b991ffe4bf5627d12588d8942de0db1b21fea8c5a10cea",
+      "Scraper/skills/collect-avito/scripts/check_capture.py": "aa746849317f9768af5aae08b394b9379539f6e268c1fc69e4ed13bd06a4657f",
+      "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+      "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+    },
+    "uncommitted_automation_files": [],
+    "city_anomaly_policy": "blank"
+  },
+  "coverage": {
+    "planned": 100,
+    "accepted": 100,
+    "unique_ids": [
+      "8250940817",
+      "7934515946",
+      "4858327002",
+      "8355768080",
+      "8317589956",
+      "7391710404",
+      "8300117734",
+      "8545089628",
+      "8187034799",
+      "3685440825",
+      "2750901508",
+      "8378085188",
+      "8367831646",
+      "8338334209",
+      "8466984796",
+      "8328056328",
+      "7781190004",
+      "8425450405",
+      "1351148242",
+      "8346933198",
+      "8336579224",
+      "8556996581",
+      "7853766521",
+      "8498950247",
+      "8347247972",
+      "8308010338",
+      "8136094921",
+      "4165434488",
+      "8369248540",
+      "8407970132",
+      "8204707461",
+      "8076634671",
+      "8461677364",
+      "7947590389",
+      "8010858914",
+      "8208027058",
+      "7972918039",
+      "8250906928",
+      "8355956930",
+      "8350429647",
+      "8398832907",
+      "8283244903",
+      "8212859889",
+      "8359526479",
+      "7743252639",
+      "8427522210",
+      "7433720146",
+      "8340721772",
+      "8435041075",
+      "3830166185",
+      "8320616278",
+      "8576953806",
+      "8382267149",
+      "8444880436",
+      "7283681918",
+      "8282703970",
+      "8215412604",
+      "8482689821",
+      "8256739624",
+      "8390579968",
+      "8405790668",
+      "8409385934",
+      "8414508124",
+      "8134191203",
+      "8162902975",
+      "8440385745",
+      "8381157814",
+      "2236513307",
+      "8333259619",
+      "8482897473",
+      "8413369215",
+      "8366536277",
+      "3454301714",
+      "8426178613",
+      "8118208525",
+      "7855385496",
+      "8511805546",
+      "8314615883",
+      "8031313109",
+      "8514243385",
+      "8545403823",
+      "8354544857",
+      "8391643977",
+      "8284754104",
+      "8421168259",
+      "8357009346",
+      "8317163023",
+      "8238039849",
+      "8409957925",
+      "8197478115",
+      "8515273390",
+      "8376948054",
+      "8557011817",
+      "8288627228",
+      "8471798333",
+      "8241151363",
+      "7532810480",
+      "2857258289",
+      "8395806340",
+      "2227030412"
+    ],
+    "errors": [],
+    "limitations": [
+      "Visible rendered parameters only; enrichment not run; placement on site; live route unverified"
+    ]
+  },
+  "timing": {
+    "setup_seconds": 5.216389374807477,
+    "capture_seconds": 153.61897391732782,
+    "review_export_seconds": 0.10241162497550249,
+    "publication_seconds": null
+  },
+  "review_model": "gpt-6.1-terra",
+  "automation_changes": [],
+  "post_capture_automation_sha256": {},
+  "files": {
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/exports/vacancies.json": {
+      "bytes": 437563,
+      "sha256": "8238e2880295b19e484a13d03c27fc15d0844626e23a97ed637881e15614b6c8"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/exports/vacancies_flat.csv": {
+      "bytes": 319153,
+      "sha256": "ab50e745ff82b4b230bb1237f45f8166be90cd2f1507386582cf8f441d9c9007"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/exports/validation.json": {
+      "bytes": 134,
+      "sha256": "5df8359b841b8a84f028d228ce2a76aa459652a2089639d4e4cf8437f5a0dec0"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/listing.json": {
+      "bytes": 25747,
+      "sha256": "e409779e7b160dd1e6692a39e7b68b83d67e54480717bb51eacde0a0ffae6d9d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/listing_pages/0001.json": {
+      "bytes": 25747,
+      "sha256": "e409779e7b160dd1e6692a39e7b68b83d67e54480717bb51eacde0a0ffae6d9d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/listing_pages/0002.json": {
+      "bytes": 25410,
+      "sha256": "e2093980bf432866f261dbe9beafc34a12ba39d9712376817cdc22d7d53053e1"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/queue.json": {
+      "bytes": 48331,
+      "sha256": "2930bd0a51ebf87b93845d74d3783e2053de19326ecca12864877cd6811b9f8d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/1351148242.json": {
+      "bytes": 5908,
+      "sha256": "73902814428637c7b8d6a3ef679d6758ebb9336ca9c6104552231434b5152a5c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/2227030412.json": {
+      "bytes": 8189,
+      "sha256": "02f2454f3625f70e6e81c62de26ae937ab5349925f6e41c3c430172d39a0b9d9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/2236513307.json": {
+      "bytes": 10767,
+      "sha256": "4bfcaf00fe78d41b044c6ff3dc6c067084df1584a0bf158b73c7468be02e38ba"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/2750901508.json": {
+      "bytes": 13677,
+      "sha256": "3588b533e2cca548ff7e1f935b2022e5d33f6687f4b2b6b939f69bbee9954b73"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/2857258289.json": {
+      "bytes": 6063,
+      "sha256": "014eaaf9737d4c9ed681d2ba8e472eeeaf80989eec8b4f1167d9df2b31078c1b"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/3454301714.json": {
+      "bytes": 7954,
+      "sha256": "b8d1722dc66a8d2405e9f5d1d006438c6fec95605be21f3b193c16631b698e41"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/3685440825.json": {
+      "bytes": 8928,
+      "sha256": "72a9448b0efa0f9f6693b8b5b0167c2274ee445145b9e9cef413e22cfbef5664"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/3830166185.json": {
+      "bytes": 13482,
+      "sha256": "2a35d09094f46147f1a410e01b4c7258fbcb68ffd1cc2d373efb193f60fd2082"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/4165434488.json": {
+      "bytes": 17709,
+      "sha256": "d13fb38ed33685e18b823b5de19222a0e0eb4963ddf3b34ec9dd6dcd07010de7"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/4858327002.json": {
+      "bytes": 8473,
+      "sha256": "aa5862f1f50e04aa89c7839079650ff6a61ca72cec9fb2142e2724d071f94681"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7283681918.json": {
+      "bytes": 8052,
+      "sha256": "613c2a26f1223fa66e8400ee2412e89cac3b52076cbe5e04757caf2ed874a3ae"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7391710404.json": {
+      "bytes": 13049,
+      "sha256": "f38e38ed3bd530f12853b43047d275b0d5aa73ffcaa0e279e4d8a933a1a046f2"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7433720146.json": {
+      "bytes": 13678,
+      "sha256": "727da9ef016eade53fd809f12a7b6ebd46f249a3d304b242bbf1df817b423276"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7532810480.json": {
+      "bytes": 14589,
+      "sha256": "16f3f082d10e3747e0f5b35c01d702a5f4752265dbb14ac87bd20c76e7bbec6e"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7743252639.json": {
+      "bytes": 13123,
+      "sha256": "0689d1a465700434061d28cab2c21ddda97e3bcb987ba3d68ef5c412f0336171"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7781190004.json": {
+      "bytes": 13403,
+      "sha256": "d9e39af6c3b9c8d0d683067d3a91eb459924a9682fbf0bfb9723c1c96c4f6202"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7853766521.json": {
+      "bytes": 16636,
+      "sha256": "327519266e4588760dc9f7347e4d6d087875bdd4599e36cfc417165989a51ba5"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7855385496.json": {
+      "bytes": 9091,
+      "sha256": "0a57512559d413d82b75533b6890c71195627ad486b82be047f73a2d412e9b9a"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7934515946.json": {
+      "bytes": 6237,
+      "sha256": "63917162e3f75c604ef8e98898003ae2d224120a3c5ee0f7eaf2a8f7e1ae08fe"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7947590389.json": {
+      "bytes": 7583,
+      "sha256": "30533000f5741b54ea9b8cc1021963060ace168de5f56289533ee41cc23a5345"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/7972918039.json": {
+      "bytes": 8817,
+      "sha256": "da3918f3a0dfa0f652901ef845454ad2d5d2370c632fdcad88a071f27f124fcf"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8010858914.json": {
+      "bytes": 8516,
+      "sha256": "1c21d7fbf7c3b7de9c6f436376a202fd0b34529f1c684aa221f9377f72992c30"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8031313109.json": {
+      "bytes": 13033,
+      "sha256": "f9f4a2d912c36b262e6d3110d3e78e5d420f352079ac29a98b28dcf113e1e898"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8076634671.json": {
+      "bytes": 11519,
+      "sha256": "87fb51545c96ee26e3cdf110819c502f300cb972299b131ade4270339552a5c2"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8118208525.json": {
+      "bytes": 11308,
+      "sha256": "8ae9c642213cd6dd9d1e24e0ec90fcc72fd0fa9f1ce7e79a930055ec02b624a3"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8134191203.json": {
+      "bytes": 15011,
+      "sha256": "96409adc1e183d3a5d0e59f2190cb5fa55be3ecbe892fecc2829a75796ea44de"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8136094921.json": {
+      "bytes": 13954,
+      "sha256": "67514db6eb0b1fa60fefe85cc3b3aee39e7848e1d9d1537610f539b30996f7b4"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8162902975.json": {
+      "bytes": 14886,
+      "sha256": "d21469cad1a373b49e8f2eb11bd3b2cd6e269350069a96ee45f75fbc936d6bad"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8187034799.json": {
+      "bytes": 11880,
+      "sha256": "556a870510a10f54f457ee47cb1c1276c4b721e046d2fa4610f610c14c24eafb"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8197478115.json": {
+      "bytes": 15112,
+      "sha256": "7abe8d19e03487c8dd063f57a7a0061841c9ca2dcae1bef218e3b1d29b0c4dc0"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8204707461.json": {
+      "bytes": 13709,
+      "sha256": "b402a0802fea5a67255fe256c1910fe7dcc639f954d89c8f3d9594f5ac7b7430"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8208027058.json": {
+      "bytes": 14819,
+      "sha256": "383b9fa1a429883690a471966229c7df487470bee9659a89696beaaf4e41cd30"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8212859889.json": {
+      "bytes": 11416,
+      "sha256": "b81218a182357579bf333cbcd6167a4e30f8f2f2c7750b9ec675ee88000e8805"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8215412604.json": {
+      "bytes": 18880,
+      "sha256": "0fe6e711ceb88ed602c413c33e5f8c6d602149635c4248ab332f80cb31effb1c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8238039849.json": {
+      "bytes": 8434,
+      "sha256": "868304d82bb28d471c61d1dffc25fb11cfb45fc98af89fe2e4a5d1b90ea35efc"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8241151363.json": {
+      "bytes": 11412,
+      "sha256": "7bdb3f85a48aa8bc664c68474490786519ba14db491cbc9c20a0d89ead858f6e"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8250906928.json": {
+      "bytes": 11352,
+      "sha256": "e2807c883de922e4e7e443e74731e5fa7efd2526110abcccb95e0a799a55b282"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8250940817.json": {
+      "bytes": 14919,
+      "sha256": "789b561435441ecfce40c4bbb02268c9d4f42bcea9f7c6a7ee27e1a29b56ddcf"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8256739624.json": {
+      "bytes": 16268,
+      "sha256": "a1e03b7730cc25e097541b3155f92dfcce1a61a3878257c5d5546896e38bd13c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8282703970.json": {
+      "bytes": 11188,
+      "sha256": "1a209eddd328a788e37692a8b8b1a93e5777abd61fce98d135096f47c59ef6f4"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8283244903.json": {
+      "bytes": 11501,
+      "sha256": "24595fe3b43c9f66022d64cb4e232a481c06d3bb57b11b4f4837c3ce16adf28c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8284754104.json": {
+      "bytes": 12007,
+      "sha256": "528dbd46e8e50f03271a7071de7686ca73b881f14416689114cb1803d2c4ee6d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8288627228.json": {
+      "bytes": 21165,
+      "sha256": "cb6bf9b75bf920b2afeecf70a41dc13095ed7fe3f69b1af1b99a29ca8878022c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8300117734.json": {
+      "bytes": 7825,
+      "sha256": "c9b8807d695d4e5ca6fc92b6a4bf4cf80f73fce804be423868091bf26c00b2d4"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8308010338.json": {
+      "bytes": 13761,
+      "sha256": "3e7e3ed81ed96470eee6d0f2fba1bddcedfd7c39272919cc51f4a3b6f28d25b1"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8314615883.json": {
+      "bytes": 13013,
+      "sha256": "78f1f62cd2787f1c778bc2b50d476958d7bd7333196c914fe7ef42a0af80a7ff"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8317163023.json": {
+      "bytes": 22913,
+      "sha256": "3d4e2b76917db11273692ad10476607ebd14a2235aecc1faa5f6851cb712fa20"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8317589956.json": {
+      "bytes": 12899,
+      "sha256": "6d79b26479ec6344f87500d8d4ecd63e39224494ebcb0c663f3ccd7b817347e7"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8320616278.json": {
+      "bytes": 11574,
+      "sha256": "01636fedcc6a8224e0ae023bf0ed3f1730d9481af8e38871fd1ac7d8fff33da5"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8328056328.json": {
+      "bytes": 16853,
+      "sha256": "d3b2a6df11d125b2d7a4439e11fba808fe98c3cee1baf7277c1856afb001d4db"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8333259619.json": {
+      "bytes": 9097,
+      "sha256": "58e55d2cc2b3e5cef035df7fb12d5347e80ca8051e8b9381142850b3fdd89c56"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8336579224.json": {
+      "bytes": 11987,
+      "sha256": "4942136a5e9f88a5e679f9e464c5643863e14712fc6247febe117a67960a24d3"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8338334209.json": {
+      "bytes": 21332,
+      "sha256": "c5f2cf31de252fac46c4724ee361b8e6923034f5729106723798714a07f967b9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8340721772.json": {
+      "bytes": 9304,
+      "sha256": "3feab15b6f2a0703ae5b7958a00dfd725447702bc98b70da22c52be2813a3370"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8346933198.json": {
+      "bytes": 5244,
+      "sha256": "3a63ac24685829197c055c9e0ea67ac99b07a714124caae795fe8f21037d7c76"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8347247972.json": {
+      "bytes": 16219,
+      "sha256": "8f70416e159b01a1a7a8d2c25542f66572e6e3b04942511d7ecc4a8352b38f02"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8350429647.json": {
+      "bytes": 13401,
+      "sha256": "9384587efc9b039f77bd04dd17ddf1a48499778a5da8d8370e8a7fddada8ca50"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8354544857.json": {
+      "bytes": 13617,
+      "sha256": "4ab14976f3d08e7b1fa41170fd707dac26cae3766c1390514d2a30cbbd62945d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8355768080.json": {
+      "bytes": 12618,
+      "sha256": "4fd1e466b67d2be92b971ee07be40969fdcab708249b39980db0b5d8dcbc6480"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8355956930.json": {
+      "bytes": 11380,
+      "sha256": "95a645d93780cd5c439a27e5c30dee76c2115857ee19729b93f415d0e8a044d1"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8357009346.json": {
+      "bytes": 12733,
+      "sha256": "6079f34421f4fbbc11d8832d9cef22fce26954050fe0e5f38b7a7c6a2012a079"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8359526479.json": {
+      "bytes": 12987,
+      "sha256": "8d8ced061d6a79060be574595f0ea50ccfb0ddde570a433409e055c79dd0b4e1"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8366536277.json": {
+      "bytes": 12270,
+      "sha256": "c3eff4ae55c2af96be1f8fe421c47dfb57285e57f9fb15b4eadee5909879ed9d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8367831646.json": {
+      "bytes": 13076,
+      "sha256": "36bc1a334f198f7ec82c2c376a6633ec4bbbdf0d29c0898d9b0e8d6a95bfd288"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8369248540.json": {
+      "bytes": 11183,
+      "sha256": "c84454aab13e24bc9f7a2a211a67c94dd014b1718e394b8eb5973f8f886af38f"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8376948054.json": {
+      "bytes": 12792,
+      "sha256": "68cf4a9dd5435dcd65fd306480f97ad42b8c4dca2c0f863a83f8a7ade624ce9b"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8378085188.json": {
+      "bytes": 9264,
+      "sha256": "32d94ccbe7d43514534bd78f121a47ca5096e11ba836c020d33333922f7253d8"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8381157814.json": {
+      "bytes": 13942,
+      "sha256": "e61909e7092de1657594f5fbea2d9e38e965dd34dbd11ced763f7bc704306308"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8382267149.json": {
+      "bytes": 9033,
+      "sha256": "70641eba8be8f12796bdb3ac8dc278afe049c6d928bd67f035e5d26561509914"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8390579968.json": {
+      "bytes": 10230,
+      "sha256": "8429cd974b5184bca7818742b9f3e9629f0b02f640c8b89ce27edb1a9e116c83"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8391643977.json": {
+      "bytes": 12524,
+      "sha256": "4196acd8e99c510a5fe73008b91ea6f19bf2e672728bded04b0dd71364572eee"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8395806340.json": {
+      "bytes": 12158,
+      "sha256": "fd865d771b6594a798271290b1daf728dca9af53283c0289cb76a56379edb1c9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8398832907.json": {
+      "bytes": 10744,
+      "sha256": "f29bbfab080317e9ec31a135adba914259e406b7fcfeb4c8a4b74efa8728cbe2"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8405790668.json": {
+      "bytes": 11585,
+      "sha256": "5c03c8cdbb2145b1cce334216580ec4c4f62c00fe0684339fa1257d4708004bb"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8407970132.json": {
+      "bytes": 11195,
+      "sha256": "c7dfd046f58656dcc4b9f66b063fddaf4cfbf5ada514dd132aa24235665b2937"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8409385934.json": {
+      "bytes": 16564,
+      "sha256": "2304d5aaa679ee0aabc5a0f9fffe52182025791a33927d533e8a51bf9a00bb36"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8409957925.json": {
+      "bytes": 9341,
+      "sha256": "5ff480175832de82c1c01673734428bd9f7125c3b2a5ca2740df3ebe06e11de5"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8413369215.json": {
+      "bytes": 8539,
+      "sha256": "34b1483f5b4470fb6509da20e9a55d5c3cc90124f8bd2f586d994ce2715c7ca6"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8414508124.json": {
+      "bytes": 9235,
+      "sha256": "6b2edd5becfb59c3dc5f08a9a422719ce0e5cfa55c755b2088df5f8187e19829"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8421168259.json": {
+      "bytes": 13071,
+      "sha256": "e86a5039dac9cfd5d22b14a0b334607be503ac67f8de915c84c657e6b5e89e96"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8425450405.json": {
+      "bytes": 12911,
+      "sha256": "549a9e432f5d743c551ffdcde56af648047d0ff0e0a5189763b01dab62ee2018"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8426178613.json": {
+      "bytes": 12870,
+      "sha256": "c8d6dfbdb2cbedf974c1f608aa6aee62063c9a67ccb0dabcb3a1765604a2b48c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8427522210.json": {
+      "bytes": 10609,
+      "sha256": "861b46f7459361dbe5bfadcaea16d91b23b2ec055b12d802f7e7f45a4e58e33e"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8435041075.json": {
+      "bytes": 21921,
+      "sha256": "51582a8ff09c3874a9fb1a909c7f53c573745855657c1b3a8308954d32cedd52"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8440385745.json": {
+      "bytes": 10886,
+      "sha256": "15b999746f2e1ce325c4ecba880dcc9a6ce253f1f7079f5fce7612947923f1e1"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8444880436.json": {
+      "bytes": 16543,
+      "sha256": "1277675b59bbd116fb8d69ae957669c43974ac302d66f88093d45772f9e1ccca"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8461677364.json": {
+      "bytes": 10331,
+      "sha256": "ead8284f54f5909d62e28ef4cbb5583d8289789c0f0dd11fedef43c7e5bf2d47"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8466984796.json": {
+      "bytes": 12337,
+      "sha256": "c74d1874ab880525533a0303ea79e1b451b203b4d176b9e992caacd0a40af17c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8471798333.json": {
+      "bytes": 17861,
+      "sha256": "d3db78f56cc5332de86db1203f20269ae4e8db41ee495da6a3766568b2e2fd0f"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8482689821.json": {
+      "bytes": 6064,
+      "sha256": "22393034371182f29e941b8e6114ab992bcf8fa84211a42f89b074c650767fe9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8482897473.json": {
+      "bytes": 13474,
+      "sha256": "011f4a2f790b3f2e2b2b5b66a54348a64107aefde9edc9fdb04522625a2a53b9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8498950247.json": {
+      "bytes": 10634,
+      "sha256": "3a16d1b63aee07c9c433242f752e0d67c76320d277b95c5a53813bca7b74059f"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8511805546.json": {
+      "bytes": 11207,
+      "sha256": "de715c9d7dc4ef944281739b831c2889616d95d971e65973f68f94117f56b6ef"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8514243385.json": {
+      "bytes": 13569,
+      "sha256": "9db3ead96d046458f8be1328fb1f141636c1491ca7a9c85b567e0e1b98314397"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8515273390.json": {
+      "bytes": 14575,
+      "sha256": "0327614677c4dad02e626c37a6af8ce385d915e7903634b0659061b540fb5787"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8545089628.json": {
+      "bytes": 11697,
+      "sha256": "8280754b22beb3fe559c7a0c7bcbf6f37306c57d7741a5e3cca171069bd26096"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8545403823.json": {
+      "bytes": 10335,
+      "sha256": "87e7a0bac060233a4df26a397a4a47312c456d228dbb1ae270f4045bcd8cf7b9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8556996581.json": {
+      "bytes": 11252,
+      "sha256": "2818bec1684d8ea0852a8c31aeb2191acb43f6b78cf58960cb891a6f96b61613"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8557011817.json": {
+      "bytes": 17224,
+      "sha256": "7fdfbcfecf5c98cb21d4c07eb87e448d171a19f2b42e30225e703218c2c7cc5a"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/raw/8576953806.json": {
+      "bytes": 6940,
+      "sha256": "5cef7c3f1e52c3f0156cc3fe3f877404a946d09dfcf5c76c5a790bfc69111da2"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/1351148242.json": {
+      "bytes": 774,
+      "sha256": "8f0f37f68dccde1aef087663a7ce290068257bb0fd0084c4339adcd5703077d5"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/2227030412.json": {
+      "bytes": 834,
+      "sha256": "6b42468567f3fdb64d75bde033670384b9162e9893a03e573c3db2f5f8e65890"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/2236513307.json": {
+      "bytes": 867,
+      "sha256": "787307c26be461d048a925cc35c77e299e795ccf2325107087ceaffe733b9e13"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/2750901508.json": {
+      "bytes": 862,
+      "sha256": "626908a13e0fda83538255ee1e9fe290240a9d14590aabd1a52c8abee1cd347e"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/2857258289.json": {
+      "bytes": 856,
+      "sha256": "97ccd9e1d4f7b6eba5a2cc447281257a78036b656bdedd247fba01736057b9d9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/3454301714.json": {
+      "bytes": 855,
+      "sha256": "3269977347e6ab3418fb4ad880e3e212719786d4e86f70600af0a312136d2344"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/3685440825.json": {
+      "bytes": 844,
+      "sha256": "a8f0c08e366245334d41b13fb2f07b2c7a7a4dd18384aad04f2dc55d34264f78"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/3830166185.json": {
+      "bytes": 1030,
+      "sha256": "8747a443fc5aebfef8c1ab630193d7c72b7f2e635868ba2b680093d7fec44447"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/4165434488.json": {
+      "bytes": 803,
+      "sha256": "28e5712ffce9c3ccb50f506afe034df7a1dffaa359fb3797c84083a8505deb5d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/4858327002.json": {
+      "bytes": 854,
+      "sha256": "e0e0b8a12fd89ce7731e37e9cc1f5ed585872077b7d28512319292c04394c787"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7283681918.json": {
+      "bytes": 863,
+      "sha256": "cbdb4f540b01992e2e466386fb66d1bc3df3429412b0423fa0d2771726761b7a"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7391710404.json": {
+      "bytes": 834,
+      "sha256": "b12bca5ad44faa3f0a337c05762ee863ed3ff4814d13d5c29cd0b7f82030569b"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7433720146.json": {
+      "bytes": 783,
+      "sha256": "690224371223b22b802156d105692d5ebd99ec5d1563c4dc00c9014a058e0b68"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7532810480.json": {
+      "bytes": 834,
+      "sha256": "9a2c50090bf799256937318fe98dc321555b10dc5f6fe5b725cf9c0d46c2ae5f"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7743252639.json": {
+      "bytes": 834,
+      "sha256": "3e0ec8a0b9784920e982674b47d535b5218c01a8af62d65c99a3ad0d115d2bb8"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7781190004.json": {
+      "bytes": 880,
+      "sha256": "eab4939f459f916cd4dc875e26d5b946b7ce8ffef5193962a227e4eb3e71772a"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7853766521.json": {
+      "bytes": 857,
+      "sha256": "b9cd892dd45ac282e650b85f357ba476cd9f541720522556740dfe9414485063"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7855385496.json": {
+      "bytes": 800,
+      "sha256": "eed8b2a96eeabbc3e2be8818ff4afa8629f0967aa61304442b7f2cd777106122"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7934515946.json": {
+      "bytes": 855,
+      "sha256": "defa9d6a633406bc20a0256c4d418927b5168cbb4089f205274262427518e21c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7947590389.json": {
+      "bytes": 783,
+      "sha256": "4b616aa865b7b15b60d75610bd223a7f8f2dc00fcec2c27dcd3e8e9eefa3c0ba"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/7972918039.json": {
+      "bytes": 932,
+      "sha256": "4ae6906e155fe500923dbe78c58f5f3db128c7a95c0c5f6786d716d77c65001e"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8010858914.json": {
+      "bytes": 889,
+      "sha256": "96c03470d978527a737b561ae353be3563da9ad0e109c54ec50874282be19b4c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8031313109.json": {
+      "bytes": 834,
+      "sha256": "b3ee51c9e175eaae201e167d838b3f351d3b63693c686356a423e1b807402702"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8076634671.json": {
+      "bytes": 863,
+      "sha256": "7cd656de2b24ab40909a44292d91bc4c61e8a80acecd768600d3cb41e24185c4"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8118208525.json": {
+      "bytes": 774,
+      "sha256": "c8aeaa1357421fbebce767666b27cd3d2c3251d5425efd2c2c4493891c48c32d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8134191203.json": {
+      "bytes": 865,
+      "sha256": "56e754629fa7a2cbda51ea5de718486ca07c8367fba66947445e4a92a7f9c002"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8136094921.json": {
+      "bytes": 834,
+      "sha256": "363926cdc0a6f03855cc895cbce69d85c1a79c85f4f9105cd3a240562b5bb8d9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8162902975.json": {
+      "bytes": 792,
+      "sha256": "c4170201ff60950015a6a2fdbb0cfd03e670a45695a38498915f186b5335080d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8187034799.json": {
+      "bytes": 834,
+      "sha256": "56ef5d9e0239e95b2ce0a83dd5dc9616dde10f28fc900ef82e428e84f13d33e8"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8197478115.json": {
+      "bytes": 793,
+      "sha256": "96a199025670b1889cf2f35c27b0848be504dbb96892f2a58ac4e66bf6cb0b20"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8204707461.json": {
+      "bytes": 784,
+      "sha256": "098555cf1af8058ab328f05549324b24a413e97cb56800cdd6f54d631fdf6e1e"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8208027058.json": {
+      "bytes": 857,
+      "sha256": "8deef8ab978540357a0756da4a108d2837eca9e0d67ac5c682e3fe554a69165f"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8212859889.json": {
+      "bytes": 885,
+      "sha256": "ed792e2cd1248d38e3d8e2cb2df6b8a18ee1cfae9bd57ead42eadcb1cbdc7e25"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8215412604.json": {
+      "bytes": 863,
+      "sha256": "315ffbbe570f4a6b229ccf7c9e84f62a284a512fd153429987be4ed494b38c2e"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8238039849.json": {
+      "bytes": 876,
+      "sha256": "af8c9b9ba79ce44ba954ba82e499e7ba51cd071f919a4af042d5625facd2b2e7"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8241151363.json": {
+      "bytes": 834,
+      "sha256": "8f4f2393b12c1a2bfad3a540e8cbfcfc9e56ba826366340d43f984714ff5dcaf"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8250906928.json": {
+      "bytes": 834,
+      "sha256": "0fe531d1e49e68002aa30ce3628337f3a16a48fc5ec055ebdefa74ed11959a6b"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8250940817.json": {
+      "bytes": 852,
+      "sha256": "c2bd399aa0659ea4c9cbd9a55874553efb66eaaf900083a7fce563bf509451a8"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8256739624.json": {
+      "bytes": 858,
+      "sha256": "bc4e9378cf033db4e5b4afa832e91520d2cd391af4d6e30b69088f5b970734b9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8282703970.json": {
+      "bytes": 841,
+      "sha256": "885c96cf33948051344355b7c5f43fdd5486fc643e2969a94bb3af6a29455308"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8283244903.json": {
+      "bytes": 834,
+      "sha256": "c2623db12948f3f5e83ec413e65fe558c83ceca8dfca887b6de04e6f0a992f79"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8284754104.json": {
+      "bytes": 830,
+      "sha256": "1d8068d02fd1478cd19fb45d8d0f0bba6f5b96bf01b78e6733ccf3284ccbad23"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8288627228.json": {
+      "bytes": 834,
+      "sha256": "9367ed180435b08c34d8a6ee5fcc88ef666c4d3c6eaecd9c75a2098a337f0278"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8300117734.json": {
+      "bytes": 834,
+      "sha256": "3677ab5a97789c4cca8a1a74b0d36a2ae0a5bfaaf7fe9f572978de086309600f"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8308010338.json": {
+      "bytes": 858,
+      "sha256": "3dd72c790ab0d74dea9946b511367eda891f60d8583dfe355bc0cc288be14719"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8314615883.json": {
+      "bytes": 834,
+      "sha256": "acd60a042d8548fedb6da5a4ed15fcb34bc1131bb11eefda3b70bae1a162f220"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8317163023.json": {
+      "bytes": 870,
+      "sha256": "9bc29b7432b37c6e1fa5a005b07a55a2ca61a3994908228c37c5a8d816d74b39"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8317589956.json": {
+      "bytes": 856,
+      "sha256": "cf3943f02f0c0e643a39e93ecbe0fd11a9b200a404d9edf3f8dcf04d1b0a5acd"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8320616278.json": {
+      "bytes": 838,
+      "sha256": "57d40171ba81ea5ce5822ca101a498c44ef875d6c5c83aa30d67d76de8647ed3"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8328056328.json": {
+      "bytes": 862,
+      "sha256": "3562a0aa2938e80dfe2ab04fc84c2b7af1f17f0a7a1765143be6713af70e4ca9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8333259619.json": {
+      "bytes": 834,
+      "sha256": "443697c649317ee8b470004fd2dcf6758b30e8d0a57fb54f75d32fc983047235"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8336579224.json": {
+      "bytes": 787,
+      "sha256": "473a18aa5b77517eb0b5a26910fae59e4199f275e1d9442d25a5f32dd1c4e4b5"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8338334209.json": {
+      "bytes": 865,
+      "sha256": "4f6538445808c718739103feffb0453429940085dda37cefb475c049c111cfc3"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8340721772.json": {
+      "bytes": 834,
+      "sha256": "ee45260ba25cdc5012d2132c5e4ee71d175b9836be82dc27d21da1ee383b430a"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8346933198.json": {
+      "bytes": 785,
+      "sha256": "3b26cce10e80a347eeff6dabc0f37c9435f15b730ebd3d11c376883ad0cb3d88"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8347247972.json": {
+      "bytes": 862,
+      "sha256": "653f35bea7ff61c292cee5e769b7c66109fed46c888f466a7c1b4772b46f1839"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8350429647.json": {
+      "bytes": 834,
+      "sha256": "f53eac81b98e1af3cbe96cb7e7b3957ee11595efe68e8c6cc9650e24175a6cdb"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8354544857.json": {
+      "bytes": 826,
+      "sha256": "18ca481d2d1d402af28b250e957e06d060864e4bce7737cefde7761ae4c9733d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8355768080.json": {
+      "bytes": 853,
+      "sha256": "71ae013b1cf8a58be2475bf98b6c51c09958a32757db533c5524734368ed84be"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8355956930.json": {
+      "bytes": 865,
+      "sha256": "a0a309c2c2bf0ffacfd66cd0dc0262ad0a0d87ac106b58c166191c6497182c4d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8357009346.json": {
+      "bytes": 797,
+      "sha256": "5451d555c7b3119d2a99f87a2a3985f5a659fcf49b2e1cb96ed1751e10c7a62c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8359526479.json": {
+      "bytes": 883,
+      "sha256": "d2fcf500865069b2831880f597e96aca81502c454f0f878d58988a8fc25e9aab"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8366536277.json": {
+      "bytes": 834,
+      "sha256": "36de03285de0fb82d1d25075f23a0472a7fa34514fb538e61bf6563209859894"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8367831646.json": {
+      "bytes": 885,
+      "sha256": "b85f62af237a5c2bcffdde1f42d3b550f07040ec1fe28818c7d47247b5b9be76"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8369248540.json": {
+      "bytes": 862,
+      "sha256": "fa99ff40a6beb36fb810c8aeeb5298186272e04fa1778ea2eee1382f12ae572a"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8376948054.json": {
+      "bytes": 885,
+      "sha256": "32414bd9864b85f4cec9a91c2349ebf59db12fa0f2fc9778b667013871862fd3"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8378085188.json": {
+      "bytes": 863,
+      "sha256": "759e0677b9c36a72af0631b0a0e7557c8a34e8f8a93e9e6b3138c36e49e9e269"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8381157814.json": {
+      "bytes": 788,
+      "sha256": "43052d173e70b8feb347e2b3a42a3e64b15121289a97d17b5f629d3a4e10183b"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8382267149.json": {
+      "bytes": 795,
+      "sha256": "968c3ea17e720a0c6d3b5b65585df483bcdcb97b0f332342055a2f17106af319"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8390579968.json": {
+      "bytes": 863,
+      "sha256": "0a0061a1c63351e9bf72018cf08d8b3ba29ef576bbf5b1d5b518929baf12b4ae"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8391643977.json": {
+      "bytes": 834,
+      "sha256": "936eb99c6d1c6deecd284d493ee29ca29cb52ef3e4dcecd29b36fd834534bb80"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8395806340.json": {
+      "bytes": 898,
+      "sha256": "e230946547d3769b1467ebf73d81245da63e1ae99b19e8d0a20e0d9b3d694583"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8398832907.json": {
+      "bytes": 856,
+      "sha256": "6ad28ff1b0f99101cd1b3a6b96be24834ae038e27fc9e2c7ae4787e1490d48ce"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8405790668.json": {
+      "bytes": 834,
+      "sha256": "53e057b475c5c7a6bafc3ce914446ce37e5cf8a58db9f9fad19a52976e4fad4c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8407970132.json": {
+      "bytes": 834,
+      "sha256": "d11a38b59832062acce7faf4fec13f08510b90ebce58d2d6ff27053cd115c8ba"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8409385934.json": {
+      "bytes": 777,
+      "sha256": "86f2d2686ff69194a01b89ee75c749dfdbc59ede2ab775ffa42b56b6df02d6ac"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8409957925.json": {
+      "bytes": 838,
+      "sha256": "8f6a43c52a806a594415cbb3c2ee5a777790da02608a884af7ce2a98f3e65c0b"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8413369215.json": {
+      "bytes": 838,
+      "sha256": "906ba4483377aa14ca7cf0004cacdc7cbe31e1e52c41fd3c2b6eddcc863b4113"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8414508124.json": {
+      "bytes": 865,
+      "sha256": "fe3562f6dfadab1e820e71b4f657bf1e2a335fa4e02eea80314da96de3b7f973"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8421168259.json": {
+      "bytes": 862,
+      "sha256": "d61a09a0dac320000876647ff72b391a4cb9ffdcc2855f4beffe9faba2c7960c"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8425450405.json": {
+      "bytes": 916,
+      "sha256": "04baa97fced1215095d3a82e0cdad4090b5a66057cca9537ad5dd9f95f31ffe8"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8426178613.json": {
+      "bytes": 872,
+      "sha256": "312910093dd1d8d79fd3310a31d69d5b99e3a9e698c47fbe2bde50d650bd6f3d"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8427522210.json": {
+      "bytes": 841,
+      "sha256": "0097e380b5018b301fcc59d0700fb168248e1d1064094849f0bcf702cfe22a31"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8435041075.json": {
+      "bytes": 870,
+      "sha256": "4826e7a104662f122b3aa1cf7c04b98af34240a6c20539bc8ba0efb22b8c6dc6"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8440385745.json": {
+      "bytes": 866,
+      "sha256": "711edd0fcab3cb33d2bba75b03f57db9e343a5ddd742884e1b541b5a222a0752"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8444880436.json": {
+      "bytes": 862,
+      "sha256": "b42f67d7cc493cc0e79956b7aa20970dee45ba46080cbc09bd589a3179a63bb2"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8461677364.json": {
+      "bytes": 872,
+      "sha256": "9a474c100a3e7fe869baa490675704a63e6c1aa98588a81c5edd5ba91ea46454"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8466984796.json": {
+      "bytes": 863,
+      "sha256": "d321563f940e4908894863bb639a6219c92039ea98d82a8472bbcf2c46873216"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8471798333.json": {
+      "bytes": 874,
+      "sha256": "d0daa814c15fe26e787661250ee50f7308b4a7abf7a6d568198a11d9ae8cfe8e"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8482689821.json": {
+      "bytes": 834,
+      "sha256": "f5083bc73ddae5ffab9cf82cf3ea0b83121de2b77c6de644af64c8bdb09d970f"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8482897473.json": {
+      "bytes": 872,
+      "sha256": "8bccca774a89d31b7e2bce220b278324b0335a7a6767d04e403018765268853a"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8498950247.json": {
+      "bytes": 859,
+      "sha256": "67502f89bebfece953b6bfa4a73c5a381c3786551c0d1889c4235e2cf1f9392a"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8511805546.json": {
+      "bytes": 856,
+      "sha256": "3b057a9d2d3e68b679483844f985974eb744a6f1289866f5c58c6f10dcd39a30"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8514243385.json": {
+      "bytes": 785,
+      "sha256": "21865ae1546b1dd593c42b28f66144761f25456580a8a692e51a053d6af30519"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8515273390.json": {
+      "bytes": 864,
+      "sha256": "c19c4e73e26dc23a257770806ec2b4dd6cf2f076c0724415f010367be59d43f8"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8545089628.json": {
+      "bytes": 834,
+      "sha256": "e485184813a700c04a72b14b3d109989e40f6106ed8b4ff774b33725cce1cec9"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8545403823.json": {
+      "bytes": 821,
+      "sha256": "78da912cdd1106035219e32b9f4297eed4890d0f9c8809ff4065f6ff46cf8e19"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8556996581.json": {
+      "bytes": 834,
+      "sha256": "5a1d51fc00463252d4e635a3331294d58211a0cfd41902f5a62d8ea499dbc031"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8557011817.json": {
+      "bytes": 788,
+      "sha256": "155f32c9f4776a19280cc283acfdd1010b4529632ca44a1f558174727f9c54d6"
+    },
+    "Data/avito_runs/ekaterinburg_all_100_2026-10-28/reviewed/8576953806.json": {
+      "bytes": 831,
+      "sha256": "513536d55de82eef92b0605dbfefb743b047ba1e80e878ca8d83401304a791b0"
+    },
+    "Scraper/runs/ekaterinburg_all_100_2026-10-28/plan.json": {
+      "bytes": 3543,
+      "sha256": "4a6fbe6f42bd3ba6a4a60b13c5cb10c5b1afd9b64ae049e4dd132f735dd6f1f5"
+    }
+  }
+}

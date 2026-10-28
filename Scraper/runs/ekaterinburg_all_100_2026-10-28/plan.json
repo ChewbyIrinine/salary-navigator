@@ -1,0 +1,80 @@
+{
+  "run_id": "ekaterinburg_all_100_2026-10-28",
+  "geography": "Екатеринбург",
+  "profession": "",
+  "segments": "",
+  "filter_evidence": "Own-tab snapshot confirmed heading Работа и вакансии в Екатеринбурге, geo control Екатеринбург район метро, empty job search, no profession checkboxes selected; profession scope explicitly all.",
+  "listing_url": "https://www.avito.ru/ekaterinburg/vakansii",
+  "listing_request_url": "https://www.avito.ru/ekaterinburg/vakansii",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "listing_sha256": "e409779e7b160dd1e6692a39e7b68b83d67e54480717bb51eacde0a0ffae6d9d",
+  "profession_scope": "all",
+  "profession_source": "selected_ui_context",
+  "listing_pages": [
+    {
+      "file": "listing_pages/0001.json",
+      "sha256": "e409779e7b160dd1e6692a39e7b68b83d67e54480717bb51eacde0a0ffae6d9d",
+      "source_url": "https://www.avito.ru/ekaterinburg/vakansii"
+    },
+    {
+      "file": "listing_pages/0002.json",
+      "sha256": "e2093980bf432866f261dbe9beafc34a12ba39d9712376817cdc22d7d53053e1",
+      "source_url": "https://www.avito.ru/ekaterinburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IkxqMWJHUU1tTXp5cXF1WEwiO33R_jqdJgAAAA&p=2"
+    }
+  ],
+  "selection_mode": "first_N_unique_on_frozen_listing",
+  "limit": 100,
+  "requested_all_pages": false,
+  "candidate_limit": null,
+  "created_at": "2026-10-28T02:20:45.691872+00:00",
+  "instruction_version": "1.7.20",
+  "extractor_sha256": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+  "instruction_sha256": "f81f16e0a0cc05a3ded9d8c6ce650ebc71c8f35b3e8cc4ad7e3f847437ef9c2f",
+  "code_git_commit": "84a86f160ce50fcc2c1f179ebc69db662c40c968",
+  "setup_seconds": 5.216389374807477,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/skills/collect-avito/references/top-professions.json": "e3e72638b17b48f825ec6f2fefb963662494f679ae4b0cef1bebedba889610dd",
+    "utils/title_flags.py": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
+    "Scraper/extract.js": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+    "Scraper/skills/collect-avito/SKILL.md": "f81f16e0a0cc05a3ded9d8c6ce650ebc71c8f35b3e8cc4ad7e3f847437ef9c2f",
+    "Scraper/skills/collect-avito/scripts/run.py": "f203f8e962579ea306ae8f0d692b93405112bb38e54adc2d24a34056797a94a9",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "80d0fc43e421e99a61b991ffe4bf5627d12588d8942de0db1b21fea8c5a10cea",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "aa746849317f9768af5aae08b394b9379539f6e268c1fc69e4ed13bd06a4657f",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+    "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+  },
+  "uncommitted_automation_files": []
+}
