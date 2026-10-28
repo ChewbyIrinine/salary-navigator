@@ -14,6 +14,25 @@ ROOT = Path(__file__).resolve().parents[4]
 DEFAULT_CONFIG = ROOT / "Scraper/collect-avito.local.json"
 
 
+def saved_config_path():
+    if os.name == "nt":
+        directory = Path(os.environ.get("LOCALAPPDATA", str(Path.home()))) / "T&L/collect-avito"
+    else:
+        directory = Path(os.environ.get("XDG_DATA_HOME", str(Path.home() / ".local/share"))) / "tl-avito"
+    return directory / "collector.local.json"
+
+
+def default_config_path():
+    """Reuse the known shared file across fresh checkouts, without scanning disk."""
+    explicit = os.environ.get("TL_AVITO_CONFIG")
+    if explicit:
+        return Path(explicit).expanduser()
+    if DEFAULT_CONFIG.exists():
+        return DEFAULT_CONFIG
+    shared = saved_config_path()
+    return shared if shared.exists() else DEFAULT_CONFIG
+
+
 def check_xray(config):
     """Conservative static check: explicit domain rules, order and direct outbound.
 
@@ -184,7 +203,8 @@ def aside_ready(executable, *, strict=False):
         return False
 
 
-def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False, strict_routing=False):
+def run_checks(config_path=None, probe_aside=False, strict_routing=False):
+    config_path = Path(config_path) if config_path is not None else default_config_path()
     checks = []
 
     def add(name, ok, detail, fix="", *, blocking=True):
@@ -276,7 +296,7 @@ def run_checks(config_path=DEFAULT_CONFIG, probe_aside=False, strict_routing=Fal
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path,
-                        default=Path(os.environ.get("TL_AVITO_CONFIG", str(DEFAULT_CONFIG))))
+                        default=default_config_path())
     parser.add_argument("--probe-aside", action="store_true",
                         help="Readiness-only REPL; no tabs, navigation or Avito requests")
     parser.add_argument("--json", action="store_true")
