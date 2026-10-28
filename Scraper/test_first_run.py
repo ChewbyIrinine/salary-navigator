@@ -2,6 +2,7 @@
 import base64
 import io
 import json
+import plistlib
 from pathlib import Path
 import sys
 import tempfile
@@ -140,6 +141,79 @@ class SetupTests(unittest.TestCase):
                     setup.prepare_happ_tunnel(source, root/'local.json', root/'private')
                 self.assertFalse((root/'private').exists())
                 self.assertFalse((root/'local.json').exists())
+
+    def test_local_happ_snapshot_prepares_private_copy_without_changing_preferences(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); prefs = root/'happ.plist'
+            block = {'network': 'udp', 'port': '443', 'outboundTag': 'block'}
+            original = {'inbounds': [{'protocol': 'socks', 'port': 10808}],
+                'dns': {'servers': ['localhost']},
+                'outbounds': [{'tag': 'proxy', 'protocol': 'vless', 'settings': {'id': 'fixture-secret'}},
+                              {'tag': 'direct', 'protocol': 'freedom', 'settings': {'domainStrategy': 'UseIPv4'}},
+                              {'tag': 'block', 'protocol': 'blackhole'}],
+                'routing': {'rules': [block]}}
+            prefs.write_bytes(plistlib.dumps({'connectedConfigJson': json.dumps(original)}))
+            before = prefs.read_bytes()
+            result = setup.prepare_local_happ(root/'local.json', root/'private', preferences=prefs, inspect_only=True)
+            self.assertEqual(result['status'], 'ROUTING_MISSING')
+            self.assertFalse((root/'private').exists())
+            result = setup.prepare_local_happ(root/'local.json', root/'private', preferences=prefs)
+            modified = json.loads(Path(result['import_file']).read_text())
+            self.assertEqual(prefs.read_bytes(), before)
+            self.assertEqual(modified['routing']['rules'][0], block)
+            modified['routing']['rules'].pop(1)
+            self.assertEqual(modified, original)
+            self.assertFalse(result['live_route_verified'])
+            self.assertFalse(result['freshness_confirmed'])
+            self.assertNotIn('fixture-secret', json.dumps(result))
+            self.assertEqual(setup.prepare_local_happ(root/'local.json', root/'private', preferences=prefs)['created'], [])
+
+    def test_local_happ_already_routed_is_preserved_and_missing_cache_has_no_writes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); prefs = root/'happ.plist'
+            original = {'inbounds': [{'protocol': 'socks'}],
+                'outbounds': [{'tag': 'd', 'protocol': 'freedom'}],
+                'routing': {'rules': [{'type': 'field', 'domain': ['domain:avito.ru', 'domain:avito.st'], 'outboundTag': 'd'}]}}
+            prefs.write_bytes(plistlib.dumps({'connectedConfigJson': original}))
+            result = setup.prepare_local_happ(root/'local.json', root/'private', preferences=prefs)
+            self.assertTrue(result['routing_present'])
+            self.assertEqual(json.loads(Path(result['import_file']).read_text()), original)
+            prefs.write_bytes(plistlib.dumps({'connectedConfigJson': 'invalid-secret'}))
+            with self.assertRaises(setup.SetupError) as error:
+                setup.prepare_local_happ(root/'new.json', root/'new-private', preferences=prefs)
+            self.assertNotIn('invalid-secret', str(error.exception))
+            self.assertFalse((root/'new-private').exists())
+            self.assertFalse((root/'new.json').exists())
+
+    def test_local_snapshot_reports_tcp_scope_without_claiming_udp(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp); prefs = root/'happ.plist'
+            original = {'inbounds': [{'protocol': 'socks'}],
+                'outbounds': [{'tag': 'd', 'protocol': 'freedom'}, {'tag': 'p', 'protocol': 'vless'}],
+                'routing': {'rules': [
+                    {'type': 'field', 'network': 'tcp', 'domain': ['domain:avito.ru', 'domain:avito.st'], 'outboundTag': 'd'},
+                    {'network': 'udp', 'outboundTag': 'p'}]}}
+            prefs.write_bytes(plistlib.dumps({'connectedConfigJson': original}))
+            result = setup.prepare_local_happ(root/'local.json', root/'private', preferences=prefs, inspect_only=True)
+            self.assertEqual(result['status'], 'ROUTING_PRESENT')
+            self.assertEqual(result['routing_scope'], 'tcp')
+            self.assertFalse(result['live_route_verified'])
+            self.assertFalse((root/'private').exists())
+
+    def test_local_happ_discovery_requires_unambiguous_app(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with patch.object(setup.sys, 'platform', 'darwin'), patch.object(setup.Path, 'home', return_value=root):
+                with self.assertRaises(setup.SetupError):
+                    setup.local_happ_snapshot()
+                for app in ['group.su.ffg.happ.ruplus', 'group.su.ffg.happ.plus']:
+                    p = root/'Library/Group Containers'/app/'Library/Preferences'/(app+'.plist')
+                    p.parent.mkdir(parents=True); p.write_bytes(plistlib.dumps({'connectedConfigJson': {
+                        'inbounds': [{'protocol': 'socks'}], 'outbounds': [{'tag': 'p', 'protocol': 'vless'}]}}))
+                    if app.endswith('ruplus'):
+                        self.assertEqual(setup.local_happ_snapshot()[1]['preferences_path'], str(p))
+                with self.assertRaisesRegex(setup.SetupError, '--happ-preferences'):
+                    setup.local_happ_snapshot()
 
     def test_runner_and_preflight_use_same_aside_outside_path(self):
         with tempfile.TemporaryDirectory() as tmp:
