@@ -4,6 +4,7 @@ import csv
 import sys
 import importlib.util
 import json
+import os
 from pathlib import Path
 import tempfile
 import subprocess
@@ -57,6 +58,120 @@ class RunnerTests(unittest.TestCase):
             runner.authorize_browser(diag, 'да, но не последующие', 'same-id')
             with self.assertRaises(ValueError):
                 runner.closed_policy(argparse.Namespace(run_id='negative', authorization_id='same-id', authorization_question=question))
+
+    def test_partition_preserves_order_provenance_and_shared_failure_budget(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'parent')
+            page = dict(state='LISTING', items=[item(str(i)) for i in range(1, 6)], source_url='https://www.avito.ru/moskva/vakansii')
+            runner.write(out/'listing.json', page); runner.write(out/'listing_pages/0001.json', page)
+            queue = runner.queue_from_pages([page], 5)
+            runner.write(out/'queue.json', queue)
+            plan = dict(run_id='parent', selection_mode='first_N_unique_on_frozen_listing', profession='',
+                listing_pages=[dict(file='listing_pages/0001.json',sha256=runner.sha(out/'listing_pages/0001.json'))])
+            runner.write(service/'plan.json', plan)
+            with patch.object(runner, 'validate_plan_profession'):
+                runner.partition(argparse.Namespace(run_id='parent', batch_size=2, prefix='piece'))
+                children = [runner.paths(runner.ROOT, f'piece_{i:02d}') for i in range(1, 4)]
+                self.assertEqual([x['id'] for child,_,_ in children for x in runner.read(child/'queue.json')], [str(i) for i in range(1,6)])
+                self.assertEqual([x['listing_rank'] for child,_,_ in children for x in runner.read(child/'queue.json')], list(range(1,6)))
+                for child, child_service, _ in children: runner.validate_partition(child, child_service)
+                changed = runner.read(children[1][0]/'queue.json'); changed[0]['id']='999'
+                runner.write(children[1][0]/'queue.json', changed)
+                with self.assertRaisesRegex(ValueError, 'contiguous'): runner.validate_partition(children[1][0], children[1][1])
+                with self.assertRaisesRegex(ValueError, 'Parent queue is partitioned'): runner.validate_partition(out,service)
+            first, second = children[0][2], children[1][2]
+            runner.record_failure(first, 'capture', 'first error', 'test')
+            runner.ensure_allowed(second, 'capture', 'one correction', action=True)
+            runner.record_failure(second, 'capture', 'second error', 'test')
+            self.assertEqual(runner.load_failures(diag)['state'], 'NEEDS_HUMAN')
+            self.assertEqual(runner.load_failures(diag)['retry_limit'], 1)
+            with self.assertRaises(runner.HumanRequired): runner.ensure_allowed(first, 'capture')
+
+    def test_archive_rejected_partial_listing_preserves_failure_history(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'parent')
+            runner.write(diag/'freeze_request.json', {'url':'original'})
+            runner.write(diag/'pending_listing.json', {'url':'original'})
+            runner.write(diag/'listing.json', {'selected_controls':[]})
+            runner.write(diag/'checkpoint.json', {'state':'READY'})
+            runner.record_failure(diag, 'freeze', 'mismatched selection', 'freeze')
+            before = (diag/'failures.json').read_bytes()
+            runner.archive_partial_listing(argparse.Namespace(run_id='parent', reason='Preserve rejected observation'))
+            self.assertEqual((diag/'failures.json').read_bytes(), before)
+            self.assertFalse((diag/'listing.json').exists())
+            archive = service/'rejected-partial-listing'
+            self.assertEqual(runner.read(archive/'listing.json'), {'selected_controls':[]})
+            self.assertEqual(runner.read(archive/'provenance.json')['files']['listing.json'], runner.sha(archive/'listing.json'))
+            with self.assertRaises(ValueError): runner.archive_partial_listing(argparse.Namespace(run_id='parent', reason='again'))
+
+    def test_group_authorization_records_one_retry_without_erasing_history(self):
+        with tempfile.TemporaryDirectory() as directory:
+            diag = Path(directory)/'diagnostics'
+            runner.write(diag/'retry-limit.json', {'retry_limit':1})
+            runner.record_failure(diag, 'filters', 'blocked', 'open', immediate=True)
+            runner.authorize_browser(diag, 'Explicitly continue', 'auth-one')
+            ledger = runner.load_failures(diag)
+            self.assertEqual(ledger['retry_limit'], 1)
+            self.assertEqual(ledger['events'][-1]['retry_limit'], 1)
+            self.assertEqual(ledger['failures'], 1)
+            self.assertEqual(ledger['budget_start_failures'], 1)
+
+    def test_browser_batch_preserves_stopped_tab_and_external_ownership(self):
+        script = (SCRIPTS / 'browser_batch.js').read_text()
+        for external, state in [(False, 'NEEDS_HUMAN'), (True, 'NEEDS_HUMAN'), (True, 'LISTING'), (False, 'LISTING')]:
+            with self.subTest(external=external, state=state), tempfile.TemporaryDirectory() as directory:
+                job = dict(mode='freeze', url='https://www.avito.ru/moskva/vakansii', completed_ids=[], close_tab=True, tab_id='external-id' if external else None)
+                body = script.replace('__JOB__', json.dumps(job), 1).replace('__EXTRACTOR__', '"extract"', 1)
+                harness = """const fs = require('fs').promises;
+const pwd = process.cwd(); let closed=0, attached=0, navigated=0;
+const pg = {url:()=> 'https://www.avito.ru/moskva/vakansii?token=secret#x', goto:async()=>{navigated++}, evaluate:async()=>({state:STATE,selected_controls:[],items:[]})};
+let opened=false;
+const listBrowserTabs=async()=>opened?[{targetId:'new-id',url:pg.url()}]:[];
+const openTab=async()=>{opened=true;return pg};
+const attachBrowserTab=async id=>{if(id!=='external-id')throw Error('wrong ID');attached++;return pg};
+const snapshot=async()=>({tree:'stopped'});const closeTab=async()=>{closed++};
+(async()=>{BODY; const result=JSON.parse(await fs.readFile('browser-tab.json')); console.log('RESULT='+JSON.stringify({closed,attached,navigated,result}));})().catch(e=>{console.error(e);process.exit(1)});
+""".replace('STATE', json.dumps(state)).replace('BODY', body)
+                result = subprocess.run(['node', '-e', harness], cwd=directory, capture_output=True, text=True, check=True)
+                data = json.loads(result.stdout.split('RESULT=')[-1])
+                self.assertEqual(data['closed'], int(not external and state == 'LISTING'))
+                self.assertEqual(data['attached'], int(external))
+                self.assertEqual(data['navigated'], 0)
+                self.assertNotIn('secret', data['result']['url'])
+                self.assertEqual(data['result']['target_id'], 'external-id' if external else 'new-id')
+
+    def test_parent_exits_with_live_repl_reader(self):
+        with tempfile.TemporaryDirectory() as directory:
+            script = """import importlib.util, pathlib, subprocess, sys
+spec=importlib.util.spec_from_file_location('runner',sys.argv[1]); r=importlib.util.module_from_spec(spec); spec.loader.exec_module(r)
+p=subprocess.Popen([sys.executable,'-u','-c','import sys; print("READY",flush=True); sys.stdin.read()'],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+q, reader=r.pipe_chunks(p.stdout); assert b'READY' in q.get(timeout=5)
+r.retain_repl(p,pathlib.Path(sys.argv[2]),None,{})
+p.stdin.close()
+"""
+            result = subprocess.run([sys.executable, '-c', script, str(SCRIPTS/'run.py'), directory],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=5)
+            self.assertEqual(result.returncode, 0, result.stderr.decode())
+            info = runner.read(Path(directory)/'browser-session.local.json')
+            try:
+                os.kill(info['repl_pid'], 0)
+            finally:
+                Path(info['release_marker']).touch()
+
+    def test_retained_repl_stays_alive_until_release(self):
+        with tempfile.TemporaryDirectory() as directory:
+            diag = Path(directory)
+            proc = subprocess.Popen([sys.executable, '-u', '-c', 'import sys; sys.stdin.read()'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+            try:
+                runner.retain_repl(proc, diag, None, {})
+                info = runner.read(diag/'browser-session.local.json')
+                proc.stdin.close(); proc.stdout.close()
+                self.assertIsNone(proc.poll())
+                Path(info['release_marker']).touch()
+                proc.wait(timeout=5)
+            finally:
+                if proc.poll() is None:
+                    proc.kill(); proc.wait()
 
     def test_remote_selection_stops_at_exact_matches_and_keeps_exclusions(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -193,6 +308,7 @@ class RunnerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); run_id = 'publish_retry'
             out, service, diag = runner.paths(root, run_id)
+            runner.write(service/'plan.json', {})
             runner.write(service/'manifest.json', dict(status='complete', files={}, collection={}, coverage={'accepted':1}))
             state = {'commits': 0, 'pushes': 0}
             def output(command, **kwargs):

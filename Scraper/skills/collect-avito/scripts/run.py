@@ -23,11 +23,11 @@ sys.path.insert(0, str(SCRIPTS))
 from utils.build_dataset import build
 from utils.title_flags import military_flags
 from check_capture import check
-from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired, authorize_offline, authorize_browser, operation_locked
+from failure_log import ensure_allowed, record as record_failure, succeeded, HumanRequired, authorize_offline, authorize_browser, operation_locked, locked, load as load_failures, save as save_failures
 from preflight import find_aside, aside_command
 from utils.dataset_pr import validate_automation_changes
 
-VERSION = '1.7.22'
+VERSION = '1.7.23'
 AUTOMATION_FILES = ['Scraper/skills/collect-avito/references/top-professions.json', 'utils/title_flags.py', 'Scraper/extract.js', 'Scraper/skills/collect-avito/SKILL.md'] + [
     'Scraper/skills/collect-avito/scripts/' + name for name in ('run.py', 'browser_batch.js', 'check_capture.py', 'failure_log.py', 'preflight.py')]
 
@@ -260,7 +260,7 @@ def preflight(config_path=None, diag=None):
 
 def import_sandbox(sandbox, out, diag):
     """Copy even a stopped batch; never replace an earlier raw observation."""
-    for name in ['listing.json', 'checkpoint.json', 'timing.json', 'problem.snapshot.txt']:
+    for name in ['listing.json', 'checkpoint.json', 'timing.json', 'problem.snapshot.txt', 'browser-tab.json']:
         source = sandbox / name
         if source.exists():
             if name == 'checkpoint.json' and (diag/name).exists():
@@ -304,6 +304,34 @@ def pipe_chunks(stream):
     return chunks, reader
 
 
+def retain_repl(process, diag, sandbox, job):
+    """Keep our REPL pipes alive until an explicit local release marker is created."""
+    release = diag / f'release-browser-session-{process.pid}'
+    if release.exists():
+        raise RuntimeError('Release marker collision; inspect diagnostics')
+    code = """import os,select,sys,time
+inp,out,release=int(sys.argv[1]),int(sys.argv[2]),sys.argv[3]
+while not os.path.exists(release):
+    ready,_,_=select.select([out],[],[],1)
+    if ready and not os.read(out,65536): break
+os.close(inp); os.close(out)
+"""
+    keeper = subprocess.Popen([sys.executable, '-c', code, str(process.stdin.fileno()),
+        str(process.stdout.fileno()), str(release)], pass_fds=(process.stdin.fileno(), process.stdout.fileno()),
+        stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+    tab = read(sandbox/'browser-tab.json') if sandbox and (sandbox/'browser-tab.json').exists() else {}
+    write(diag/'browser-session.local.json', dict(repl_pid=process.pid, keeper_pid=keeper.pid,
+        sandbox=str(sandbox) if sandbox else None, tab=tab, release_marker=str(release)))
+
+
+def release_browser(diag):
+    path = diag/'browser-session.local.json'
+    if path.exists():
+        session = read(path)
+        Path(session['release_marker']).touch()
+        path.rename(diag/'browser-session-released.local.json')
+
+
 def browser(job, out, diag):
     # One-shot Aside buffers stdout until completion. An interactive handshake
     # records its sandbox BEFORE collection, so interruption cannot orphan raw.
@@ -332,6 +360,7 @@ def browser(job, out, diag):
                 raise RuntimeError('Aside disconnected; partial raw preserved')
             chunks.extend(chunk)
     sandbox = None
+    preserve = True  # Any failure after launching REPL keeps its own session alive.
     stamp = str(time.time_ns())
     started = time.perf_counter()
     try:
@@ -340,8 +369,8 @@ def browser(job, out, diag):
         write(diag / 'sandbox.json', {'path': str(sandbox)})
         # One REPL RPC per navigation avoids Aside's per-evaluation 120s budget
         # becoming a timeout on the entire queue. No model calls between cards.
-        jobs = [dict(job, close_tab=True)] if job['mode'] == 'freeze' else [
-            dict(job, queue=[item], close_tab=index == len(job['queue'])-1)
+        jobs = [dict(job, close_tab=False)] if job['mode'] == 'freeze' else [
+            dict(job, queue=[item], close_tab=False)
             for index,item in enumerate(job['queue'])]
         done = list(job['completed_ids'])
         for part in jobs:
@@ -363,26 +392,54 @@ def browser(job, out, diag):
             if job.get('selection_queue') is not None:
                 decisions = remote_decisions(job['selection_queue'], out, job['selection_target'])
                 if sum(d['accepted'] for d in decisions) >= job['selection_target']:
-                    # The current RPC may not have been the final scheduled card.
-                    # Close only this session's tab before ending the REPL.
-                    offset = len(chunks)
-                    process.stdin.write(b'if (globalThis.tlCollectorPage) { await closeTab(globalThis.tlCollectorPage); globalThis.tlCollectorPage = null; } console.log("TL_CLOSED")\n')
-                    process.stdin.flush()
-                    until(r'TL_CLOSED\r?\n', 20, offset)
                     break
     finally:
+        if preserve and process.poll() is None and process.stdin and process.stdout:
+            retain_repl(process, diag, sandbox, job)
         if process.stdin:
             process.stdin.close()
-        try:
-            process.wait(timeout=3)
-        except subprocess.TimeoutExpired:
-            process.terminate(); process.wait(timeout=3)
-        process.stdout.close()
-        reader.join(timeout=1)
+        if not preserve:
+            try:
+                process.wait(timeout=3)
+            except subprocess.TimeoutExpired:
+                process.terminate(); process.wait(timeout=3)
+        if not preserve:
+            process.stdout.close()
+            reader.join(timeout=1)
         (diag / f'aside-{stamp}.local.log').write_text(chunks.decode('utf-8', errors='replace'))
         if sandbox:
             import_sandbox(sandbox, out, diag)
     return read(diag / 'checkpoint.json'), time.perf_counter()-started
+
+
+def archive_partial_listing(args):
+    """Preserve a rejected pre-plan listing before one explicitly justified correction."""
+    out, service, diag = paths(ROOT, args.run_id)
+    if not args.reason.strip() or (service/'plan.json').exists() or (out/'queue.json').exists() or any((out/'raw').glob('*')):
+        raise ValueError('Only an unplanned, uncaptured rejected listing can be archived')
+    if (out/'listing_pages').exists() and any((out/'listing_pages').iterdir()):
+        raise ValueError('Saved listing pages exist; do not discard partial freeze')
+    if not (diag/'pending_listing.json').exists() or not (diag/'listing.json').exists():
+        raise ValueError('No rejected pending listing to preserve')
+    ledger = load_failures(diag)
+    if ledger['state'] != 'RETRY_AVAILABLE' or not ledger['events'] or ledger['events'][-1].get('stage') != 'freeze':
+        raise ValueError('Archive requires the recorded freeze failure and available correction')
+    archive = service/'rejected-partial-listing'
+    if archive.exists():
+        raise ValueError('Rejected listing already archived')
+    archive.mkdir(parents=True)
+    names = ('freeze_request.json', 'pending_listing.json', 'listing.json', 'checkpoint.json', 'sandbox.json', 'timing.json', 'browser-tab.json')
+    hashes = {}
+    for name in names:
+        source = diag/name
+        if source.exists():
+            target = archive/name
+            shutil.copy2(source,target)
+            hashes[name] = sha(target)
+    write(archive/'provenance.json', dict(reason=args.reason, files=hashes, at=datetime.now(timezone.utc).isoformat()))
+    for name in hashes: (diag/name).unlink()
+    if (out/'listing_pages').exists(): (out/'listing_pages').rmdir()
+    print('Rejected partial listing archived; failure budget preserved')
 
 
 def reselect(args):
@@ -486,7 +543,7 @@ def freeze(args):
             for name in ('sandbox.json', 'listing.json', 'checkpoint.json'):
                 (diag/name).unlink(missing_ok=True)
             write(pending, {'url': url})
-            cp, _ = browser(dict(mode='freeze', url=url, completed_ids=[]), out, diag)
+            cp, _ = browser(dict(mode='freeze', url=url, completed_ids=[], tab_id=getattr(args, 'tab_id', None), allow_navigation=bool(pages)), out, diag)
         if cp['state'] != 'READY':
             raise CollectionStopped(f'Stopped: {cp["state"]}; inspect local diagnostics', cp['state'])
         page = read(diag / 'listing.json')
@@ -503,6 +560,7 @@ def freeze(args):
         write(path, page)
         pages.append(page); page_paths.append(path)
         pending.unlink(missing_ok=True)
+        release_browser(diag)
     listing = pages[0]
     profession = selection_profession(listing, getattr(args, 'profession_scope', None), args.profession)
     if candidate_limit is not None and not any(c.get('label') == 'Удалённо' and 'params[172815]' in (c.get('marker') or '') for c in listing.get('selected_controls', [])):
@@ -824,8 +882,98 @@ def review_salary_line(args):
     print(json.dumps({'reviewed': args.id, 'next_id': cp['next_id']}))
 
 
+def validate_partition(out, service):
+    plan = read(service/'plan.json')
+    info = plan.get('partition')
+    if not info:
+        if (service/'diagnostics'/'shared-ledger.json').exists():
+            raise ValueError('Shared ledger child is missing partition metadata')
+        if (service/'partition.json').exists():
+            raise ValueError('Parent queue is partitioned; use its child runs')
+        return
+    provenance = out/'provenance'
+    if sha(provenance/'parent-plan.json') != info['parent_plan_sha256'] or sha(provenance/'parent-queue.json') != info['parent_queue_sha256']:
+        raise ValueError('Parent freeze provenance changed')
+    parent = read(provenance/'parent-plan.json')
+    queue = read(provenance/'parent-queue.json')
+    validate_plan_profession(parent, out/'listing.json')
+    pages = [read(out/item['file']) for item in parent['listing_pages']]
+    if queue_from_pages(pages, len(queue)) != queue:
+        raise ValueError('Parent queue does not match the frozen listing')
+    start, end, size, index = info['start'], info['end'], info['batch_size'], info['index']
+    if size < 1 or index < 1 or start != (index-1)*size or end != min(start+size, len(queue)) or start >= end:
+        raise ValueError('Invalid partition range')
+    if info['total'] != len(queue) or read(out/'queue.json') != queue[start:end]:
+        raise ValueError('Child queue is not the specified contiguous parent range')
+    siblings = info.get('siblings', [])
+    if len(siblings) != (len(queue)+size-1)//size or len(set(siblings)) != len(siblings) or siblings[index-1] != plan.get('run_id'):
+        raise ValueError('Invalid sibling assignments')
+    parent_service = service.parent / info['parent_run_id']
+    parent_partition = read(parent_service/'partition.json')
+    if parent_partition != dict(children=siblings, batch_size=size, total=len(queue), parent_plan_sha256=info['parent_plan_sha256'], parent_queue_sha256=info['parent_queue_sha256']):
+        raise ValueError('Partition group differs from parent record')
+    marker = read(service/'diagnostics'/'shared-ledger.json')
+    if marker != {'parent_run_id': info['parent_run_id']}:
+        raise ValueError('Shared failure ledger pointer changed')
+
+
+def partition(args):
+    parent_out, parent_service, parent_diag = paths(ROOT, args.run_id)
+    ensure_allowed(parent_diag, 'partition')
+    if args.batch_size < 1:
+        raise ValueError('Partition size must be positive')
+    plan = read(parent_service/'plan.json')
+    if plan.get('selection_mode') != 'first_N_unique_on_frozen_listing' or plan.get('partition'):
+        raise ValueError('Partition supports an ordinary frozen parent queue only')
+    if (parent_service/'manifest.json').exists() or (parent_service/'partition.json').exists() or any((parent_out/'raw').glob('*.json')):
+        raise ValueError('Partition requires an unpartitioned, uncaptured parent')
+    validate_plan_profession(plan, parent_out/'listing.json')
+    queue = read(parent_out/'queue.json')
+    if not queue or not plan.get('listing_pages') or queue_from_pages([read(parent_out/p['file']) for p in plan['listing_pages']], len(queue)) != queue:
+        raise ValueError('Parent queue differs from frozen listing')
+    ids = [f'{args.prefix}_{i+1:02d}' for i in range((len(queue)+args.batch_size-1)//args.batch_size)]
+    for child in ids:
+        out, service, _ = paths(ROOT, child)
+        if child == args.run_id or out.exists() or service.exists():
+            raise ValueError(f'Child run already exists: {child}')
+    # This collection's explicit policy allows one correction after a failure.
+    write(parent_diag/'retry-limit.json', {'retry_limit': 1})
+    # Ensure there is always a durable single ledger before pointers are written.
+    with locked(parent_diag):
+        save_failures(parent_diag, load_failures(parent_diag))
+    parent_plan_hash, parent_queue_hash = sha(parent_service/'plan.json'), sha(parent_out/'queue.json')
+    for index, child in enumerate(ids, 1):
+        out, service, diag = paths(ROOT, child)
+        out.mkdir(parents=True); diag.mkdir(parents=True)
+        shutil.copy2(parent_out/'listing.json', out/'listing.json')
+        for page in plan['listing_pages']:
+            target = out/page['file']; target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(parent_out/page['file'], target)
+        provenance = out/'provenance'; provenance.mkdir()
+        shutil.copy2(parent_service/'plan.json', provenance/'parent-plan.json')
+        shutil.copy2(parent_out/'queue.json', provenance/'parent-queue.json')
+        start = (index-1)*args.batch_size; end = min(index*args.batch_size, len(queue))
+        write(out/'queue.json', queue[start:end])
+        info = dict(parent_run_id=args.run_id, parent_plan_sha256=parent_plan_hash,
+            parent_queue_sha256=parent_queue_hash, index=index, batch_size=args.batch_size,
+            start=start, end=end, total=len(queue), siblings=ids)
+        write(service/'plan.json', dict(plan, run_id=child, limit=end-start,
+            requested_limit=end-start, available_unique=end-start, partition=info))
+        write(diag/'checkpoint.json', dict(state='READY', completed_ids=[], next_id=queue[start]['id'], capture_seconds=0))
+        write(diag/'shared-ledger.json', {'parent_run_id': args.run_id})
+        for name in ('automation_changes.json', 'aside-target.local.json'):
+            if (parent_diag/name).exists(): shutil.copy2(parent_diag/name, diag/name)
+    write(parent_service/'partition.json', dict(children=ids, batch_size=args.batch_size, total=len(queue),
+        parent_plan_sha256=parent_plan_hash, parent_queue_sha256=parent_queue_hash))
+    for child in ids:
+        child_out, child_service, _ = paths(ROOT, child)
+        validate_partition(child_out, child_service)
+    print(json.dumps(dict(children=ids, total=len(queue), batch_size=args.batch_size)))
+
+
 def capture(args):
     out, service, diag = paths(ROOT, args.run_id)
+    validate_partition(out, service)
     ensure_allowed(diag, 'capture', getattr(args, 'retry_reason', None), action=True)
     if (service / 'manifest.json').exists():
         raise ValueError('Completed run is immutable')
@@ -851,7 +999,7 @@ def capture(args):
             raise CollectionStopped('Candidate limit exhausted before target; preserve run without export', 'REVIEW_REQUIRED')
         pending = queue[len(decisions):len(decisions)+args.batch_size]
         cp2, elapsed = browser(dict(mode='capture', queue=pending, completed_ids=[d['id'] for d in decisions],
-            selection_queue=queue, selection_target=plan['limit'],
+            selection_queue=queue, selection_target=plan['limit'], tab_id=getattr(args, 'tab_id', None),
             previous_capture_seconds=cp.get('capture_seconds', 0)), out, diag)
         cp2['capture_seconds'] = cp.get('capture_seconds', 0) + elapsed
         write(diag / 'checkpoint.json', cp2)
@@ -863,6 +1011,7 @@ def capture(args):
         accepted = sum(d['accepted'] for d in decisions)
         if accepted < plan['limit'] and len(decisions) == len(queue):
             raise CollectionStopped('Candidate limit exhausted before target; preserve run without export', 'REVIEW_REQUIRED')
+        release_browser(diag)
         print(json.dumps(dict(state='CAPTURED' if accepted == plan['limit'] else 'IN_PROGRESS',
             captured=len(decisions), accepted=accepted, remaining=max(0, plan['limit']-accepted))))
         return
@@ -883,7 +1032,7 @@ def capture(args):
     if not pending:
         print(json.dumps({'state': 'CAPTURED', 'captured': len(done), 'remaining': 0}))
         return
-    cp2, elapsed = browser(dict(mode='capture', queue=pending[:args.batch_size], completed_ids=done,
+    cp2, elapsed = browser(dict(mode='capture', queue=pending[:args.batch_size], completed_ids=done, tab_id=getattr(args, 'tab_id', None),
                                previous_capture_seconds=cp.get('capture_seconds', 0)), out, diag)
     cp2['capture_seconds'] = cp.get('capture_seconds', 0) + elapsed
     write(diag / 'checkpoint.json', cp2)
@@ -910,6 +1059,7 @@ def capture(args):
                     print(json.dumps({'state': 'IN_PROGRESS', 'reviewed': cp2['next_id']}))
                     return
         raise CollectionStopped('Stopped; inspect diagnostics and repair the shared collector before resuming', cp2['state'])
+    release_browser(diag)
 
 
 def placement(data, item, regions, override=None):
@@ -1021,6 +1171,7 @@ def reviewed_row(data, item, regions, plan, override=None):
 
 def finalize(args):
     out, service, diag = paths(ROOT, args.run_id)
+    validate_partition(out, service)
     ensure_allowed(diag, 'finalize', getattr(args, 'retry_reason', None), action=True)
     if (service / 'manifest.json').exists():
         raise ValueError('Finalized run exists; do not overwrite')
@@ -1216,6 +1367,7 @@ def resume_browser(args):
 
 def publish(args):
     out, service, diag = paths(ROOT, args.run_id)
+    validate_partition(out, service)
     ensure_allowed(diag, 'publish', getattr(args, 'retry_reason', None), action=True)
     manifest = read(service / 'manifest.json')
     if manifest['status'] != 'complete':
@@ -1268,12 +1420,18 @@ def publish(args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
-    for name in ['freeze', 'capture', 'finalize', 'publish', 'reselect', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
+    for name in ['archive-partial-listing', 'partition', 'freeze', 'capture', 'finalize', 'publish', 'reselect', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'note-change', 'record-error', 'check-stage', 'stage-ok', 'resume-offline', 'resume-browser']:
         command = commands.add_parser(name)
         command.add_argument('--run-id', required=True)
         if name in ('freeze', 'capture'):
+            command.add_argument('--tab-id', help='Explicitly authorized Aside browser targetId')
             command.add_argument('--config', type=Path, help='Local config also used by setup_workspace/preflight')
-        if name == 'freeze':
+        if name == 'archive-partial-listing':
+            command.add_argument('--reason', required=True)
+        elif name == 'partition':
+            command.add_argument('--batch-size', type=int, required=True)
+            command.add_argument('--prefix', required=True)
+        elif name == 'freeze':
             command.add_argument('--retry-reason')
             command.add_argument('--resume', action='store_true', help='Recover an interrupted freeze with identical inputs')
             command.add_argument('--accept-saved', action='store_true', help='Offline: accept the incomplete saved listing with explicit human instruction')
@@ -1343,7 +1501,7 @@ def main():
         parser.error('batch-size must be positive')
     with ExitStack() as stack:
         try:
-            if args.command in ('freeze', 'capture', 'finalize', 'publish', 'reselect', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
+            if args.command in ('archive-partial-listing', 'partition', 'freeze', 'capture', 'finalize', 'publish', 'reselect', 'closed-policy', 'review-policy', 'blocked-listing-policy', 'salary-review-policy', 'review-salary-line', 'mark-unavailable', 'preserve-stopped-observation', 'record-error', 'stage-ok', 'resume-browser', 'resume-offline'):
                 stack.enter_context(operation_locked(paths(ROOT, args.run_id)[2]))
             globals()[args.command.replace('-', '_')](args)
             if args.command in ('freeze', 'capture', 'finalize', 'publish'):

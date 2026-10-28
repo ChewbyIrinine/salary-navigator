@@ -3,14 +3,30 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 import fcntl
 import json
+import re
 
 
 class HumanRequired(RuntimeError):
     pass
 
 
+def ledger_dir(diag):
+    marker = diag / 'shared-ledger.json'
+    if not marker.exists():
+        return diag
+    data = json.loads(marker.read_text())
+    parent = data.get('parent_run_id', '')
+    if not isinstance(parent, str) or not re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9_-]{0,119}', parent):
+        raise HumanRequired('Invalid shared ledger pointer')
+    target = diag.parent.parent / parent / 'diagnostics'
+    if target == diag or not (target / 'failures.json').exists() or (target / 'shared-ledger.json').exists():
+        raise HumanRequired('Shared collection ledger missing or invalid; do not reset the budget')
+    return target
+
+
 @contextmanager
 def locked(diag):
+    diag = ledger_dir(diag)
     diag.mkdir(parents=True, exist_ok=True)
     with (diag / 'failure.lock').open('a') as stream:
         fcntl.flock(stream, fcntl.LOCK_EX)
@@ -23,6 +39,7 @@ def locked(diag):
 @contextmanager
 def operation_locked(diag):
     """Only one actual CLI action may write/navigate for this run at a time."""
+    diag = ledger_dir(diag)
     diag.mkdir(parents=True, exist_ok=True)
     with (diag / 'operation.lock').open('a') as stream:
         try:
@@ -36,11 +53,17 @@ def operation_locked(diag):
 
 
 def load(diag):
+    diag = ledger_dir(diag)
     path = diag / 'failures.json'
     ledger = json.loads(path.read_text()) if path.exists() else {
         'events': [], 'stages': {}, 'failures': 0, 'state': 'READY', 'retry_started': False}
     # Old stopped ledgers stay stopped. The new policy never grants human consent.
     ledger.setdefault('retry_limit', 5)
+    if (diag / 'retry-limit.json').exists():
+        policy = json.loads((diag / 'retry-limit.json').read_text())
+        if policy != {'retry_limit': 1}:
+            raise HumanRequired('Invalid collection retry policy')
+        ledger['retry_limit'] = 1
     ledger.setdefault('retries_started', sum(e.get('event') == 'retry_started' for e in ledger['events']))
     ledger.setdefault('budget_start_failures', 0)
     if ledger['state'] == 'RETRY_STARTED':
@@ -52,6 +75,7 @@ def load(diag):
 
 
 def save(diag, ledger):
+    diag = ledger_dir(diag)
     path = diag / 'failures.json'
     temp = path.with_suffix('.json.tmp')
     temp.write_text(json.dumps(ledger, ensure_ascii=False, indent=2) + '\n')
@@ -60,6 +84,7 @@ def save(diag, ledger):
 
 def ensure_allowed(diag, stage, retry_reason=None, *, action=False):
     """Reserve one retry per failed action; duplicate checks reuse that reservation."""
+    diag = ledger_dir(diag)
     with locked(diag):
         ledger = load(diag)
         if ledger['state'] == 'NEEDS_HUMAN':
@@ -91,6 +116,7 @@ def ensure_allowed(diag, stage, retry_reason=None, *, action=False):
 
 
 def succeeded(diag, stage, evidence):
+    diag = ledger_dir(diag)
     with locked(diag):
         ledger = load(diag)
         if ledger['state'] == 'RETRY_STARTED':
@@ -106,6 +132,7 @@ def succeeded(diag, stage, evidence):
 
 
 def record(diag, stage, message, action, url=None, agent=None, immediate=False):
+    diag = ledger_dir(diag)
     with locked(diag):
         ledger = load(diag)
         if ledger['state'] == 'RETRY_STARTED' and ledger.get('active_retry_stage') != stage and not immediate:
@@ -118,7 +145,7 @@ def record(diag, stage, message, action, url=None, agent=None, immediate=False):
         current = ledger['stages'].setdefault(stage, {'failures': 0, 'state': 'RETRY_AVAILABLE'})
         current['failures'] += 1
         ledger['failures'] += 1
-        ledger['state'] = 'NEEDS_HUMAN' if stopped or immediate or ledger['retries_started'] >= ledger['retry_limit'] else 'RETRY_AVAILABLE'
+        ledger['state'] = 'NEEDS_HUMAN' if stopped or immediate or ledger['retries_started'] >= ledger['retry_limit'] or ((diag/'retry-limit.json').exists() and ledger['failures'] - ledger['budget_start_failures'] >= 2) else 'RETRY_AVAILABLE'
         current['state'] = ledger['state']
         event = dict(at=datetime.now(timezone.utc).isoformat(), stage=stage, event='failure',
             attempt=ledger['failures'], state=ledger['state'], message=message,
@@ -138,6 +165,7 @@ def record(diag, stage, message, action, url=None, agent=None, immediate=False):
 
 def authorize_offline(diag, instruction):
     """Caller must have a fresh human instruction; this never permits browser work."""
+    diag = ledger_dir(diag)
     if not instruction.strip():
         raise ValueError('Human instruction is required')
     with locked(diag):
@@ -151,6 +179,7 @@ def authorize_offline(diag, instruction):
 
 def authorize_browser(diag, instruction, authorization_id):
     """Explicit human consent starts a bounded new budget, never erases history."""
+    diag = ledger_dir(diag)
     if not instruction.strip() or not authorization_id.strip():
         raise ValueError('Fresh human instruction and a stable authorization-id are required')
     with locked(diag):
@@ -167,13 +196,13 @@ def authorize_browser(diag, instruction, authorization_id):
         ledger.pop('retry_action_started', None)
         ledger['budget_start_failures'] = ledger['failures']
         ledger['retries_started'] = 0
-        ledger['retry_limit'] = 5
+        ledger['retry_limit'] = 1 if (diag / 'retry-limit.json').exists() else 5
         ledger['retry_started'] = False
         ledger['state'] = 'READY'
         ledger['events'].append(dict(at=datetime.now(timezone.utc).isoformat(),
             event='human_browser_authorization', instruction=instruction,
-            authorization_id=authorization_id, budget_start_failures=ledger['failures'], retry_limit=5))
+            authorization_id=authorization_id, budget_start_failures=ledger['failures'], retry_limit=ledger['retry_limit']))
         save(diag, ledger)
         (diag/'failure-report.md').write_text(
             'RESUMED_BY_HUMAN\n\nИстория ошибок сохранена. Разрешена новая ограниченная попытка '
-            'с пятью повторами; ограничения сайта требуют немедленной остановки.\n')
+            f'с {ledger["retry_limit"]} допустимыми повторами; ограничения сайта требуют немедленной остановки.\n')
