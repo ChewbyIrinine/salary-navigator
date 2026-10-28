@@ -1,0 +1,511 @@
+{
+  "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=7",
+  "observed_at": "2026-10-28T18:07:54.354Z",
+  "channel": "gstack DOM",
+  "schema_version": 4,
+  "state": "LISTING",
+  "heading": "Работа и вакансии в Санкт-Петербурге",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "profession_filter": {
+    "observed": true,
+    "selected_count": 0
+  },
+  "items": [
+    {
+      "id": "7400964905",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/prodavets_vyplaty_kazhdyy_den_7400964905",
+      "title": "Продавец выплаты каждый день",
+      "salary_raw": "3 000 — 7 500 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Сенная площадь, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8463173873",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/sotrudnik_kuhni_s_obucheniem_k_partneru_ya_lavki_8463173873",
+      "title": "Сотрудник кухни (с обучением, к партнеру Я Лавки)",
+      "salary_raw": "до 90 200 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Технологический ин-т II, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8467012389",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/gruzchik_ekspeditor_8467012389",
+      "title": "Грузчик экспедитор",
+      "salary_raw": "65 000 — 70 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Приморская, 21–30 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8076823179",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/konserzh_sutki_cherez_troe_8076823179",
+      "title": "Консьерж сутки через трое",
+      "salary_raw": "21 242 ₽",
+      "params_raw": "Сменный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Площадь Мужества, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8283448249",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/barista_kassir_m._akademicheskaya_8283448249",
+      "title": "Бариста кассир (м. Академическая)",
+      "salary_raw": "от 90 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Академическая, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8439130749",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/rabota_ofitsiant_8439130749",
+      "title": "Работа официант",
+      "salary_raw": "50 000 — 120 000 ₽",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Пионерская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8299967641",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/povar_goryachego_tseha_8299967641",
+      "title": "Повар горячего цеха",
+      "salary_raw": "от 5 500 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Чернышевская, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8333896839",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/vahta_upakovschik_horoshie_usloviya_mzh_8333896839",
+      "title": "Вахта Упаковщик Хорошие условия М/Ж",
+      "salary_raw": "до 283 000 ₽",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Адмиралтейская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8489904658",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/rabotnik_sklada_8489904658",
+      "title": "Работник склада",
+      "salary_raw": "4 100 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Беговая, 21–30 мин.",
+      "promoted": false
+    },
+    {
+      "id": "7443951988",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/povar_universal_v_kulinariyu_pekar_zagotovschik_7443951988",
+      "title": "Повар универсал в кулинарию пекарь заготовщик",
+      "salary_raw": "400 — 500 ₽ в час на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Проспект Ветеранов, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "7459173279",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/prodavets_konsultant_obuvi_7459173279",
+      "title": "Продавец консультант обуви",
+      "salary_raw": "от 70 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Сенная площадь, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8173301697",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/vahta_153045_markirovschik_prozhivaniepitanie_8173301697",
+      "title": "Вахта 15/30/45 Маркировщик/ Проживание+Питание",
+      "salary_raw": "37 000 — 190 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Адмиралтейская, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8389251994",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/doznavatel_otdela_doznaniya_8389251994",
+      "title": "Дознаватель отдела дознания",
+      "salary_raw": "65 000 — 100 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в месяц · Без опыта",
+      "location_raw": "Автово, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8205354526",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/vecherniy_prodavets_8205354526",
+      "title": "Вечерний продавец",
+      "salary_raw": "от 35 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Садовая, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8420036364",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/posudomoyschiktsa_s_ezhenedelnymi_vyplatami_8420036364",
+      "title": "Посудомойщик/ца с еженедельными выплатами",
+      "salary_raw": "4 700 ₽ за смену",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Опыт до 1 года",
+      "location_raw": "Проспект Славы, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "4061691297",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/rieltor_s_obucheniem_4061691297",
+      "title": "Риелтор с обучением",
+      "salary_raw": "100 000 — 300 000 ₽",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Чкаловская, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8427762000",
+      "url": "https://www.avito.ru/sankt-peterburg_sestroretsk/vakansii/ohrannik_._bystraya_oplata._bonusy_8427762000",
+      "title": "Охранник . Быстрая оплата. Бонусы",
+      "salary_raw": "от 4 500 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Сестрорецк",
+      "promoted": false
+    },
+    {
+      "id": "8575400221",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/menedzher_po_podboru_personala_udalenno_8575400221",
+      "title": "Менеджер по подбору персонала удалённо",
+      "salary_raw": "2 000 — 3 000 ₽ за смену",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Адмиралтейская, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "4275364608",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/operator_attraktsionov_4275364608",
+      "title": "Оператор аттракционов",
+      "salary_raw": "от 75 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Беговая, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8060945502",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/moryak_na_rybolovnoe_sudno_8060945502",
+      "title": "Моряк на рыболовное судно",
+      "salary_raw": "200 000 — 1 000 000 ₽",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Адмиралтейская, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8268035678",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/voditel_kategoriy_v_ili_s_na_vahtu_v_murmanskspb_8268035678",
+      "title": "Водитель категорий В или С на вахту в Мурманск/СПБ",
+      "salary_raw": "284 511 — 351 541 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Адмиралтейская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "3617512533",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/stroitel_pomoschnik_mastera_3617512533",
+      "title": "Строитель помощник мастера",
+      "salary_raw": "5 500 — 6 000 ₽ за смену на руки",
+      "params_raw": "Фиксированный график · Выплаты Три раза в месяц · Опыт более года",
+      "location_raw": "Озерки, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "1099606169",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/ofitsiant_1099606169",
+      "title": "Официант",
+      "salary_raw": "85 000 — 110 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Адмиралтейская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8370070911",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/sborschik_zakazov._vyplaty_kazhdyy_den_8370070911",
+      "title": "Сборщик заказов. Выплаты каждый день",
+      "salary_raw": "2 360 — 2 950 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "р-н Пушкинский",
+      "promoted": false
+    },
+    {
+      "id": "8272886272",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/raskleyschik_obyavleniy_opyt_ne_nuzhen_podrabotka_8272886272",
+      "title": "Расклейщик объявлений \\ Опыт не нужен \\ Подработка",
+      "salary_raw": "1 350 — 2 980 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Ленинский проспект, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8421001760",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/kurer_v_bank._dostavka_kart_klientam_banka_8421001760",
+      "title": "Курьер в банк. Доставка карт клиентам банка",
+      "salary_raw": "135 000 — 195 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Площадь Восстания, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "7439941822",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/barmen_ofitsiant_7439941822",
+      "title": "Бармен официант",
+      "salary_raw": "5 500 — 6 500 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Лесная, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8401538667",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/kurer_kosmetiki_podrabotka_ezhednevnye_vyplaty_14_8401538667",
+      "title": "Курьер косметики подработка ежедневные выплаты 14+",
+      "salary_raw": "5 000 — 10 000 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Площадь Восстания, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8485312377",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/kurer_kosmetiki.oplata_kazhdyy_den.bez_opyta_16_8485312377",
+      "title": "Курьер косметики.Оплата каждый день.Без опыта 16+",
+      "salary_raw": "до 12 000 ₽ за смену",
+      "params_raw": "Гибкий график · Без опыта",
+      "location_raw": "Старая деревня, 16–20 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8439724001",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/vahta_1530_komplektovschik_na_sklade_obedbilet_8439724001",
+      "title": "Вахта 15/30 комплектовщик на складе обед+билет",
+      "salary_raw": "до 8 400 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Каждый день · Без опыта",
+      "location_raw": "Адмиралтейская, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8467429155",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/administrator-kassir_v_park_razvlecheniy_8467429155",
+      "title": "Администратор-кассир в парк развлечений",
+      "salary_raw": "65 000 — 90 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Три раза в месяц · Без опыта",
+      "location_raw": "Новочеркасская, 16–20 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8412929558",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/gruzchik._podrabotka_s_ezhednevnoy_oplatoy_8412929558",
+      "title": "Грузчик. Подработка с ежедневной оплатой",
+      "salary_raw": "4 725 — 4 935 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Кировский завод, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8018025438",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/operator_1s_8018025438",
+      "title": "Оператор 1С",
+      "salary_raw": "от 100 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Академическая, от 31 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8332127515",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/demonstrator_zhenskoy_odezhdy_dlya_marketpleysov_8332127515",
+      "title": "Демонстратор женской одежды для Маркетплейсов",
+      "salary_raw": "от 72 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Достоевская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "4085463554",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/povar_goryachego_tsehavypechka_4085463554",
+      "title": "Повар горячего цеха/выпечка",
+      "salary_raw": "6 000 ₽ за смену на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Чернышевская, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8308722057",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/nachinayuschiy_spetsialist_po_remontu_tehniki_pk_tv_8308722057",
+      "title": "Начинающий специалист по ремонту техники (пк, тв)",
+      "salary_raw": "от 135 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Пионерская, 16–20 мин.",
+      "promoted": true
+    },
+    {
+      "id": "2478169220",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/barmen_2478169220",
+      "title": "Бармен",
+      "salary_raw": "80 000 — 120 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Гражданский проспект, 16–20 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8422850653",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/menedzher_po_privlecheniyu_voditeley_8422850653",
+      "title": "Менеджер по привлечению водителей",
+      "salary_raw": "от 100 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Юго-Западная, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8425603999",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/prodavets_konsultant_v_sekond_hend_8425603999",
+      "title": "Продавец консультант в секонд хенд",
+      "salary_raw": "3 500 — 8 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Раз в месяц · Опыт до 1 года",
+      "location_raw": "Ломоносовская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8347993537",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/prodavets-kassir_rabota_na_azs_lukoyl_8347993537",
+      "title": "Продавец-кассир, работа на АЗС Лукойл",
+      "salary_raw": "90 000 — 95 000 ₽",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Выборгская, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8470210773",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/rabotnik_po_regulirovke_okon_8470210773",
+      "title": "Работник по регулировке окон",
+      "salary_raw": "4 000 — 5 500 ₽ за смену на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Ладожская, 16–20 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8390042929",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/fasovschik_na_ptitsefabriku_spb_8390042929",
+      "title": "Фасовщик на птицефабрику СПб",
+      "salary_raw": "202 500 — 270 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Озерки, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8257640518",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/prodavets_konsultant_v_tabachnyy_magazin_8257640518",
+      "title": "Продавец консультант в табачный магазин",
+      "salary_raw": "50 000 — 80 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Площадь Восстания, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8185288961",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/massazhist_massazhistka_v_spa_8185288961",
+      "title": "Массажист, массажистка в Спа",
+      "salary_raw": "7 000 — 15 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Площадь А. Невского I, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "3136048604",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/rabotnik_prachechnoy_3136048604",
+      "title": "Работник прачечной",
+      "salary_raw": "3 500 — 5 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Василеостровская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8521270112",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/rabochie_na_stroykuna_29.10_8521270112",
+      "title": "Рабочие на стройку(на 29.10)",
+      "salary_raw": "от 4 000 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Беговая, от 31 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8410783421",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/uborschitsa_ofis_utro_8410783421",
+      "title": "Уборщица офис утро",
+      "salary_raw": "35 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Без опыта",
+      "location_raw": "Московские ворота, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "4398190709",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/ofitsiant_4398190709",
+      "title": "Официант",
+      "salary_raw": "от 60 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Лиговский проспект, 6–10 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8188949762",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/rabochiy_linii_bez_opyta_8188949762",
+      "title": "Рабочий линии / Без опыта",
+      "salary_raw": "78 705 — 83 952 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Ломоносовская, до 5 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8521488960",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/raznorabochiy_v_zagorodnyy_otel_vahta_1515_8521488960",
+      "title": "Разнорабочий в загородный отель вахта 15/15",
+      "salary_raw": "5 000 — 7 000 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Адмиралтейская, 6–10 мин.",
+      "promoted": true
+    }
+  ],
+  "listing_item_audit": {
+    "rendered": 50,
+    "malformed": 0
+  },
+  "pagination": {
+    "next_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=8",
+    "end_confirmed": false,
+    "evidence": {
+      "text": null,
+      "label": "Следующая страница",
+      "href": "/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=8",
+      "disabled": false
+    },
+    "limitation": "End requires an explicitly disabled Next; missing Next alone is not proof; infinite loading and server-side result caps are not covered"
+  }
+}

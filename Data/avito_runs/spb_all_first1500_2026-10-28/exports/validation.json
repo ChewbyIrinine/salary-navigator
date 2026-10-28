@@ -1,0 +1,69 @@
+{
+  "planned": 1464,
+  "accepted": 1459,
+  "unique_ids": 1459,
+  "unavailable": [
+    {
+      "id": "8440126274",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/voditel_v_magazin_elektroniki_na_nashem_avto_8440126274",
+      "status": "unavailable_closed",
+      "evidence": "Объявление закрыто.",
+      "snapshot_sha256": "0d81238139611c888d2666be813060d30b3fabcde9becff6df43f12ea47ed218",
+      "raw_sha256": "95f8c38b392e8b612524349f3a5897dda65ae5495c3b5f41ee3bc9b28f4b1850",
+      "observed_at": "2026-10-28T18:13:11.185Z",
+      "authorization_id": "user-closed-policy-spb1500-20261028-1",
+      "human_instruction": "да, закрытые вакансии отмечай как недоступные, исключи из csv и продолжай поостальным вакансиям",
+      "recorded_at": "2026-10-28T18:16:58.754893+00:00"
+    },
+    {
+      "id": "4319633077",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/ohrannik_vedomstvennoy_ohrany_4319633077",
+      "status": "unavailable_closed",
+      "evidence": "Объявление снято с публикации.",
+      "snapshot_sha256": "c819039a3a2f7cfe985c2f85da745248258d1b48f9d5f85bd0b60b88dc7a7a06",
+      "raw_sha256": "d2910d57be149637378ea323f7f814375d46d51f753d16e5e6ed0f3dd830b1a1",
+      "observed_at": "2026-10-28T18:31:56.403Z",
+      "authorization_id": "user-closed-policy-spb1500-20261028-1",
+      "human_instruction": "да, закрытые вакансии отмечай как недоступные, исключи из csv и продолжай поостальным вакансиям",
+      "recorded_at": "2026-10-28T18:31:56.463601+00:00"
+    },
+    {
+      "id": "7634978060",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/kalyannyy_master-_ofitsiant_7634978060",
+      "status": "unavailable_closed",
+      "evidence": "Объявление снято с публикации.",
+      "snapshot_sha256": "9c7f2c0291a5f28b19c0c085789210a4e7171ad2df32bd4e296ae6a68a182fd7",
+      "raw_sha256": "5d23461fedbdf8f5d0c3446615f1c2797e63799e01f9d040a95fd07dcb3d77df",
+      "observed_at": "2026-10-28T18:34:55.199Z",
+      "authorization_id": "user-closed-policy-spb1500-20261028-1",
+      "human_instruction": "да, закрытые вакансии отмечай как недоступные, исключи из csv и продолжай поостальным вакансиям",
+      "recorded_at": "2026-10-28T18:34:55.256091+00:00"
+    },
+    {
+      "id": "8405754185",
+      "url": "https://www.avito.ru/sankt-peterburg/vakansii/lepschitsa_pelmeney_8405754185",
+      "status": "unavailable_closed",
+      "evidence": "Объявление снято с публикации.",
+      "snapshot_sha256": "723eed817af0d9b1a9548607bcae1f1d58b6f0a5b445b73f61ea761eaf4edfe4",
+      "raw_sha256": "0ae210e2658c7da9cb8983ab942ea940e921ef680afb30938f9b46eb6c153b0e",
+      "observed_at": "2026-10-28T18:35:31.687Z",
+      "authorization_id": "user-closed-policy-spb1500-20261028-1",
+      "human_instruction": "да, закрытые вакансии отмечай как недоступные, исключи из csv и продолжай поостальным вакансиям",
+      "recorded_at": "2026-10-28T18:35:31.730488+00:00"
+    },
+    {
+      "id": "8470682451",
+      "url": "https://www.avito.ru/sankt-peterburg_pavlovsk/vakansii/raznorabochiy_rfsng_holod_noch_podrabotka_8470682451",
+      "status": "unavailable_under_review",
+      "evidence": "Оно ещё на проверке.",
+      "snapshot_sha256": "49c65648403d190fdacd9b834a226cc912646f81c0b60a2b0010f2a909eeed12",
+      "raw_sha256": "5aad5a405434c59d2fff61f6fc421a90cb6a3551b6d88e9b96c853ce9d83ac4e",
+      "observed_at": "2026-10-28T18:39:24.967Z",
+      "authorization_id": "user-review-policy-spb1500-20261028-1",
+      "human_instruction": "Контекст: ID8470682451, статус «Оно ещё на проверке». Вопрос пользователю: «Разрешаете отмечать эту и все последующие вакансии с таким статусом как недоступные, исключать из CSV и продолжать?» Ответ пользователя: «да».",
+      "recorded_at": "2026-10-28T18:40:14.797244+00:00"
+    }
+  ],
+  "errors": [],
+  "review_method": "deterministic_rendered_template_v1"
+}

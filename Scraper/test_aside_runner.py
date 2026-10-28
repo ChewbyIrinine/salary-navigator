@@ -36,6 +36,28 @@ def raw(identity='123'):
 
 
 class RunnerTests(unittest.TestCase):
+    def test_closed_policy_records_question_without_changing_authorization_budget(self):
+        question = 'Разрешаете пропускать это и все последующие явно закрытые объявления, сохраняя подтверждение причины, и продолжить очередь?'
+        answer = 'да, закрытые вакансии отмечай как недоступные, исключи из csv и продолжай поостальным вакансиям'
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'context')
+            runner.record_failure(diag, 'capture', 'closed', 'capture', immediate=True)
+            runner.authorize_browser(diag, answer, 'same-id')
+            before = runner.read(diag/'failures.json')
+            args = argparse.Namespace(run_id='context', authorization_id='same-id', authorization_question=question)
+            runner.closed_policy(args)
+            self.assertEqual(runner.read(diag/'failures.json'), before)
+            policy = runner.read(out/'closed_policy.json')
+            self.assertEqual(policy['authorization_question'], question)
+            self.assertEqual(policy['human_instruction'], answer)
+            self.assertEqual(policy['authorization_id'], 'same-id')
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'negative')
+            runner.record_failure(diag, 'capture', 'closed', 'capture', immediate=True)
+            runner.authorize_browser(diag, 'да, но не последующие', 'same-id')
+            with self.assertRaises(ValueError):
+                runner.closed_policy(argparse.Namespace(run_id='negative', authorization_id='same-id', authorization_question=question))
+
     def test_remote_selection_stops_at_exact_matches_and_keeps_exclusions(self):
         with tempfile.TemporaryDirectory() as directory:
             out = Path(directory)
@@ -415,6 +437,35 @@ class RunnerTests(unittest.TestCase):
             self.assertEqual(runner.reviewed_capture(out, item('456'))['fields'][-1]['name'], 'Оклад')
             with self.assertRaisesRegex(ValueError, 'Unrecognised'):
                 runner.salary_line_review(dict(data, params_blocks=['Условия\nГрафик: Сменный\nОклад105 000 ₽\nНеизвестный элемент', data['params_blocks'][1]]), '123', item()['url'])
+            ranged = dict(data, params_blocks=[data['params_blocks'][0].replace('105\u00a0000\u00a0₽', '2\u00a0360 - 2\u00a0950\u00a0₽'), data['params_blocks'][1]])
+            self.assertEqual(runner.salary_line_review(ranged, '123', item()['url'])['fields'][-1]['value'], '2\u00a0360 - 2\u00a0950\u00a0₽')
+            invalid = dict(data, params_blocks=[data['params_blocks'][0].replace('105\u00a0000\u00a0₽', '2 360 - текст ₽'), data['params_blocks'][1]])
+            with self.assertRaisesRegex(ValueError, 'exactly one'):
+                runner.salary_line_review(invalid, '123', item()['url'])
+
+    def test_salary_policy_accepts_affirmative_question_context_without_budget_change(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):
+            out, service, diag = runner.paths(runner.ROOT, 'salary-context')
+            data = raw(); data.update(params_blocks=['Условия\nГрафик: Сменный\nОклад2 360 - 2 950 ₽', 'Требования\nОпыт: Без опыта'], fields=[{'name':'График','value':'Сменный'}, {'name':'Опыт','value':'Без опыта'}], parameter_audit={'rendered_complete':False,'expansion_controls':[]})
+            runner.write(out/'raw/123.json', data)
+            runner.write(out/'queue.json', [item('123'), item('456')])
+            runner.write(diag/'checkpoint.json', dict(state='REVIEW_REQUIRED', stop_reason='identity_or_template_review', next_id='123', completed_ids=[]))
+            runner.record_failure(diag, 'capture', 'review', 'capture', immediate=True)
+            instruction = 'Контекст: карточка ID 123. Вопрос пользователю: «Разрешаете обработать эту карточку, применять такую же проверку к последующим аналогичным случаям и продолжить?» Ответ пользователя: «да, разрешаю для всех таких случаев».'
+            runner.authorize_browser(diag, instruction, 'auth')
+            args = argparse.Namespace(run_id='salary-context', id='123', authorization_id='auth')
+            runner.review_salary_line(args)
+            before = runner.read(diag/'failures.json')
+            runner.salary_review_policy(args)
+            self.assertEqual(runner.read(diag/'failures.json'), before)
+            self.assertEqual(runner.read(out/'salary_review_policy.json')['human_instruction'], instruction)
+            self.assertEqual(runner.read(out/'salary_review_policy.json')['method'], 'joined_salary_line_v1')
+            (out/'salary_review_policy.json').unlink()
+            ledger = runner.read(diag/'failures.json')
+            ledger['events'][-1]['instruction'] = instruction.replace('да, разрешаю для всех таких случаев', 'нет, не для всех таких случаев')
+            runner.write(diag/'failures.json', ledger)
+            with self.assertRaisesRegex(ValueError, 'Authorization'):
+                runner.salary_review_policy(args)
 
     def test_blocked_listing_policy_requires_exact_listing_evidence(self):
         with tempfile.TemporaryDirectory() as directory, patch.object(runner, 'ROOT', Path(directory)):

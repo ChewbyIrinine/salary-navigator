@@ -1,0 +1,225 @@
+{
+  "run_id": "spb_all_first1500_2026-10-28",
+  "geography": "Санкт-Петербург",
+  "profession": "",
+  "segments": "",
+  "filter_evidence": "Открыта выдача вакансий Санкт-Петербурга: URL /sankt-peterburg/vakansii, заголовок «Работа и вакансии в Санкт-Петербурге», запрос пустой. Профессия не отфильтрована; охват всех профессий.",
+  "listing_url": "https://www.avito.ru/sankt-peterburg/vakansii",
+  "listing_request_url": "https://www.avito.ru/sankt-peterburg/vakansii",
+  "selected_controls": [
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "listing_sha256": "6b59063a3f25d61f8581f0b12d5cbaaea3cbbff73920ae108805f7678cbf76ab",
+  "profession_scope": "all",
+  "profession_source": "selected_ui_context",
+  "listing_pages": [
+    {
+      "file": "listing_pages/0001.json",
+      "sha256": "6b59063a3f25d61f8581f0b12d5cbaaea3cbbff73920ae108805f7678cbf76ab",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii"
+    },
+    {
+      "file": "listing_pages/0002.json",
+      "sha256": "b9b249b2e6d0cbd45c1cbaf881e41bc6d4ecb1076792e231ebe5cfda5b5b56f3",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=2"
+    },
+    {
+      "file": "listing_pages/0003.json",
+      "sha256": "8786fda432287e0e1badfdee56017003e135cfece8c0b04fb2e2d14f82314504",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=3"
+    },
+    {
+      "file": "listing_pages/0004.json",
+      "sha256": "245f9bcf30ea479e72a90394bc83c7c9a4a1dac5d962472239fd837c0c965d37",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=4"
+    },
+    {
+      "file": "listing_pages/0005.json",
+      "sha256": "0a9012bbe23d8e631c575015caaacdabf2c045394c8c71fd6050f4185cd7bc3f",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=5"
+    },
+    {
+      "file": "listing_pages/0006.json",
+      "sha256": "d2aadae1c4334e5d77282fd551bebe4d907b94e13dc30193b08171701956313e",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=6"
+    },
+    {
+      "file": "listing_pages/0007.json",
+      "sha256": "3d0cbcf888c5396f1100f27e52971f41fdf527d55379fde7b86b7afeaa8741be",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=7"
+    },
+    {
+      "file": "listing_pages/0008.json",
+      "sha256": "6f9519972db675f6f1e4c378be5c4a3f96c3aed90ea8dc1b5315a1d7e0c3d091",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=8"
+    },
+    {
+      "file": "listing_pages/0009.json",
+      "sha256": "6d4d150afd18748921e4247567c60d36193b33740a886103f6f74e667fe35529",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=9"
+    },
+    {
+      "file": "listing_pages/0010.json",
+      "sha256": "6f13d327985ca31f902481621f006dcd1c7eff367a3363c022cabece981b6fc4",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=10"
+    },
+    {
+      "file": "listing_pages/0011.json",
+      "sha256": "11e9cc5697708769fc6f1586660faa045ed2fa8949e959fcb444cd65b6430b70",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=11"
+    },
+    {
+      "file": "listing_pages/0012.json",
+      "sha256": "dc08a01f67d82b92511083b1aaa7a4079cd67ef6bd7b6ef4c183712e96ef25f6",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=12"
+    },
+    {
+      "file": "listing_pages/0013.json",
+      "sha256": "ae3ef87655a2ecf9212d566e57c2f2575a469bed3cea07df8a7f619c663af561",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=13"
+    },
+    {
+      "file": "listing_pages/0014.json",
+      "sha256": "dbc71e0f7c6ef162a4066307478ad1bcba59086430d263a9bfa4024efa1fca32",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=14"
+    },
+    {
+      "file": "listing_pages/0015.json",
+      "sha256": "871f122b62da18be3b388f68701e6c4eeb1168894a108d338dd99d530c371bfc",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=15"
+    },
+    {
+      "file": "listing_pages/0016.json",
+      "sha256": "df947f21a2ae047437c8f2630c892dc9629b48be7ec5e063f78e8919489ed77e",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=16"
+    },
+    {
+      "file": "listing_pages/0017.json",
+      "sha256": "8e87a567b99741c67e4c40d480fcb1364cd82fd77577448e3585544fb4ab4453",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=17"
+    },
+    {
+      "file": "listing_pages/0018.json",
+      "sha256": "f7da2bada0d73a8384bd6abb99b46f862dbecd27cd507baaa68a97ce52872ef0",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=18"
+    },
+    {
+      "file": "listing_pages/0019.json",
+      "sha256": "66d11773a93b00d2095c449c3debbbceef0479af4afc18f3b077bbc0f3cd382b",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=19"
+    },
+    {
+      "file": "listing_pages/0020.json",
+      "sha256": "a7714dd5dee9ceb0a8f87afac84bbdcae34c67f265a3aa6c19880bc1f4e6135b",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=20"
+    },
+    {
+      "file": "listing_pages/0021.json",
+      "sha256": "e82c5a3129045c17af87140e5f1cf5bd112bd6bd71e0aa1ab2d6860b07b7c28a",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=21"
+    },
+    {
+      "file": "listing_pages/0022.json",
+      "sha256": "5c7a0b09d8872d83ba3d714691f4e8bf189429b9ee80a58a2b0f3ca53ab212a6",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=22"
+    },
+    {
+      "file": "listing_pages/0023.json",
+      "sha256": "479cb2664659f4856c7b4dd0014b9039057535c42644344b5e8fa67ad371c54d",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=23"
+    },
+    {
+      "file": "listing_pages/0024.json",
+      "sha256": "20fe7d56761c1e15fdf228bf8955f1793bcaf28b796198a1429c076c10437e4f",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=24"
+    },
+    {
+      "file": "listing_pages/0025.json",
+      "sha256": "48340f44f6420a7011aa67d7819983bab38dd18993ad3b152d546a625fd37cdf",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=25"
+    },
+    {
+      "file": "listing_pages/0026.json",
+      "sha256": "b1f6dd8a0f9f228e424407877dda0bae43e140541482fe84ce05b4b689689a9a",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=26"
+    },
+    {
+      "file": "listing_pages/0027.json",
+      "sha256": "ef7cc0de5ea874689395b26f48f9776ac3a37249ada88ebd923666e4c9404a11",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=27"
+    },
+    {
+      "file": "listing_pages/0028.json",
+      "sha256": "ac88fae0231b1d7dfe80be925c1064a6e7e0582ef86fe4b5134ced69666340cb",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=28"
+    },
+    {
+      "file": "listing_pages/0029.json",
+      "sha256": "491e2e4df0e8171b6a4949ebea383b75e673a76c330a89b13df209372289bbe6",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=29"
+    },
+    {
+      "file": "listing_pages/0030.json",
+      "sha256": "e41d6425b877f635e3e4db5110018e767fb4d5c8c43ff197d6fba85a4158a0fc",
+      "source_url": "https://www.avito.ru/sankt-peterburg/vakansii?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6IlNaM3dmZlJMaThMdWZRN20iO30ARshoJgAAAA&p=30"
+    }
+  ],
+  "selection_mode": "first_N_unique_on_frozen_listing",
+  "limit": 1464,
+  "requested_all_pages": false,
+  "saved_selection_authorization": null,
+  "requested_limit": 1500,
+  "available_unique": 1464,
+  "listing_end_reason": "no_next_link",
+  "available_listing_exhausted": true,
+  "candidate_limit": null,
+  "created_at": "2026-10-28T18:08:49.725637+00:00",
+  "instruction_version": "1.7.22",
+  "extractor_sha256": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+  "instruction_sha256": "fa6b6c201da5f1acb0a0dae2dd29b52e7cddfdaf2e947ac8ad5d26ed5ea1e6e4",
+  "code_git_commit": "e74b88f6529a8bfcd6cd241bb3a620b721056c85",
+  "setup_seconds": 74.34762058407068,
+  "live_route_verified": false,
+  "execution_model": "gpt-6-luna",
+  "automation_sha256": {
+    "Scraper/skills/collect-avito/references/top-professions.json": "e3e72638b17b48f825ec6f2fefb963662494f679ae4b0cef1bebedba889610dd",
+    "utils/title_flags.py": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
+    "Scraper/extract.js": "80ce1eaddb1ab3c24e0c45db852a6c5e910aa7f901f4e47f122a6e748d843ebe",
+    "Scraper/skills/collect-avito/SKILL.md": "fa6b6c201da5f1acb0a0dae2dd29b52e7cddfdaf2e947ac8ad5d26ed5ea1e6e4",
+    "Scraper/skills/collect-avito/scripts/run.py": "afe4ef446e2223f28cafff658f5fbdad9d59896b239b51a92063f4cefc276259",
+    "Scraper/skills/collect-avito/scripts/browser_batch.js": "80d0fc43e421e99a61b991ffe4bf5627d12588d8942de0db1b21fea8c5a10cea",
+    "Scraper/skills/collect-avito/scripts/check_capture.py": "aa746849317f9768af5aae08b394b9379539f6e268c1fc69e4ed13bd06a4657f",
+    "Scraper/skills/collect-avito/scripts/failure_log.py": "129097976d60f6280cb707cdcaea45377c4e7658f14b7ffad2895bc9f5c7fe30",
+    "Scraper/skills/collect-avito/scripts/preflight.py": "661708892946a68dec53c986df496e76dd67c314021af2567f760b740bb3ce3d"
+  },
+  "uncommitted_automation_files": []
+}

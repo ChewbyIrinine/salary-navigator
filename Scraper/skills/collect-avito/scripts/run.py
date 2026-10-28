@@ -565,10 +565,20 @@ def closed_policy(args):
     if not indexes or any(event.get('state') == 'NEEDS_HUMAN' for event in events[indexes[-1]+1:]):
         raise HumanRequired('Current browser authorization required')
     instruction = events[indexes[-1]]['instruction']
-    if 'закрыт' not in instruction.lower() or 'последующ' not in instruction.lower():
+    question = getattr(args, 'authorization_question', None)
+    direct = ('закрыт' in instruction.lower() and 'последующ' in instruction.lower()
+              and not re.search(r'\b(?:нет|не|кроме|только)\b', instruction.lower()))
+    contextual = (question and re.match(r'^\s*да(?:\s|[,!.]|$)', instruction.lower())
+                  and not re.search(r'\b(?:нет|не|кроме|только)\b', instruction.lower())
+                  and 'закрыт' in question.lower() and 'последующ' in question.lower()
+                  and 'все' in question.lower() and 'разреш' in question.lower()
+                  and 'пропуск' in question.lower() and '?' in question)
+    if not direct and not contextual:
         raise ValueError('Authorization must explicitly cover subsequent closed vacancies')
     path = out/'closed_policy.json'
     policy = dict(authorization_id=args.authorization_id, human_instruction=instruction, markers=list(CLOSED_MARKERS))
+    if question:
+        policy['authorization_question'] = question
     if path.exists() and read(path) != policy:
         raise ValueError('Existing closed policy differs; preserve history')
     if not path.exists(): write(path, policy)
@@ -701,7 +711,7 @@ def salary_line_review(data, identity, url):
     if not isinstance(blocks, list) or len(blocks) != 2 or not blocks[0].startswith('Условия\n') or not blocks[1].startswith('Требования\n'):
         raise ValueError('Expected complete conditions and requirements blocks')
     lines = [line.strip() for block in blocks for line in block.splitlines() if line.strip()]
-    salary_lines = [line for line in lines if re.fullmatch(r'Оклад\s*[0-9\s]+\s*₽', line)]
+    salary_lines = [line for line in lines if re.fullmatch(r'Оклад\s*[0-9][0-9\s]*(?:\s*[-–—]\s*[0-9][0-9\s]*)?\s*₽', line)]
     if len(salary_lines) != 1:
         raise ValueError('Expected exactly one joined salary line')
     salary_line = salary_lines[0]
@@ -743,7 +753,17 @@ def salary_review_policy(args):
     if not auth or any(event.get('state') == 'NEEDS_HUMAN' for event in events[auth[-1]+1:]):
         raise HumanRequired('Current browser authorization required')
     instruction = events[auth[-1]]['instruction']
-    if args.id not in instruction or 'исправ' not in instruction.lower() or 'продолж' not in instruction.lower():
+    lower = instruction.lower()
+    direct = 'исправ' in lower and 'продолж' in lower
+    dialogue = re.search(r'вопрос пользователю:\s*«([^»]+)»\s*ответ пользователя:\s*«([^»]+)»', lower)
+    contextual = False
+    if dialogue:
+        question, answer = dialogue.groups()
+        contextual = (all(term in question for term in ('разреш', 'обработ', 'карточк', 'проверк', 'последующ', 'аналогич', 'продолж'))
+                      and re.match(r'^\s*да(?:\s|[,!.]|$)', answer)
+                      and 'всех таких случа' in answer
+                      and not re.search(r'\b(?:нет|не|кроме|только)\b', answer))
+    if args.id not in instruction or not (direct or contextual):
         raise ValueError('Authorization must request fixing this case and continuing')
     cp = read(diag/'checkpoint.json'); queue = read(out/'queue.json')
     matches = [item for item in queue if item['id'] == args.id]
@@ -1294,6 +1314,7 @@ def main():
             command.add_argument('--authorization-id', required=True)
         elif name == 'closed-policy':
             command.add_argument('--authorization-id', required=True)
+            command.add_argument('--authorization-question', help='Exact preceding question when the saved answer confirms it')
         elif name == 'mark-unavailable':
             command.add_argument('--id', required=True)
             command.add_argument('--authorization-id', required=True)

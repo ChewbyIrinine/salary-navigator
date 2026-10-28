@@ -1,0 +1,32 @@
+{
+  "id": "8400114088",
+  "structural_check": {
+    "id": "8400114088",
+    "structural_check_passed": true,
+    "errors": [],
+    "full_parameters_read": false,
+    "semantic_review_performed": false
+  },
+  "parameter_audit": {
+    "rendered_complete": true,
+    "expansion_controls": [],
+    "scope": "visible_Условия_and_Требования_only",
+    "offline_review": "joined_salary_line_v1"
+  },
+  "review_method": "deterministic_rendered_template_v1",
+  "semantic_review_performed": false,
+  "city": "Санкт-Петербург",
+  "region": "Санкт-Петербург",
+  "location_evidence": "Санкт-Петербург, Варшавская ул., 6к2 Электросила до 5 мин. Московские ворота 16–20 мин. Парк Победы 16–20 мин.",
+  "city_source": "card",
+  "city_anomaly": "",
+  "analysis_status": "validated",
+  "offline_review": {
+    "id": "8400114088",
+    "raw_sha256": "9545eb806a735fa0918603909f4f82084a91f89e154a747a08a9682c8b181a31",
+    "method": "joined_salary_line_v1",
+    "authorization_id": "user-salary-policy-spb1500-20261028-1",
+    "human_instruction": "Контекст: активная карточка ID 8370070911; строка «Оклад2 360–2 950 ₽» без двоеточия. Вопрос пользователю: «Разрешаете обработать эту карточку, применять такую же проверку к последующим аналогичным случаям и продолжить?» Ответ пользователя: «да, разрешаю для всех таких случаев».",
+    "reviewed_at": "2026-10-28T18:41:14.299642+00:00"
+  }
+}
