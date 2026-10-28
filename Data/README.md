@@ -117,3 +117,5 @@ avito_runs/<название_сбора>/
 - [remote10-verified-20261028-demo4](avito_runs/remote10-verified-20261028-demo4/exports/vacancies_flat.csv): 10 вакансий.
 
 - [moscow_all_200_2026-10-28](avito_runs/moscow_all_200_2026-10-28/exports/vacancies_flat.csv): 200 вакансий.
+
+- [ekaterinburg_all_100_2026-10-28](avito_runs/ekaterinburg_all_100_2026-10-28/exports/vacancies_flat.csv): 100 вакансий.
