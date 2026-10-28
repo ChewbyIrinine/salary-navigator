@@ -1,10 +1,10 @@
 {
   "schema_version": "1",
   "builder_version": "1",
-  "builder_sha256": "8cc87ae49ce12ae9deb35e1739f09b7769c47cfb2554879830189cef510baff7",
+  "builder_sha256": "d86f43e2691f7da35358e8db304c8cd681571f12bdc23a2f48535ad365636345",
   "title_flags": {
     "version": "military_title_v1",
-    "sha256": "6fd8d2cf699b7c417fa69453cb4d7e37c2ff3c47832668335649d1d911db9160",
+    "sha256": "9c9456cb3fb0df5791630049c9c85987381091dbb9ba18bc3fb3314b8cccbeb6",
     "source": "title",
     "policy": "keyword_signal_not_exclusion"
   },
