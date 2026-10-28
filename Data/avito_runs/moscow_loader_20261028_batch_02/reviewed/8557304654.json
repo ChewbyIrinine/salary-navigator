@@ -1,0 +1,23 @@
+{
+  "id": "8557304654",
+  "structural_check": {
+    "id": "8557304654",
+    "structural_check_passed": true,
+    "errors": [],
+    "full_parameters_read": false,
+    "semantic_review_performed": false
+  },
+  "parameter_audit": {
+    "rendered_complete": true,
+    "expansion_controls": [],
+    "scope": "visible_Условия_and_Требования_only"
+  },
+  "review_method": "deterministic_rendered_template_v1",
+  "semantic_review_performed": false,
+  "city": "",
+  "region": "Москва",
+  "location_evidence": "Москва, Боровский пр., 24с1 Солнечная 6–10 мин. Солнцево 6–10 мин. Боровское шоссе 11–15 мин.",
+  "city_source": "missing",
+  "city_anomaly": "Unknown address component Боровский пр.; require a reviewed placement entry",
+  "analysis_status": "validated"
+}

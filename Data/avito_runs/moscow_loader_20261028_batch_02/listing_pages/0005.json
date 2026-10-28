@@ -1,0 +1,521 @@
+{
+  "source_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=5",
+  "observed_at": "2026-10-28T18:32:30.836Z",
+  "channel": "gstack DOM",
+  "schema_version": 4,
+  "state": "LISTING",
+  "heading": "Вакансии по профессии Грузчик в Москве",
+  "selected_controls": [
+    {
+      "label": "Грузчик",
+      "marker": "params[144170]/checkbox/3201725",
+      "value": null
+    },
+    {
+      "label": "Грузчик",
+      "marker": "params[144170]/checkbox/toggle",
+      "value": "3201725"
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/all",
+      "value": null
+    },
+    {
+      "label": "Любой",
+      "marker": "params[196929]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/all",
+      "value": null
+    },
+    {
+      "label": "Неважно",
+      "marker": "params[172815]/toggle",
+      "value": "all"
+    },
+    {
+      "label": "Неважно",
+      "marker": null,
+      "value": "all"
+    },
+    {
+      "label": "Все",
+      "marker": null,
+      "value": "all"
+    }
+  ],
+  "profession_filter": {
+    "observed": true,
+    "selected_count": 2
+  },
+  "items": [
+    {
+      "id": "8328663012",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik-naborschik_8328663012",
+      "title": "Грузчик-наборщик",
+      "salary_raw": "от 90 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Грачёвская, 21–30 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8156187644",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchiki_8156187644",
+      "title": "Грузчики",
+      "salary_raw": "от 120 000 ₽ на руки",
+      "params_raw": "Гибкий график · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8340165776",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_s_ezhednevnoy_oplatoy_na_pereezdy_8340165776",
+      "title": "Грузчик с ежедневной оплатой на переезды",
+      "salary_raw": "3 000 — 15 000 ₽ сдельно на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Опыт более года",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8410093501",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_m._lermontovskiy_prospekt_8410093501",
+      "title": "Грузчик (м. Лермонтовский проспект)",
+      "salary_raw": "от 90 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Лермонтовский проспект, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8514697082",
+      "url": "https://www.avito.ru/moskva_zelenograd/vakansii/gruzchik._bez_sobesedovaniy_8514697082",
+      "title": "Грузчик. Без собеседований",
+      "salary_raw": "от 4 500 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Зеленоград",
+      "promoted": false
+    },
+    {
+      "id": "2646100537",
+      "url": "https://www.avito.ru/moskva/vakansii/rabota_gruzchikom_kokoshkino_2646100537",
+      "title": "Работа грузчиком (Кокошкино)",
+      "salary_raw": "3 440 — 6 880 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Рассказовка, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "7591651226",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_v_aeroport_sheremetevo_7591651226",
+      "title": "Грузчик в аэропорт Шереметьево",
+      "salary_raw": "от 114 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Опыт более года",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8422024184",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_sklad._podrabotka_s_gibkim_grafikom_8422024184",
+      "title": "Грузчик на склад. Подработка с гибким графиком",
+      "salary_raw": "от 4 620 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Зябликово, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "7814039429",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_pischevoe_proizvodstvo_7814039429",
+      "title": "Грузчик на пищевое производство",
+      "salary_raw": "от 74 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Лихоборы, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "4279294604",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_4279294604",
+      "title": "Грузчик",
+      "salary_raw": "от 65 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Семёновская, 11–15 мин.",
+      "promoted": true
+    },
+    {
+      "id": "8512556390",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_k_ekspeditoruezhenedelnye_vyplaty_8512556390",
+      "title": "Грузчик к экспедитору/еженедельные выплаты",
+      "salary_raw": "88 000 — 124 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Новые Черёмушки, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8516890337",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_s_ezhednevnymi_vyplatami_8516890337",
+      "title": "Грузчик с ежедневными выплатами",
+      "salary_raw": "от 3 157 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Менделеевская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8240235930",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_podrabotka_s_ezhednevnoy_oplatoy_8240235930",
+      "title": "Грузчик подработка с ежедневной оплатой",
+      "salary_raw": "от 4 000 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Бульвар Рокоссовского, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8304252152",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_tekstilya_moskva_vahta_pitanie_legko_mzh_8304252152",
+      "title": "Грузчик текстиля Москва вахта питание легко мж",
+      "salary_raw": "4 450 — 6 800 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8344867799",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_produktovyy_sklad_v_noch_8344867799",
+      "title": "Грузчик на продуктовый склад в ночь",
+      "salary_raw": "от 105 600 ₽",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Октябрьское поле, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "7551090258",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_kolbas._ne_podrabotka._rabota_v_moskve_7551090258",
+      "title": "Грузчик колбас. Не подработка. Работа в Москве",
+      "salary_raw": "от 5 600 ₽ за смену",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Бульвар Рокоссовского, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8355293113",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_zavtraezhednevnaya_oplata_8355293113",
+      "title": "Грузчик на завтра/ежедневная оплата",
+      "salary_raw": "3 500 — 4 000 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Улица Горчакова, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8198542583",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_vahta_legkaya_bez_opyta_8198542583",
+      "title": "Грузчик Вахта легкая без опыта",
+      "salary_raw": "3 500 — 5 600 ₽ за смену на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8409757392",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_sklad_8409757392",
+      "title": "Грузчик на склад",
+      "salary_raw": "60 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Опыт до 1 года",
+      "location_raw": "Угрешская, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8232624181",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchiki_na_sklad_8232624181",
+      "title": "Грузчики на склад",
+      "salary_raw": "95 000 — 125 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Пятницкое шоссе, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8348429248",
+      "url": "https://www.avito.ru/moskva_zelenograd/vakansii/gruzchik_na_sklad_8348429248",
+      "title": "Грузчик на склад",
+      "salary_raw": "106 000 ₽",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Зеленоград",
+      "promoted": false
+    },
+    {
+      "id": "8327994779",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchiki_-_bez_opyta_s_ezhednevnoy_oplatoy_8327994779",
+      "title": "Грузчики - без опыта с ежедневной оплатой",
+      "salary_raw": "от 3 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Улица Дмитриевского, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "7341317927",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik-_upakovschik_ezhednevnye_vyplaty_7341317927",
+      "title": "Грузчик- упаковщик ежедневные выплаты",
+      "salary_raw": "3 500 — 6 000 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Опыт более года",
+      "location_raw": "Гражданская, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8157022154",
+      "url": "https://www.avito.ru/moskva/vakansii/rabotnik_sklada_gruzchik_vahta_1515_8157022154",
+      "title": "Работник склада (Грузчик ) вахта 15/15",
+      "salary_raw": "от 85 400 ₽",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8409847770",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_sklad_vahta_v_moskve_s_prozhivaniem_8409847770",
+      "title": "Грузчик на склад: Вахта в Москве с проживанием",
+      "salary_raw": "120 000 — 210 000 ₽ на руки",
+      "params_raw": "Вахта · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Кантемировская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8510830020",
+      "url": "https://www.avito.ru/moskva_zelenograd/vakansii/rabota_gruzchikom_na_sklade_8510830020",
+      "title": "Работа грузчиком на складе",
+      "salary_raw": "от 4 200 ₽ за смену",
+      "params_raw": "Сменный график · Без опыта",
+      "location_raw": "Зеленоград",
+      "promoted": false
+    },
+    {
+      "id": "8410169313",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_postoyannuyu_rabotu_8410169313",
+      "title": "Грузчик на постоянную работу",
+      "salary_raw": "от 119 600 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Косино, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8491213508",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_8491213508",
+      "title": "Грузчик",
+      "salary_raw": "от 2 000 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Планерная, от 31 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8221921133",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_sklad_8221921133",
+      "title": "Грузчик на склад",
+      "salary_raw": "90 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Красный Строитель, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8286432170",
+      "url": "https://www.avito.ru/moskva/vakansii/podrabotka_gruzchikiupakovschiki_ezhednevnye_vyplaty_8286432170",
+      "title": "Подработка грузчики/упаковщики ежедневные выплаты",
+      "salary_raw": "до 4 200 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Юго-Восточная, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8426946797",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_sklad_v_moskve_900_2100_8426946797",
+      "title": "Грузчик на склад в Москве, 9:00 — 21:00",
+      "salary_raw": "до 96 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Генерала Тюленева, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8282418214",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_pitanie_prozhivanie_proezd_vahta_v_ryazani_8282418214",
+      "title": "Грузчик питание проживание проезд Вахта в Рязани",
+      "salary_raw": "4 500 ₽ за смену",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8400644039",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_na_teplyy_sklad_lekarstv_v_pushkino_8400644039",
+      "title": "Грузчик на тёплый склад лекарств в Пушкино",
+      "salary_raw": "70 000 — 130 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Свиблово, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "1848546463",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_1848546463",
+      "title": "Грузчик",
+      "salary_raw": "70 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Рязанский проспект, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8466948626",
+      "url": "https://www.avito.ru/moskva/vakansii/nochnoy_gruzchik-komplektovschik_8466948626",
+      "title": "Ночной грузчик-комплектовщик",
+      "salary_raw": "от 7 900 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Ховрино, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8348287780",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_v_restoran_m.komsomolskaya_8348287780",
+      "title": "Грузчик в ресторан (м.Комсомольская)",
+      "salary_raw": "от 115 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Комсомольская, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8314961675",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik-raznorabochiy_8314961675",
+      "title": "Грузчик-разнорабочий",
+      "salary_raw": "от 4 000 ₽ сдельно на руки",
+      "params_raw": "Фиксированный график · Выплаты Каждый день · Опыт до 1 года",
+      "location_raw": "Кунцевская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8275803290",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_aeroport_vnukovo_8275803290",
+      "title": "Грузчик (аэропорт Внуково)",
+      "salary_raw": "от 115 400 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Солнцево, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8328137065",
+      "url": "https://www.avito.ru/moskva/vakansii/sotrudnik_sklada_vahta_s_prozhivaniem_8328137065",
+      "title": "Сотрудник склада (вахта с проживанием)",
+      "salary_raw": "92 000 — 184 000 ₽",
+      "params_raw": "Вахта · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Охотный ряд, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8483180252",
+      "url": "https://www.avito.ru/moskva/vakansii/sotrudnik_pvz_lamoda_smeny_8-12_chasov_18_8483180252",
+      "title": "Сотрудник пвз Ламода (смены 8-12 часов / 18+)",
+      "salary_raw": "от 2 400 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Полянка, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8390352759",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_s_ezhenedelnoy_oplatoy_8390352759",
+      "title": "Грузчик с еженедельной оплатой",
+      "salary_raw": "от 106 000 ₽ на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Чертановская, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8544167077",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_8544167077",
+      "title": "Грузчик",
+      "salary_raw": "59 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Калужская, 11–15 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8296808867",
+      "url": "https://www.avito.ru/moskva/vakansii/rabotnik_torgovogo_zala._ezhednevnye_vyplaty_8296808867",
+      "title": "Работник торгового зала. Ежедневные выплаты",
+      "salary_raw": "3 200 — 3 900 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Спортивная, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8498935696",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_v_darkstor._vyplaty_kazhdyy_den_8498935696",
+      "title": "Грузчик в даркстор. Выплаты каждый день",
+      "salary_raw": "2 500 — 3 700 ₽ за смену",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Речной вокзал, 16–20 мин.",
+      "promoted": false
+    },
+    {
+      "id": "7957952441",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_v_magazin_7957952441",
+      "title": "Грузчик в магазин",
+      "salary_raw": "до 120 000 ₽ на руки",
+      "params_raw": "Сменный график · Выплаты Раз в неделю · Без опыта",
+      "location_raw": "Речной вокзал, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8230920255",
+      "url": "https://www.avito.ru/moskva/vakansii/gruzchik_krekshino_8230920255",
+      "title": "Грузчик (Крёкшино)",
+      "salary_raw": "от 4 730 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Мичуринец, 6–10 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8577212424",
+      "url": "https://www.avito.ru/moskva/vakansii/sotrudnik_na_proizvodstvo_8577212424",
+      "title": "Сотрудник на производство",
+      "salary_raw": "от 110 000 ₽ на руки",
+      "params_raw": "Фиксированный график · Выплаты Три раза в месяц · Без опыта",
+      "location_raw": "Водный стадион, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8292395385",
+      "url": "https://www.avito.ru/moskva_zelenograd/vakansii/gruzchik_elektrotehniki._podrabotka._oplata_srazu_8292395385",
+      "title": "Грузчик электротехники. Подработка. Оплата сразу",
+      "salary_raw": "3 200 ₽ за смену на руки",
+      "params_raw": "Гибкий график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Зеленоград",
+      "promoted": false
+    },
+    {
+      "id": "4439225292",
+      "url": "https://www.avito.ru/moskva/vakansii/kotlomoyschik_gruzchik_4439225292",
+      "title": "Котломойщик грузчик",
+      "salary_raw": "от 70 000 ₽",
+      "params_raw": "Фиксированный график · Выплаты Дважды в месяц · Без опыта",
+      "location_raw": "Бауманская, до 5 мин.",
+      "promoted": false
+    },
+    {
+      "id": "8543435263",
+      "url": "https://www.avito.ru/moskva_zelenograd/vakansii/gruzchik-komplektovschik_bez_opytataksi_8543435263",
+      "title": "Грузчик-комплектовщик без опыта/такси",
+      "salary_raw": "4 000 — 4 500 ₽ за смену на руки",
+      "params_raw": "Сменный график · Выплаты Каждый день · Без опыта",
+      "location_raw": "Зеленоград",
+      "promoted": false
+    }
+  ],
+  "listing_item_audit": {
+    "rendered": 50,
+    "malformed": 0
+  },
+  "pagination": {
+    "next_url": "https://www.avito.ru/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=6",
+    "end_confirmed": false,
+    "evidence": {
+      "text": null,
+      "label": "Следующая страница",
+      "href": "/moskva/vakansii/gruzcik-ASgBAgICAUTUzBH66oYD?context=H4sIAAAAAAAA_wEmANn_YToxOntzOjE6InkiO3M6MTY6InVhSlVXbFhJVndlNEVuMHciO32L4RNUJgAAAA&p=6",
+      "disabled": false
+    },
+    "limitation": "End requires an explicitly disabled Next; missing Next alone is not proof; infinite loading and server-side result caps are not covered"
+  }
+}
