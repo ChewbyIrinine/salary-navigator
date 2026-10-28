@@ -12,7 +12,7 @@ from Scraper.test_aside_runner import runner, item, courier_controls
 
 
 class PaginationTests(unittest.TestCase):
-    def simulate(self, count=5000, all_pages=False, interrupt=None, scope=None, cycle=False, blocked=False):
+    def simulate(self, count=5000, all_pages=False, interrupt=None, scope=None, cycle=False, blocked=False, requested=None, repeat_items=False):
         with tempfile.TemporaryDirectory() as directory, ExitStack() as stack:
             root = Path(directory)
             for file in runner.AUTOMATION_FILES:
@@ -32,9 +32,11 @@ class PaginationTests(unittest.TestCase):
                 items = [item(str(i)) for i in range(max(1, start-5), min(start+100, count+1))]
                 next_url = f'https://www.avito.ru/moskva/vakansii?f=observed&p={page+1}' if start+100 <= count else None
                 if cycle: next_url = first
+                if repeat_items and page == 2:
+                    items = [item(str(i)) for i in range(1, 101)]
                 listing = dict(state='LISTING', source_url=url, heading='Вакансии',
                     selected_controls=courier_controls() if page == 1 else [],
-                    items=items, pagination=dict(next_url=next_url, end_confirmed=next_url is None))
+                    items=items, pagination=dict(next_url=next_url, end_confirmed=False))
                 if blocked and page == 2:
                     cp = dict(state='NEEDS_HUMAN', completed_ids=[])
                 else:
@@ -42,7 +44,7 @@ class PaginationTests(unittest.TestCase):
                 runner.write(diag/'listing.json', listing); runner.write(diag/'checkpoint.json', cp)
                 return cp, 0
             args = argparse.Namespace(run_id='pagination', resume=False, url=first,
-                limit=None if all_pages else count, all_pages=all_pages, geography='Москва',
+                limit=None if all_pages else (requested or count), all_pages=all_pages, geography='Москва',
                 profession='', profession_scope=scope, segments='', filter_evidence='Applied UI selection',
                 agent_model='gpt-6-luna', candidate_limit=None)
             stack.enter_context(patch.object(runner, 'ROOT', root))
@@ -51,10 +53,10 @@ class PaginationTests(unittest.TestCase):
             stack.enter_context(patch.object(runner, 'dirty_automation', return_value=[]))
             stack.enter_context(patch.object(runner.subprocess, 'check_output', return_value='abc'))
             stack.enter_context(redirect_stdout(io.StringIO()))
-            if cycle or blocked:
-                with self.assertRaisesRegex(ValueError, 'repeats' if cycle else 'NEEDS_HUMAN'):
+            if blocked:
+                with self.assertRaisesRegex(ValueError, 'NEEDS_HUMAN'):
                     runner.freeze(args)
-                self.assertEqual(calls, [1] if cycle else [1, 2])
+                self.assertEqual(calls, [1, 2])
                 out, service, _ = runner.paths(root, args.run_id)
                 self.assertFalse((service/'plan.json').exists())
                 self.assertTrue((out/'listing_pages/0001.json').exists())
@@ -66,14 +68,25 @@ class PaginationTests(unittest.TestCase):
             runner.freeze(args)
             out, service, _ = runner.paths(root, args.run_id)
             plan = runner.read(service/'plan.json'); queue = runner.read(out/'queue.json')
-            self.assertEqual([q['id'] for q in queue], [str(i) for i in range(1, count+1)])
-            self.assertEqual([q['listing_rank'] for q in queue], list(range(1, count+1)))
-            self.assertEqual(plan['limit'], count)
+            available = 100 if cycle or repeat_items else count
+            self.assertEqual([q['id'] for q in queue], [str(i) for i in range(1, available+1)])
+            self.assertEqual([q['listing_rank'] for q in queue], list(range(1, available+1)))
+            self.assertEqual(plan['limit'], available)
+            self.assertEqual(plan['requested_limit'], None if all_pages else (requested or count))
+            self.assertEqual(plan['available_unique'], available)
+            if requested or all_pages or cycle or repeat_items:
+                self.assertTrue(plan['available_listing_exhausted'])
+                self.assertEqual(plan['listing_end_reason'], 'repeated_next_link' if cycle else 'no_new_ids' if repeat_items else 'no_next_link')
+            self.assertFalse((runner.paths(root, args.run_id)[2]/'failures.json').exists())
+            self.assertFalse((runner.paths(root, args.run_id)[2]/'pending_listing.json').exists())
+            if repeat_items:
+                self.assertEqual(len(plan['listing_pages']), 2)
+                self.assertTrue((out/plan['listing_pages'][-1]['file']).is_file())
             runner.validate_plan_profession(plan, out/'listing.json')
             if scope == 'top20':
                 self.assertEqual(len(plan['profession'].split('; ')), 20)
             self.assertEqual(calls.count(1), 1)
-            self.assertEqual(len(calls), (count+99)//100 + bool(interrupt))
+            self.assertEqual(len(calls), 1 if cycle else 2 if repeat_items else (count+99)//100 + bool(interrupt))
             if len(plan['listing_pages']) > 1:
                 path = out / plan['listing_pages'][1]['file']
                 runner.write(path, dict(runner.read(path), heading='tampered'))
@@ -92,6 +105,15 @@ class PaginationTests(unittest.TestCase):
     def test_next_cycle_and_access_block_preserve_progress(self):
         self.simulate(count=301, cycle=True)
         self.simulate(count=301, blocked=True)
+
+    def test_requested_ten_thousand_ends_normally_on_page_thirty(self):
+        self.simulate(count=2920, requested=10000, scope='all')
+
+    def test_requested_ten_thousand_ends_normally_before_page_thirty(self):
+        self.simulate(count=251, requested=10000, scope='all')
+
+    def test_next_page_with_no_new_ids_ends_normally(self):
+        self.simulate(count=301, repeat_items=True)
 
     def test_extractor_observes_next_and_end(self):
         script = r'''
